@@ -1,0 +1,17 @@
+驱动精灵驱动管理硬件检测报告
+================================================================
+电脑型号		CP65S笔记本    
+处理器			Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz
+内存容量			14.0GB
+显卡			1、NVIDIA GeForce GTX 965M
+			2、Intel(R) HD Graphics 4600
+硬盘			1、HGST HTS721010A9E630 (1.0TB)
+			2、HGST TOURO Mobile SCSI Disk Device (1.0TB)
+			3、Plugable USB3-SATA-U3 SCSI Disk Device (1.5TB)
+主板			CP65S
+网卡			1、Realtek PCIe GBE Family Controller #2
+			2、Realtek RTL8723BE Wireless LAN 802.11n PCI-E NIC #2
+声卡			1、Realtek High Definition Audio
+			2、NVIDIA Virtual Audio Device (Wave Extensible) (WDM)
+显示器			LGD:4f04  分辨率:1920x1080 
+当前操作系统			Windows 10 64位
