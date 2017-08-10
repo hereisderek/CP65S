@@ -1,0 +1,1155 @@
+--------[ AIDA64 Extreme ]----------------------------------------------------------------------------------------------
+
+    Version                                           AIDA64 v5.92.4300
+    Benchmark Module                                  4.3.759-x64
+    Homepage                                          http://www.aida64.com/
+    Report Type                                       Quick Report
+    Computer                                          DEREK-PC (Derek's PC)
+    Generator                                         1and1
+    Operating System                                  Microsoft Windows 10 Pro 10.0.16251.0
+    Date                                              2017-08-10
+    Time                                              09:57
+
+
+--------[ ACPI ]--------------------------------------------------------------------------------------------------------
+
+  [ APIC: Multiple APIC Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    APIC
+      Table Description                                 Multiple APIC Description Table
+      Memory Address                                    B774C270h
+      Table Length                                      146 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+      Local APIC Address                                FEE00000h
+
+    Processor Local APIC:
+      ACPI Processor ID                                 01h
+      APIC ID                                           00h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 02h
+      APIC ID                                           02h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 03h
+      APIC ID                                           04h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 04h
+      APIC ID                                           06h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 05h
+      APIC ID                                           01h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 06h
+      APIC ID                                           03h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 07h
+      APIC ID                                           05h
+      Status                                            Enabled
+
+    Processor Local APIC:
+      ACPI Processor ID                                 08h
+      APIC ID                                           07h
+      Status                                            Enabled
+
+    I/O APIC:
+      I/O APIC ID                                       08h
+      I/O APIC Address                                  FEC00000h
+      Global System Interrupt Base                      00000000h
+
+    Interrupt Source Override:
+      Bus                                               ISA
+      Source                                            IRQ0
+      Global System Interrupt                           00000002h
+      Polarity                                          Conforms to the specifications of the bus
+      Trigger Mode                                      Conforms to the specifications of the bus
+
+    Interrupt Source Override:
+      Bus                                               ISA
+      Source                                            IRQ9
+      Global System Interrupt                           00000009h
+      Polarity                                          Active High
+      Trigger Mode                                      Level-Triggered
+
+    Local APIC NMI:
+      ACPI Processor ID                                 FFh
+      Local ACPI LINT#                                  01h
+      Polarity                                          Active High
+      Trigger Mode                                      Edge-Triggered
+
+  [ ASF!: Alert Standard Format Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    ASF!
+      Table Description                                 Alert Standard Format Table
+      Memory Address                                    B774C3F0h
+      Table Length                                      165 bytes
+      OEM ID                                            INTEL
+      OEM Table ID                                      HCG
+      OEM Revision                                      00000001h
+      Creator ID                                        TFSM
+      Creator Revision                                  000F4240h
+
+    ASF_INFO:
+      Min Watchdog Reset Value                          255 sec
+      Min ASF Sensor Interpoll Wait Time                1275 msec
+      System ID                                         0001h
+      IANA Manufacturer ID                              00-00-01-57h
+
+    ASF_ALRT:
+      Numer of Alerts                                   3
+      Array Element Length                              12
+
+    ASF_RCTL:
+      Numer of Controls                                 4
+      Array Element Length                              4
+
+    ASF_RMCP:
+      Remote Control Capabilities                       21-F8-00-00-00-13-F0h
+      RMCP Boot Options Completion Code                 00h  (Successful)
+      RMCP IANA Enterprise ID                           00-00-01-57h
+      RMCP Special Command                              00h
+      RMCP Special Command Parameter                    0000h
+      RMCP Boot Options                                 0100h
+      RMCP OEM Parameters                               0000h
+
+  [ BDAT: Intel BDAT ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    BDAT
+      Table Description                                 Intel BDAT
+      Memory Address                                    B77528E0h
+      Table Length                                      48 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20090903h
+      BDAT Address                                      00000000-B70AE000h
+
+  [ BGRT: Boot Graphics Resource Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    BGRT
+      Table Description                                 Boot Graphics Resource Table
+      Memory Address                                    B7754698h
+      Table Length                                      56 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+
+  [ DMAR: DMA Remapping Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    DMAR
+      Table Description                                 DMA Remapping Table
+      Memory Address                                    B7752910h
+      Table Length                                      184 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00000001h
+      Creator ID                                        INTL
+      Creator Revision                                  00000001h
+
+  [ DSDT: Differentiated System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    DSDT
+      Table Description                                 Differentiated System Description Table
+      Memory Address                                    B773A220h
+      Table Length                                      73529 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00000038h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+    nVIDIA SLI:
+      SLI Certification                                 Not Present
+      PCI 0-0-0-0 (Direct I/O)                          8086-0C04  (Intel)
+      PCI 0-0-0-0 (HAL)                                 8086-0C04  (Intel)
+
+    Lucid Virtu:
+      Virtu Certification                               Not Present
+
+  [ FACP: Fixed ACPI Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    FACP
+      Table Description                                 Fixed ACPI Description Table
+      Memory Address                                    B773A198h
+      Table Length                                      132 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+      FACS Address                                      B77AAF40h
+      DSDT Address                                      B773A220h
+      SMI Command Port                                  000000B2h
+      PM Timer                                          00001808h
+
+  [ FACP: Fixed ACPI Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    FACP
+      Table Description                                 Fixed ACPI Description Table
+      Memory Address                                    00000000-B774C160h
+      Table Length                                      268 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+      FACS Address                                      B77AAF80h / 00000000-00000000h
+      DSDT Address                                      B773A220h / 00000000-B773A220h
+      SMI Command Port                                  000000B2h
+      PM Timer                                          00001808h
+
+  [ FACS: Firmware ACPI Control Structure ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    FACS
+      Table Description                                 Firmware ACPI Control Structure
+      Memory Address                                    B77AAF40h
+      Table Length                                      64 bytes
+      Hardware Signature                                B4CEB541h
+      Waking Vector                                     00000000h
+      Global Lock                                       00000000h
+
+  [ FBPT: Firmware Basic Boot Performance Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    FBPT
+      Table Description                                 Firmware Basic Boot Performance Table
+      Memory Address                                    00000000-B7F57050h
+      Table Length                                      56 bytes
+
+  [ FIDT: Firmware ID Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    FIDT
+      Table Description                                 Firmware ID Table
+      Memory Address                                    B774C350h
+      Table Length                                      156 bytes
+      OEM ID                                            ALASKA
+      OEM Table ID                                      A M I
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+
+  [ FPDT: Firmware Performance Data Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    FPDT
+      Table Description                                 Firmware Performance Data Table
+      Memory Address                                    B774C308h
+      Table Length                                      68 bytes
+      OEM ID                                            ALASKA
+      OEM Table ID                                      A M I
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+      FBPT Address                                      00000000-B7F57050h
+      S3PT Address                                      00000000-B7F57030h
+
+  [ HPET: IA-PC High Precision Event Timer Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    HPET
+      Table Description                                 IA-PC High Precision Event Timer Table
+      Memory Address                                    B774E938h
+      Table Length                                      56 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI.
+      Creator Revision                                  00000005h
+      HPET Address                                      00000000-FED00000h
+      Vendor ID                                         8086h
+      Revision                                          01h
+      Number of Timers                                  8
+      Counter Size                                      64-bit
+      Minimum Clock Ticks                               14318
+      Page Protection                                   No Guarantee
+      OEM Attribute                                     0h
+      LegacyReplacement IRQ Routing                     Supported
+
+  [ MCFG: Memory Mapped Configuration Space Base Address Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    MCFG
+      Table Description                                 Memory Mapped Configuration Space Base Address Description Table
+      Memory Address                                    B774E8F8h
+      Table Length                                      60 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        MSFT
+      Creator Revision                                  00000097h
+      Config Space Address                              00000000-F8000000h
+      PCI Segment                                       0000h
+      Start Bus Number                                  00h
+      End Bus Number                                    3Fh
+
+  [ PCCT: Platform Communications Channel Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    PCCT
+      Table Description                                 Platform Communications Channel Table
+      Memory Address                                    B7751DA8h
+      Table Length                                      110 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ RSD PTR: Root System Description Pointer ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    RSD PTR
+      Table Description                                 Root System Description Pointer
+      Memory Address                                    000F0000h
+      Table Length                                      36 bytes
+      OEM ID                                            ALASKA
+      RSDP Revision                                     2  (ACPI 2.0+)
+      RSDT Address                                      B773A028h
+      XSDT Address                                      00000000-B773A0B0h
+
+  [ RSDT: Root System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    RSDT
+      Table Description                                 Root System Description Table
+      Memory Address                                    B773A028h
+      Table Length                                      128 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        MSFT
+      Creator Revision                                  00010013h
+      RSDT Entry #0                                     B773A198h  (FACP)
+      RSDT Entry #1                                     B774C270h  (APIC)
+      RSDT Entry #2                                     B774C308h  (FPDT)
+      RSDT Entry #3                                     B774C350h  (FIDT)
+      RSDT Entry #4                                     B774C3F0h  (ASF!)
+      RSDT Entry #5                                     B774C498h  (SLIC)
+      RSDT Entry #6                                     B774C610h  (SSDT)
+      RSDT Entry #7                                     B774D5A8h  (SSDT)
+      RSDT Entry #8                                     B774D718h  (SSDT)
+      RSDT Entry #9                                     B774DC58h  (SSDT)
+      RSDT Entry #10                                    B774E730h  (SSDT)
+      RSDT Entry #11                                    B774E8F8h  (MCFG)
+      RSDT Entry #12                                    B774E938h  (HPET)
+      RSDT Entry #13                                    B774E970h  (SSDT)
+      RSDT Entry #14                                    B774EC88h  (SSDT)
+      RSDT Entry #15                                    B77508D0h  (SSDT)
+      RSDT Entry #16                                    B7751A10h  (SSDT)
+      RSDT Entry #17                                    B7751DA8h  (PCCT)
+      RSDT Entry #18                                    B7751E18h  (SSDT)
+      RSDT Entry #19                                    B77528E0h  (BDAT)
+      RSDT Entry #20                                    B7752910h  (DMAR)
+      RSDT Entry #21                                    B77529C8h  (SSDT)
+      RSDT Entry #22                                    B7754698h  (BGRT)
+
+  [ S3PT: S3 Performance Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    S3PT
+      Table Description                                 S3 Performance Table
+      Memory Address                                    00000000-B7F57030h
+      Table Length                                      32 bytes
+
+  [ SLIC: Software Licensing Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SLIC
+      Table Description                                 Software Licensing Description Table
+      Memory Address                                    B774C498h
+      Table Length                                      374 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+      SLIC Version                                      v2.1
+
+    OEM Public Key:
+      Key Type                                          06h
+      Version                                           02h
+      Algorithm                                         00002400h
+      Magic                                             RSA1
+      Bit Length                                        1024
+      Exponent                                          65537
+
+    SLIC Marker:
+      Version                                           00020001h
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      Windows Flag                                      WINDOWS
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774C610h
+      Table Length                                      3986 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774D5A8h
+      Table Length                                      361 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774D718h
+      Table Length                                      1337 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00003000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774DC58h
+      Table Length                                      2776 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00003000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774E730h
+      Table Length                                      455 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00003000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774E970h
+      Table Length                                      789 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B774EC88h
+      Table Length                                      7239 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00003000h
+      Creator ID                                        INTL
+      Creator Revision                                  20091112h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B77508D0h
+      Table Length                                      4411 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B7751A10h
+      Table Length                                      915 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B7751E18h
+      Table Length                                      2756 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ SSDT: Secondary System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    SSDT
+      Table Description                                 Secondary System Description Table
+      Memory Address                                    B77529C8h
+      Table Length                                      7369 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      00001000h
+      Creator ID                                        INTL
+      Creator Revision                                  20120711h
+
+  [ XSDT: Extended System Description Table ]
+
+    ACPI Table Properties:
+      ACPI Signature                                    XSDT
+      Table Description                                 Extended System Description Table
+      Memory Address                                    00000000-B773A0B0h
+      Table Length                                      220 bytes
+      OEM ID                                            HASEE
+      OEM Table ID                                      PARADISE
+      OEM Revision                                      01072009h
+      Creator ID                                        AMI
+      Creator Revision                                  00010013h
+      XSDT Entry #0                                     00000000-B774C160h  (FACP)
+      XSDT Entry #1                                     00000000-B774C270h  (APIC)
+      XSDT Entry #2                                     00000000-B774C308h  (FPDT)
+      XSDT Entry #3                                     00000000-B774C350h  (FIDT)
+      XSDT Entry #4                                     00000000-B774C3F0h  (ASF!)
+      XSDT Entry #5                                     00000000-B774C498h  (SLIC)
+      XSDT Entry #6                                     00000000-B774C610h  (SSDT)
+      XSDT Entry #7                                     00000000-B774D5A8h  (SSDT)
+      XSDT Entry #8                                     00000000-B774D718h  (SSDT)
+      XSDT Entry #9                                     00000000-B774DC58h  (SSDT)
+      XSDT Entry #10                                    00000000-B774E730h  (SSDT)
+      XSDT Entry #11                                    00000000-B774E8F8h  (MCFG)
+      XSDT Entry #12                                    00000000-B774E938h  (HPET)
+      XSDT Entry #13                                    00000000-B774E970h  (SSDT)
+      XSDT Entry #14                                    00000000-B774EC88h  (SSDT)
+      XSDT Entry #15                                    00000000-B77508D0h  (SSDT)
+      XSDT Entry #16                                    00000000-B7751A10h  (SSDT)
+      XSDT Entry #17                                    00000000-B7751DA8h  (PCCT)
+      XSDT Entry #18                                    00000000-B7751E18h  (SSDT)
+      XSDT Entry #19                                    00000000-B77528E0h  (BDAT)
+      XSDT Entry #20                                    00000000-B7752910h  (DMAR)
+      XSDT Entry #21                                    00000000-B77529C8h  (SSDT)
+      XSDT Entry #22                                    00000000-B7754698h  (BGRT)
+
+
+--------[ Debug - PCI ]-------------------------------------------------------------------------------------------------
+
+    B00 D00 F00:  Intel Haswell-MB - Host Bridge/DRAM Controller
+                  
+      Offset 000:  86 80 04 0C  06 00 90 30  06 00 00 06  00 00 00 00 
+      Offset 010:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  E0 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 040:  01 90 D1 FE  00 00 00 00  01 00 D1 FE  00 00 00 00 
+      Offset 050:  19 02 00 00  99 00 00 00  17 00 10 BF  01 00 00 B8 
+      Offset 060:  05 00 00 F8  00 00 00 00  01 80 D1 FE  00 00 00 00 
+      Offset 070:  00 00 00 7F  03 00 00 00  00 0C 00 FF  7F 00 00 00 
+      Offset 080:  10 00 00 00  00 00 00 00  1A 00 00 00  00 00 00 00 
+      Offset 090:  01 00 00 7F  03 00 00 00  01 00 D0 BF  03 00 00 00 
+      Offset 0A0:  01 00 00 80  03 00 00 00  01 00 E0 BF  03 00 00 00 
+      Offset 0B0:  01 00 20 B9  01 00 00 B9  01 00 00 B8  01 00 20 BF 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  09 00 0C 01  69 21 00 62  D0 00 4C 74  00 00 00 00 
+      Offset 0F0:  00 00 00 00  C8 0F 03 00  00 00 00 00  00 00 00 00 
+
+    B00 D01 F00:  Intel Haswell - PCI Express x16 Controller
+                  
+      Offset 000:  86 80 01 0C  00 04 10 00  06 00 04 06  10 00 81 00 
+      Offset 010:  00 00 00 00  00 00 00 00  00 01 01 00  E0 E0 00 00 
+      Offset 020:  00 F6 00 F7  01 E0 F1 F1  00 00 00 00  00 00 00 00 
+      Offset 030:  00 00 00 00  88 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 0A 
+      Offset 080:  01 90 03 C8  0B 00 00 00  0D 80 00 00  58 15 57 65 
+      Offset 090:  05 A0 00 00  18 01 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 0A0:  10 00 42 01  01 80 00 00  20 00 00 00  03 AD 61 02 
+      Offset 0B0:  D0 00 01 D1  00 00 0C 00  00 00 48 00  08 00 00 00 
+      Offset 0C0:  00 00 00 00  80 0B 08 00  00 00 00 00  0E 00 00 00 
+      Offset 0D0:  43 00 1E 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 01 00  4E 01 01 40  00 00 00 00  00 00 10 00 
+
+    B00 D02 F00:  Intel Haswell-MB GT2 - Integrated Graphics Controller
+                  
+      Offset 000:  86 80 16 04  07 04 90 00  06 00 00 03  00 00 00 00 
+      Offset 010:  04 00 40 F7  00 00 00 00  0C 00 00 C0  00 00 00 00 
+      Offset 020:  01 F0 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  90 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  09 00 0C 01  69 21 00 62  D0 00 4C 74  00 00 00 00 
+      Offset 050:  19 02 00 00  99 00 00 00  00 00 00 00  01 00 20 B9 
+      Offset 060:  00 00 06 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  05 D0 01 00  B8 02 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 0A0:  00 00 00 00  13 00 06 03  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  01 A4 22 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 80 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  00 00 06 00  18 F0 78 B7 
+
+    B00 D04 F00:  Intel Haswell - Dynamic Platform & Thermal Framework Processor Participant
+                  
+      Offset 000:  86 80 03 0C  06 00 90 00  06 00 80 11  00 00 00 00 
+      Offset 010:  04 80 AF FE  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  90 00 00 00  00 00 00 00  10 01 00 00 
+      Offset 040:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  00 00 00 00  99 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  05 D0 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  01 E0 03 00  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  09 00 0C 01  69 21 00 62  D0 00 4C 74  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    B00 D14 F00:  Intel Lynx Point PCH - USB 3.0 xHCI Host Controller [C-1]
+                  
+      Offset 000:  86 80 31 8C  06 04 90 02  04 30 03 0C  00 00 00 00 
+      Offset 010:  04 00 A0 F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  70 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  FD 01 06 80  89 C6 0F 80  00 00 00 00  00 00 00 00 
+      Offset 050:  9F 6E 88 07  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  30 20 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  01 80 C2 C1  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  05 00 87 00  98 02 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0A0:  40 01 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  0F 00 01 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  03 04 20 C0  03 0C 30 00  03 0C 30 00  00 00 00 00 
+      Offset 0D0:  FF 3F 00 00  FF 3F 00 00  3F 00 00 00  3F 00 00 00 
+      Offset 0E0:  A0 00 00 00  00 00 00 00  3F 00 00 00  D8 D8 D8 08 
+      Offset 0F0:  00 00 00 00  00 00 00 00  B1 0F 06 08  00 00 00 00 
+
+    B00 D16 F00:  Intel Lynx Point PCH - Host Embedded Controller Interface 1 (HECI1) [C-1]
+                  
+      Offset 000:  86 80 3A 8C  06 04 10 00  04 00 80 07  00 00 80 00 
+      Offset 010:  04 60 A2 F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  50 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  55 02 00 1E  10 00 01 80  06 23 00 66  F0 37 00 13 
+      Offset 050:  01 8C 03 C8  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  00 02 00 00  01 40 00 00  00 00 00 00  20 00 00 30 
+      Offset 070:  00 00 00 00  00 00 00 E0  00 00 00 00  00 00 00 00 
+      Offset 080:  00 00 00 00  00 00 00 00  00 00 00 00  05 00 81 00 
+      Offset 090:  78 02 E0 FE  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  02 00 00 C0 
+      Offset 0C0:  E1 F5 E0 A8  D5 88 53 BF  58 64 1B 72  DC CB 56 F3 
+      Offset 0D0:  15 15 1D 73  CC 23 D9 9C  A7 AF 0A F4  57 01 32 79 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    B00 D1A F00:  Intel Lynx Point PCH - USB 2.0 EHCI Host Controller 2 [C-1]
+                  
+      Offset 000:  86 80 2D 8C  06 00 90 02  04 20 03 0C  00 00 00 00 
+      Offset 010:  00 40 A2 F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  50 00 00 00  00 00 00 00  10 01 00 00 
+      Offset 040:  00 00 00 00  DB 05 20 11  00 00 00 00  00 00 00 00 
+      Offset 050:  01 58 C2 C9  00 00 00 00  0A 98 A0 20  00 00 00 00 
+      Offset 060:  20 20 81 07  00 00 00 00  01 00 00 00  00 20 00 C0 
+      Offset 070:  00 00 DF 3F  03 0C 30 00  4F 01 00 00  8C 40 00 00 
+      Offset 080:  00 00 80 00  11 88 0C 93  70 0D 00 24  01 04 02 00 
+      Offset 090:  00 00 00 00  00 00 00 00  13 00 06 03  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 AA FF 00  00 00 FF FF  27 00 00 00 
+      Offset 0E0:  00 00 00 00  FF FF FF FF  FF FF FF FF  04 F0 39 B7 
+      Offset 0F0:  00 00 00 00  88 85 80 00  B1 0F 06 08  08 17 1A 20 
+
+    B00 D1B F00:  Intel Lynx Point PCH - High Definition Audio Controller [C-1]
+                  
+      Offset 000:  86 80 20 8C  06 00 10 00  04 00 03 04  10 00 00 00 
+      Offset 010:  04 00 AF FE  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  50 00 00 00  00 00 00 00  16 01 00 00 
+      Offset 040:  03 00 00 17  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  01 60 42 C8  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  05 70 80 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  10 00 91 00  00 00 00 10  00 08 10 00  00 00 00 00 
+      Offset 080:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 04 02 01  00 60 00 00  00 0C 85 82  10 00 33 02 
+      Offset 0D0:  00 0C 85 02  10 00 33 02  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  B1 0F 06 08  00 00 00 00 
+
+    B00 D1C F00:  Intel Lynx Point PCH - PCI Express Root Port 1
+                  
+      Offset 000:  86 80 10 8C  04 04 10 00  D4 00 04 06  10 00 81 00 
+      Offset 010:  00 00 00 00  00 00 00 00  00 02 02 00  F0 00 00 20 
+      Offset 020:  F0 FF 00 00  F1 FF 01 00  00 00 00 00  00 00 00 00 
+      Offset 030:  00 00 00 00  40 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  10 80 42 01  00 80 00 00  00 00 10 00  42 4C 31 01 
+      Offset 050:  01 00 01 10  60 00 04 00  28 10 00 00  08 00 00 00 
+      Offset 060:  00 00 00 00  17 08 08 00  00 04 00 00  00 00 00 00 
+      Offset 070:  02 00 01 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  05 90 01 00  78 01 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 090:  0D A0 00 00  58 15 57 65  00 00 00 00  00 00 00 00 
+      Offset 0A0:  01 00 03 C8  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 01  02 08 00 00  02 00 11 09  00 00 00 00 
+      Offset 0E0:  00 3F 00 00  00 00 00 00  01 00 00 00  00 00 00 00 
+      Offset 0F0:  50 00 00 00  80 F5 00 00  B1 0F 06 08  04 E8 05 01 
+
+    B00 D1C F04:  Intel Lynx Point PCH - PCI Express Root Port 5
+                  
+      Offset 000:  86 80 18 8C  07 04 10 00  D4 00 04 06  10 00 81 00 
+      Offset 010:  00 00 00 00  00 00 00 00  00 03 03 00  D0 D0 00 60 
+      Offset 020:  90 F7 90 F7  F1 FF 01 00  00 00 00 00  00 00 00 00 
+      Offset 030:  00 00 00 00  40 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  10 80 42 01  00 80 00 00  00 00 13 00  12 3C 32 05 
+      Offset 050:  C2 00 11 70  00 B2 24 00  00 00 48 01  08 00 00 00 
+      Offset 060:  00 00 00 00  17 08 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  02 00 01 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  05 90 01 00  38 01 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 090:  0D A0 00 00  58 15 57 65  00 00 00 00  00 00 00 00 
+      Offset 0A0:  01 00 03 C8  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 01  42 18 00 00  08 80 11 0B  00 00 00 00 
+      Offset 0E0:  00 3F 00 00  00 00 00 00  01 00 00 00  00 00 00 00 
+      Offset 0F0:  50 00 00 00  40 00 00 00  B1 0F 06 08  04 28 00 05 
+
+    B00 D1C F05:  Intel Lynx Point PCH - PCI Express Root Port 6
+                  
+      Offset 000:  86 80 1A 8C  07 04 10 00  D4 00 04 06  10 00 81 00 
+      Offset 010:  00 00 00 00  00 00 00 00  00 04 04 00  C0 C0 00 00 
+      Offset 020:  80 F7 80 F7  F1 FF 01 00  00 00 00 00  00 00 00 00 
+      Offset 030:  00 00 00 00  40 00 00 00  00 00 00 00  00 02 00 00 
+      Offset 040:  10 80 42 01  00 80 00 00  00 00 10 00  12 3C 32 06 
+      Offset 050:  C2 00 11 70  00 B2 2C 00  00 00 40 00  08 00 00 00 
+      Offset 060:  00 00 00 00  17 08 00 00  00 04 00 00  00 00 00 00 
+      Offset 070:  02 00 01 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  05 90 01 00  58 01 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 090:  0D A0 00 00  58 15 57 65  00 00 00 00  00 00 00 00 
+      Offset 0A0:  01 00 03 C8  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 01  42 18 00 00  08 80 11 0B  00 00 00 00 
+      Offset 0E0:  00 03 00 00  03 90 03 90  11 00 00 00  00 00 00 00 
+      Offset 0F0:  50 00 00 00  40 00 00 0C  B1 0F 06 08  04 28 00 06 
+
+    B00 D1D F00:  Intel Lynx Point PCH - USB 2.0 EHCI Host Controller 1 [C-1]
+                  
+      Offset 000:  86 80 26 8C  06 00 90 02  04 20 03 0C  00 00 00 00 
+      Offset 010:  00 30 A2 F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  50 00 00 00  00 00 00 00  17 01 00 00 
+      Offset 040:  00 00 00 00  DB 05 CC 06  00 00 00 00  00 00 00 00 
+      Offset 050:  01 58 C2 C9  00 00 00 00  0A 98 A0 20  00 00 00 00 
+      Offset 060:  20 20 01 06  00 00 00 00  01 00 00 00  00 20 00 C0 
+      Offset 070:  00 00 DF 3F  03 04 20 C0  4F 01 00 00  8C 40 00 00 
+      Offset 080:  00 00 80 00  11 88 0C 93  70 0D 00 24  01 04 02 00 
+      Offset 090:  00 00 00 00  00 00 00 00  13 00 06 03  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 AA FF 00  00 00 92 A9  27 00 00 00 
+      Offset 0E0:  00 00 00 00  FF FF FF FF  FF FF FF FF  04 D0 32 B7 
+      Offset 0F0:  00 00 00 00  88 85 80 00  B1 0F 06 08  08 17 1A 20 
+
+    B00 D1F F00:  Intel HM87 Chipset - LPC Interface Controller [C-1]
+                  
+      Offset 000:  86 80 4B 8C  07 00 10 02  04 00 01 06  00 00 80 00 
+      Offset 010:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  E0 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 040:  01 18 00 00  80 00 00 00  01 1C 00 00  10 00 00 00 
+      Offset 050:  F8 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  80 80 80 80  D0 00 00 00  80 80 80 80  F8 F0 00 00 
+      Offset 070:  78 F0 78 F0  78 F0 78 F0  78 F0 78 F0  78 F0 78 F0 
+      Offset 080:  00 00 00 3C  69 00 0C 00  21 33 0C 00  00 00 00 00 
+      Offset 090:  00 00 00 00  00 0F 00 00  01 00 70 FF  00 00 00 00 
+      Offset 0A0:  10 5E A0 60  09 18 06 00  00 46 00 00  00 00 01 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 80 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  33 22 11 00  67 45 00 00  C7 FF 00 00  08 00 00 00 
+      Offset 0E0:  09 00 0C 10  00 00 00 00  01 E8 30 95  00 00 00 00 
+      Offset 0F0:  01 C0 D1 FE  00 00 00 00  B1 0F 06 08  00 00 00 00 
+
+    B00 D1F F02:  Intel Lynx Point-M PCH - SATA AHCI Controller (Ports 0-5) [C-1]
+                  
+      Offset 000:  86 80 03 8C  07 04 B0 02  04 01 06 01  00 00 00 00 
+      Offset 010:  B1 F0 00 00  A1 F0 00 00  91 F0 00 00  81 F0 00 00 
+      Offset 020:  61 F0 00 00  00 20 A2 F7  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  80 00 00 00  00 00 00 00  00 02 00 00 
+      Offset 040:  00 80 00 80  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  01 A8 03 40  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  05 70 01 00  98 01 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 090:  60 3A 05 81  83 01 00 3A  20 02 5C 20  20 00 00 80 
+      Offset 0A0:  A8 00 00 00  00 00 00 00  12 00 10 00  48 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  B1 0F 06 08  00 00 00 00 
+
+    B00 D1F F03:  Intel Lynx Point PCH - SMBus Controller [C-1]
+                  
+      Offset 000:  86 80 22 8C  03 00 80 02  04 00 05 0C  00 00 00 00 
+      Offset 010:  04 10 A2 F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  41 F0 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  00 00 00 00  00 00 00 00  12 03 00 00 
+      Offset 040:  01 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  03 04 04 00  00 00 08 08  00 00 00 00  00 00 00 00 
+      Offset 070:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  04 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  B1 0F 06 08  00 00 00 00 
+
+    B00 D1F F06:  Intel Lynx Point PCH - Thermal Controller [C-1]
+                  
+      Offset 000:  86 80 24 8C  00 00 10 00  04 00 80 11  00 00 00 00 
+      Offset 010:  04 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  50 00 00 00  00 00 00 00  FF 03 00 00 
+      Offset 040:  05 E0 FE F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  01 80 23 00  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 080:  05 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  B1 0F 06 08  00 00 00 00 
+
+    B03 D00 F00:  Realtek RTS5287 PCI-E Card Reader
+                  
+      Offset 000:  EC 10 87 52  06 04 10 00  01 00 00 FF  10 00 80 00 
+      Offset 010:  00 F0 9F F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  EC 10 87 52 
+      Offset 030:  00 00 00 00  40 00 00 00  00 00 00 00  00 02 00 00 
+      Offset 040:  01 50 C3 F7  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  05 70 81 00  18 03 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  10 B0 02 00  C0 8C 90 05  07 20 1D 00  11 7C 47 00 
+      Offset 080:  C2 01 11 10  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  1F 08 0C 00  00 04 00 00  02 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  11 D0 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  03 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    B03 D00 F01:  Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
+                  
+      Offset 000:  EC 10 68 81  07 04 10 00  12 00 00 02  10 00 80 00 
+      Offset 010:  01 D0 00 00  00 00 00 00  04 40 91 F7  00 00 00 00 
+      Offset 020:  04 00 91 F7  00 00 00 00  00 00 00 00  58 15 57 65 
+      Offset 030:  00 00 00 00  40 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  01 50 C3 FF  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  05 70 80 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  10 B0 02 02  C0 8C 90 05  07 50 1D 00  11 7C 47 00 
+      Offset 080:  C2 01 11 10  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  1F 08 0C 00  10 00 00 00  02 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  11 D0 03 80  04 00 00 00  04 08 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  03 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    B04 D00 F00:  Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
+                  
+      Offset 000:  EC 10 23 B7  07 04 10 00  00 00 80 02  10 00 00 00 
+      Offset 010:  01 CF 00 00  00 00 00 00  04 C0 8F F7  00 00 00 00 
+      Offset 020:  00 00 00 00  00 00 00 00  00 00 00 00  EC 10 33 B7 
+      Offset 030:  00 00 00 00  40 00 00 00  00 00 00 00  00 01 00 00 
+      Offset 040:  01 50 C3 FF  08 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 050:  05 70 81 00  38 03 E0 FE  00 00 00 00  00 00 00 00 
+      Offset 060:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 070:  10 00 02 00  80 8D 90 05  07 50 10 00  11 3C 07 00 
+      Offset 080:  C2 01 11 10  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 090:  00 00 00 00  10 08 0C 00  10 04 00 00  02 00 00 00 
+      Offset 0A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0B0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0D0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0E0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 0F0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 4000:  E7 50 24 11  43 41 33 06  50 19 EF A4  4D 15 42 08 
+      Offset 4010:  07 00 00 00  C7 54 00 00  00 00 00 00  00 00 00 00 
+      Offset 4020:  00 00 10 00  00 00 20 20  00 44 15 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 4200:  20 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4210:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4220:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4230:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4240:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4250:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4260:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4270:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4280:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4290:  80 40 00 00  FF 98 00 00  40 10 8B 48  88 00 00 00 
+      Offset 42A0:  0C 00 00 00  00 62 00 41  00 00 00 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 4400:  E7 50 24 11  43 41 33 06  50 15 EF A4  4D 15 42 08 
+      Offset 4410:  07 00 00 00  C7 54 00 00  00 00 00 00  00 00 00 00 
+      Offset 4420:  00 00 10 00  20 20 20 20  33 33 15 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 4600:  20 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4610:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4620:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4630:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4640:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4650:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4660:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4670:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4680:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4690:  80 40 00 00  FF 98 00 00  40 10 8B 48  88 02 00 00 
+      Offset 46A0:  0F 00 00 00  00 62 00 41  00 00 00 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 4800:  00 00 00 00  00 00 03 00  08 00 40 00  08 00 00 08 
+      Offset 4810:  08 00 80 08  08 00 80 08  08 00 80 08  08 00 80 08 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 4A80:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 4A90:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 5000:  24 00 00 00  20 00 63 00  10 08 66 00  00 00 60 00 
+      Offset 5010:  00 00 00 00  00 00 30 18  00 00 00 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 5880:  60 00 00 00  03 00 00 00  0E 28 00 00  00 00 00 00 
+      Offset 5890:  FF FF 00 00  FF FF 00 00  FF FF 00 00  FF FF 00 00 
+      Offset 58A0:  00 00 00 00  00 00 00 00  0F 1B 00 00  00 00 00 00 
+      Offset 58B0:  00 00 00 00  00 00 00 00  00 00 00 00  7F 00 00 00 
+      Offset 58C0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 58D0:  FF FF 00 00  FF FF 00 00  FF FF 00 00  FF FF 00 00 
+      Offset 58E0:  00 00 00 00  DE 00 54 00  CF 9C 82 69  00 00 00 00 
+      Offset 58F0:  00 00 00 00  00 00 00 00  00 00 10 00  00 01 02 3D 
+      Offset 5900:  00 00 00 02  00 01 00 0D  00 00 00 00  00 00 00 00 
+      Offset 5910:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 5920:  09 00 00 00  0D 00 00 00  42 4E 71 32  06 BE 81 10 
+      Offset 5930:  78 01 00 00  00 00 00 00  03 0E 0A 00  FC CD FA F6 
+      Offset 5940:  59 C0 4C 29  82 7D 29 25  00 18 00 00  00 00 00 00 
+      Offset 5950:  00 00 00 00  00 00 14 00  00 1A 01 F3  28 08 08 00 
+      Offset 5960:  A2 3E 4A 50  35 7A 38 16  08 87 F9 D8  B7 24 D7 5B 
+      Offset 5970:  6C 3A 9D 35  DB DD E5 DE  3D 00 00 00  3D 00 00 00 
+      Offset 5980:  31 00 00 00  E6 87 7D 06  00 00 00 00  00 00 00 00 
+      Offset 5990:  FF 00 00 00  FF 00 00 00  18 08 04 00  00 10 64 02 
+      Offset 59A0:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 59B0:  28 02 00 80  14 14 10 00  88 86 00 88  00 00 00 00 
+      Offset 59C0:  00 08 33 88  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    PCI-8086-0C04:  Intel SNB/IVB/HSW/CRW/BDW/SKL/KBL MCHBAR @ FED10000h
+                  
+      Offset 5E00:  04 00 00 00  04 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 5E10:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+
+    PCI-8086-8C24:  Intel 8/9/10/20-series PCH TBARB @ F7FEE000h
+                  
+      Offset 00:  BF 00 00 00  81 00 00 00  81 00 01 00  80 00 00 00 
+      Offset 10:  54 01 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 20:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 30:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 40:  3C 09 85 B4  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 50:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 60:  00 00 01 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 70:  00 00 00 00  00 00 00 00  00 00 00 00  00 00 00 00 
+      Offset 80:  01 00 00 00 
+
+    PCI-8086-0416:  Intel HSW/CRW/BDW/SKL/KBL iGPU MMIO @ F7000000h
+                  
+      Offset 9100:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9110:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9120:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9130:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9140:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9150:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9160:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 9170:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+
+    PCI-8086-0416:  Intel HSW/CRW/BDW/SKL/KBL iGPU MMIO @ F7000000h
+                  
+      Offset 42000:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 42010:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 42020:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+
+    PCI-8086-0416:  Intel HSW/CRW/BDW/SKL/KBL iGPU MMIO @ F7000000h
+                  
+      Offset 46000:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 46010:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 46020:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+
+    PCI-8086-0416:  Intel HSW/CRW/BDW/SKL/KBL iGPU MMIO @ F7000000h
+                  
+      Offset 65000:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65010:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65020:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65030:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65040:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65050:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65060:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65070:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65080:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65090:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 650A0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 650B0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 650C0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 650D0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 650E0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 650F0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65100:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65110:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65120:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65130:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65140:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65150:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65160:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65170:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65180:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65190:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 651A0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 651B0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 651C0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 651D0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 651E0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 651F0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65200:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65210:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65220:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65230:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65240:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65250:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65260:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65270:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65280:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 65290:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 652A0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 652B0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 652C0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 652D0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 652E0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 652F0:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+
+    PCI-8086-0416:  Intel HSW/CRW/BDW/SKL/KBL iGPU MMIO @ F7000000h
+                  
+      Offset 130040:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+      Offset 130050:  FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF 
+
+
+--------[ Debug - Video BIOS ]------------------------------------------------------------------------------------------
+
+    C000:0000  ................................................................
+    C000:0040  ................................................................
+    C000:0080  ................................................................
+    C000:00C0  ................................................................
+    C000:0100  ................................................................
+    C000:0140  ................................................................
+    C000:0180  ................................................................
+    C000:01C0  ................................................................
+    C000:0200  ................................................................
+    C000:0240  ................................................................
+    C000:0280  ................................................................
+    C000:02C0  ................................................................
+    C000:0300  ................................................................
+    C000:0340  ................................................................
+    C000:0380  ................................................................
+    C000:03C0  ................................................................
+
+
+--------[ Debug - Unknown ]---------------------------------------------------------------------------------------------
+
+    NIC PHY         Unknown (FFFF-FFFF)
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+The names of actual companies and products mentioned herein may be the trademarks of their respective owners.
