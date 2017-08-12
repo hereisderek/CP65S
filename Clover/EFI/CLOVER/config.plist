@@ -84,8 +84,6 @@
 				<true/>
 				<key>FixRegions_10000000</key>
 				<true/>
-				<key>NewWay_80000000</key>
-				<true/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -264,14 +262,10 @@
 			<dict>
 				<key>Signature</key>
 				<string>#SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
 				<string>#SSDT</string>
-				<key>TableId</key>
-				<string>CpuPm</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
@@ -309,8 +303,6 @@
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
 		<true/>
-		<key>NeverHibernate</key>
-		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
@@ -383,6 +375,8 @@
 			<key>AddClockID</key>
 			<true/>
 			<key>FixOwnership</key>
+			<true/>
+			<key>HighCurrent</key>
 			<true/>
 			<key>Inject</key>
 			<true/>
@@ -504,6 +498,115 @@
 			</dict>
 		</array>
 		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for SSD</string>
+				<key>Find</key>
+				<data>
+				AEFQUExFIFNTRAA=
+				</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>patch_AppleRTC</string>
+				<key>Find</key>
+				<data>
+				dS4Ptg==
+				</data>
+				<key>Name</key>
+				<string>AppleRTC</string>
+				<key>Replace</key>
+				<data>
+				6y4Ptg==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable USB3 after wake for Intel 8 series chipset</string>
+				<key>Find</key>
+				<data>
+				xoDIAAAAAQ==
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				xoDIAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 20 in AppleUSBXHCIPCI for 8/9 series</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				g72M/v//EA==
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g72M/v//FQ==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				RiV1VCUwNHgA
+				</data>
+				<key>Name</key>
+				<string>com.apple.driver.AppleBacklight</string>
+				<key>Replace</key>
+				<data>
+				RiV1VHh4eHgA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>_ar9300EepromRestoreInternal (AR9485 only)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				/wMAALn/AwAA
+				</data>
+				<key>Name</key>
+				<string>com.apple.driver.AirPort.Atheros40</string>
+				<key>Replace</key>
+				<data>
+				/wEAALn/AQAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AR9485</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				OTM4MA==
+				</data>
+				<key>Name</key>
+				<string>com.apple.driver.AirPort.Atheros40</string>
+				<key>Replace</key>
+				<data>
+				OTQ4NQ==
+				</data>
+			</dict>
+		</array>
+		<key>KextsToPatch_BAK</key>
 		<array>
 			<dict>
 				<key>Comment</key>
@@ -1153,6 +1256,43 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
+		<string>05/01/17</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MBP112.88Z.0138.B38.1705011718</string>
+		<key>Board-ID</key>
+		<string>Mac-3CBD00234E554E41</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>08</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xe907f537</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>Mobile</key>
+		<true/>
+		<key>ProductName</key>
+		<string>MacBookPro11,2</string>
+		<key>SerialNumber</key>
+		<string>C02L7V1PFD56</string>
+		<key>Trust</key>
+		<true/>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
+	<key>SMBIOS_1</key>
+	<dict>
+		<key>BiosReleaseDate</key>
 		<string>10/18/13</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
@@ -1192,7 +1332,11 @@
 		<key>CustomUUID</key>
 		<string>9E96C829-98A1-715B-BDED-BCEBE3B7CB25</string>
 		<key>InjectKexts</key>
+		<string>YES</string>
+		<key>InjectKexts_</key>
 		<string>Detect</string>
+		<key>InjectSystemID</key>
+		<true/>
 	</dict>
 </dict>
 </plist>
