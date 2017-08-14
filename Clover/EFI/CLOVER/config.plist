@@ -245,7 +245,7 @@
 					<key>Comment</key>
 					<string>change AZAL to HDEF</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					QVpBTA==
@@ -310,7 +310,7 @@
 		<key>Arguments</key>
 		<string>dart=0 -xcpm nv_disable=1 kextlog=0xffff uia_exclude=SSP14;SSP19 -alcbeta -alcdbg -liludbg</string>
 		<key>Debug</key>
-		<false/>
+		<true/>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
