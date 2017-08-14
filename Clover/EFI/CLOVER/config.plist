@@ -201,20 +201,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change PCI0.VID to IGPU #1 (Thinkpad)</string>
 					<key>Disabled</key>
 					<false/>
@@ -253,6 +239,34 @@
 					<key>Replace</key>
 					<data>
 					SERBVQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change AZAL to HDEF</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					QVpBTA==
+					</data>
+					<key>Replace</key>
+					<data>
+					SERFRg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change SAT0 to SATA (?)</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					U0FUMA==
+					</data>
+					<key>Replace</key>
+					<data>
+					U0FUQQ==
 					</data>
 				</dict>
 			</array>
@@ -294,14 +308,16 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v dart=0 -xcpm nv_disable=1 debug=0x100 kextlog=0xffff uia_exclude=SSP14;SSP19 -alcbeta -alcdbg -liludbg</string>
+		<string>dart=0 -xcpm nv_disable=1 kextlog=0xffff uia_exclude=SSP14;SSP19 -alcbeta -alcdbg -liludbg</string>
 		<key>Debug</key>
-		<true/>
+		<false/>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
+		<true/>
+		<key>NoEarlyProgress</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
@@ -310,15 +326,26 @@
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>C2</key>
+		<true/>
+		<key>C4</key>
+		<true/>
+		<key>C6</key>
+		<true/>
+	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>#AddProperties</key>
+		<key>AddProperties</key>
 		<array>
 			<dict>
 				<key>Comment</key>
 				<string>hda-gfx=onboard-1 for HDMI audio</string>
 				<key>Device</key>
 				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Key</key>
 				<string>hda-gfx</string>
 				<key>Value</key>
@@ -331,6 +358,8 @@
 				<string>hda-gfx=onboard-1 for HDMI audio</string>
 				<key>Device</key>
 				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Key</key>
 				<string>hda-gfx</string>
 				<key>Value</key>
@@ -343,6 +372,8 @@
 				<string>layout-id=3</string>
 				<key>Device</key>
 				<string>HDA</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Key</key>
 				<string>layout-id</string>
 				<key>Value</key>
@@ -352,18 +383,21 @@
 			</dict>
 			<dict>
 				<key>Device</key>
-				<string>HDA</string>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Key</key>
-				<string>PinConfigurations</string>
+				<string>layout-id</string>
 				<key>Value</key>
 				<data>
+				AwAAAA==
 				</data>
 			</dict>
 		</array>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<integer>0</integer>
+			<string>3</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -432,8 +466,10 @@
 			<key>Tool</key>
 			<true/>
 		</dict>
+		<key>ScreenResolution</key>
+		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>BGM</string>
+		<string>YosemiteLogin</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -502,6 +538,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Enable TRIM for SSD</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				AEFQUExFIFNTRAA=
@@ -516,6 +554,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>patch_AppleRTC</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				dS4Ptg==
@@ -530,6 +570,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Enable USB3 after wake for Intel 8 series chipset</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				xoDIAAAAAQ==
@@ -1251,7 +1293,9 @@
 		<key>MLB</key>
 		<string>C02351201CXFP5C15</string>
 		<key>ROM</key>
-		<string>0c4de92d7d40</string>
+		<data>
+		DE3pLX1A
+		</data>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
@@ -1332,7 +1376,7 @@
 		<key>CustomUUID</key>
 		<string>9E96C829-98A1-715B-BDED-BCEBE3B7CB25</string>
 		<key>InjectKexts</key>
-		<string>YES</string>
+		<string>Yes</string>
 		<key>InjectKexts_</key>
 		<string>Detect</string>
 		<key>InjectSystemID</key>
