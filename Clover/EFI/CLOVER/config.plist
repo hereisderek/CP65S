@@ -373,7 +373,7 @@
 				<key>Device</key>
 				<string>HDA</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Key</key>
 				<string>layout-id</string>
 				<key>Value</key>
@@ -385,7 +385,7 @@
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Key</key>
 				<string>layout-id</string>
 				<key>Value</key>
@@ -397,7 +397,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>4</string>
+			<string>99</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -406,14 +406,10 @@
 		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
-			<true/>
-			<key>HighCurrent</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>DisableDrivers</key>
@@ -494,6 +490,8 @@
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
+		<key>AppleIntelCPUPM</key>
+		<false/>
 		<key>AppleRTC</key>
 		<true/>
 		<key>AsusAICPUPM</key>
