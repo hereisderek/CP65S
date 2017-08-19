@@ -28,7 +28,8 @@ mv SSDT-32.aml SSDT-32.aml_
 [ -d ../dsl_dump ] && rm -R ../dsl_dump
 mkdir ../dsl_dump
 
-cd dsl_dump
+# compose compile list
+
 iasl -da -dl -fe ../refs.txt *.aml
 
 mv *.dsl ../dsl_dump/
@@ -36,8 +37,18 @@ mv *.dsl ../dsl_dump/
 mv SSDT-1.aml_ SSDT-1.aml
 mv SSDT-32.aml_ SSDT-32.aml
 
-cd ..
 
+
+
+# dump individual dsl files
+[ -d ../individual_dump ] && rm -R ../individual_dump
+mkdir ../individual_dump
+for file in *.aml; do 
+	echo "file: $file"
+	iasl -da -dl -fe  ../refs.txt -p "../individual_dump/${file##*/}" $file >/dev/null
+done
+
+cd ..
 
 echo "done"
 # ls aml_dump/

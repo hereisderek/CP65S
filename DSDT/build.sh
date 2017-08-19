@@ -17,7 +17,7 @@
 skipped=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1")
 
 
-workDir=hot_patch
+dsdtDir=dsdtOriginalFix
 buildDir=output
 hotpatchDir=hot_patch
 hotpatchBuildDir=output_hot_patch
@@ -71,9 +71,9 @@ fi
 
 mkdir ${buildDir}
 
-for dslFile in ${workDir}/*.dsl
+for dslFile in ${dsdtDir}/*.dsl
 do
-	compileDslFile "${workDir}" "${dslFile}" "${buildDir}"
+	compileDslFile "${dsdtDir}" "${dslFile}" "${buildDir}"
 	# iasl -ve -p "${buildDir}/${fileName}.aml" "${dslFile}"
 	if [ $? -ne 0 ]; then
 		((var+=1))
@@ -90,7 +90,7 @@ if [ -d ${hotpatchDir} ]; then
 
 	for dslFile in ${hotpatchDir}/*.dsl
 	do
-		compileDslFile "${workDir}" "${dslFile}" "${hotpatchBuildDir}"
+		compileDslFile "${dsdtDir}" "${dslFile}" "${hotpatchBuildDir}"
 		# iasl -ve -p "${buildDir}/${fileName}.aml" "${dslFile}"
 		if [ $? -ne 0 ]; then
 			((var+=1))

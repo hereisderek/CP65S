@@ -4,3 +4,6 @@ work/
 !work/*
 output/
 output_hot_patch/
+individual_dump/
+group_decompile/
+aml_dump/
