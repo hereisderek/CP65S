@@ -14,16 +14,15 @@
 # External(_GPE.VHOV, MethodObj, 3)
 # External(_SB.PCI0.XHC.RHUB.TPLD, MethodObj, 2)
 
-workDir=work
-buildDir=build
+skipped=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1")
+
+
+workDir=hot_patch
+buildDir=output
 hotpatchDir=hot_patch
-hotpatchBuildDir=build_hot_patch
+hotpatchBuildDir=output_hot_patch
 
-if [ -d build ]; then
-	rm -r build
-fi
 
-mkdir build
 errorCounter=0
 
 
@@ -43,7 +42,14 @@ compileDslFile() {
 	
 	local fileName="${dslFile##*/}"
 	fileName="${fileName%%.*}"
+
 	echo "${dslFile} fileName: $fileName"
+
+
+	for skippedDsl in ${skipped[@]}; do
+		[ "$skippedDsl" = "$fileName" ] && echo "DSL file: $fileName is skipped" && return 0
+	done
+
 
 	local outputFile="${outputDir}/${fileName}.aml"
 	[ -f ${outputFile} ] && rm ${outputFile}
@@ -58,6 +64,13 @@ compileDslFile() {
 }
 
 echo "compiling dsl"
+
+if [ -d ${buildDir} ]; then
+	rm -r ${buildDir}
+fi
+
+mkdir ${buildDir}
+
 for dslFile in ${workDir}/*.dsl
 do
 	compileDslFile "${workDir}" "${dslFile}" "${buildDir}"
@@ -69,6 +82,12 @@ done
 
 if [ -d ${hotpatchDir} ]; then
 	echo "compiling hot patches"
+
+	if [ -d ${hotpatchBuildDir} ]; then
+		rm -r ${hotpatchBuildDir}
+	fi
+	mkdir ${hotpatchBuildDir}
+
 	for dslFile in ${hotpatchDir}/*.dsl
 	do
 		compileDslFile "${workDir}" "${dslFile}" "${hotpatchBuildDir}"

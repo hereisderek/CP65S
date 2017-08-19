@@ -1,0 +1,6 @@
+dump/
+tmp/
+work/
+!work/*
+output/
+output_hot_patch/
