@@ -3879,127 +3879,6 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Return (PR0F ())
                 }
             }
-
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
-            Zero
             Device (B0D4)
             {
                 Name (_ADR, 0x00040000)  // _ADR: Address
@@ -12503,11 +12382,12 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     Store (0x07D9, OSYS)
                 }
-
+                
                 If (_OSI ("Windows 2012"))
                 {
-                    Store (0x07DC, OSYS)
+                    Store (0x07D9, OSYS)
                 }
+
 
                 If (_OSI ("Windows 2013"))
                 {
@@ -12518,8 +12398,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     Store (0x07DE, OSYS)
                 }
-
-                If (_OSI ("Windows 2015"))
+                
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2015")))
                 {
                     Store (0x07DF, OSYS)
                 }

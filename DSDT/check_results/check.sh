@@ -30,9 +30,9 @@ mkdir ../dsl_dump
 
 # compose compile list
 
-iasl -da -dl -fe ../refs.txt *.aml
+iasl -da -dl -fe ../refs.txt *.aml >/dev/null
 
-mv *.dsl ../dsl_dump/
+[ $? -eq 0 ] && mv *.dsl ../dsl_dump/
 
 mv SSDT-1.aml_ SSDT-1.aml
 mv SSDT-32.aml_ SSDT-32.aml
@@ -43,9 +43,11 @@ mv SSDT-32.aml_ SSDT-32.aml
 # dump individual dsl files
 [ -d ../individual_dump ] && rm -R ../individual_dump
 mkdir ../individual_dump
+
+echo "decompiling individual dsl file"
 for file in *.aml; do 
-	echo "file: $file"
-	iasl -da -dl -fe  ../refs.txt -p "../individual_dump/${file##*/}" $file >/dev/null
+	# echo "file: $file"
+	iasl -da -dl -fe  ../refs.txt -p "../individual_dump/${file##*/}" $file >/dev/null 2>&1
 done
 
 cd ..
