@@ -2,14 +2,8 @@
 
 DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
 {
-    
-    External (RMDT, DeviceObj)
-    External (RMDT.PUSH, MethodObj)
-    
     Device(RMCF)
     {
-
-    
         Name(_ADR, 0)   // do not remove
 
         Method(HELP)
@@ -36,7 +30,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // For 1600x900+ on Sandy/Ivy, use 1
         // For UHD/QHD+ on Haswell/Broadwell, use 1
         // Others (low resolution), use 0
-        Name(HIGH, 1)
+        Name(HIGH, 0)
 
         // IGPI: Override for ig-platform-id (or snb-platform-id).  Will be used if non-zero.
         // For example, if you wanted to inject a bogus id, 0x12345678
@@ -48,7 +42,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         //  0: does not manipulate the DGPU in _WAK and _PTS
         //  1: disables the DGPU in _WAK and enables it in _PTS
-        Name(DPTS, 1)
+        Name(DPTS, 0)
 
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //
@@ -74,7 +68,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // 0: Using IntelBacklight.kext
         // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
-        Name(BKLT, 0)
+        Name(BKLT, 1)
 
         // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
         //
@@ -89,9 +83,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // 1: Ivy/Sandy
         // 2: Haswell/Broadwell/Skylake/KabyLake
         Name(FBTP, 0)
-        
-        \RMDT.PUSH("Configuration finished")
     }
-
 }
 //EOF

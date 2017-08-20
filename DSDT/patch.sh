@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# this script patches all the dsl files within a given folder with a given patch
+# (still needs a lot of work)
+
 # if hash gdate 2>/dev/null; then
 #         gdate "$@"
 #     else

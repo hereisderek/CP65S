@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+# this script is used to compile both modified dsl files (dsdtDir) and hotpatch files (hotpatchBuildDir)
+# into buildDir and hotpatchBuildDir respectfully
+
+
 # To decompile: iasl -da -dl -fe refs.txt DSDT.aml SSDT*.aml
 
 
@@ -14,12 +19,14 @@
 # External(_GPE.VHOV, MethodObj, 3)
 # External(_SB.PCI0.XHC.RHUB.TPLD, MethodObj, 2)
 
-skipped=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1")
+DEBUG=true
+
+skippedDslName=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1")
 
 
-dsdtDir=dsdtOriginalFix
+dsdtDir=work_dir_dsl
 buildDir=output
-hotpatchDir=hot_patch
+hotpatchDir=work_dir_hotpatch
 hotpatchBuildDir=output_hot_patch
 
 
@@ -43,17 +50,34 @@ compileDslFile() {
 	local fileName="${dslFile##*/}"
 	fileName="${fileName%%.*}"
 
-	echo "${dslFile} fileName: $fileName"
+	[ $DEBUG ] && echo "${dslFile} fileName: $fileName"
 
 
-	for skippedDsl in ${skipped[@]}; do
-		[ "$skippedDsl" = "$fileName" ] && echo "DSL file: $fileName is skipped" && return 0
+	local skipped=false
+	for skippedDsl in ${skippedDslName[@]}; do
+		if [ "$skippedDsl" = "$fileName" ]; then
+			echo "DSL file: $fileName is skipped"
+			skipped=true
+			break
+		fi
 	done
 
+	if [[ "$skipped" == true && ! -d "${outputDir}/disabled" ]]; then
+		mkdir -p "${outputDir}/disabled"
+	fi
+	
+	local outputFile=""
+	if [ "$skipped" = true ] ; then
+		outputFile="${outputDir}/disabled/${fileName}.aml"
+	else
+		outputFile="${outputDir}/${fileName}.aml"
+	fi
+	[ DEBUG ] && echo "file is skipped: $skipped, output: $outputFile, outputDir:${outputDir}, fileName: $fileName"
 
-	local outputFile="${outputDir}/${fileName}.aml"
+	# local outputFile="${outputDir}/${fileName}.aml"
+	# [[ $skipped ]] && outputFile="${outputDir}/disabled/${fileName}.aml"
+
 	[ -f ${outputFile} ] && rm ${outputFile}
-
 
 	echo "compiling  ${dslFile} into ${outputFile}  "
 	iasl -ve -p "${outputFile}" "${dslFile}" 
@@ -71,14 +95,21 @@ fi
 
 mkdir ${buildDir}
 
-for dslFile in ${dsdtDir}/*.dsl
-do
-	compileDslFile "${dsdtDir}" "${dslFile}" "${buildDir}"
-	# iasl -ve -p "${buildDir}/${fileName}.aml" "${dslFile}"
-	if [ $? -ne 0 ]; then
-		((var+=1))
-	fi
-done
+if [ ! -d ${dsdtDir} ]; then
+	echo "unable to find dsdt dir, skipping the machine dsl compiling"
+
+else
+	for dslFile in ${dsdtDir}/*.dsl
+		do
+			compileDslFile "${dsdtDir}" "${dslFile}" "${buildDir}"
+			# iasl -ve -p "${buildDir}/${fileName}.aml" "${dslFile}"
+			if [ $? -ne 0 ]; then
+				((var+=1))
+			fi
+		done
+fi
+
+
 
 if [ -d ${hotpatchDir} ]; then
 	echo "compiling hot patches"

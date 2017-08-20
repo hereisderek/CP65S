@@ -48,7 +48,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "LPC", 0)
             {
                 // start search for zero-terminator (prefix to injection package)
                 Local0 = Match(LPDL, MEQ, 0, MTR, 0, Local0+1)
-                Store("injecting LPCB", Debug)
                 Return (DerefOf(LPDL[Local0+1]))
             }
             // if no match, assume it is supported natively... no inject
