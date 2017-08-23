@@ -265,15 +265,7 @@
 			<dict>
 				<key>#Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
-				<key>FIX_RTC_20000</key>
-				<true/>
-				<key>FIX_TMR_40000</key>
-				<true/>
-				<key>FixHPET_0010</key>
-				<true/>
 				<key>FixHeaders_20000000</key>
-				<true/>
-				<key>FixIPIC_0040</key>
 				<true/>
 				<key>FixRegions_10000000</key>
 				<true/>
@@ -459,7 +451,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 -xcpm nv_disable=1 keepsyms=1 kextlog=0xffff -alcbeta -alcdbg -liludbg -uia_exclude_hs</string>
+		<string>dart=0 -xcpm nv_disable=1 keepsyms=1 kextlog=0xffff -alcoff -alcbeta -alcdbg -liludbg -uia_exclude_hs</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -540,14 +532,14 @@
 		<dict>
 			<key>Inject</key>
 			<string>4</string>
+			<key>ResetHDA</key>
+			<true/>
 		</dict>
 		<key>FakeID</key>
 		<dict>
 			<key>IntelGFX</key>
 			<string>0x04128086</string>
 		</dict>
-		<key>SetIntelBacklight</key>
-		<true/>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
@@ -570,6 +562,8 @@
 	<dict>
 		<key>#ScreenResolution</key>
 		<string>1920x1080</string>
+		<key>ConsoleMode</key>
+		<string>Max</string>
 		<key>Mouse</key>
 		<dict>
 			<key>DoubleClick</key>
@@ -600,7 +594,9 @@
 		<key>EDID</key>
 		<dict>
 			<key>Inject</key>
-			<false/>
+			<true/>
+			<key>ProductID</key>
+			<string>0x9c7c</string>
 		</dict>
 		<key>Inject</key>
 		<dict>

@@ -48,6 +48,8 @@
 			<string>com.rehabman.driver.IntelBacklight</string>
 			<key>Configuration</key>
 			<dict>
+				<key>#Options</key>
+				<integer>2</integer>
 				<key>BacklightLevels</key>
 				<data>
 				AAAAIwAnACwAMgA6AEMATQBYAGUAcwCCAJMApQC4AMwA
@@ -64,7 +66,7 @@
 				<key>LEVWInit</key>
 				<integer>3221225472</integer>
 				<key>Options</key>
-				<integer>2</integer>
+				<integer>1</integer>
 				<key>PCHLInit</key>
 				<integer>-1</integer>
 				<key>PWMMax</key>
