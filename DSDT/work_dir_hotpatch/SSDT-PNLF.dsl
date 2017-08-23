@@ -29,8 +29,19 @@ DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
         // 12: Skylake/KabyLake 0x56c (and some Haswell, example 0xa2e0008)
         // 99: Other
         Name(_UID, 0)
+        // Name(_UID, 0xad9)
+        // Name(_UID, 0x0B)
         Name(_STA, 0x0B)
 
+        // Method (RMCF)
+        // {
+        //     Return(Package()
+        //     {
+        //         "PWMMax", 0, // PWMMax of Zero uses BIOS PWM Max instead of OS X values
+        //         "Options", 0x01, // setting bit0 turns off smooth transitions
+        //     })
+        // }
+        
         Field(^IGD5, AnyAcc, NoLock, Preserve)
         {
             Offset(0x02), GDID,16,

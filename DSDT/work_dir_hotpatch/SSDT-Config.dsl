@@ -2,6 +2,17 @@
 
 DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
 {
+    External (RMDT, DeviceObj)
+    External (RMDT.PUSH, MethodObj)
+    External (RMDT.P1, MethodObj)
+    External (RMDT.P2, MethodObj)
+    External (RMDT.P3, MethodObj)
+    External (RMDT.P4, MethodObj)
+    External (RMDT.P5, MethodObj)
+    External (RMDT.P6, MethodObj)
+    External (RMDT.P7, MethodObj)
+    
+    
     Device(RMCF)
     {
         Name(_ADR, 0)   // do not remove
@@ -83,6 +94,18 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // 1: Ivy/Sandy
         // 2: Haswell/Broadwell/Skylake/KabyLake
         Name(FBTP, 0)
+        
+//        RMCF
+        \rmdt.p2("RMCF configuration TYPE:", TYPE)
+        \rmdt.p2("RMCF configuration HIGH:", HIGH)
+        \rmdt.p2("RMCF configuration IGPI:", IGPI)
+        \rmdt.p2("RMCF configuration DPTS:", DPTS)
+        \rmdt.p2("RMCF configuration SHUT:", SHUT)
+        \rmdt.p2("RMCF configuration XPEE:", XPEE)
+        \rmdt.p2("RMCF configuration AUDL:", AUDL)
+        \rmdt.p2("RMCF configuration BKLT:", BKLT)
+        \rmdt.p2("RMCF configuration LMAX:", LMAX)
+        \rmdt.p2("RMCF configuration FBTP:", FBTP)
     }
 }
 //EOF

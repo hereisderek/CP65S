@@ -26,3 +26,13 @@ External(_PR_.CPU6._PPC, IntObj, 1)
 External(_PR_.CPU7._PPC, IntObj, 1)
 
 External(\_PR.CPU0._PPC, IntObj, 1)
+
+External (RMDT, DeviceObj)
+External (RMDT.PUSH, MethodObj, 1)
+External (RMDT.P1, MethodObj, 1)
+External (RMDT.P2, MethodObj, 2)
+External (RMDT.P3, MethodObj, 3)
+External (RMDT.P4, MethodObj, 4)
+External (RMDT.P5, MethodObj, 5)
+External (RMDT.P6, MethodObj, 6)
+External (RMDT.P7, MethodObj, 7)
