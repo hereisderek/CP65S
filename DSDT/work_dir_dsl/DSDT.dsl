@@ -112,15 +112,6 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (PS0X, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (PS3X, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (SGMD, FieldUnitObj)
-    External (RMDT, DeviceObj)
-    External (RMDT.PUSH, MethodObj)
-    External (RMDT.P1, MethodObj)
-    External (RMDT.P2, MethodObj)
-    External (RMDT.P3, MethodObj)
-    External (RMDT.P4, MethodObj)
-    External (RMDT.P5, MethodObj)
-    External (RMDT.P6, MethodObj)
-    External (RMDT.P7, MethodObj)
 
     Name (SMBS, 0x0580)
     Name (SMBL, 0x20)
@@ -17240,80 +17231,61 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (_Q0A, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q0A enter")
                 Store (0x0A, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q0A exit")
-
             }
 
             Method (_Q0B, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q0B enter")
                 Store (0x0B, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q0B exit")
-
             }
 
             Method (_Q0C, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q0C enter")
                 Store (0x0C, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFB, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q0C exit")
-
             }
 
             Method (_Q0D, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q0D enter")
                 Store (0x0D, P80H)
-\rmdt.p1("EC _Q0D exit")
-
             }
 
             Method (_Q0E, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q0E enter")
                 Store (0x0E, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFA, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q0E exit")
-
             }
 
             Method (_Q0F, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q0F enter")
                 Store (0x0F, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFA, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q0F exit")
-
             }
 
             Method (_Q10, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q10 enter")
                 Store (0x10, P80H)
                 If (LEqual (OSYS, 0x03E8))
                 {
@@ -17331,17 +17303,10 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Store (0x94, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q10 exit")
-
             }
 
             Method (_Q11, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q11 enter")
-                // MARK Brightness Down
-//                Notify(\_SB.PCI0.LPCB.PS2K, 0x0205)
-//                Notify(\_SB.PCI0.LPCB.PS2K, 0x0285)
-                Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
                 Store (0x11, P80H)
                 If (And (WINF, One))
                 {
@@ -17371,17 +17336,11 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Add (OEM2, 0xE0, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-                \rmdt.p1("EC _Q11 exit")
-
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
             }
 
             Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q12 enter")
-//                Notify(\_SB.PCI0.LPCB.PS2K, 0x0206)
-//                Notify(\_SB.PCI0.LPCB.PS2K, 0x0286)
-                Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
-                
                 Store (0x12, P80H)
                 If (And (WINF, One))
                 {
@@ -17411,13 +17370,11 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Add (OEM2, 0xE0, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-                \rmdt.p1("EC _Q12 exit")
-
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
             }
 
             Method (_Q13, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q13 enter")
                 Store (0x13, P80H)
                 If (LEqual (OSYS, 0x03E8)) {}
                 If (^^^^WMI.HKDR)
@@ -17425,13 +17382,10 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q13 exit")
-
             }
 
             Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q14 enter")
                 Store (0x14, P80H)
                 If (LEqual (OSYS, 0x03E8)) {}
                 If (^^^^WMI.HKDR)
@@ -17447,13 +17401,10 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         Notify (WMI, 0xD0)
                     }
                 }
-\rmdt.p1("EC _Q14 exit")
-
             }
 
             Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q15 enter")
                 Store (0x15, P80H)
                 If (^^^^LID0.LIDF)
                 {
@@ -17467,14 +17418,11 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     Notify (SLPB, 0x80)
                 }
-\rmdt.p1("EC _Q15 exit")
-
             }
 
             Method (_Q16, 0, Serialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q16 enter")
-Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x16, P80H)
                 Store (ADP, ^^^^AC.ACFG)
                 If (And (OEMF, 0x2000))
@@ -17525,22 +17473,16 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
                 ^^^^AC.ADJP (Zero)
-\rmdt.p1("EC _Q16 exit")
-
             }
 
             Method (_Q17, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q17 enter")
                 Store (0x17, P80H)
                 Notify (^^^^BAT0, 0x81)
-\rmdt.p1("EC _Q17 exit")
-
             }
 
             Method (_Q19, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q19 enter")
                 Store (0x19, P80H)
                 Notify (^^^^BAT0, 0x81)
                 If (LEqual (ECBL, Zero))
@@ -17560,13 +17502,10 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     Store (0xB7, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q19 exit")
-
             }
 
             Method (_Q1B, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q1B enter")
                 Store (0x1B, P80H)
                 If (^^^^LID0.LIDF)
                 {
@@ -17584,32 +17523,23 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 {
                     Notify (LID0, 0x80)
                 }
-\rmdt.p1("EC _Q1B exit")
-
             }
 
             Method (_Q1C, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q1C enter")
                 Store (0x1C, P80H)
                 Notify (\_TZ.TZ0, 0x81)
                 Notify (\_TZ.TZ0, 0x80)
-\rmdt.p1("EC _Q1C exit")
-
             }
 
             Method (_Q1D, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q1D enter")
                 Store (0x1D, P80H)
                 Notify (PWRB, 0x80)
-\rmdt.p1("EC _Q1D exit")
-
             }
 
             Method (_Q1E, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q1E enter")
                 Store (0x1E, P80H)
                 If (LEqual (ECBL, Zero))
                 {
@@ -17628,21 +17558,15 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     Store (0xB7, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q1E exit")
-
             }
 
             Method (_Q24, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q24 enter")
                 Store (0x24, P80H)
-\rmdt.p1("EC _Q24 exit")
-
             }
 
             Method (_Q35, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q35 enter")
                 Store (0x35, P80H)
                 If (^^^^WMI.HKDR)
                 {
@@ -17660,22 +17584,16 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
 
                 Notify (WMI, 0xD0)
                 ^^^^AC.ADJP (Zero)
-\rmdt.p1("EC _Q35 exit")
-
             }
 
             Method (_Q36, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q36 enter")
                 Store (0x36, P80H)
-\rmdt.p1("EC _Q36 exit")
-
             }
 
             Method (_Q37, 0, Serialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q37 enter")
-Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x37, P80H)
                 If (And (OEM3, 0x2000))
@@ -17730,71 +17648,53 @@ Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 }
 
                 ^^^^AC.ADJP (Zero)
-\rmdt.p1("EC _Q37 exit")
-
             }
 
             Method (_Q39, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q39 enter")
                 Store (0x39, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (OEM4, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q39 exit")
-
             }
 
             Method (_Q40, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q40 enter")
                 Store (0x40, P80H)
                 If (^^^^WMI.HKDR)
                 {
                     Store (0xFE, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-\rmdt.p1("EC _Q40 exit")
-
             }
 
             Method (_Q41, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q41 enter")
                 Store (0x41, P80H)
-\rmdt.p1("EC _Q41 exit")
-
             }
 
             Method (_Q42, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q42 enter")
                 Store (0x42, P80H)
                 Store (Increment (PRC0), PRC0)
                 Store (One, TBFG)
                 Store (One, ECTB)
                 ^^^^AC.ADJP (Zero)
-\rmdt.p1("EC _Q42 exit")
-
             }
 
             Method (_Q53, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q53 enter")
                 Store (0x53, P80H)
                 Store (Increment (PRC1), PRC1)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
                 ^^^^AC.ADJP (Zero)
-\rmdt.p1("EC _Q53 exit")
-
             }
 
             Method (_Q54, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q54 enter")
                 Store (0x54, P80H)
                 Store (0x08, CCST)
                 Store (Increment (PRIN), PRIN)
@@ -17802,13 +17702,10 @@ Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 ^^^^AC.ADJP (Zero)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
-\rmdt.p1("EC _Q54 exit")
-
             }
 
             Method (_Q55, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q55 enter")
                 Store (0x55, P80H)
                 Store (Zero, CCST)
                 Store (Increment (PSTE), PSTE)
@@ -17816,22 +17713,16 @@ Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
                 ^^^^AC.ADJP (Zero)
                 Store (Zero, TBFG)
                 Store (Zero, ECTB)
-\rmdt.p1("EC _Q55 exit")
-
             }
 
             Method (_Q46, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q46 enter")
                 Store (0x46, P80H)
-\rmdt.p1("EC _Q46 exit")
-
             }
 
             Method (_Q4A, 0, Serialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q4A enter")
-Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x4A, P80H)
                 Store (OEM4, Local0)
                 While (One)
@@ -17856,13 +17747,10 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
 
                     Break
                 }
-\rmdt.p1("EC _Q4A exit")
-
             }
 
             Method (_Q4C, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q4C enter")
                 Store (0x4C, P80H)
                 CreateField (^^^PEG0.PEGP.TGPC, 0x0A, 0x02, PRGE)
                 If (LEqual (ToInteger (PRGE), Zero))
@@ -17880,20 +17768,14 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 {
                     Store (One, ^^^PEG0.LNKD)
                 }
-\rmdt.p1("EC _Q4C exit")
-
             }
 
             Method (_Q61, 0, NotSerialized)  // _Qxx: EC Query
-            {\rmdt.p1("EC _Q61 enter")
-
-\rmdt.p1("EC _Q61 exit")
-
+            {
             }
 
             Method (_Q51, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q51 enter")
                 Store (0x51, P80H)
                 Store ("Q_event 51", Debug)
                 Store (Decrement (BBST), BBST)
@@ -17932,13 +17814,10 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     Notify (^^^PEG0.PEGP, 0xD5)
                     Store ("Notify D5", Debug)
                 }
-\rmdt.p1("EC _Q51 exit")
-
             }
 
             Method (_Q52, 0, NotSerialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q52 enter")
                 Store (0x52, P80H)
                 Store ("Q_event 52", Debug)
                 Store (Increment (BBST), BBST)
@@ -17977,14 +17856,11 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                     Notify (^^^PEG0.PEGP, 0xD1)
                     Store ("Notify D1", Debug)
                 }
-\rmdt.p1("EC _Q52 exit")
-
             }
 
             Method (_Q50, 0, Serialized)  // _Qxx: EC Query
             {
-                \rmdt.p1("EC _Q50 enter")
-Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
+                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 Store (0x50, P80H)
                 Store (OEM4, Local0)
                 While (One)
@@ -18174,8 +18050,6 @@ Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
 
                     Break
                 }
-\rmdt.p1("EC _Q50 exit")
-
             }
         }
     }

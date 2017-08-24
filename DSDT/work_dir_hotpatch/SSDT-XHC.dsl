@@ -3,10 +3,20 @@
 DefinitionBlock("", "SSDT", 2, "hack", "XHC", 0)
 {
     External(_SB.PCI0.XHC, DeviceObj)
+    External (RMDT, DeviceObj)
+    External (RMDT.PUSH, MethodObj)
+    External (RMDT.P1, MethodObj)
+    External (RMDT.P2, MethodObj)
+    External (RMDT.P3, MethodObj)
+    External (RMDT.P4, MethodObj)
+    External (RMDT.P5, MethodObj)
+    External (RMDT.P6, MethodObj)
+    External (RMDT.P7, MethodObj)
 
     // inject properties for XHCI
     Method(_SB.PCI0.XHC._DSM, 4)
     {
+        \rmdt.p5("XHC enter", Arg0, Arg1, Arg2, Arg3)
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Local0 = Package()
         {
