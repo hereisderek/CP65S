@@ -27,7 +27,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
             Name (_ADR, Zero)  // _ADR: Address
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                Store (Package (0x08)
+                Store (Package ()
                     {
                         "kUSBSleepPowerSupply", 0x13EC,
                         "kUSBSleepPortCurrentLimit", 0x0834,
@@ -35,7 +35,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                         "kUSBWakePortCurrentLimit", 0x0834,
                         
                         "AAPL,current-available", 0x0834,      // Buffer() { 0x34, 0x08, 0, 0 },
-                        "AAPL,current-extra", 0x898            // Buffer() { 0x98, 0x08, 0, 0, },
+                        "AAPL,current-extra", 0x898,            // Buffer() { 0x98, 0x08, 0, 0, },
                         "AAPL,current-extra-in-sleep", 0x640,  // Buffer() { 0x40, 0x06, 0, 0, },
                         "AAPL,max-port-current-in-sleep", 0x0834,
                         
