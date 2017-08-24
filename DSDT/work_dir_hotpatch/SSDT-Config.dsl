@@ -12,6 +12,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     External (RMDT.P6, MethodObj)
     External (RMDT.P7, MethodObj)
     
+    External (_SB.PCI0.LPCB.PS2K, DeviceObj)
+    External (_SB.PCI0.LPCB.EC, DeviceObj)
+    External (_SB.PCI0.LPCB.EC.XQ11, MethodObj)
+    External (_SB.PCI0.LPCB.EC.XQ12, MethodObj)
+    
     
     Device(RMCF)
     {
@@ -108,6 +113,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         \rmdt.p2("RMCF configuration FBTP:", FBTP)
     }
     
+    // a common method extracted from mac
     Method (DTGP, 5, NotSerialized)
     {
         If (LEqual (Arg0, Buffer (0x10)
@@ -138,5 +144,28 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         }, Arg4)
         Return (Zero)
     }
+
+    Scope(_SB.PCI0.LPCB.EC)
+    {
+        // keyboard brightness adjustment fix
+        Method(_SB.PCI0.LPCB.EC._Q11, 0)
+        {
+            // call the original method
+            \rmdt.p1("enter custom Q11 for brightness up")
+            If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ11)) { \_SB.PCI0.LPCB.EC.XQ11() }
+            If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0405) }
+            // Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
+        }
+
+        Method(_SB.PCI0.LPCB.EC._Q12, 0)
+        {
+            // call the original method
+            \rmdt.p1("enter custom Q12 for brightness down")
+            If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ12)) { \_SB.PCI0.LPCB.EC.XQ12() }
+            If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0406) }
+            // Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
+        }
+    }
+
 }
 //EOF

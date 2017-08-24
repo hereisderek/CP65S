@@ -17336,7 +17336,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Add (OEM2, 0xE0, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-                Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
+                // brightness up
+                // Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
             }
 
             Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
@@ -17370,7 +17371,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Add (OEM2, 0xE0, ^^^^WMI.EVNT)
                     Notify (WMI, 0xD0)
                 }
-                Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
+                // brightness down
+                // Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
             }
 
             Method (_Q13, 0, NotSerialized)  // _Qxx: EC Query
