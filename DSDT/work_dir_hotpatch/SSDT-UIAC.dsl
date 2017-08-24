@@ -18,6 +18,32 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
 {
+    External(DTGP, MethodObj)
+    
+    Scope (_SB)
+    {
+        Device (USBX)
+        {
+            Name (_ADR, Zero)  // _ADR: Address
+            Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+            {
+                Store (Package (0x08)
+                    {
+                        "kUSBSleepPowerSupply",
+                        0x13EC,
+                        "kUSBSleepPortCurrentLimit",
+                        0x0834,
+                        "kUSBWakePowerSupply",
+                        0x13EC,
+                        "kUSBWakePortCurrentLimit",
+                        0x0834
+                    }, Local0)
+                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                Return (Local0)
+            }
+        }
+    }
+    
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
