@@ -14,12 +14,12 @@
 // portType=0 seems to indicate normal external USB2 port (as seen in MacBookPro8,1)
 // portType=2 seems to indicate "internal device" (as seen in MacBookPro8,1)
 // portType=4 is used by MacBookPro8,3 (reason/purpose unknown)
-//
+// 
+// Common port connector types are USB2 = 0, USB3 = 3, internal = 255.
 
 DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
 {
     External(DTGP, MethodObj)
-    
     Scope (_SB)
     {
         Device (USBX)
@@ -29,14 +29,16 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
             {
                 Store (Package (0x08)
                     {
-                        "kUSBSleepPowerSupply",
-                        0x13EC,
-                        "kUSBSleepPortCurrentLimit",
-                        0x0834,
-                        "kUSBWakePowerSupply",
-                        0x13EC,
-                        "kUSBWakePortCurrentLimit",
-                        0x0834
+                        "kUSBSleepPowerSupply", 0x13EC,
+                        "kUSBSleepPortCurrentLimit", 0x0834,
+                        "kUSBWakePowerSupply", 0x13EC,
+                        "kUSBWakePortCurrentLimit", 0x0834,
+                        
+                        "AAPL,current-available", 0x0834,      // Buffer() { 0x34, 0x08, 0, 0 },
+                        "AAPL,current-extra", 0x898            // Buffer() { 0x98, 0x08, 0, 0, },
+                        "AAPL,current-extra-in-sleep", 0x640,  // Buffer() { 0x40, 0x06, 0, 0, },
+                        "AAPL,max-port-current-in-sleep", 0x0834,
+                        
                     }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                 Return (Local0)
@@ -67,16 +69,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                         "portType", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    "HP13", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
+//                    "HP13", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 3, 0, 0, 0 },
+//                    },
+
+                    // Bluetooth Radio
                     "HP14", Package()
                     {
                         //"UsbConnector", 0,
-                        "portType", 0,
+                        //"portType", 0,
+                        "portType", 2,
                         "port", Buffer() { 4, 0, 0, 0 },
                     },
                     "HP15", Package()
@@ -85,24 +90,27 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                         "portType", 0,
                         "port", Buffer() { 5, 0, 0, 0 },
                     },
+                    
+                    // BisonCam, NB Pro
                     "HP16", Package()
                     {
                         //"UsbConnector", 0,
-                        "portType", 0,
+                        //"portType", 0,
+                        "portType", 2,
                         "port", Buffer() { 6, 0, 0, 0 },
                     },
-                    "HP17", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 7, 0, 0, 0 },
-                    },
-                    "HP18", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 8, 0, 0, 0 },
-                    },
+//                    "HP17", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 7, 0, 0, 0 },
+//                    },
+//                    "HP18", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 8, 0, 0, 0 },
+//                    },
                 },
             },
             "HUB2", Package()
@@ -110,126 +118,131 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                 "port-count", Buffer() { 6, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HP21", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 1, 0, 0, 0 },
-                    },
+//                    "HP21", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 1, 0, 0, 0 },
+//                    },
                     "HP22", Package()
                     {
                         //"UsbConnector", 0,
                         "portType", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
-                    "HP23", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    "HP24", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    "HP25", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 5, 0, 0, 0 },
-                    },
-                    "HP26", Package()
-                    {
-                        //"UsbConnector", 0,
-                        "portType", 0,
-                        "port", Buffer() { 6, 0, 0, 0 },
-                    },
+//                    "HP23", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 3, 0, 0, 0 },
+//                    },
+//                    "HP24", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
+//                    "HP25", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 5, 0, 0, 0 },
+//                    },
+//                    "HP26", Package()
+//                    {
+//                        //"UsbConnector", 0,
+//                        "portType", 0,
+//                        "port", Buffer() { 6, 0, 0, 0 },
+//                    },
                 },
             },
             "EH01", Package()
             {
-                "port-count", Buffer() { 8, 0, 0, 0 },
+//                "port-count", Buffer() { 8, 0, 0, 0 },
+                "port-count", Buffer() { 1, 0, 0, 0 },
                 "ports", Package()
                 {
                     "PR11", Package()
                     {
-                        "UsbConnector", 255,
+//                        "UsbConnector", 255,
+                        "UsbConnector", 0,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    "PR12", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 2, 0, 0, 0 },
-                    },
-                    "PR13", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    "PR14", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    "PR15", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 5, 0, 0, 0 },
-                    },
-                    "PR16", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 6, 0, 0, 0 },
-                    },
-                    "PR17", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 7, 0, 0, 0 },
-                    },
-                    "PR18", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 8, 0, 0, 0 },
-                    },
+//                    "PR12", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 2, 0, 0, 0 },
+//                    },
+//                    "PR13", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 3, 0, 0, 0 },
+//                    },
+//                    "PR14", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
+//                    "PR15", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 5, 0, 0, 0 },
+//                    },
+//                    "PR16", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 6, 0, 0, 0 },
+//                    },
+//                    "PR17", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 7, 0, 0, 0 },
+//                    },
+//                    "PR18", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 8, 0, 0, 0 },
+//                    },
                 },
             },
             "EH02", Package()
             {
-                "port-count", Buffer() { 6, 0, 0, 0 },
+//                "port-count", Buffer() { 6, 0, 0, 0 },
+                "port-count", Buffer() { 1, 0, 0, 0 },
+                
                 "ports", Package()
                 {
                     "PR21", Package()
                     {
-                        "UsbConnector", 255,
+//                        "UsbConnector", 255,
+                        "UsbConnector", 0,
                         "port", Buffer() { 1, 0, 0, 0 },
                     },
-                    "PR22", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 2, 0, 0, 0 },
-                    },
-                    "PR23", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    "PR24", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    "PR25", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 5, 0, 0, 0 },
-                    },
-                    "PR26", Package()
-                    {
-                        "UsbConnector", 0,
-                        "port", Buffer() { 6, 0, 0, 0 },
-                    },
+//                    "PR22", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 2, 0, 0, 0 },
+//                    },
+//                    "PR23", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 3, 0, 0, 0 },
+//                    },
+//                    "PR24", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
+//                    "PR25", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 5, 0, 0, 0 },
+//                    },
+//                    "PR26", Package()
+//                    {
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 6, 0, 0, 0 },
+//                    },
                 },
             },
             "8086_1e31", Package()
@@ -279,109 +292,147 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                     },
                 },
             },
+            // this is our XHC device for our CP65S board
             "8086_8xxx", Package()
             {
                 "port-count", Buffer() { 21, 0, 0, 0 },
                 "ports", Package()
                 {
-                    "HS01", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 1, 0, 0, 0 },
-                    },
-                    "HS02", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 2, 0, 0, 0 },
-                    },
-                    "HS03", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    "HS04", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
-                    "HS05", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 5, 0, 0, 0 },
-                    },
-                    "HS06", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 6, 0, 0, 0 },
-                    },
-                    "HS07", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 7, 0, 0, 0 },
-                    },
-                    "HS08", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 8, 0, 0, 0 },
-                    },
-                    "HS09", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 9, 0, 0, 0 },
-                    },
-                    "HS10", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 10, 0, 0, 0 },
-                    },
-                    "HS11", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 11, 0, 0, 0 },
-                    },
-                    "HS12", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 12, 0, 0, 0 },
-                    },
-                    "HS13", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 13, 0, 0, 0 },
-                    },
-                    "HS14", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 14, 0, 0, 0 },
-                    },
+                    // get rid of all HS port due to port number limitation
+//                    "HS01", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 1, 0, 0, 0 },
+//                    },
+//                    "HS02", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 2, 0, 0, 0 },
+//                    },
+//                    "HS03", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 3, 0, 0, 0 },
+//                    },
+//                    "HS04", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
+//                    "HS05", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 5, 0, 0, 0 },
+//                    },
+//                    "HS06", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 6, 0, 0, 0 },
+//                    },
+//                    "HS07", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 7, 0, 0, 0 },
+//                    },
+//                    "HS08", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 8, 0, 0, 0 },
+//                    },
+//                    "HS09", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 9, 0, 0, 0 },
+//                    },
+//                    "HS10", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 10, 0, 0, 0 },
+//                    },
+//                    "HS11", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 11, 0, 0, 0 },
+//                    },
+//                    "HS12", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 12, 0, 0, 0 },
+//                    },
+//                    "HS13", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 13, 0, 0, 0 },
+//                    },
+//                    "HS14", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 14, 0, 0, 0 },
+//                    },
                     //HS15 is phantom port (port address 15 not used)
                     "SSP1", Package()
                     {
+                        "kUSBSleepPowerSupply",
+                        0x13EC,
+                        "kUSBSleepPortCurrentLimit",
+                        0x0834,
+                        "kUSBWakePowerSupply",
+                        0x13EC,
+                        "kUSBWakePortCurrentLimit",
+                        0x0834,
+                        
                         "UsbConnector", 3,
                         "port", Buffer() { 16, 0, 0, 0 },
                     },
                     "SSP2", Package()
                     {
+                        "kUSBSleepPowerSupply",
+                        0x13EC,
+                        "kUSBSleepPortCurrentLimit",
+                        0x0834,
+                        "kUSBWakePowerSupply",
+                        0x13EC,
+                        "kUSBWakePortCurrentLimit",
+                        0x0834,
+                        
                         "UsbConnector", 3,
                         "port", Buffer() { 17, 0, 0, 0 },
                     },
-                    "SSP3", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 18, 0, 0, 0 },
-                    },
-                    "SSP4", Package()
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 19, 0, 0, 0 },
-                    },
+//                    "SSP3", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 18, 0, 0, 0 },
+//                    },
+//                    "SSP4", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 19, 0, 0, 0 },
+//                    },
                     "SSP5", Package()
                     {
+                        "kUSBSleepPowerSupply",
+                        0x13EC,
+                        "kUSBSleepPortCurrentLimit",
+                        0x0834,
+                        "kUSBWakePowerSupply",
+                        0x13EC,
+                        "kUSBWakePortCurrentLimit",
+                        0x0834,
+                        
                         "UsbConnector", 3,
                         "port", Buffer() { 20, 0, 0, 0 },
                     },
                     "SSP6", Package()
                     {
+                        "kUSBSleepPowerSupply",
+                        0x13EC,
+                        "kUSBSleepPortCurrentLimit",
+                        0x0834,
+                        "kUSBWakePowerSupply",
+                        0x13EC,
+                        "kUSBWakePortCurrentLimit",
+                        0x0834,
+                        
                         "UsbConnector", 3,
                         "port", Buffer() { 21, 0, 0, 0 },
                     },

@@ -26,6 +26,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "EH02", 0)
             "AAPL,current-extra", Buffer() { 0x98, 0x08, 0, 0, },
             "AAPL,current-extra-in-sleep", Buffer() { 0x40, 0x06, 0, 0, },
             "AAPL,max-port-current-in-sleep", Buffer() { 0x34, 0x08, 0, 0 },
+                        
+            "kUSBSleepPowerSupply", 0x13EC,
+            "kUSBSleepPortCurrentLimit", 0x0834,
+            "kUSBWakePowerSupply", 0x13EC,
+            "kUSBWakePortCurrentLimit", 0x0834,
         })
     }
 }
