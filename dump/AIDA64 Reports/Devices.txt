@@ -1,3 +1,9 @@
+Bus 3, Device 0, Function 1  	Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
+Bus 4, Device 0, Function 0  	Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
+Bus 3, Device 0, Function 0  	Realtek RTS5287 PCI-E Card Reader
+
+
+
 --------[ AIDA64 Extreme ]----------------------------------------------------------------------------------------------
 
     Version                                           AIDA64 v5.92.4300

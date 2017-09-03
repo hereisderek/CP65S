@@ -3281,6 +3281,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     })
                 }
 
+                // Realtek RTS5287 PCI-E Card Reader
                 Device (PXSX)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
@@ -3462,7 +3463,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                          0x00                                           
                     })
                 }
-
+                
+                // Bus 4, Device 0, Function 0  	Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
                 Device (PXSX)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
@@ -13768,6 +13770,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         }
     }
 
+    // Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
     Scope (_SB.PCI0.RP05)
     {
         Device (RLAN)

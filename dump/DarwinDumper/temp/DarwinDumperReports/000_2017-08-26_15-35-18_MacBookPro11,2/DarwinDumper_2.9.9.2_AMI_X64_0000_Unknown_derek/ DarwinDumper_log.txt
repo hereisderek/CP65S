@@ -1,0 +1,38 @@
+========================================================
+Welcome to DarwinDumper 2.9.9.2
+Sat Aug 26 15:35:18 NZST 2017
+System Version: macOS 10.12.6 (16G29)
+========================================================
+Initialisation info
+--------------------------------------------------------
+*Reading /Users/derek/Library/Preferences/org.tom.DarwinDumper.plist
+*Found previous option: ArchiveNone
+*Found save path /Volumes/Hackintosh HD/Users/derek/Workspace/Hackintosh/Projects/CloverHardware/CP65S/dump/DarwinDumper/EDID_patched/DarwinDumperReports
+*Found previous option: edid
+*Save path verify: Path does not exist.
+*Error - Save path does not exist.
+*Symlink check: Symlink has not been created.
+*Save path: User changed to /Volumes/Hackintosh HD/Users/derek/Workspace/Hackintosh/Projects/CloverHardware/CP65S/dump/DarwinDumper/temp
+*UI: User clicked the run button
+*Save path verify: Path exists.
+*Save path verify: Path is writeable.
+*Save path verify: Path does not end with DarwinDumperReports.
+*Save path: Creating /Volumes/Hackintosh HD/Users/derek/Workspace/Hackintosh/Projects/CloverHardware/CP65S/dump/DarwinDumper/temp/DarwinDumperReports
+*Save path: Currently owned by user:501 of group:20 with permissions: 755
+*Save path: /Volumes/Hackintosh HD/Users/derek/Workspace/Hackintosh/Projects/CloverHardware/CP65S/dump/DarwinDumper/temp/DarwinDumperReports is now owned by derek:staff with permissions 755
+*User Chose: Not to archive
+*User Chose: EDID
+--------------------------------------------------------
+001s : +Started process DumpFilesEdid: pid 1768
+          Found 1 EDID in ioreg
+          Check: /EDID/EDID.txt created.
+          Check: /EDID/EDID.bin created.
+          Checking Clover bootlog for EDID data
+          No EDID data found under EdidDiscovered in bootlog
+001s : -Completed DumpFilesEdid
+========================================================
+Dumps complete after: 1 seconds
+--------------------------------------------------------
+========================================================
+DarwinDumper Completed in: 1 seconds
+========================================================

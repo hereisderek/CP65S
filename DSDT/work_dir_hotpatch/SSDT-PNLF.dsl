@@ -28,8 +28,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
         // 11: Haswell/Broadwell 0xad9
         // 12: Skylake/KabyLake 0x56c (and some Haswell, example 0xa2e0008)
         // 99: Other
-        Name(_UID, 0)
-        // Name(_UID, 0xad9)
+        // Name(_UID, 0)
+        Name(_UID, 11)
         // Name(_UID, 0x0B)
         Name(_STA, 0x0B)
 

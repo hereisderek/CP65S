@@ -17,6 +17,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     External (_SB.PCI0.LPCB.EC.XQ11, MethodObj)
     External (_SB.PCI0.LPCB.EC.XQ12, MethodObj)
     
+    External (_SB.PCI0.PR06.PXSX.XDSM, MethodObj)
+    External (_SB.PCI0.PR05.PXSX.XDSM, MethodObj)
+    External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
+    
     
     Device(RMCF)
     {
@@ -58,7 +62,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         //  0: does not manipulate the DGPU in _WAK and _PTS
         //  1: disables the DGPU in _WAK and enables it in _PTS
-        Name(DPTS, 0)
+        Name(DPTS, 1)
 
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //
@@ -90,7 +94,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
-        Name(LMAX, Ones)
+//        Name(LMAX, Ones)
+        Name(LMAX, 0xad9)
 
         // FBTP: Framebuffer type. Determines IGPU PWM register layout.
         //  (advanced use: for overriding default for unsupported IGPU device-id)
@@ -163,6 +168,139 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0406) }
         // Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
     }
+    
+    // Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
+    Method(_SB.PCI0.PR06.PXSX._DSM, 4, NotSerialized)
+    {
+        \rmdt.p5("Enter _SB.PCI0.PR06.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
+        Store (Package ()
+        {
+            "AAPL,slot-name", 
+            Buffer ()
+            {
+                "Built in"
+            }, 
+            "model", 
+            Buffer ()
+            {
+                "Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter"
+            }, 
+            "built-in", 
+            Buffer (One)
+            {
+                0x00
+            }
+        }, Local0)
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+        
+        // call build in _DSM
+        If (CondRefOf(\_SB.PCI0.PR06.PXSX.XDSM))
+        {
+            \_SB.PCI0.PR06.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
+        }
+        Return(Local0)
+    }
+
+    // Realtek RTS5287 PCI-E Card Reader
+    Method(_SB.PCI0.PR05.PXSX._DSM, 4, NotSerialized)
+    {
+        \rmdt.p5("Enter _SB.PCI0.PR05.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
+        Store (Package ()
+        {
+            "AAPL,slot-name", 
+            Buffer ()
+            {
+                "Built in"
+            }, 
+            "model", 
+            Buffer ()
+            {
+                "Realtek RTS5287 PCI-E Card Reader"
+            }, 
+            "built-in", 
+            Buffer (One)
+            {
+                0x00
+            }
+        }, Local0)
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+        
+        // call build in _DSM
+        If (CondRefOf(\_SB.PCI0.PR05.PXSX.XDSM))
+        {
+            \_SB.PCI0.PR05.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
+        }
+        Return(Local0)
+    }
+    
+
+    // Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
+    Method(_SB.PCI0.PR05.RLAN._DSM, 4, NotSerialized)
+    {
+        \rmdt.p5("Enter _SB.PCI0.PR05.RLAN._DSM", Arg0, Arg1, Arg2, Arg3)
+        Store (Package ()
+        {
+            "AAPL,slot-name", 
+            Buffer ()
+            {
+                "Built in"
+            }, 
+            "model", 
+            Buffer ()
+            {
+                "Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter"
+            }, 
+            "built-in", 
+            Buffer (One)
+            {
+                0x00
+            }
+        }, Local0)
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+        
+        // call build in _DSM
+        If (CondRefOf(\_SB.PCI0.PR05.RLAN.XDSM))
+        {
+            \_SB.PCI0.PR05.RLAN.XDSM(Arg0, Arg1, Arg2, Arg3)
+        }
+        Return(Local0)
+    }
+    
+    /*
+    Method (_DSM, 4, NotSerialized)
+    {
+        Store (Package ()
+        {
+            "AAPL,slot-name", 
+            Buffer ()
+            {
+                "Built in"
+            }, 
+            "name", 
+            Buffer ()
+            {
+                "Dell Wlan 1397 Half MiniCard"
+            }, 
+            "device_type", 
+            Buffer ()
+            {
+                "Airport"
+            }, 
+            "model", 
+            Buffer ()
+            {
+                "BCM4312 802.11b/g Wireless Adapter"
+            }, 
+            "built-in", 
+            Buffer (One)
+            {
+                0x00
+            }
+        }, Local0)
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+        Return (Local0)
+    }
+    */
 
 }
 //EOF

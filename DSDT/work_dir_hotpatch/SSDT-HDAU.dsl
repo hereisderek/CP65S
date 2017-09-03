@@ -5,11 +5,15 @@
 DefinitionBlock("", "SSDT", 2, "hack", "HDAU", 0)
 {
     External(_SB.PCI0.HDAU, DeviceObj)
+    External (_SB.PCI0.HDAU, MethodObj)
     External(RMCF.AUDL, IntObj)
 
     // inject properties for audio
     Method(_SB.PCI0.HDAU._DSM, 4)
     {
+        // call build in _DSM
+        If (CondRefOf(\_SB.PCI0.HDAU.XDSM)) { \_SB.PCI0.HDAU.XDSM(Arg0, Arg1, Arg2, Arg3) }
+        
         If (CondRefOf(\RMCF.AUDL)) { If (Ones == \RMCF.AUDL) { Return(0) } }
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Local0 = Package()
