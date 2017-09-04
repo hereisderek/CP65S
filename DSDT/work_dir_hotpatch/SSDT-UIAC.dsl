@@ -29,15 +29,22 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
             {
                 Store (Package ()
                     {
-                        "kUSBSleepPowerSupply", 0x13EC,
-                        "kUSBSleepPortCurrentLimit", 0x0834,
-                        "kUSBWakePowerSupply", 0x13EC,
-                        "kUSBWakePortCurrentLimit", 0x0834,
-                        
                         "AAPL,current-available", 0x0834,      // Buffer() { 0x34, 0x08, 0, 0 },
                         "AAPL,current-extra", 0x898,            // Buffer() { 0x98, 0x08, 0, 0, },
                         "AAPL,current-extra-in-sleep", 0x640,  // Buffer() { 0x40, 0x06, 0, 0, },
                         "AAPL,max-port-current-in-sleep", 0x0834,
+
+
+                        //"kUSBSleepPowerSupply", 0x13EC,
+                        //"kUSBSleepPortCurrentLimit", 0x0834,
+                        //"kUSBWakePowerSupply", 0x13EC,
+                        //"kUSBWakePortCurrentLimit", 0x0834,
+
+                        //REVIEW: these values from MacBookPro12,1 (pure guess)
+                        "kUSBSleepPortCurrentLimit", 2100,
+                        "kUSBSleepPowerSupply", 2600,
+                        "kUSBWakePortCurrentLimit", 2100,
+                        "kUSBWakePowerSupply", 3200,
                         
                     }, Local0)
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
@@ -372,29 +379,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                     //HS15 is phantom port (port address 15 not used)
                     "SSP1", Package()
                     {
-                        "kUSBSleepPowerSupply",
-                        0x13EC,
-                        "kUSBSleepPortCurrentLimit",
-                        0x0834,
-                        "kUSBWakePowerSupply",
-                        0x13EC,
-                        "kUSBWakePortCurrentLimit",
-                        0x0834,
-                        
                         "UsbConnector", 3,
                         "port", Buffer() { 16, 0, 0, 0 },
                     },
                     "SSP2", Package()
                     {
-                        "kUSBSleepPowerSupply",
-                        0x13EC,
-                        "kUSBSleepPortCurrentLimit",
-                        0x0834,
-                        "kUSBWakePowerSupply",
-                        0x13EC,
-                        "kUSBWakePortCurrentLimit",
-                        0x0834,
-                        
                         "UsbConnector", 3,
                         "port", Buffer() { 17, 0, 0, 0 },
                     },
@@ -410,29 +399,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
 //                    },
                     "SSP5", Package()
                     {
-                        "kUSBSleepPowerSupply",
-                        0x13EC,
-                        "kUSBSleepPortCurrentLimit",
-                        0x0834,
-                        "kUSBWakePowerSupply",
-                        0x13EC,
-                        "kUSBWakePortCurrentLimit",
-                        0x0834,
-                        
                         "UsbConnector", 3,
                         "port", Buffer() { 20, 0, 0, 0 },
                     },
                     "SSP6", Package()
                     {
-                        "kUSBSleepPowerSupply",
-                        0x13EC,
-                        "kUSBSleepPortCurrentLimit",
-                        0x0834,
-                        "kUSBWakePowerSupply",
-                        0x13EC,
-                        "kUSBWakePortCurrentLimit",
-                        0x0834,
-                        
                         "UsbConnector", 3,
                         "port", Buffer() { 21, 0, 0, 0 },
                     },

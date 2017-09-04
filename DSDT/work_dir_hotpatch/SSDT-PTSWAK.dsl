@@ -2,6 +2,10 @@
 
 DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
 {
+    External (RMDT, DeviceObj)
+    External (RMDT.PUSH, MethodObj)
+    External (RMDT.P1, MethodObj)
+    
     External(ZPTS, MethodObj)
     External(ZWAK, MethodObj)
 
@@ -18,6 +22,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
     // As a result, calls to these methods land here.
     Method(_PTS, 1)
     {
+        \rmdt.p1("_PTS has been called with Arg0:", Arg0)
         if (5 == Arg0)
         {
             // Shutdown fix, if enabled
@@ -46,11 +51,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "PTSWAK", 0)
     }
     Method(_WAK, 1)
     {
+        \rmdt.p1("_WAK has been called with Arg0:", Arg0)
+        Store (Package() {0, 0}, Local0)
+        
         // Take care of bug regarding Arg0 in certain versions of OS X...
         // (starting at 10.8.5, confirmed fixed 10.10.2)
         If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
-
+        
         // call into original _WAK method
+        If (CondRefOf(ZWAK)) { Local0 = ZWAK(Arg0) }
+        
         Local0 = ZWAK(Arg0)
 
         If (CondRefOf(\RMCF.DPTS))

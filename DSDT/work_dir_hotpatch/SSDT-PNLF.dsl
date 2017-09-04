@@ -6,6 +6,16 @@
 
 DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
 {
+    External (RMDT, DeviceObj)
+    External (RMDT.PUSH, MethodObj)
+    External (RMDT.P1, MethodObj)
+    External (RMDT.P2, MethodObj)
+    External (RMDT.P3, MethodObj)
+    External (RMDT.P4, MethodObj)
+    External (RMDT.P5, MethodObj)
+    External (RMDT.P6, MethodObj)
+    External (RMDT.P7, MethodObj)
+
     External(RMCF.BKLT, IntObj)
     External(RMCF.LMAX, IntObj)
     External(RMCF.FBTP, IntObj)
@@ -28,9 +38,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
         // 11: Haswell/Broadwell 0xad9
         // 12: Skylake/KabyLake 0x56c (and some Haswell, example 0xa2e0008)
         // 99: Other
-        // Name(_UID, 0)
-        Name(_UID, 11)
-        // Name(_UID, 0x0B)
+        Name(_UID, 0)
         Name(_STA, 0x0B)
 
         // Method (RMCF)
@@ -67,7 +75,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
         {
             // IntelBacklight.kext takes care of this at load time...
             // If RMCF.BKLT does not exist, it is assumed you want to use AppleBacklight.kext...
-            If (CondRefOf(\RMCF.BKLT)) { If (1 != \RMCF.BKLT) { Return } }
+            If (CondRefOf(\RMCF.BKLT) && 0 == \RMCF.BKLT) 
+            { 
+                \rmdt.p1("RMCF.BKLT does not exist or using IntelBacklight.kext, skipping")
+                Return 
+            }
+            Else 
+            {
+                \rmdt.p1("PNLF configuraton started")
+            }
 
             // Adjustment required when using AppleBacklight.kext
             Local0 = GDID
@@ -98,8 +114,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
                     // otherwise... Assume Haswell/Broadwell/Skylake
                     Local3 = 2
                 }
+                
+                \rmdt.p4("FBTP has been determined:", Local3, " based on the device-id:", Local0)
+            }
+            Else 
+            {
+                \rmdt.p2("FBTP has been given value:", Local3)
             }
 
+            
             // Local3 is now framebuffer type, depending on RMCF.FBTP or device-id detect
             If (1 == Local3)
             {

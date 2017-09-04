@@ -1,5 +1,6 @@
 // configuration data for other SSDTs in this pack
 
+
 DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
 {
     External (RMDT, DeviceObj)
@@ -52,9 +53,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // Others (low resolution), use 0
         Name(HIGH, 0)
 
-        // IGPI: Override for ig-platform-id (or snb-platform-id).  Will be used if non-zero.
+        // IGPI: Override for ig-platform-id (or snb-platform-id).
+        // Will be used if non-zero, and not Ones
+        // Can be set to Ones to disable IGPU injection.
         // For example, if you wanted to inject a bogus id, 0x12345678
         //    Name(IGPI, 0x12345678)
+        // Or to disable, IGPU injection from SSDT-IGPU:
+        //    Name(IGPI, Ones)
+        // Or to set a custom ig-platform-id, example:
+        //    Name(IGPI, 0x01660008)
         Name(IGPI, 0)
 
         // DPTS: For laptops only: set to 1 if you want to enable and
@@ -94,8 +101,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
-//        Name(LMAX, Ones)
-        Name(LMAX, 0xad9)
+        Name(LMAX, Ones)
+        //Name(LMAX, 0xad9)
 
         // FBTP: Framebuffer type. Determines IGPU PWM register layout.
         //  (advanced use: for overriding default for unsupported IGPU device-id)
@@ -154,7 +161,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     Method(_SB.PCI0.LPCB.EC._Q11, 0)
     {
         // call the original method
-        \rmdt.p1("enter custom Q11 for brightness up")
+        // \rmdt.p1("enter custom Q11 for brightness up")
         If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ11)) { \_SB.PCI0.LPCB.EC.XQ11() }
         If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0405) }
         // Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
@@ -163,7 +170,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     Method(_SB.PCI0.LPCB.EC._Q12, 0)
     {
         // call the original method
-        \rmdt.p1("enter custom Q12 for brightness down")
+        // \rmdt.p1("enter custom Q12 for brightness down")
         If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ12)) { \_SB.PCI0.LPCB.EC.XQ12() }
         If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0406) }
         // Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
@@ -175,29 +182,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         \rmdt.p5("Enter _SB.PCI0.PR06.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
         Store (Package ()
         {
-            "AAPL,slot-name", 
-            Buffer ()
-            {
-                "Built in"
-            }, 
-            "model", 
-            Buffer ()
-            {
-                "Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter"
-            }, 
-            "built-in", 
-            Buffer (One)
-            {
-                0x00
-            }
+            "AAPL,slot-name", Buffer () { "Built in" }, 
+            "model", Buffer () { "Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter" }, 
+            "built-in", Buffer (One) { 0x00 }
         }, Local0)
+        
         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         
         // call build in _DSM
-        If (CondRefOf(\_SB.PCI0.PR06.PXSX.XDSM))
-        {
-            \_SB.PCI0.PR06.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
-        }
+        If (CondRefOf(\_SB.PCI0.PR06.PXSX.XDSM)) { \_SB.PCI0.PR06.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3) }
+        
         Return(Local0)
     }
 
@@ -301,6 +295,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Return (Local0)
     }
     */
+
 
 }
 //EOF

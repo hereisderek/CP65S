@@ -2,6 +2,9 @@
 
 DefinitionBlock("", "SSDT", 2, "hack", "LANC_PRW", 0)
 {
+    External (RMDT.P5, MethodObj)
+    
+    External(GPRW, MethodObj)
     External(XPRW, MethodObj)
 
     // In DSDT, native LANC._PRW is renamed XPRW with Clover binpatch.
@@ -14,9 +17,25 @@ DefinitionBlock("", "SSDT", 2, "hack", "LANC_PRW", 0)
     External(_SB.PCI0.LANC.XPRW, MethodObj)
     Method(_SB.PCI0.LANC._PRW)
     {
-        Local0 = \_SB.PCI0.LANC.XPRW()
+        //Local0 = \_SB.PCI0.LANC.XPRW()
+        Local0 = GPRW (0x0D, 0x04)
+
+        \rmdt.p5("Entered _SB.PCI0.LANC._PRW, returned results are [0]:", Local0[0], " [1]:", Local0[1], " -> 0")
+        
         Local0[1] = 0
         Return(Local0)
     }
+
+//    Scope (_SB.PCI0)
+//    {
+//        Device (GLAN)
+//        {
+//            Name (_ADR, 0x00190000)  // _ADR: Address
+//            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+//            {
+//                Return (GPRW (0x0D, 0))
+//            }
+//        }
+//    }
 }
 //EOF

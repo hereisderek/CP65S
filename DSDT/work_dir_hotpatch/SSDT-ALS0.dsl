@@ -14,6 +14,12 @@ DefinitionBlock("", "SSDT", 2, "hack", "ALS0", 0)
             Package() { 100, 300 },
             //Package() { 150, 1000 },
         })
+        
+        // disable it
+//        Method (_STA, 0, NotSerialized)  // _STA: Status
+//        {
+//            Return (0)
+//        }
     }
 }
 //EOF

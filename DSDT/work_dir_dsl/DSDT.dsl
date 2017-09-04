@@ -12487,6 +12487,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Zero, 
             Zero
         })
+        
+        // wake up resource
         Method (GPRW, 2, NotSerialized)
         {
             Store (Arg0, Index (PRWP, Zero))

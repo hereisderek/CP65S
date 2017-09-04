@@ -23,16 +23,20 @@ DefinitionBlock("", "SSDT", 2, "hack", "XHC", 0)
             "RM,pr2-force", Buffer() { 0, 0, 0, 0 },
             "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
             "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
-            "AAPL,current-available", Buffer() { 0x34, 0x08, 0, 0 },
-            "AAPL,current-extra", Buffer() { 0x98, 0x08, 0, 0, },
-            "AAPL,current-extra-in-sleep", Buffer() { 0x40, 0x06, 0, 0, },
-            "AAPL,max-port-current-in-sleep", Buffer() { 0x34, 0x08, 0, 0 },
             
-            "kUSBSleepPowerSupply", 0x13EC,
-            "kUSBSleepPortCurrentLimit", 0x0834,
-            "kUSBWakePowerSupply", 0x13EC,
-            "kUSBWakePortCurrentLimit", 0x0834,
+            //REVIEW: these values from MacBookPro12,1 (pure guess)
+            "kUSBSleepPortCurrentLimit", 2100,
+            "kUSBSleepPowerSupply", 2600,
+            "kUSBWakePortCurrentLimit", 2100,
+            "kUSBWakePowerSupply", 3200,
+
+            "AAPL,current-available", 2100,
+            "AAPL,current-extra", 2200,
+            "AAPL,current-extra-in-sleep", 1600,
+            "AAPL,device-internal", 0x02,
+            "AAPL,max-port-current-in-sleep", 2100,
         }
+
         // force USB2 on XHC if EHCI is disabled
         If (CondRefOf(\_SB.PCI0.RMD2) || CondRefOf(\_SB.PCI0.RMD3) || CondRefOf(\_SB.PCI0.RMD4))
         {
@@ -41,8 +45,5 @@ DefinitionBlock("", "SSDT", 2, "hack", "XHC", 0)
         }
         Return(Local0)
     }
-
-
-
 }
 //EOF
