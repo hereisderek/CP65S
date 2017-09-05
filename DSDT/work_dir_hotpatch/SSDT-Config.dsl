@@ -38,6 +38,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
             Store("AUDL indicates audio layout-id for patched AppleHDA. Ones: no injection", Debug)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
+            
+            
+            Store("IWPP indicates instant wake power patch. 0: not patch. 1: patch", Debug)
         }
 
         // TYPE: Indicates the type of computer... desktop or laptop
@@ -89,7 +92,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // The value here will be used to inject layout-id for HDEF and HDAU
         // If set to Ones, no audio injection will be done.
-        Name(AUDL, Ones)
+        Name(AUDL, 5)
 
         // BKLT: Backlight control type
         //
@@ -111,6 +114,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // 1: Ivy/Sandy
         // 2: Haswell/Broadwell/Skylake/KabyLake
         Name(FBTP, 0)
+        
+        // IWPP indicates instant wake power patch
+        // 0: no patch applied
+        // 2^0 = 1: USB
+        // 2^1 = 2: GLAN
+        // 2^2 = 4: [Reserved]
+        // 
+        // Other value: you can apply multiple patches in the form of "|", such as "1|2" 
+        
+        Name(IWPP, 2)
         
 //        RMCF
         \rmdt.p2("RMCF configuration TYPE:", TYPE)

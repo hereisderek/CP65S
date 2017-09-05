@@ -2,6 +2,84 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>#SMBIOS_2</key>
+	<dict>
+		<key>BiosReleaseDate</key>
+		<string>05/01/17</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MBP112.88Z.0138.B38.1705011718</string>
+		<key>Board-ID</key>
+		<string>Mac-3CBD00234E554E41</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02334609GUF2FRJA</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>08</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xe907f537</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>Mobile</key>
+		<true/>
+		<key>ProductName</key>
+		<string>MacBookPro11,2</string>
+		<key>SerialNumber</key>
+		<string>C02L7V1PFD56</string>
+		<key>SmUUID</key>
+		<string>2E5D87BF-1A7E-466E-AEF5-401E036FC013</string>
+		<key>Trust</key>
+		<true/>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
+	<key>#SMBIOS_3</key>
+	<dict>
+		<key>BiosReleaseDate</key>
+		<string>10/18/13</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MBP112.88Z.0138.B02.1310181745</string>
+		<key>Board-ID</key>
+		<string>Mac-C3EC7CD22292981F</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>08</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>Mobile</key>
+		<true/>
+		<key>ProductName</key>
+		<string>MacBookPro11,2</string>
+		<key>SerialNumber</key>
+		<string>C02LV67QFD56</string>
+		<key>Trust</key>
+		<false/>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
 	<key>ACPI</key>
 	<dict>
 		<key>#Comment-SortedOrder</key>
@@ -76,191 +154,6 @@
 		</array>
 		<key>DSDT</key>
 		<dict>
-			<key>#Patches</key>
-			<array>
-				<dict>
-					<key>Comment</key>
-					<string>change OSID to XSID (to avoid match against _OSI XOSI patch)</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					T1NJRA==
-					</data>
-					<key>Replace</key>
-					<data>
-					WFNJRA==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _OSI to XOSI</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X09TSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _DSM to XDSM</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					X0RTTQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					WERTTQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EC0 to EC</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUMwXw==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUNfXw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change H_EC to EC</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					SF9FQw==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUNfXw==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change PCI0.VID to IGPU #1 (Thinkpad)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					UENJMFZJRF8=
-					</data>
-					<key>Replace</key>
-					<data>
-					UENJMElHUFU=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change PCI0.VID to IGPU #2 (Thinkpad)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					VklEXwhfQURSDAAAAgA=
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQhfQURSDAAAAgA=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change B0D3 to HDAU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					QjBEMw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERBVQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change AZAL to HDEF</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					QVpBTA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERFRg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change SAT0 to SATA (?)</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					U0FUMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					U0FUQQ==
-					</data>
-				</dict>
-			</array>
 			<key>Fixes</key>
 			<dict>
 				<key>#Comment-IRQ Fix</key>
@@ -612,7 +505,7 @@
 					<key>Comment</key>
 					<string>change GLAN to LANC</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					R0xBTg==
@@ -634,6 +527,20 @@
 					<key>Replace</key>
 					<data>
 					AAAZABQfWFBSVwg=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Name (_ADR, 0x00190000) Method(_PRW to Name (_ADR, 0x00190000) Method(XPRW, pair with SSDT-GLAN_PRW.aml</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X0FEUgwAABkAFA9fUFJX
+					</data>
+					<key>Replace</key>
+					<data>
+					X0FEUgwAABkAFA9YUFJX
 					</data>
 				</dict>
 			</array>
@@ -675,7 +582,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 -xcpm nv_disable=1 keepsyms=1 kextlog=0xffff -alcoff -alcbeta -alcdbg -liludbg -uia_exclude_hs</string>
+		<string>dart=0 -xcpm keepsyms=1 debug=0x100 kextlog=0xffff -alcbeta -alcdbg -liludbg</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -727,7 +634,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>layout-id=3</string>
+				<string>layout-id</string>
 				<key>Device</key>
 				<string>HDA</string>
 				<key>Disabled</key>
@@ -736,10 +643,12 @@
 				<string>layout-id</string>
 				<key>Value</key>
 				<data>
-				BAAAAA==
+				AQAAAA==
 				</data>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string>layout-id</string>
 				<key>Device</key>
 				<string>IntelGFX</string>
 				<key>Disabled</key>
@@ -748,16 +657,124 @@
 				<string>layout-id</string>
 				<key>Value</key>
 				<data>
-				BAAAAA==
+				AQAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>built-in</string>
+				<key>Value</key>
+				<data>
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>built-in</string>
+				<key>Value</key>
+				<data>
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>device_type</string>
+				<key>Value</key>
+				<data>
+				Cg0AAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>device_type</string>
+				<key>Value</key>
+				<data>
+				Cg0AAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
 				</data>
 			</dict>
 		</array>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>4</string>
-			<key>ResetHDA</key>
-			<true/>
+			<string>2</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -766,15 +783,11 @@
 		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
-		<key>UseIntelHDMI</key>
-		<true/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -786,6 +799,11 @@
 		<string>1920x1080</string>
 		<key>ConsoleMode</key>
 		<string>Max</string>
+		<key>Hide</key>
+		<array>
+			<string>data</string>
+			<string>personal</string>
+		</array>
 		<key>Mouse</key>
 		<dict>
 			<key>DoubleClick</key>
@@ -800,7 +818,7 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
-			<true/>
+			<false/>
 			<key>Linux</key>
 			<true/>
 			<key>Tool</key>
@@ -816,7 +834,9 @@
 		<key>EDID</key>
 		<dict>
 			<key>Inject</key>
-			<false/>
+			<true/>
+			<key>ProductID</key>
+			<string>0x9c7c</string>
 		</dict>
 		<key>Inject</key>
 		<dict>
@@ -1063,60 +1083,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.13 (based on Austere.J patch by PMheart)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TIlVuHZA
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				TIlVuOtA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.13 (based on Austere.J patch by PMheart)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TIlduHZE
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				TIlduOtE
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.13 (based on Austere.J patch by PMheart)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				TIldwHZG
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				TIldwOtG
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>0x0a260006 9MB cursor bytes, vbo</string>
 				<key>Disabled</key>
 				<false/>
@@ -1133,9 +1099,25 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
+				<string>0x19160000/etc, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
 				<key>Disabled</key>
 				<false/>
+				<key>Find</key>
+				<data>
+				AQMDAwAAIAIAAFAB
+				</data>
+				<key>Name</key>
+				<string>AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AQMDAwAAMAEAAJAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Find</key>
 				<data>
 				AgQJAAAEAACHAAAA
@@ -1169,7 +1151,7 @@
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AQAAdSU=
@@ -1187,7 +1169,7 @@
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.13 beta (based on denskop patch)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AQAAdSI=
@@ -1204,6 +1186,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Enable fourth connector by changing port count, 0x0a260006, RehabMan</string>
+				<key>Disabled</key>
+				<false/>
 				<key>Find</key>
 				<data>
 				BgAmCgEDAwM=
@@ -1218,6 +1202,8 @@
 			<dict>
 				<key>Comment</key>
 				<string>Add missing 0306 DP connector</string>
+				<key>Disabled</key>
+				<true/>
 				<key>Find</key>
 				<data>
 				/wAAAAEAAABAAAAA
@@ -1243,6 +1229,22 @@
 				<key>Replace</key>
 				<data>
 				2QoAANkKAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Patching 10ec0885 with 10ec0892 codec (patched by AppleHDA Patcher.app)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				hQjsEA==
+				</data>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				kgjsEA==
 				</data>
 			</dict>
 		</array>
@@ -1304,84 +1306,6 @@
 		<string>C02L7V1PFD56</string>
 		<key>SmUUID</key>
 		<string>2E5D87BF-1A7E-466E-AEF5-401E036FC013</string>
-		<key>Version</key>
-		<string>1.0</string>
-	</dict>
-	<key>SMBIOS_2</key>
-	<dict>
-		<key>BiosReleaseDate</key>
-		<string>05/01/17</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP112.88Z.0138.B38.1705011718</string>
-		<key>Board-ID</key>
-		<string>Mac-3CBD00234E554E41</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardSerialNumber</key>
-		<string>C02334609GUF2FRJA</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>08</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>FirmwareFeatures</key>
-		<string>0xe907f537</string>
-		<key>LocationInChassis</key>
-		<string>Part Component</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<true/>
-		<key>ProductName</key>
-		<string>MacBookPro11,2</string>
-		<key>SerialNumber</key>
-		<string>C02L7V1PFD56</string>
-		<key>SmUUID</key>
-		<string>2E5D87BF-1A7E-466E-AEF5-401E036FC013</string>
-		<key>Trust</key>
-		<true/>
-		<key>Version</key>
-		<string>1.0</string>
-	</dict>
-	<key>SMBIOS_3</key>
-	<dict>
-		<key>BiosReleaseDate</key>
-		<string>10/18/13</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP112.88Z.0138.B02.1310181745</string>
-		<key>Board-ID</key>
-		<string>Mac-C3EC7CD22292981F</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>08</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<true/>
-		<key>ProductName</key>
-		<string>MacBookPro11,2</string>
-		<key>SerialNumber</key>
-		<string>C02LV67QFD56</string>
-		<key>Trust</key>
-		<false/>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>

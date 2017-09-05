@@ -5,6 +5,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "UPRW", 0)
     External (RMDT.P4, MethodObj)
     
     External(XPRW, MethodObj)
+    External(RMCF.IWPP, IntObj)
 
     // In DSDT, native UPRW is renamed to XPRW with Clover binpatch.
     // As a result, calls to UPRW land here.
