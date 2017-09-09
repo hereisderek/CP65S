@@ -92,7 +92,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // The value here will be used to inject layout-id for HDEF and HDAU
         // If set to Zero, no audio injection will be done.
-        Name(AUDL, 1)
+        Name(AUDL, 30)
+        //Name(AUDL, 28)
         //Name(AUDL, Ones)
 
 

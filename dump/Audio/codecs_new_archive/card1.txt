@@ -1,0 +1,80 @@
+http://www.alsa-project.org/db/?f=947cc2eeea98200a1fd24b1c02d038ffa80270e3
+
+
+pcm1p
+card: 1
+device: 1
+subdevice: 0
+stream: PLAYBACK
+id: ALC892 Digital
+name: ALC892 Digital
+subname: subdevice #0
+class: 0
+subclass: 0
+subdevices_count: 1
+subdevices_avail: 1
+
+
+card1/pcm0c:
+card: 1
+device: 0
+subdevice: 0
+stream: CAPTURE
+id: ALC892 Analog
+name: ALC892 Analog
+subname: subdevice #0
+class: 0
+subclass: 0
+subdevices_count: 1
+subdevices_avail: 1
+
+
+card1/pcm0p
+card: 1
+device: 0
+subdevice: 0
+stream: PLAYBACK
+id: ALC892 Analog
+name: ALC892 Analog
+subname: subdevice #0
+class: 0
+subclass: 0
+subdevices_count: 1
+subdevices_avail: 1
+prealloc:64
+prealloc_max:32768
+
+
+
+
+jack/lineout LINEOUT plug
+jack/lineout LINEOUT unplug
+jack/lineout LINEOUT plug
+jack/lineout LINEOUT unplug
+jack/lineout LINEOUT plug
+jack/lineout LINEOUT unplug
+jack/lineout LINEOUT plug
+jack/lineout LINEOUT unplug
+jack/microphone MICROPHONE plug
+jack/microphone MICROPHONE unplug
+jack/microphone MICROPHONE plug
+jack/microphone MICROPHONE unplug
+
+
+
+evtest:
+/dev/input/event0:	Power Button
+/dev/input/event1:	Sleep Button
+/dev/input/event2:	Lid Switch
+/dev/input/event3:	Power Button
+/dev/input/event4:	AT Translated Set 2 keyboard
+/dev/input/event5:	Video Bus
+/dev/input/event6:	Video Bus
+/dev/input/event7:	SynPS/2 Synaptics TouchPad
+/dev/input/event8:	BisonCam, NB Pro
+/dev/input/event9:	HDA Intel HDMI HDMI/DP,pcm=3
+/dev/input/event10:	HDA Intel HDMI HDMI/DP,pcm=7
+/dev/input/event11:	HDA Intel HDMI HDMI/DP,pcm=8
+/dev/input/event12:	HDA Intel PCH Mic
+/dev/input/event13:	HDA Intel PCH Line Out
+/dev/input/event14:	PixArt Microsoft USB Optical Mouse

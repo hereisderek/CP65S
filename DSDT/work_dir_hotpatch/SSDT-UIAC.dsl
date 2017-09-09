@@ -27,7 +27,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
             Name (_ADR, Zero)  // _ADR: Address
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
-                Store (Package ()
+                If (!Arg2) { Return (Buffer() { 0x03 } ) }
+                Return (Package ()
                     {
                         "AAPL,current-available", 0x0834,      // Buffer() { 0x34, 0x08, 0, 0 },
                         "AAPL,current-extra", 0x898,            // Buffer() { 0x98, 0x08, 0, 0, },
@@ -46,9 +47,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                         "kUSBWakePortCurrentLimit", 2100,
                         "kUSBWakePowerSupply", 3200,
                         
-                    }, Local0)
-                DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
-                Return (Local0)
+                    })
             }
         }
     }

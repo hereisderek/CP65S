@@ -3449,10 +3449,14 @@
 					<string>ALC892 for Clevo P650SA by Derek Zhu</string>
 					<key>ConfigData</key>
 					<data>
-					ASccEAEnHQEBJx6gAScfkAFHHCABRx0BAUce
-					EwFHH5ABRwwCAXccMAF3HRABdx4hAXcfAQGH
-					HEABhx0QAYcegQGHHwEBtxxQAbcdEAG3HiEB
-					tx8BAbcMAgHnHGAB5x0RAeceRQHnHwE=
+					ARcc8AEXHQABFx4AARcfBAEnHBABJx0BASce
+					oAEnH5ABRxxAAUcdAQFHHhABRx+QAVcc8AFX
+					HQABVx4AAVcfBAFnHPABZx0AAWceAAFnHwQB
+					dxxgAXcdQAF3HgEBdx8BAYccIAGHHTABhx6B
+					AYcfAQGXHPABlx0AAZceAAGXHwQBpxzwAacd
+					AAGnHgABpx8EAbccUAG3HUABtx4hAbcfAQHX
+					HPAB1x0AAdceAAHXHwQB5xxwAecdYAHnHksB
+					5x8BAfcc8AH3HQAB9x4AAfcfBAFHDAIBtwwC
 					</data>
 					<key>FuncGroup</key>
 					<integer>1</integer>
@@ -3463,19 +3467,19 @@
 					<key>CodecID</key>
 					<integer>283904146</integer>
 					<key>Comment</key>
-					<string>ALC892 for Clevo P650SA (1A) by Derek Zhu</string>
+					<string>ALC892 for Clevo P751DMG by 54</string>
 					<key>ConfigData</key>
 					<data>
-					ASccEAEnHQEBJx6gAScfkAFHHCABRx0BAUce
-					EwFHH5ABRwwCAXccMAF3HRABdx4hAXcfAQGH
-					HEABhx0QAYcegQGHHwEBpxxQAYcdEAGHHoEB
-					hx8BAbccYAG3HRABtx4hAbcfAQG3DAIB5xxw
-					AecdEQHnHkUB5x8B
+					ASccEAEnHQEBJx6mAScfkAFHHEABRx0BAUce
+					FwFHH5ABdxxgAXcdEAF3HgEBdx8BAYccgAGH
+					HRABhx6BAYcfAQGnHCABpx0QAacegQGnHwEB
+					txxQAbcdEAG3HiEBtx8BAecccAHnHRAB5x5F
+					AecfAQFHDAI=
 					</data>
 					<key>FuncGroup</key>
 					<integer>1</integer>
 					<key>LayoutID</key>
-					<integer>31</integer>
+					<integer>32</integer>
 				</dict>
 				<dict>
 					<key>CodecID</key>
@@ -3680,6 +3684,26 @@
 					<integer>1</integer>
 					<key>LayoutID</key>
 					<integer>28</integer>
+				</dict>
+				<dict>
+					<key>AFGLowPowerState</key>
+					<data>
+					AwAAAA==
+					</data>
+					<key>Codec</key>
+					<string>Realtek ALC898 for MSI GP62-6QG Leopard Pro</string>
+					<key>CodecID</key>
+					<integer>283904153</integer>
+					<key>ConfigData</key>
+					<data>
+					AaccEAGnHQABpx4XAacfkAHnHCAB5x0QAece
+					RgHnHwEBhxwwAYcdEAGHHoEBhx8BASccQAEn
+					HQABJx6gAScfkA==
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>99</integer>
 				</dict>
 				<dict>
 					<key>AFGLowPowerState</key>
@@ -4564,7 +4588,7 @@
 					H0AA1xxAANcdAQDXHhcA1x+QANcMAgDnHPAA
 					5x0AAOceAADnH0AA9xzwAPcdAAD3HgAA9x9A
 					AQcc8AEHHQABBx4AAQcfQAEXHFABFx0BARce
-					pgEXH5AB9xzwAfcdAAH3HgAB9x9AAgcc8AIH
+					oAEXH5AB9xzwAfcdAAH3HgAB9x9AAgcc8AIH
 					HQACBx4AAgcfQA==
 					</data>
 					<key>FuncGroup</key>

@@ -1,0 +1,5 @@
+00-03: HDMI 0 : HDMI 0 : playback 1
+00-07: HDMI 1 : HDMI 1 : playback 1
+00-08: HDMI 2 : HDMI 2 : playback 1
+01-00: ALC892 Analog : ALC892 Analog : playback 1 : capture 1
+01-01: ALC892 Digital : ALC892 Digital : playback 1

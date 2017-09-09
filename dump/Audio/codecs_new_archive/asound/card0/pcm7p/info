@@ -1,0 +1,11 @@
+card: 0
+device: 7
+subdevice: 0
+stream: PLAYBACK
+id: HDMI 1
+name: HDMI 1
+subname: subdevice #0
+class: 0
+subclass: 0
+subdevices_count: 1
+subdevices_avail: 1

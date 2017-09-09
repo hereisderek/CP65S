@@ -1,0 +1,21 @@
+Sound Driver:3.8.1a-980706 (ALSA emulation code)
+Kernel: Linux derek-pc 4.10.0-30-generic #34-Ubuntu SMP Mon Jul 31 19:38:17 UTC 2017 x86_64
+Config options: 0
+
+Installed drivers: 
+Type 10: ALSA emulation
+
+Card config: 
+HDA Intel HDMI at 0xf7a1c000 irq 34
+HDA Intel PCH at 0xf7a18000 irq 33
+
+Audio devices: NOT ENABLED IN CONFIG
+
+Synth devices: NOT ENABLED IN CONFIG
+
+Midi devices: NOT ENABLED IN CONFIG
+
+Timers:
+31: system timer
+
+Mixers: NOT ENABLED IN CONFIG
