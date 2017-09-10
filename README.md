@@ -4,14 +4,17 @@
 current issues:
 
 1. ~~brightness value not persist among restarts~~ fixed by removed clover brightness setting
+
 2. ~~audio card not working ( won't boot once AppleALC enabled, if hotpatch enabled gives resources not ready, if without hotpatch, repeating message:  codec property missing, skipping )~~ fixed by applying HPET patch and using my own layout id (31), it has been merged into main stream AppleALC
+
 3. ~~usb states messed up after sleep~~ fixed with SSDT hotpatch
+
 4. ~~instant wake: Wake reason: GLAN. fixed USB cut off after wake.~~
 sleep is now working, however we won't be able to wake up on mouse/keyboard press, it's no big deal but I'll try to fix it when i have the time.
+
 5. ~~https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/page-89#post-1575595~~
-6. 
 
-
+6. You tell me. Any bug report is welcomed
 -------
 
 Notes: 
@@ -27,6 +30,13 @@ Notes:
 5. Stock wifi card(RTL87223BE) is not supported by Mac OS, there's no solution for it yet. Find a supported one or grab a usb wifi
 
 -------
+
+Untested:
+
+1. External display (Video or Audio)
+
+-------
+
 
 Device list:
 
