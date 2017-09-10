@@ -15,10 +15,16 @@ sleep is now working, however we won't be able to wake up on mouse/keyboard pres
 -------
 
 Notes: 
+
 1. Change to EFI boot in bios setting and GPT disk partition format. (It's long over-due if you haven't used them already)
-2. Everything should work out-of-box, however, if you are greeted by garbled screen (especially on install/recovery/10.13) you can try close your lcd and reopen it (thus put to sleep briefly) or Fn+F12, or try a different ig-platform
-3. As for imessage/face time, you are on your own. There're plenty of guides online.
-4. Stock wifi card(RTL87223BE) is not supported by Mac OS, there's no solution for it yet. Find a supported one or grab a usb wifi
+
+2. To open boot menu when boot, click F7, to re-order boot priority you can either do it via bios (f2) or via efi shell (forgot what the actual command is but google is your friend)
+ 
+3. Everything should work out-of-box, however, if you are greeted by garbled screen (especially on install/recovery/10.13) you can try close your lcd and reopen it (thus put to sleep briefly) or Fn+F12, or try a different ig-platform
+
+4. As for imessage/face time, you are on your own. There're plenty of guides online.
+
+5. Stock wifi card(RTL87223BE) is not supported by Mac OS, there's no solution for it yet. Find a supported one or grab a usb wifi
 
 -------
 
