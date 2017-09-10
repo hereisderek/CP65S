@@ -69,14 +69,14 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_SB_.PCCD.PENB, IntObj)
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
-    External (_SB_.PCI0.GFX0, UnknownObj)
-    External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.LCD0, UnknownObj)
-    External (_SB_.PCI0.GFX0.PDDS, MethodObj)    // Warning: Unknown method, guessing 1 arguments
-    External (_SB_.PCI0.GFX0.SKIP, UnknownObj)    // Warning: Unknown object
+    External (_SB_.PCI0.IGPU, UnknownObj)
+    External (_SB_.PCI0.IGPU.CLID, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.IGPU.GSCI, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IGPU.GSSE, FieldUnitObj)
+    External (_SB_.PCI0.IGPU.LCD0, UnknownObj)
+    External (_SB_.PCI0.IGPU.PDDS, MethodObj)    // Warning: Unknown method, guessing 1 arguments
+    External (_SB_.PCI0.IGPU.SKIP, UnknownObj)    // Warning: Unknown object
 //    External (_SB_.PCI0.LPCB.H_EC.ECMD, MethodObj)    // Imported: 1 Arguments
 //    External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
 //    External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
@@ -5593,10 +5593,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
         Device (GLAN)
         {
             Name (_ADR, 0x00190000)  // _ADR: Address
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-            {
-                Return (GPRW (0x0D, 0x04))
-            }
+            Name (_PRW, Package() { 0x6D, 0 })
+            
         }
 
         Device (EHC1)
@@ -5935,11 +5933,26 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                 }
             }
-
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            Name(_PRW, Package() { 0x6D, 0 })
+            Method (_DSM, 4, NotSerialized)
             {
-                Return (GPRW (0x0D, 0x03))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "AAPL,clock-id", Buffer() { 0x01 },
+                    "built-in", Buffer() { 0x00 },
+                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
+                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
+                    "AAPL,current-available", 2100,
+                    "AAPL,current-extra", 2200,
+                    "AAPL,current-extra-in-sleep", 1600,
+                    "AAPL,device-internal", 0x02,
+                    "AAPL,max-port-current-in-sleep", 2100,
+                })
             }
+            
+
+            
         }
 
         Device (EHC2)
@@ -6211,11 +6224,26 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                 }
             }
-
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            Name(_PRW, Package() { 0x6D, 0 })
+            Method (_DSM, 4, NotSerialized)
             {
-                Return (GPRW (0x0D, 0x03))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "AAPL,clock-id", Buffer() { 0x01 },
+                    "built-in", Buffer() { 0x00 },
+                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
+                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
+                    "AAPL,current-available", 2100,
+                    "AAPL,current-extra", 2200,
+                    "AAPL,current-extra-in-sleep", 1600,
+                    "AAPL,device-internal", 0x02,
+                    "AAPL,max-port-current-in-sleep", 2100,
+                })
             }
+            
+
+            
         }
 
         Device (XHC)
@@ -6629,36 +6657,46 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
             Method (XSEL, 0, Serialized)
             {
-                If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
-                {
-                    Store (One, XUSB)
-                    Store (One, XRST)
-                    Store (Zero, Local0)
-                    And (PR3, 0xFFFFFFC0, Local0)
-                    Or (Local0, PR3M, PR3)
-                    Store (Zero, Local0)
-                    And (PR2, 0xFFFF8000, Local0)
-                    Or (Local0, PR2M, PR2)
-                }
+//                If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
+//                {
+//                    Store (One, XUSB)
+//                    Store (One, XRST)
+//                    Store (Zero, Local0)
+//                    And (PR3, 0xFFFFFFC0, Local0)
+//                    Or (Local0, PR3M, PR3)
+//                    Store (Zero, Local0)
+//                    And (PR2, 0xFFFF8000, Local0)
+//                    Or (Local0, PR2M, PR2)
+//                }
+                
+                Store(1, XUSB)
+                Store(1, XRST)
+                Or(And (PR3, 0xFFFFFFC0), PR3M, PR3)
+                Or(And (PR2, 0xFFFF8000), PR2M, PR2)
             }
 
             Method (ESEL, 0, Serialized)
             {
-                If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
-                {
-                    And (PR3, 0xFFFFFFC0, PR3)
-                    And (PR2, 0xFFFF8000, PR2)
-                    Store (Zero, XUSB)
-                    Store (Zero, XRST)
-                }
+//                If (LOr (LEqual (XHCI, 0x02), LEqual (XHCI, 0x03)))
+//                {
+//                    And (PR3, 0xFFFFFFC0, PR3)
+//                    And (PR2, 0xFFFF8000, PR2)
+//                    Store (Zero, XUSB)
+//                    Store (Zero, XRST)
+//                }
+                
+                And (PR3, 0xFFFFFFC0, PR3)
+                And (PR2, 0xFFFF8000, PR2)
+                Store (Zero, XUSB)
+                Store (Zero, XRST)
             }
 
             Method (XWAK, 0, Serialized)
             {
-                If (LOr (LEqual (XUSB, One), LEqual (XRST, One)))
-                {
-                    XSEL ()
-                }
+//                If (LOr (LEqual (XUSB, One), LEqual (XRST, One)))
+//                {
+//                    XSEL ()
+//                }
             }
 
             Method (_S3D, 0, NotSerialized)  // _S3D: S3 Device State
@@ -7710,11 +7748,26 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                 }
             }
-
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            Name(_PRW, Package() { 0x6D, 0 })
+            Method (_DSM, 4, NotSerialized)
             {
-                Return (GPRW (0x0D, 0x03))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "AAPL,clock-id", Buffer() { 0x02 },
+                    "built-in", Buffer() { 0x00 },
+                    "subsystem-id", Buffer() { 0x70, 0x72, 0x00, 0x00 },
+                    "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
+                    "AAPL,current-available", 2100,
+                    "AAPL,current-extra", 2200,
+                    "AAPL,current-extra-in-sleep", 1600,
+                    "AAPL,device-internal", 0x02,
+                    "AAPL,max-port-current-in-sleep", 2100,
+                })
             }
+            
+
+            
         }
 
         Device (HDEF)
@@ -7735,11 +7788,33 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 PMES,   1
             }
 
-            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+            
+            Method (_DSM, 4, NotSerialized)
             {
-                Return (GPRW (0x0D, 0x04))
+                If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                Return (Package()
+                {
+                    "layout-id", Buffer() { 28, 0x00, 0x00, 0x00 },
+                    "hda-gfx", Buffer() { "onboard-1" },
+                    "PinConfigurations", Buffer() { },
+                    //"MaximumBootBeepVolume", 77,
+                })
             }
+            Name(_PRW, Package() { 0x6D, 0 })
         }
+        
+        Method (_SB.PCI0.B0D3._DSM, 4, NotSerialized)
+        {
+            If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+            Return (Package()
+            {
+                "layout-id", Buffer() { 28, 0x00, 0x00, 0x00 },
+                "hda-gfx", Buffer() { "onboard-1" },
+                //"PinConfigurations", Buffer() { },
+                //"MaximumBootBeepVolume", 77,
+            })
+        }
+        
 
         Scope (\_SB.PCI0)
         {
@@ -11255,14 +11330,14 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             Store (Zero, SLPE)
             If (LEqual (And (OEMF, 0x0400), Zero))
             {
-                Store (LIDS, ^^GFX0.CLID)
+                Store (LIDS, ^^IGPU.CLID)
             }
 
             If (And (OEMF, 0x2000))
             {
                 If (LEqual (And (OEMF, 0x0400), Zero))
                 {
-                    Store (One, ^^GFX0.SKIP)
+                    Store (One, ^^IGPU.SKIP)
                 }
             }
 
@@ -11948,7 +12023,8 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
     Method (_WAK, 1, Serialized)  // _WAK: Wake
     {
-        P8XH (One, 0xAB)
+        If (LOr(LLess(Arg0,1),LGreater(Arg0,5))) { Store(3,Arg0) }
+P8XH (One, 0xAB)
         WAK (Arg0)
         ADBG ("_WAK")
         If (LGreaterEqual (OSYS, 0x07D6))
@@ -11994,7 +12070,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 \_SB.PCI0.RP05.PEGP.EPON ()
             }
 
-            Store (One, \_SB.PCI0.GFX0.CLID)
+            Store (One, \_SB.PCI0.IGPU.CLID)
             Notify (\_SB.PWRB, 0x02)
         }
 
@@ -12385,7 +12461,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Store (0x07D9, OSYS)
                 }
                 
-                If (_OSI ("Windows 2012"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2012")))
                 {
                     Store (0x07D9, OSYS)
                 }
@@ -12587,7 +12663,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 0x02, 
                 Package (0x01)
                 {
-                    "\\_SB.PCI0.GFX0"
+                    "\\_SB.PCI0.IGPU"
                 }, 
 
                 Package (0x01)
@@ -12599,7 +12675,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
             {
                 Package (0x02)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     0xFFFFFFFF
                 }, 
 
@@ -12709,7 +12785,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
                 Package (0x03)
                 {
-                    "\\_SB.PCI0.GFX0", 
+                    "\\_SB.PCI0.IGPU", 
                     One, 
                     Package (0x02)
                     {
@@ -13124,7 +13200,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                                         One, 
                                         Package (0x01)
                                         {
-                                            "\\_SB.PCI0.GFX0"
+                                            "\\_SB.PCI0.IGPU"
                                         }
                                     })
                                 }
@@ -13695,9 +13771,9 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
         Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
         {
-            If (LAnd (\_SB.PCI0.GFX0.GSSE, LNot (GSMI)))
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
             {
-                \_SB.PCI0.GFX0.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
         }
 
@@ -13714,7 +13790,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Store (LIDS, \_SB.PCI0.GFX0.CLID)
+                        Store (LIDS, \_SB.PCI0.IGPU.CLID)
                     }
 
                     Notify (\_SB.LID0, 0x80)
@@ -15413,7 +15489,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        If (^^PCI0.GFX0.PDDS (0x0300))
+                        If (^^PCI0.IGPU.PDDS (0x0300))
                         {
                             Store (One, Local0)
                         }
@@ -16988,7 +17064,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     {
                         If (LEqual (And (OEMF, 0x0400), Zero))
                         {
-                            Store (One, ^^^GFX0.SKIP)
+                            Store (One, ^^^IGPU.SKIP)
                         }
                     }
 
@@ -17296,7 +17372,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Notify (GFX0, 0x80)
+                        Notify (IGPU, 0x80)
                     }
                     Else
                     {
@@ -17321,10 +17397,10 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             If (And (OEMF, 0x2000))
                             {
-                                Store (Zero, ^^^GFX0.SKIP)
+                                Store (Zero, ^^^IGPU.SKIP)
                             }
 
-                            Notify (^^^GFX0.LCD0, 0x87)
+                            Notify (^^^IGPU.LCD0, 0x87)
                         }
                         Else
                         {
@@ -17333,7 +17409,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        Notify (^^^GFX0.LCD0, 0x87)
+                        Notify (^^^IGPU.LCD0, 0x87)
                     }
                 }
                 ElseIf (^^^^WMI.HKDR)
@@ -17356,10 +17432,10 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                         {
                             If (And (OEMF, 0x2000))
                             {
-                                Store (Zero, ^^^GFX0.SKIP)
+                                Store (Zero, ^^^IGPU.SKIP)
                             }
 
-                            Notify (^^^GFX0.LCD0, 0x86)
+                            Notify (^^^IGPU.LCD0, 0x86)
                         }
                         Else
                         {
@@ -17368,7 +17444,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     }
                     Else
                     {
-                        Notify (^^^GFX0.LCD0, 0x86)
+                        Notify (^^^IGPU.LCD0, 0x86)
                     }
                 }
                 ElseIf (^^^^WMI.HKDR)
@@ -17436,7 +17512,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Store (One, ^^^GFX0.SKIP)
+                        Store (One, ^^^IGPU.SKIP)
                     }
                 }
 
@@ -17496,7 +17572,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Notify (^^^GFX0.LCD0, 0x88)
+                        Notify (^^^IGPU.LCD0, 0x88)
                     }
                     Else
                     {
@@ -17552,7 +17628,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (LEqual (And (OEMF, 0x0400), Zero))
                     {
-                        Notify (^^^GFX0.LCD0, 0x88)
+                        Notify (^^^IGPU.LCD0, 0x88)
                     }
                     Else
                     {

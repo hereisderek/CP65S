@@ -55,9 +55,9 @@
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
 			<key>PollingInterval</key>
-			<string>100</string>
+			<string>500</string>
 			<key>dbg0</key>
-			<integer>0</integer>
+			<integer>5</integer>
 			<key>dbg1</key>
 			<integer>0</integer>
 			<key>dbg2</key>

@@ -154,10 +154,287 @@
 		</array>
 		<key>DSDT</key>
 		<dict>
+			<key>#Patches</key>
+			<array>
+				<dict>
+					<key>Comment</key>
+					<string>######### DSDT MARKS ##############</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					D/8=
+					</data>
+					<key>Replace</key>
+					<data>
+					D/8=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - DSDT</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					RFNEVDkfAQACUEhBU0VFIFBBUkFESVNFOAAA
+					AA==
+					</data>
+					<key>Replace</key>
+					<data>
+					NDQ1MzQ0NTQgMzkxRjAxMDAgMDI1MDQ4NDEg
+					NTM0NTQ1MjAgNTA0MTUyNDEgNDQ0OTUzNDUg
+					NWY0NDUzNDQ1NCAzODAwMDAwMA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-0</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					U1NEVLEAAAABu0hBU0VFIFBBUkFESVNFABAA
+					AA==
+					</data>
+					<key>Replace</key>
+					<data>
+					NTM1MzQ0NTQgQjEwMDAwMDAgMDFCQjQ4NDEg
+					NTM0NTQ1MjAgNTA0MTUyNDEgNDQ0OTUzNDUg
+					NWYzMCAwMDEwMDAwMA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-1</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					kg8AAAGVSEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					kg8AAAGVSEFTRUUgUEFSQURJU0VfMQAQAAA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-2</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					aQEAAAGRSEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					aQEAAAGRSEFTRUUgXzIAEAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-3</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					OQUAAAEuSEFTRUUgUEFSQURJU0UAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					OQUAAAEuSEFTRUUgUEFSQURJU0VfMgAwAAA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-4</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					2AoAAAHtSEFTRUUgUEFSQURJU0UAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					2AoAAAHtSEFTRUUgUEFSQURJU0VfNAAwAAA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-5x</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					qgUAAAHTUG1SZWYAQXBJc3QAAAAAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					qgUAAAHTUG1SZWYAQXBJc3QAAABfNXgAMAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-6x</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					0wMAAAGzUG1SZWYAQ3B1MENzdAABMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					0wMAAAGzUG1SZWYAQ3B1MENzdABfNngBMAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-7x</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					GQEAAAHvUG1SZWYAQXBDc3QAAAAAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					GQEAAAHvUG1SZWYAQXBDc3QAAABfN3gAMAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-8</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					xwEAAAFqSEFTRUUgUEFSQURJU0UAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					xwEAAAFqSEFTRUUgUEFSQURJU0VfOAAwAAA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-9</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					FQMAAAFNSEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					FQMAAAFNSEFTRUUgUEFSQURJU0VfOQAQAAA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-10</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					RxwAAAFGSEFTRUUgUEFSQURJU0UAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					RxwAAAFGSEFTRUUgUEFSQURJU0VfMTAAMAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-11</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					OxEAAAGESEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					OxEAAAGESEFTRUUgUEFSQURJU0VfMTEAEAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-12</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					kwMAAAE+SEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					kwMAAAE+SEFTRUUgUEFSQURJU0VfMTIAEAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-13</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					xAoAAAFISEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					xAoAAAFISEFTRUUgUEFSQURJU0VfMTMAEAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-14</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					yRwAAAErSEFTRUUgUEFSQURJU0UAEAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					yRwAAAErSEFTRUUgUEFSQURJU0VfMTQAEAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-15</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					0AAAAAGASEFTRUUgUEFSQURJU0UAMAAA
+					</data>
+					<key>Replace</key>
+					<data>
+					0AAAAAGASEFTRUUgUEFSQURJU0VfMTUAMAAA
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>DSDT MARKS - SSDT-99</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					UEFSQURJU0U=
+					</data>
+					<key>Replace</key>
+					<data>
+					RGVyZWtaaHU=
+					</data>
+				</dict>
+			</array>
 			<key>Fixes</key>
 			<dict>
 				<key>#Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
+				<key>FixHPET_0010</key>
+				<true/>
 				<key>FixHeaders_20000000</key>
 				<true/>
 				<key>FixRegions_10000000</key>
@@ -491,7 +768,7 @@
 					<key>Comment</key>
 					<string>change Method(UPRW,2,N) to XPRW, pair with SSDT-UPRW.aml</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					VVBSVwpwEg==
@@ -543,14 +820,24 @@
 					X0FEUgwAABkAFA9YUFJX
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>disable B0D3/HDEF</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					k0FVVkQL//8=
+					</data>
+					<key>Replace</key>
+					<data>
+					k///C///
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
 		<array>
-			<dict>
-				<key>Signature</key>
-				<string>#SSDT</string>
-			</dict>
 			<dict>
 				<key>Signature</key>
 				<string>#SSDT</string>
@@ -566,17 +853,17 @@
 		</array>
 		<key>SSDT</key>
 		<dict>
+			<key>#PluginType</key>
+			<integer>1</integer>
 			<key>DropOem</key>
 			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>CStates</key>
-				<true/>
+				<false/>
 				<key>PStates</key>
-				<true/>
+				<false/>
 			</dict>
-			<key>PluginType</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>Boot</key>
@@ -591,6 +878,8 @@
 		<string>LegacyBiosDefault</string>
 		<key>Log</key>
 		<true/>
+		<key>NeverDoRecovery</key>
+		<true/>
 		<key>NoEarlyProgress</key>
 		<true/>
 		<key>Secure</key>
@@ -598,11 +887,16 @@
 		<key>Timeout</key>
 		<integer>5</integer>
 		<key>XMPDetection</key>
-		<string>Yes</string>
+		<false/>
+	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>UseARTFrequency</key>
+		<false/>
 	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>AddProperties</key>
+		<key>#AddProperties</key>
 		<array>
 			<dict>
 				<key>Comment</key>
@@ -658,32 +952,6 @@
 				<key>Value</key>
 				<data>
 				AQAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>PinConfigurations</string>
-				<key>Device</key>
-				<string>HDA</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>built-in</string>
-				<key>Value</key>
-				<data>
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>PinConfigurations</string>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>built-in</string>
-				<key>Value</key>
-				<data>
 				</data>
 			</dict>
 			<dict>
@@ -774,7 +1042,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>2</string>
+			<string>31</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -808,6 +1076,8 @@
 		<dict>
 			<key>DoubleClick</key>
 			<integer>500</integer>
+			<key>Enabled</key>
+			<false/>
 			<key>Mirror</key>
 			<false/>
 			<key>Speed</key>
@@ -1053,7 +1323,7 @@
 				<key>Comment</key>
 				<string>_ar9300EepromRestoreInternal (AR9485 only)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				/wMAALn/AwAA
@@ -1069,7 +1339,7 @@
 				<key>Comment</key>
 				<string>AR9485</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				OTM4MA==
@@ -1101,7 +1371,7 @@
 				<key>Comment</key>
 				<string>0x19160000/etc, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				AQMDAwAAIAIAAFAB
@@ -1151,7 +1421,7 @@
 				<key>Comment</key>
 				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				AQAAdSU=
@@ -1215,38 +1485,6 @@
 				AwYDAAAEAACHAAAA
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Adjust 0x0d260007 PWMMax from 0x07a1 to 0x0ad9</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				oQcAAKEHAAA=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				2QoAANkKAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Patching 10ec0885 with 10ec0892 codec (patched by AppleHDA Patcher.app)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				hQjsEA==
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				kgjsEA==
-				</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -1254,7 +1492,7 @@
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
-		<string>0x13</string>
+		<string>0x3b</string>
 		<key>MLB</key>
 		<string>C02351201CXFP5C15</string>
 		<key>ROM</key>
@@ -1269,7 +1507,7 @@
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP112.88Z.0138.B38.1705011718</string>
+		<string>MBP111.88Z.0142.B00.1708080655</string>
 		<key>Board-ID</key>
 		<string>Mac-3CBD00234E554E41</string>
 		<key>BoardManufacturer</key>
@@ -1311,16 +1549,12 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
-		<key>BacklightLevel</key>
-		<integer>0</integer>
 		<key>CustomUUID</key>
 		<string>9E96C829-98A1-715B-BDED-BCEBE3B7CB25</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectKexts_</key>
 		<string>Detect</string>
-		<key>InjectSystemID</key>
-		<true/>
 	</dict>
 </dict>
 </plist>

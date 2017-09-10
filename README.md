@@ -3,12 +3,12 @@
 
 current issues:
 
-1. brightness value not persist among restarts
-2. audio card not working ( won't boot once AppleALC enabled, if hotpatch enabled gives resources not ready, if without hotpatch, repeating message:  codec property missing, skipping )
-3. usb states messed up after sleep
+1. ~~brightness value not persist among restarts~~ fixed by removed clover brightness setting
+2. ~~audio card not working ( won't boot once AppleALC enabled, if hotpatch enabled gives resources not ready, if without hotpatch, repeating message:  codec property missing, skipping )~~ fixed by applying HPET patch and using my own layout id (31), may have been merged into main stream AppleALC
+3. ~~usb states messed up after sleep~~ fixed with SSDT hotpatch
 4. ~~instant wake: Wake reason: GLAN. fixed USB cut off after wake.~~
 sleep is now working, however we won't be able to wake up on mouse/keyboard press, it's no big deal but I'll try to fix it when i have the time.
-5. https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/page-89#post-1575595
+5. ~~https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/page-89#post-1575595~~
 
 0:100  0:000  === [ GetDevices ] ========================================
 0:100  0:000  PCI (00|00:00.00) : 8086 0C04 class=060000
@@ -36,4 +36,11 @@ sleep is now working, however we won't be able to wake up on mouse/keyboard pres
 0:100  0:000  PCI (00|00:1F.00) : 8086 8C4B class=060100
 0:100  0:000  PCI (00|00:1F.02) : 8086 8C03 class=010601
 0:100  0:000  PCI (00|00:1F.03) : 8086 8C22 class=0C0500
+
+
+-------
+the hardest part is probably getting audio card working, including my pinconfig/pathmap etc.
+
+apparently, Mac only uses pinconfig sort of as a reference, and not really stick to it. pathmap has its influence over what "system information" -> "audio" says as well.
+
 

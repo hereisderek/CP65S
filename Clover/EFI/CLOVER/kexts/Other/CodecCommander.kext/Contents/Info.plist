@@ -332,6 +332,8 @@
 				</dict>
 				<key>Realtek ALC892 desktop</key>
 				<dict>
+					<key>Perform Reset on EAPD Fail</key>
+					<true/>
 					<key>Sleep Nodes</key>
 					<true/>
 					<key>Update Nodes</key>
