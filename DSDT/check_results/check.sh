@@ -19,8 +19,8 @@ mkdir aml_dump
 cd aml_dump
 patchmatic -extract
 
-mv SSDT-1.aml SSDT-1.aml_
-mv SSDT-32.aml SSDT-32.aml_
+# mv SSDT-1.aml SSDT-1.aml_
+# mv SSDT-32.aml SSDT-32.aml_
 
 
 
@@ -30,12 +30,12 @@ mkdir ../dsl_dump
 
 # compose compile list
 
-iasl -da -dl -fe ../../refs.txt *.aml >/dev/null
+iasl -da -dl *.aml >/dev/null
 
 [ $? -eq 0 ] && mv *.dsl ../dsl_dump/
 
-mv SSDT-1.aml_ SSDT-1.aml
-mv SSDT-32.aml_ SSDT-32.aml
+# mv SSDT-1.aml_ SSDT-1.aml
+# mv SSDT-32.aml_ SSDT-32.aml
 
 
 
