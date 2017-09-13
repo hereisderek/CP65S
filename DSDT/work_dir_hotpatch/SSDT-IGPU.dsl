@@ -3,6 +3,10 @@
 DefinitionBlock("", "SSDT", 2, "hack", "IGPU", 0)
 {
     External(_SB.PCI0.IGPU, DeviceObj)
+    External(_SB.PCI0.GFX0, DeviceObj)
+    External(_SB.PCI0.IGPU.XDSM, MethodObj)
+    External(_SB.PCI0.GFX0.XDSM, MethodObj)
+    
 
     External(RMCF.TYPE, IntObj)
     External(RMCF.HIGH, IntObj)
@@ -366,10 +370,25 @@ DefinitionBlock("", "SSDT", 2, "hack", "IGPU", 0)
         // inject properties for integrated graphics on IGPU
         Method(_DSM, 4)
         {
+            If (!Arg2) { Return (Buffer() { 0x03 } ) }
+            
+            If (!CondRefOf(\RMCF.IGPI) || Ones == \RMCF.IGPI) 
+            {
+                If (CondRefOf(\_SB.PCI0.IGPU.XDSM)) 
+                {
+                    Return(\_SB.PCI0.IGPU.XDSM(Arg0, Arg1, Arg2, Arg3)) 
+                } 
+                If (CondRefOf(\_SB.PCI0.GFX0.XDSM)) 
+                {
+                    Return(\_SB.PCI0.GFX0.XDSM(Arg0, Arg1, Arg2, Arg3)) 
+                }
+                Return (0)
+            } 
+            
             // IGPU can be set to Ones to disable IGPU property injection (same as removing SSDT-IGPU.aml)
             If (CondRefOf(\RMCF.IGPI)) { If (Ones == \RMCF.IGPI) { Return(0) } }
             // otherwise, normal IGPU injection...
-            If (!Arg2) { Return (Buffer() { 0x03 } ) }
+
             Local1 = Ones
             // determine correct injection table to use based on graphics config in SSDT-Config.aml
             If (CondRefOf(\RMCF.TYPE))

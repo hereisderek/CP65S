@@ -3,25 +3,67 @@
 <plist version="1.0">
 <dict>
 	<key>DisplayProductID</key>
-	<integer>45061</integer>
+	<integer>40060</integer>
+	<key>DisplayProductName</key>
+	<string>Color LCD</string>
 	<key>DisplayVendorID</key>
-	<integer>1552</integer>
+	<integer>12516</integer>
 	<key>IODisplayEDID</key>
 	<data>
-	AP///////wAGEBKgAAAAABwWAQS1MBt4Im+xp1VMniUMUFQAAAABAQEBAQEBAQEBAQEB
-	AQEBLjaAoHA4H0AwIDUAWcIQAAAZAAAA/ABpTWFjCiAgICAgICAgAAAA/gBMRyBEaXNw
-	bGF5CiAgAAAA/gBMUDE1NldGNC1TUEwxAIk=
+	AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQAAAABAQEBAQEBAQEBAQEB
+	AQEBLjaAoHA4H0AwIDUAWcIQAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAA/gBMRyBEaXNw
+	bGF5CiAgAAAA/gBMUDE1NldGNC1TUEwxAE4=
+	</data>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
 	</data>
 	<key>scale-resolutions</key>
 	<array>
 		<data>
+		AAAIAAAABIAAAAABACAAAA==
+		</data>
+		<data>
+		AAAIgAAABMgAAAABACAAAA==
+		</data>
+		<data>
+		AAAIwAAABOwAAAABACAAAA==
+		</data>
+		<data>
+		AAAJAAAABRAAAAABACAAAA==
+		</data>
+		<data>
 		AAAJYAAABUYAAAABACAAAA==
+		</data>
+		<data>
+		AAAJgAAABVgAAAABACAAAA==
+		</data>
+		<data>
+		AAAKAAAABaAAAAABACAAAA==
+		</data>
+		<data>
+		AAAKgAAABegAAAABACAAAA==
 		</data>
 		<data>
 		AAALQAAABlQAAAABACAAAA==
 		</data>
 		<data>
+		AAALgAAABngAAAABACAAAA==
+		</data>
+		<data>
+		AAAMgAAABwgAAAABACAAAA==
+		</data>
+		<data>
+		AAANAAAAB1AAAAABACAAAA==
+		</data>
+		<data>
 		AAANIAAAB2IAAAABACAAAA==
+		</data>
+		<data>
+		AAANgAAAB5gAAAABACAAAA==
+		</data>
+		<data>
+		AAAOQAAACAQAAAABACAAAA==
 		</data>
 		<data>
 		AAAPAAAACHAAAAABACAAAA==

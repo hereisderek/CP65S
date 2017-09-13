@@ -65,7 +65,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //    Name(IGPI, Ones)
         // Or to set a custom ig-platform-id, example:
         //    Name(IGPI, 0x01660008)
-        Name(IGPI, 0)
+        //Name(IGPI, 0)
+        Name(IGPI, Ones)
 
         // DPTS: For laptops only: set to 1 if you want to enable and
         //  disable the DGPU _PTS and _WAK.
@@ -92,7 +93,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // The value here will be used to inject layout-id for HDEF and HDAU
         // If set to Zero, no audio injection will be done.
-        Name(AUDL, 30)
+        Name(AUDL, 31)
         //Name(AUDL, 28)
         //Name(AUDL, Ones)
 
@@ -142,6 +143,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     }
     
     // a common method extracted from mac
+    // however this should be needed at all
     Method (DTGP, 5, NotSerialized)
     {
         If (LEqual (Arg0, Buffer (0x10)
@@ -173,13 +175,23 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Return (Zero)
     }
     
-    // keyboard brightness adjustment fix
+    Device (RMKB)
+    {
+        Name(_HID, "RMKB0000")
+    }    // keyboard brightness adjustment fix
+    
+    
     Method(_SB.PCI0.LPCB.EC._Q11, 0)
     {
         // call the original method
         // \rmdt.p1("enter custom Q11 for brightness up")
         If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ11)) { \_SB.PCI0.LPCB.EC.XQ11() }
-        If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0405) }
+        
+        If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
+        { 
+            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0405) 
+            Notify(\_SB.PCI0.LPCB.PS2K, 0x20) 
+        }
         // Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
     }
 
@@ -188,7 +200,13 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // call the original method
         // \rmdt.p1("enter custom Q12 for brightness down")
         If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ12)) { \_SB.PCI0.LPCB.EC.XQ12() }
-        If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) { Notify(\_SB.PCI0.LPCB.PS2K, 0x0406) }
+        
+        If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
+        { 
+            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
+            Notify(\_SB.PCI0.LPCB.PS2K, 0x10)
+        }
+        
         // Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
     }
     

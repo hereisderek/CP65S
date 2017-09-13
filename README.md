@@ -29,6 +29,8 @@ Notes:
 
 5. Stock wifi card(RTL87223BE) is not supported by Mac OS, there's no solution for it yet. Find a supported one or grab a usb wifi
 
+6. copy CP65S/VIDEO_PORTS_HDMI_DP/DisplayVendor/3840x2160/DisplayVendorID-30e4 to /System/Library/Displays/Contents/Resources/Overrides/ (if we have the same display panel, but probably not) and pair with RDM to enable hidpi display (and many other resolutions) if that's your sort of thing.  However, using this method requires you to inject your own monitor EDID into both clover and DisplayVendorID file, otherwise you may experience some issue that the internal lcd not light up after sleep, however your desktop can be accessed via remote desktop. P.S. best resolution for me personally is 2240*1260
+
 -------
 
 Untested:
@@ -72,4 +74,24 @@ the hardest part is probably getting audio card working, including my pinconfig/
 
 apparently, Mac only uses pinconfig sort of as a reference, and not really stick to it. pathmap has its influence over what "system information" -> "audio" says as well.
 
+
+-------
+graphic patch notes:
+[guide](https://www.tonymacx86.com/threads/guide-intel-igpu-hdmi-dp-audio-sandy-ivy-haswell-broadwell-skylake.189495/)
+
+1. AppleIntelFramebuffer 0:      LCD0
+2. AppleIntelFramebuffer 1: 0105 HDMI
+3. AppleIntelFramebuffer 2: 0204 DP 
+4. AppleIntelFramebuffer 3: 0306 DP <01 00 00 00> -> <00 04 00 00>
+
+* four connectors in total: 100* (internal display), 0105 (HDMI), 303 401* (DP)
+* LCD0/DVI connectors connector-type <00 02 00 00>
+* DP connectors connector-type <00 04 00 00> 
+* HDMI connectors connector-type <00 08 00 00>
+
+
+* IOACPIPlane:/_SB/PCI0@0/IGPU@20000/CRT0@100
+* IOACPIPlane:/_SB/PCI0@0/IGPU@20000/DP@303
+* IOACPIPlane:/_SB/PCI0@0/IGPU@20000/HDMI@304
+* IOACPIPlane:/_SB/PCI0@0/IGPU@20000/LCD0@410
 
