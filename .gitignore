@@ -2,3 +2,4 @@ build/
 tmp/
 .svn/
 DSDT/check_results/dsl_dump
+config.plist

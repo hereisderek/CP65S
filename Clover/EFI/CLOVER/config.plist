@@ -2,53 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>#SMBIOS_1</key>
-	<dict>
-		<key>BiosReleaseDate</key>
-		<string>01/05/2017</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP111.88Z.0142.B00.1708080655</string>
-		<key>Board-ID</key>
-		<string>Mac-3CBD00234E554E41</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardSerialNumber</key>
-		<string>C02417500GUF0V58C</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>BoardVersion</key>
-		<string>MacBookPro11,2</string>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>0x0A</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>FirmwareFeatures</key>
-		<string>0xE80FE137</string>
-		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
-		<key>LocationInChassis</key>
-		<string>Part Component</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
-		<key>Mobile</key>
-		<true/>
-		<key>PlatformFeature</key>
-		<string>0x02</string>
-		<key>ProductName</key>
-		<string>MacBookPro11,1</string>
-		<key>SerialNumber</key>
-		<string>C02L7V1PFD56</string>
-		<key>SmUUID</key>
-		<string>2E5D87BF-1A7E-466E-AEF5-401E036FC013</string>
-		<key>Version</key>
-		<string>1.0</string>
-	</dict>
 	<key>#SMBIOS_2</key>
 	<dict>
 		<key>BiosReleaseDate</key>
@@ -920,7 +873,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 -xcpm keepsyms=1 debug=0x100 kextlog=0xffff -alcbeta -alcdbg -liludbg</string>
+		<string>dart=0 -xcpm darkwake=8 keepsyms=1 debug=0x100 kextlog=0xffff -alcbeta -alcdbg -liludbg</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -1107,11 +1060,15 @@
 		<dict>
 			<key>Inject</key>
 			<string>31</string>
+			<key>ResetHDA</key>
+			<true/>
 		</dict>
 		<key>FakeID</key>
 		<dict>
 			<key>IntelGFX</key>
 			<string>0x04128086</string>
+			<key>WIFI</key>
+			<string>0x43a014E4</string>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -1635,6 +1592,164 @@
 				AwYKAAAIAACHAQAA
 				</data>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable 5Ghz Asus PCE-AC66 (Yosemite, Sierra)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGVVPrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.12-BCM94352-fvco-darkvoid</string>
+				<key>Find</key>
+				<data>
+				gflSqgAAdSk=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				gflSqgAAZpA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-5GHz-US-FCC-darkvoid</string>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGVVPrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Airport-Extreme-skvo</string>
+				<key>Find</key>
+				<data>
+				axAAAHUN
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				axAAAJCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
+				<key>Find</key>
+				<data>
+				SIX/dEdIiwc=
+				</data>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Replace</key>
+				<data>
+				Qb4PAAAA60Q=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.12-BCM94352-0x43b114e4-Info.plist-bpresles</string>
+				<key>Find</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYmE8L3N0cmluZz4=
+				</data>
+				<key>InfoPlistPatch</key>
+				<string>YES</string>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				PHN0cmluZz5wY2kxNGU0LDQzYjE8L3N0cmluZz4=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11-BCM94352-CC=#a-Ramalama</string>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGI2HrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Whitelest-0x4331-iMac14,3-skvo</string>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BCM94352-Whitelest-0x4353-MacBoolAir5,2-skvo</string>
+				<key>Find</key>
+				<data>
+				TWFjLUM2RUZBNjM5NjJGQzZFQTA=
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				TWFjLTI3QURCQjdCNENFRThFNjE=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.10-BCM94352-5GHz-US-FCC-dv</string>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGVVPrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.9-BCM94352-5 GHz</string>
+				<key>Find</key>
+				<data>
+				AVhU
+				</data>
+				<key>Name</key>
+				<string>AirPortBrcm4360</string>
+				<key>Replace</key>
+				<data>
+				AVhY
+				</data>
+			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -1653,21 +1768,21 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>08/08/2017</string>
+		<string>01/05/2017</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
 		<string>MBP111.88Z.0142.B00.1708080655</string>
 		<key>Board-ID</key>
-		<string>Mac-189A3D4F975D5FFC</string>
+		<string>Mac-3CBD00234E554E41</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02445600QXF9H2JA</string>
+		<string>C02417500GUF0V58C</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
-		<string>MacBookPro11,1</string>
+		<string>MacBookPro11,2</string>
 		<key>ChassisAssetTag</key>
 		<string>MacBook-Aluminum</string>
 		<key>ChassisManufacturer</key>
@@ -1691,7 +1806,9 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,1</string>
 		<key>SerialNumber</key>
-		<string>C02NP3ZXFH00</string>
+		<string>C02L7V1PFD56</string>
+		<key>SmUUID</key>
+		<string>2E5D87BF-1A7E-466E-AEF5-401E036FC013</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>

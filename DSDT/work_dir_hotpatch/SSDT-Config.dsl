@@ -93,9 +93,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // The value here will be used to inject layout-id for HDEF and HDAU
         // If set to Zero, no audio injection will be done.
-        Name(AUDL, 31)
+        //Name(AUDL, 31)
         //Name(AUDL, 28)
-        //Name(AUDL, Ones)
+        Name(AUDL, Ones)
 
 
         // BKLT: Backlight control type
@@ -144,36 +144,36 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     
     // a common method extracted from mac
     // however this should be needed at all
-    Method (DTGP, 5, NotSerialized)
-    {
-        If (LEqual (Arg0, Buffer (0x10)
-        {
-            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,
-            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
-        }))
-        {
-            If (LEqual (Arg1, One))
-            {
-                If (LEqual (Arg2, Zero))
-                {
-                    Store (Buffer (One)
-                    {
-                        0x03
-                    }, Arg4)
-                    Return (One)
-                }
-                If (LEqual (Arg2, One))
-                {
-                    Return (One)
-                }
-            }
-        }
-        Store (Buffer (One)
-        {
-            0x00
-        }, Arg4)
-        Return (Zero)
-    }
+//    Method (DTGP, 5, NotSerialized)
+//    {
+//        If (LEqual (Arg0, Buffer (0x10)
+//        {
+//            /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44,
+//            /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
+//        }))
+//        {
+//            If (LEqual (Arg1, One))
+//            {
+//                If (LEqual (Arg2, Zero))
+//                {
+//                    Store (Buffer (One)
+//                    {
+//                        0x03
+//                    }, Arg4)
+//                    Return (One)
+//                }
+//                If (LEqual (Arg2, One))
+//                {
+//                    Return (One)
+//                }
+//            }
+//        }
+//        Store (Buffer (One)
+//        {
+//            0x00
+//        }, Arg4)
+//        Return (Zero)
+//    }
     
     Device (RMKB)
     {
@@ -217,11 +217,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Store (Package ()
         {
             "AAPL,slot-name", Buffer () { "Built in" }, 
-            "model", Buffer () { "Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter" }, 
-            "built-in", Buffer (One) { 0x00 }
+            "model", Buffer () { "BCM4352 802.11ac Wireless Network Adapter" }, 
+            "built-in", Buffer (One) { 0x00 },
+            "compatible", "pci14e4,43a0"
         }, Local0)
-        
-        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         
         // call build in _DSM
         If (CondRefOf(\_SB.PCI0.PR06.PXSX.XDSM)) { \_SB.PCI0.PR06.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3) }
@@ -251,7 +250,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
                 0x00
             }
         }, Local0)
-        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         
         // call build in _DSM
         If (CondRefOf(\_SB.PCI0.PR05.PXSX.XDSM))
@@ -284,7 +282,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
                 0x00
             }
         }, Local0)
-        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
         
         // call build in _DSM
         If (CondRefOf(\_SB.PCI0.PR05.RLAN.XDSM))
