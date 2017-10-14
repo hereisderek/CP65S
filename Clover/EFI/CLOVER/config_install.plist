@@ -2,6 +2,186 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>#Devices</key>
+	<dict>
+		<key>#AddProperties</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>hda-gfx=onboard-1 for HDMI audio</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>hda-gfx</string>
+				<key>Value</key>
+				<data>
+				b25ib2FyZC0xAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>hda-gfx=onboard-1 for HDMI audio</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>hda-gfx</string>
+				<key>Value</key>
+				<data>
+				b25ib2FyZC0xAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>layout-id</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>layout-id</string>
+				<key>Value</key>
+				<data>
+				AQAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>layout-id</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>layout-id</string>
+				<key>Value</key>
+				<data>
+				AQAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>device_type</string>
+				<key>Value</key>
+				<data>
+				Cg0AAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>device_type</string>
+				<key>Value</key>
+				<data>
+				Cg0AAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>PinConfigurations</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>AAPL,slot-name</string>
+				<key>Value</key>
+				<data>
+				CwAA
+				</data>
+			</dict>
+		</array>
+		<key>AddProperties</key>
+		<array>
+			<dict>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Key</key>
+				<string>hda-gfx</string>
+				<key>Value</key>
+				<string>onboard-1</string>
+			</dict>
+		</array>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<string>31</string>
+			<key>ResetHDA</key>
+			<true/>
+		</dict>
+		<key>FakeID</key>
+		<dict>
+			<key>IntelGFX</key>
+			<string>0x04128086</string>
+			<key>WIFI</key>
+			<string>0x43a014E4</string>
+		</dict>
+		<key>USB</key>
+		<dict>
+			<key>FixOwnership</key>
+			<false/>
+			<key>Inject</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>ACPI</key>
 	<dict>
 		<key>#Comment-SortedOrder</key>
@@ -804,20 +984,11 @@
 		<string>PBR</string>
 		<key>Log</key>
 		<true/>
-		<key>NeverDoRecovery</key>
-		<true/>
-		<key>NoEarlyProgress</key>
-		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>5</integer>
 		<key>XMPDetection</key>
-		<false/>
-	</dict>
-	<key>CPU</key>
-	<dict>
-		<key>UseARTFrequency</key>
 		<false/>
 	</dict>
 	<key>Devices</key>
@@ -1002,25 +1173,25 @@
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
-		<string>VBoxHfs_BAK</string>
+		<string>Nothing</string>
 	</array>
 	<key>GUI</key>
 	<dict>
-		<key>#ScreenResolution</key>
-		<string>1920x1080</string>
 		<key>ConsoleMode</key>
 		<string>Max</string>
 		<key>Hide</key>
 		<array>
-			<string>data</string>
-			<string>personal</string>
+			<string>BOOTX64.EFI</string>
+			<string>Windows</string>
 		</array>
+		<key>Language</key>
+		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
 			<key>DoubleClick</key>
 			<integer>500</integer>
 			<key>Enabled</key>
-			<false/>
+			<true/>
 			<key>Mirror</key>
 			<false/>
 			<key>Speed</key>
@@ -1031,7 +1202,7 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
-			<false/>
+			<true/>
 			<key>Linux</key>
 			<true/>
 			<key>Tool</key>
@@ -1039,10 +1210,8 @@
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
-		<key>ShowOptimus</key>
-		<true/>
 		<key>Theme</key>
-		<string>YosemiteLogin</string>
+		<string>black_green</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
