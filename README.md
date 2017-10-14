@@ -14,7 +14,10 @@ sleep is now working, however we won't be able to wake up on mouse/keyboard pres
 
 5. ~~https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/page-89#post-1575595~~
 
-6. You tell me. Any bug report is welcomed
+6. All known Mac OS 10.13 issues have been fixed on version (1.1.1)[https://github.com/1and1get2/CP65S/releases/tag/1.1.1]  (battery, graphic, wifi)
+
+7. You tell me. Any bug report is welcomed
+
 -------
 
 Notes: 
