@@ -5,7 +5,7 @@ current issues:
 
 1. ~~brightness value not persist among restarts~~ fixed by removed clover brightness setting
 
-2. ~~audio card not working ( won't boot once AppleALC enabled, if hotpatch enabled gives resources not ready, if without hotpatch, repeating message:  codec property missing, skipping )~~ fixed by applying HPET patch and using my own layout id (31), it has been merged into main stream AppleALC
+2. ~~audio card not working ( won't boot once AppleALC enabled, if hotpatch enabled gives resources not ready, if without hotpatch, repeating message:  codec property missing, skipping )~~ fixed by applying HPET patch and using my own layout id (31), it has also been merged into main stream AppleALC
 
 3. ~~usb states messed up after sleep~~ fixed with SSDT hotpatch
 
@@ -14,9 +14,11 @@ sleep is now working, however we won't be able to wake up on mouse/keyboard pres
 
 5. ~~https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/page-89#post-1575595~~
 
-6. All known Mac OS 10.13 issues have been fixed on version (1.1.1)[https://github.com/1and1get2/CP65S/releases/tag/1.1.1]  (battery, graphic, wifi)
+6. Unable to turn bluetooth on&off (no solution just yet)
 
-7. You tell me. Any bug report is welcomed
+7. rebooting from windows may mute headphone jack output (line out still work fine, may need the help of EAPD-Codec-Commander)
+
+8. You tell me. Any bug report is welcomed
 
 -------
 
