@@ -17,17 +17,54 @@
 // 
 // Common port connector types are USB2 = 0, USB3 = 3, internal = 255.
 
+// https://www.tonymacx86.com/threads/guide-usb-power-property-injection-for-sierra-and-later.222266/
+
 DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
 {
     External(DTGP, MethodObj)
+        
+    /*
+    Name(UPWC, Package (){
+        "kUSBSleepPortCurrentLimit", 2100,
+        "kUSBSleepPowerSupply", 2600,
+        "kUSBWakePortCurrentLimit", 2100,
+        "kUSBWakePowerSupply", 3200,
+    }) // MacBookPro12,1 -> this one works perfectly fine
+            
+    Name(UPWC, Package (){
+        "kUSBSleepPortCurrentLimit", 2100,
+        "kUSBSleepPowerSupply", 4700,
+        "kUSBWakePortCurrentLimit", 2100,
+        "kUSBWakePowerSupply", 4700,
+    }) // iMac17,1
+            
+    Name(UPWC, Package (){
+        "kUSBSleepPortCurrentLimit", 2100,
+        "kUSBSleepPowerSupply", 4700,
+        "kUSBWakePortCurrentLimit", 2100,
+        "kUSBWakePowerSupply", 4700,
+    }) // iMac14,2
+    */
+    
+    Name(UPWC, Package (){
+        "kUSBSleepPortCurrentLimit", 1100,
+        "kUSBSleepPowerSupply", 2600,
+        "kUSBWakePortCurrentLimit", 2100,
+        "kUSBWakePowerSupply", 5100,
+    }) // custom
+    
+    
     Scope (_SB)
     {
+
         Device (USBX)
         {
             Name (_ADR, Zero)  // _ADR: Address
             Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
             {
                 If (!Arg2) { Return (Buffer() { 0x03 } ) }
+                
+                /*
                 Return (Package ()
                     {
                         "AAPL,current-available", 0x0834,      // Buffer() { 0x34, 0x08, 0, 0 },
@@ -41,13 +78,26 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
                         //"kUSBWakePowerSupply", 0x13EC,
                         //"kUSBWakePortCurrentLimit", 0x0834,
 
-                        //REVIEW: these values from MacBookPro12,1 (pure guess)
+                        //REVIEW: these values from MacBookPro12,1 (pure guess) (this one works for me great)
                         "kUSBSleepPortCurrentLimit", 2100,
                         "kUSBSleepPowerSupply", 2600,
                         "kUSBWakePortCurrentLimit", 2100,
                         "kUSBWakePowerSupply", 3200,
                         
+                        // these values from iMac17,1
+                        "kUSBSleepPortCurrentLimit", 2100,
+                        "kUSBSleepPowerSupply", 5100,
+                        "kUSBWakePortCurrentLimit", 2100,
+                        "kUSBWakePowerSupply", 5100,
+                        
+                        // these values happen to be iMac14,2 values...
+                        "kUSBSleepPortCurrentLimit", 2100,
+                        "kUSBSleepPowerSupply", 4700,
+                        "kUSBWakePortCurrentLimit", 2100,
+                        "kUSBWakePowerSupply", 4700,
                     })
+                    */
+                Return(UPWC)
             }
         }
     }
@@ -58,6 +108,19 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
 
         Name(RMCF, Package()
         {
+            // USB Power Properties for Sierra (using USBInjectAll injection)
+//            "AppleBusPowerControllerUSB", Package()
+//            {
+//                // these values happen to be iMac14,2 values...
+//                "kUSBSleepPortCurrentLimit", 2100,
+//                "kUSBSleepPowerSupply", 4700,
+//                "kUSBWakePortCurrentLimit", 2100,
+//                "kUSBWakePowerSupply", 4700,
+//            },
+            
+            
+            "AppleBusPowerControllerUSB", UPWC,
+            
             "HUB1", Package()
             {
                 "port-count", Buffer() { 8, 0, 0, 0 },

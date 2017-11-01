@@ -25,16 +25,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "EH01", 0)
             "subsystem-vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
 
             //REVIEW: these values from MacBookPro12,1 (pure guess)
-            "kUSBSleepPortCurrentLimit", 2100,
-            "kUSBSleepPowerSupply", 2600,
-            "kUSBWakePortCurrentLimit", 2100,
-            "kUSBWakePowerSupply", 3200,
+//            "kUSBSleepPortCurrentLimit", 2100,
+//            "kUSBSleepPowerSupply", 2600,
+//            "kUSBWakePortCurrentLimit", 2100,
+//            "kUSBWakePowerSupply", 3200,
 
-            "AAPL,current-available", 2100,
-            "AAPL,current-extra", 2200,
-            "AAPL,current-extra-in-sleep", 1600,
             "AAPL,device-internal", 0x02,
-            "AAPL,max-port-current-in-sleep", 2100,
+//            "AAPL,current-available", 2100,
+//            "AAPL,current-extra", 2200,
+//            "AAPL,current-extra-in-sleep", 1600,
+//            "AAPL,max-port-current-in-sleep", 2100,
         })
     }
 }
