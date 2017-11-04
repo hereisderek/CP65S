@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20161210-64(RM)
- * Copyright (c) 2000 - 2016 Intel Corporation
+ * AML/ASL+ Disassembler version 20170929 (64-bit version)(RM)
+ * Copyright (c) 2000 - 2017 Intel Corporation
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-14.aml, Wed Aug 16 21:41:46 2017
+ * Disassembly of SSDT-9-PARADISE.aml, Sun Nov  5 03:46:45 2017
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -22,10 +22,10 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 {
     /*
      * External declarations were imported from
-     * a reference file -- refs.txt
+     * a reference file -- ../refs.txt
      */
 
-    //External (***D, UnknownObj)    // Warning: Unknown object
+//    External (**42, UnknownObj)    // Warning: Unknown object
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_PR_.CPU0, ProcessorObj)
@@ -38,13 +38,13 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.GFX0, DeviceObj)
-    External (_SB_.PCI0.GFX0._DSM, IntObj)    // Warning: Unknown object
+    External (_SB_.PCI0.GFX0._DSM, MethodObj)         // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.LPCB.EC__.GPUT, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC__.TMP_, FieldUnitObj)
-    External (_SB_.PCI0.LPCB.H_EC.ECMD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0, DeviceObj)
     External (_SB_.PCI0.PEG0.ATID, FieldUnitObj)
     External (_SB_.PCI0.PEG0.CMDR, FieldUnitObj)
@@ -65,17 +65,25 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (DSEL, FieldUnitObj)
+    External (DTGP, MethodObj)    // Imported: 5 Arguments
     External (EBAS, FieldUnitObj)
     External (ESEL, FieldUnitObj)
     External (GPSC, FieldUnitObj)
     External (HYSS, FieldUnitObj)
-    External (MDBG, MethodObj)    // Imported: 1 Arguments
     External (NVGA, FieldUnitObj)
     External (NVHA, FieldUnitObj)
     External (OEMF, FieldUnitObj)
     External (P80H, FieldUnitObj)
     External (P8XH, MethodObj)    // 2 Arguments
     External (PSEL, FieldUnitObj)
+    External (RMDT.P1__, MethodObj)    // Imported: 1 Arguments
+    External (RMDT.P2__, MethodObj)    // Imported: 2 Arguments
+    External (RMDT.P3__, MethodObj)    // Imported: 3 Arguments
+    External (RMDT.P4__, MethodObj)    // Imported: 4 Arguments
+    External (RMDT.P5__, MethodObj)    // Imported: 5 Arguments
+    External (RMDT.P6__, MethodObj)    // Imported: 6 Arguments
+    External (RMDT.P7__, MethodObj)    // Imported: 7 Arguments
+    External (RMDT.PUSH, MethodObj)    // Imported: 1 Arguments
 
     Scope (\_SB.PCI0)
     {
@@ -161,7 +169,26 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             Return (Zero)
         }
 
-        
+        Method (MXMX, 1, Serialized)
+        {
+            If (LEqual (Arg0, Zero))
+            {
+                SGPO (ESEL, One)
+                Return (One)
+            }
+
+            If (LEqual (Arg0, One))
+            {
+                Return (One)
+            }
+
+            If (LEqual (Arg0, 0x02))
+            {
+                Return (SGPI (ESEL))
+            }
+
+            Return (Zero)
+        }
 
         Method (MXDS, 1, Serialized)
         {
@@ -233,7 +260,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Method (GMXM, 3, NotSerialized)
         {
             Store (0xC8, Local0)
-            Name (BUMA, Buffer (Local0) {})
+            Name (BUMA, Buffer (Local0){})
             If (CondRefOf (MXM3, Local6))
             {
                 Store (MXM3, BUMA)
@@ -288,9 +315,51 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             })
         }
 
-        
+        Method (HDSM, 4, Serialized)
+        {
+            If (LEqual (Arg0, ToUUID ("4004a400-917d-4cf2-b89c-79b62fd55665")))
+            {
+                Switch (ToInteger (Arg2))
+                {
+                    Case (Zero)
+                    {
+                        Return (Buffer (0x04)
+                        {
+                             0x01, 0x00, 0x01, 0x01                         
+                        })
+                    }
+                    Case (0x18)
+                    {
+                        Return (Buffer (0x04)
+                        {
+                             0x30, 0x00, 0x00, 0x00                         
+                        })
+                    }
+                    Case (0x10)
+                    {
+                        Name (MXM3, Buffer (0x1D)
+                        {
+                            /* 0000 */  0x4D, 0x58, 0x4D, 0x5F, 0x03, 0x00, 0x15, 0x00,
+                            /* 0008 */  0x00, 0xFF, 0x09, 0xF0, 0xF9, 0x3E, 0x00, 0x00,
+                            /* 0010 */  0x01, 0x1A, 0x04, 0x00, 0x03, 0x03, 0xF4, 0x01,
+                            /* 0018 */  0x13, 0x02, 0xE8, 0x03, 0x4E                   
+                        })
+                        Return (MXM3)
+                    }
 
-        
+                }
+
+                Return (0x80000002)
+            }
+
+            Return (0x80000001)
+        }
+
+        Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+        {
+            CreateByteField (Arg0, 0x03, GUID)
+            Return (\_SB.PCI0.GFX0.HDSM (Arg0, Arg1, Arg2, Arg3))
+        }
 
         Name (CTXT, Zero)
         Method (_ON, 0, Serialized)  // _ON_: Power On
@@ -344,7 +413,312 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
             ELCL,   16
         }
 
-        
+        Method (HDSM, 4, Serialized)
+        {
+            If (LEqual (Arg0, ToUUID ("a3132d01-8cda-49ba-a52e-bc9d46df6b81")))
+            {
+                Return (\_SB.PCI0.PEG0.PEGP.GPS (Arg0, Arg1, Arg2, Arg3))
+            }
+
+            If (LEqual (Arg0, ToUUID ("cbeca351-067b-4924-9cbd-b46b00b86f34")))
+            {
+                Return (\_SB.PCI0.PEG0.PEGP.NGC6 (Arg0, Arg1, Arg2, Arg3))
+            }
+
+            Name (SGCI, Zero)
+            Name (NBCI, Zero)
+            Name (OPCI, Zero)
+            Name (BUFF, Zero)
+            If (LEqual (Arg0, ToUUID ("a486d8f8-0bda-471b-a72b-6042a6b5bee0")))
+            {
+                Store (One, OPCI)
+            }
+
+            If (LOr (OPCI, LOr (SGCI, NBCI)))
+            {
+                If (OPCI)
+                {
+                    If (LNotEqual (Arg1, 0x0100))
+                    {
+                        Return (0x80000002)
+                    }
+                }
+                ElseIf (LNotEqual (Arg1, 0x0102))
+                {
+                    Return (0x80000002)
+                }
+
+                If (LEqual (Arg2, Zero))
+                {
+                    If (SGCI)
+                    {
+                        Return (Buffer (0x04)
+                        {
+                             0x7F, 0x00, 0x04, 0x00                         
+                        })
+                    }
+                    ElseIf (NBCI)
+                    {
+                        Return (Buffer (0x04)
+                        {
+                             0x73, 0x00, 0x04, 0x00                         
+                        })
+                    }
+                    ElseIf (OPCI)
+                    {
+                        Return (Buffer (0x04)
+                        {
+                             0x01, 0x18, 0x03, 0x0C                         
+                        })
+                    }
+                }
+
+                If (LEqual (Arg2, One))
+                {
+                    Name (TEMP, Buffer (0x04)
+                    {
+                         0x00, 0x00, 0x00, 0x00                         
+                    })
+                    CreateDWordField (TEMP, Zero, STS0)
+                    If (SGCI)
+                    {
+                        Or (STS0, 0x0B0000BF, STS0)
+                        Or (STS0, ShiftLeft (SGNC, 0x08, SGNC), STS0)
+                    }
+                    Else
+                    {
+                        Or (STS0, Zero, STS0)
+                    }
+
+                    Return (TEMP)
+                }
+
+                If (LEqual (Arg2, 0x02))
+                {
+                    Name (TMP1, Buffer (0x04)
+                    {
+                         0x00, 0x00, 0x00, 0x00                         
+                    })
+                    CreateDWordField (TMP1, Zero, STS1)
+                    ToInteger (Arg3, Local0)
+                    And (Local0, 0x1F, Local0)
+                    If (And (Local0, 0x10))
+                    {
+                        And (Local0, 0x0F, Local0)
+                        Store (Local0, GPSS)
+                        Notify (\_SB.PCI0.GFX0, 0xD9)
+                        Notify (\_SB.PCI0.WMI1, 0xD9)
+                    }
+                    Else
+                    {
+                        And (Local0, 0x0F, Local0)
+                        If (LEqual (GPPO, One))
+                        {
+                            Store (GPSS, Local0)
+                            Or (Local0, 0x10, Local0)
+                            Store (Zero, GPPO)
+                        }
+                    }
+
+                    Or (STS1, Local0, STS1)
+                    Return (TMP1)
+                }
+
+                If (LEqual (Arg2, 0x03))
+                {
+                    Name (TMP2, Buffer (0x04)
+                    {
+                         0x00, 0x00, 0x00, 0x00                         
+                    })
+                    CreateDWordField (TMP2, Zero, STS2)
+                    ToInteger (Arg3, Local0)
+                    And (Local0, 0x03, Local0)
+                    If (LEqual (Local0, Zero))
+                    {
+                        \_SB.PCI0.PEG0.PEGP.SGST ()
+                    }
+
+                    If (LEqual (Local0, One))
+                    {
+                        \_SB.PCI0.PEG0.PEGP.SGON ()
+                    }
+
+                    If (LEqual (Local0, 0x02))
+                    {
+                        \_SB.PCI0.PEG0.PEGP.SGOF ()
+                    }
+
+                    If (LEqual (\_SB.PCI0.PEG0.PEGP.SGST (), 0x0F))
+                    {
+                        Or (STS2, One, STS2)
+                    }
+
+                    Return (TMP2)
+                }
+
+                If (LEqual (Arg2, 0x04))
+                {
+                    Name (TMP3, Buffer (0x04)
+                    {
+                         0x00, 0x00, 0x00, 0x00                         
+                    })
+                    CreateDWordField (TMP3, Zero, STS3)
+                    ToInteger (Arg3, Local0)
+                    Store (Local0, Local1)
+                    ShiftRight (Local0, 0x10, Local0)
+                    And (Local0, One, USPM)
+                    ShiftRight (Local1, 0x0D, Local1)
+                    And (Local1, 0x03, Local1)
+                    If (LNotEqual (Local1, GPSP))
+                    {
+                        If (LEqual (USPM, One))
+                        {
+                            Store (Local1, GPSP)
+                        }
+                        Else
+                        {
+                            Store (GPSP, Local1)
+                            Or (STS3, 0x8000, STS3)
+                        }
+                    }
+
+                    Or (STS3, ShiftLeft (Local1, 0x0D), STS3)
+                    Return (TMP3)
+                }
+
+                If (LEqual (Arg2, 0x10))
+                {
+                    CreateWordField (Arg3, 0x02, USRG)
+                    Name (OPVK, Buffer (0xE6)
+                    {
+                        /* 0000 */  0xE4, 0x42, 0x5F, 0x14, 0x36, 0x26, 0x16, 0x37,
+                        /* 0008 */  0x4B, 0x56, 0xE6, 0x00, 0x00, 0x00, 0x01, 0x00,
+                        /* 0010 */  0x31, 0x34, 0x38, 0x35, 0x39, 0x37, 0x34, 0x35,
+                        /* 0018 */  0x36, 0x39, 0x38, 0x35, 0x47, 0x65, 0x6E, 0x75,
+                        /* 0020 */  0x69, 0x6E, 0x65, 0x20, 0x4E, 0x56, 0x49, 0x44,
+                        /* 0028 */  0x49, 0x41, 0x20, 0x43, 0x65, 0x72, 0x74, 0x69,
+                        /* 0030 */  0x66, 0x69, 0x65, 0x64, 0x20, 0x4F, 0x70, 0x74,
+                        /* 0038 */  0x69, 0x6D, 0x75, 0x73, 0x20, 0x52, 0x65, 0x61,
+                        /* 0040 */  0x64, 0x79, 0x20, 0x4D, 0x6F, 0x74, 0x68, 0x65,
+                        /* 0048 */  0x72, 0x62, 0x6F, 0x61, 0x72, 0x64, 0x20, 0x66,
+                        /* 0050 */  0x6F, 0x72, 0x20, 0x37, 0x33, 0x36, 0x30, 0x31,
+                        /* 0058 */  0x39, 0x5F, 0x4D, 0x49, 0x52, 0x63, 0x20, 0x20,
+                        /* 0060 */  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
+                        /* 0068 */  0x2D, 0x20, 0x3C, 0x34, 0x27, 0x21, 0x58, 0x29,
+                        /* 0070 */  0x57, 0x27, 0x58, 0x20, 0x27, 0x25, 0x59, 0x5D,
+                        /* 0078 */  0x31, 0x29, 0x3A, 0x2A, 0x26, 0x39, 0x59, 0x43,
+                        /* 0080 */  0x56, 0x3B, 0x58, 0x56, 0x58, 0x3D, 0x59, 0x4E,
+                        /* 0088 */  0x3B, 0x3A, 0x35, 0x44, 0x25, 0x42, 0x5A, 0x48,
+                        /* 0090 */  0x55, 0x3A, 0x58, 0x4C, 0x25, 0x48, 0x54, 0x21,
+                        /* 0098 */  0x35, 0x4B, 0x4D, 0x37, 0x2C, 0x3C, 0x20, 0x2D,
+                        /* 00A0 */  0x20, 0x43, 0x6F, 0x70, 0x79, 0x72, 0x69, 0x67,
+                        /* 00A8 */  0x68, 0x74, 0x20, 0x32, 0x30, 0x31, 0x30, 0x20,
+                        /* 00B0 */  0x4E, 0x56, 0x49, 0x44, 0x49, 0x41, 0x20, 0x43,
+                        /* 00B8 */  0x6F, 0x72, 0x70, 0x6F, 0x72, 0x61, 0x74, 0x69,
+                        /* 00C0 */  0x6F, 0x6E, 0x20, 0x41, 0x6C, 0x6C, 0x20, 0x52,
+                        /* 00C8 */  0x69, 0x67, 0x68, 0x74, 0x73, 0x20, 0x52, 0x65,
+                        /* 00D0 */  0x73, 0x65, 0x72, 0x76, 0x65, 0x64, 0x2D, 0x31,
+                        /* 00D8 */  0x34, 0x38, 0x35, 0x39, 0x37, 0x34, 0x35, 0x36,
+                        /* 00E0 */  0x39, 0x38, 0x35, 0x28, 0x52, 0x29             
+                    })
+                    If (LEqual (USRG, 0x564B))
+                    {
+                        Return (OPVK)
+                    }
+
+                    Return (Zero)
+                }
+
+                If (LEqual (Arg2, 0x11))
+                {
+                    Return (Zero)
+                }
+
+                If (LEqual (Arg2, 0x12))
+                {
+                    Return (Package (0x0A)
+                    {
+                        0xD0, 
+                        ToUUID ("921a2f40-0dc4-402d-ac18-b48444ef9ed2"), 
+                        0xD9, 
+                        ToUUID ("c12ad361-9fa9-4c74-901f-95cb0945cf3e"), 
+                        0xDB, 
+                        ToUUID ("42848006-8886-490e-8c72-2bdca93a8a09"), 
+                        0xEF, 
+                        ToUUID ("b3e485d2-3cc1-4b54-8f31-77ba2fdc9ebe"), 
+                        0xF0, 
+                        ToUUID ("360d6fb6-1d4e-4fa6-b848-1be33dd8ec7b")
+                    })
+                }
+
+                If (LEqual (Arg2, 0x1A))
+                {
+                    CreateField (Arg3, 0x18, 0x02, OMPR)
+                    CreateField (Arg3, Zero, One, FLCH)
+                    CreateField (Arg3, One, One, DVSR)
+                    CreateField (Arg3, 0x02, One, DVSC)
+                    If (ToInteger (FLCH))
+                    {
+                        Store (OMPR, \_SB.PCI0.PEG0.PEGP.OPCE)
+                    }
+
+                    Store (Buffer (0x04)
+                        {
+                             0x00, 0x00, 0x00, 0x00                         
+                        }, Local0)
+                    CreateField (Local0, Zero, One, OPEN)
+                    CreateField (Local0, 0x03, 0x02, CGCS)
+                    CreateField (Local0, 0x06, One, SHPC)
+                    CreateField (Local0, 0x08, One, SNSR)
+                    CreateField (Local0, 0x18, 0x03, DGPC)
+                    CreateField (Local0, 0x1B, 0x02, HDAC)
+                    Store (One, OPEN)
+                    Store (One, SHPC)
+                    Store (0x02, HDAC)
+                    Store (One, DGPC)
+                    If (ToInteger (DVSC))
+                    {
+                        If (ToInteger (DVSR))
+                        {
+                            Store (One, \_SB.PCI0.PEG0.PEGP.GPRF)
+                        }
+                        Else
+                        {
+                            Store (Zero, \_SB.PCI0.PEG0.PEGP.GPRF)
+                        }
+                    }
+
+                    Store (\_SB.PCI0.PEG0.PEGP.GPRF, SNSR)
+                    If (LNotEqual (\_SB.PCI0.PEG0.PEGP.SGST (), Zero))
+                    {
+                        Store (0x03, CGCS)
+                    }
+
+                    Return (Local0)
+                }
+
+                If (LEqual (Arg2, 0x1B))
+                {
+                    Store (Arg3, Local0)
+                    CreateField (Local0, Zero, One, OPFL)
+                    CreateField (Local0, One, One, OPVL)
+                    If (ToInteger (OPVL))
+                    {
+                        Store (Zero, Local0)
+                        If (ToInteger (OPFL))
+                        {
+                            Store (One, Local0)
+                        }
+                    }
+
+                    Return (Local0)
+                }
+
+                Return (0x80000002)
+            }
+
+            Return (\_SB.PCI0.PEG0.PEGP.HDSM (Arg0, Arg1, Arg2, Arg3))
+        }
     }
 
     Scope (\_SB.PCI0)
@@ -355,13 +729,13 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     Scope (\_SB.PCI0.PEG0.PEGP)
     {
         Name (PSAP, Zero)
-        Name (ECBF, Buffer (0x14) {})
+        Name (ECBF, Buffer (0x14){})
         CreateDWordField (ECBF, Zero, EDS1)
         CreateDWordField (ECBF, 0x04, EDS2)
         CreateDWordField (ECBF, 0x08, EDS3)
         CreateDWordField (ECBF, 0x0C, EDS4)
         CreateDWordField (ECBF, 0x10, EPDT)
-        Name (GPSP, Buffer (0x24) {})
+        Name (GPSP, Buffer (0x24){})
         CreateDWordField (GPSP, Zero, RETN)
         CreateDWordField (GPSP, 0x04, VRV1)
         CreateDWordField (GPSP, 0x08, TGPU)
@@ -375,18 +749,15 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Name (PSCP, Zero)
         Method (GPS, 4, Serialized)
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             Store ("------- GPS DSM --------", Debug)
             If (LNotEqual (Arg1, 0x0100))
             {
                 Return (0x80000002)
             }
 
-            While (One)
+            Switch (ToInteger (Arg2))
             {
-                Store (ToInteger (Arg2), _T_0)
-                If (LEqual (_T_0, Zero))
+                Case (Zero)
                 {
                     Name (FMSK, Buffer (0x08)
                     {
@@ -427,12 +798,12 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Return (Local0)
                 }
-                ElseIf (LEqual (_T_0, 0x13))
+                Case (0x13)
                 {
                     Store ("GPS fun 19", Debug)
                     Return (Arg3)
                 }
-                ElseIf (LEqual (_T_0, 0x20))
+                Case (0x20)
                 {
                     Store ("GPS fun 20", Debug)
                     Name (RET1, Zero)
@@ -458,11 +829,11 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Return (RET1)
                 }
-                ElseIf (LEqual (_T_0, 0x21))
+                Case (0x21)
                 {
                     Return (\_PR.CPU0._PSS)
                 }
-                ElseIf (LEqual (_T_0, 0x22))
+                Case (0x22)
                 {
                     CreateByteField (Arg3, Zero, PCAP)
                     If (And (GPSC, One))
@@ -488,16 +859,16 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Return (PCAP)
                 }
-                ElseIf (LEqual (_T_0, 0x23))
+                Case (0x23)
                 {
                     Return (\_PR.CPU0._PPC)
                 }
-                ElseIf (LEqual (_T_0, 0x25))
+                Case (0x25)
                 {
                     Store ("GPS fun 25", Debug)
                     Return (\_PR.CPU0._TSS)
                 }
-                ElseIf (LEqual (_T_0, 0x26))
+                Case (0x26)
                 {
                     Store ("GPS fun 26", Debug)
                     CreateDWordField (Arg3, Zero, TCAP)
@@ -505,7 +876,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     Notify (\_PR.CPU0, 0x80)
                     Return (TCAP)
                 }
-                ElseIf (LEqual (_T_0, 0x2A))
+                Case (0x2A)
                 {
                     Store ("GPS fun 2a", Debug)
                     CreateByteField (Arg3, Zero, PSH0)
@@ -517,10 +888,9 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     CreateBitField (Arg3, 0x0C, ENGR)
                     CreateBitField (Arg3, 0x0D, SEN1)
                     CreateBitField (Arg3, 0x0E, SEN2)
-                    While (One)
+                    Switch (PSH0)
                     {
-                        Store (PSH0, _T_1)
-                        If (LEqual (_T_1, Zero))
+                        Case (Zero)
                         {
                             If (CPUT)
                             {
@@ -531,14 +901,14 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                             Return (GPSP)
                         }
-                        ElseIf (LEqual (_T_1, One))
+                        Case (One)
                         {
                             Store (0x0300, RETN)
                             Or (RETN, PSH0, RETN)
                             Store (0x03E8, PDTS)
                             Return (GPSP)
                         }
-                        ElseIf (LEqual (_T_1, 0x02))
+                        Case (0x02)
                         {
                             Store (0x0102, RETN)
                             Store (Zero, VRV1)
@@ -552,11 +922,9 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                             Return (GPSP)
                         }
 
-                        Break
                     }
                 }
 
-                Break
             }
 
             Return (0x80000002)
@@ -710,24 +1078,22 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (NGC6, 4, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             Store ("------- GC6 DSM --------", Debug)
             If (LLess (Arg1, 0x0100))
             {
                 Return (0x80000001)
             }
 
-            While (One)
+            Switch (ToInteger (Arg2))
             {
-                Store (ToInteger (Arg2), _T_0)
-                If (LEqual (_T_0, Zero))
+                Case (Zero)
                 {
                     Return (Buffer (0x04)
                     {
                          0x1B, 0x00, 0x00, 0x00                         
                     })
                 }
-                ElseIf (LEqual (_T_0, One))
+                Case (One)
                 {
                     Name (JTB1, Buffer (0x04)
                     {
@@ -759,12 +1125,12 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     Store (0x0103, JTRV)
                     Return (JTB1)
                 }
-                ElseIf (LEqual (_T_0, 0x02))
+                Case (0x02)
                 {
                     Store ("GPS fun 19", Debug)
                     Return (Arg3)
                 }
-                ElseIf (LEqual (_T_0, 0x03))
+                Case (0x03)
                 {
                     CreateField (Arg3, Zero, 0x03, GUPC)
                     CreateField (Arg3, 0x04, One, PLPC)
@@ -841,15 +1207,14 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                             Store (Zero, GPGS)
                         }
                     }
-                    ElseIf (LEqual (ToInteger (GUPC), 0x06)) {}
+                    ElseIf (LEqual (ToInteger (GUPC), 0x06)){}
                     Return (JTB3)
                 }
-                ElseIf (LEqual (_T_0, 0x04))
+                Case (0x04)
                 {
                     Return (0x80000002)
                 }
 
-                Break
             }
 
             Return (0x80000002)
@@ -998,7 +1363,54 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
     Scope (\_SB.PCI0)
     {
-        
+        Device (WMI1)
+        {
+            Name (_HID, "PNP0C14")  // _HID: Hardware ID
+            Name (_UID, "OPT1")  // _UID: Unique ID
+            Name (_WDG, Buffer (0x14)
+            {
+                /* 0000 */  0x3C, 0x5C, 0xCB, 0xF6, 0xAE, 0x9C, 0xBD, 0x4E,
+                /* 0008 */  0xB5, 0x77, 0x93, 0x1E, 0xA3, 0x2A, 0x2C, 0xC0,
+                /* 0010 */  0x4D, 0x58, 0x01, 0x02                         
+            })
+            Method (WMMX, 3, NotSerialized)
+            {
+                CreateDWordField (Arg2, Zero, FUNC)
+                If (LEqual (FUNC, 0x534F525F))
+                {
+                    If (LGreaterEqual (SizeOf (Arg2), 0x08))
+                    {
+                        CreateDWordField (Arg2, 0x04, ARGS)
+                        CreateDWordField (Arg2, 0x08, XARG)
+                        Return (\_SB.PCI0.PEG0.PEGP._ROM (ARGS, XARG))
+                    }
+                }
+
+                If (LEqual (FUNC, 0x4D53445F))
+                {
+                    If (LGreaterEqual (SizeOf (Arg2), 0x1C))
+                    {
+                        CreateField (Arg2, Zero, 0x80, MUID)
+                        CreateDWordField (Arg2, 0x10, REVI)
+                        CreateDWordField (Arg2, 0x14, SFNC)
+                        CreateField (Arg2, 0xE0, 0x20, XRG0)
+                        If (CondRefOf (\_SB.PCI0.GFX0._DSM))
+                        {
+                            Return (\_SB.PCI0.GFX0._DSM (MUID, REVI, SFNC, XRG0))
+                            /*
+                            Return (\_SB.PCI0.GFX0._DSM)
+                            MUID
+                            REVI
+                            SFNC
+                            XRG0
+                            */
+                        }
+                    }
+                }
+
+                Return (Zero)
+            }
+        }
     }
 }
 
