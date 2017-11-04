@@ -21,7 +21,6 @@
 
 DefinitionBlock ("", "SSDT", 2, "hack", "UIAC-ALL", 0)
 {
-    External(DTGP, MethodObj)
         
     /*
     Name(UPWC, Package (){

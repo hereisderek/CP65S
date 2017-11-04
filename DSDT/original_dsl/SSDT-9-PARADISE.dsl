@@ -1,11 +1,11 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20161210-64(RM)
- * Copyright (c) 2000 - 2016 Intel Corporation
+ * AML/ASL+ Disassembler version 20170929 (64-bit version)(RM)
+ * Copyright (c) 2000 - 2017 Intel Corporation
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-14.aml, Wed Aug 16 21:41:46 2017
+ * Disassembly of SSDT-9-PARADISE.aml, Sun Nov  5 03:46:45 2017
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -22,10 +22,10 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 {
     /*
      * External declarations were imported from
-     * a reference file -- refs.txt
+     * a reference file -- ../refs.txt
      */
 
-    External (***D, UnknownObj)    // Warning: Unknown object
+    External (**42, UnknownObj)    // Warning: Unknown object
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_PR_.CPU0, ProcessorObj)
@@ -40,11 +40,11 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.PCI0.GFX0, DeviceObj)
     External (_SB_.PCI0.GFX0._DSM, IntObj)    // Warning: Unknown object
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.LPCB.EC__.GPUT, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC__.TMP_, FieldUnitObj)
-    External (_SB_.PCI0.LPCB.H_EC.ECMD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0, DeviceObj)
     External (_SB_.PCI0.PEG0.ATID, FieldUnitObj)
     External (_SB_.PCI0.PEG0.CMDR, FieldUnitObj)
@@ -65,17 +65,25 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (DSEL, FieldUnitObj)
+    External (DTGP, MethodObj)    // Imported: 5 Arguments
     External (EBAS, FieldUnitObj)
     External (ESEL, FieldUnitObj)
     External (GPSC, FieldUnitObj)
     External (HYSS, FieldUnitObj)
-    External (MDBG, MethodObj)    // Imported: 1 Arguments
     External (NVGA, FieldUnitObj)
     External (NVHA, FieldUnitObj)
     External (OEMF, FieldUnitObj)
     External (P80H, FieldUnitObj)
     External (P8XH, MethodObj)    // 2 Arguments
     External (PSEL, FieldUnitObj)
+    External (RMDT.P1__, MethodObj)    // Imported: 1 Arguments
+    External (RMDT.P2__, MethodObj)    // Imported: 2 Arguments
+    External (RMDT.P3__, MethodObj)    // Imported: 3 Arguments
+    External (RMDT.P4__, MethodObj)    // Imported: 4 Arguments
+    External (RMDT.P5__, MethodObj)    // Imported: 5 Arguments
+    External (RMDT.P6__, MethodObj)    // Imported: 6 Arguments
+    External (RMDT.P7__, MethodObj)    // Imported: 7 Arguments
+    External (RMDT.PUSH, MethodObj)    // Imported: 1 Arguments
 
     Scope (\_SB.PCI0)
     {
@@ -252,7 +260,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Method (GMXM, 3, NotSerialized)
         {
             Store (0xC8, Local0)
-            Name (BUMA, Buffer (Local0) {})
+            Name (BUMA, Buffer (Local0){})
             If (CondRefOf (MXM3, Local6))
             {
                 Store (MXM3, BUMA)
@@ -309,27 +317,25 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (HDSM, 4, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             If (LEqual (Arg0, ToUUID ("4004a400-917d-4cf2-b89c-79b62fd55665")))
             {
-                While (One)
+                Switch (ToInteger (Arg2))
                 {
-                    Store (ToInteger (Arg2), _T_0)
-                    If (LEqual (_T_0, Zero))
+                    Case (Zero)
                     {
                         Return (Buffer (0x04)
                         {
                              0x01, 0x00, 0x01, 0x01                         
                         })
                     }
-                    ElseIf (LEqual (_T_0, 0x18))
+                    Case (0x18)
                     {
                         Return (Buffer (0x04)
                         {
                              0x30, 0x00, 0x00, 0x00                         
                         })
                     }
-                    ElseIf (LEqual (_T_0, 0x10))
+                    Case (0x10)
                     {
                         Name (MXM3, Buffer (0x1D)
                         {
@@ -341,7 +347,6 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         Return (MXM3)
                     }
 
-                    Break
                 }
 
                 Return (0x80000002)
@@ -724,13 +729,13 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     Scope (\_SB.PCI0.PEG0.PEGP)
     {
         Name (PSAP, Zero)
-        Name (ECBF, Buffer (0x14) {})
+        Name (ECBF, Buffer (0x14){})
         CreateDWordField (ECBF, Zero, EDS1)
         CreateDWordField (ECBF, 0x04, EDS2)
         CreateDWordField (ECBF, 0x08, EDS3)
         CreateDWordField (ECBF, 0x0C, EDS4)
         CreateDWordField (ECBF, 0x10, EPDT)
-        Name (GPSP, Buffer (0x24) {})
+        Name (GPSP, Buffer (0x24){})
         CreateDWordField (GPSP, Zero, RETN)
         CreateDWordField (GPSP, 0x04, VRV1)
         CreateDWordField (GPSP, 0x08, TGPU)
@@ -744,18 +749,15 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
         Name (PSCP, Zero)
         Method (GPS, 4, Serialized)
         {
-            Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             Store ("------- GPS DSM --------", Debug)
             If (LNotEqual (Arg1, 0x0100))
             {
                 Return (0x80000002)
             }
 
-            While (One)
+            Switch (ToInteger (Arg2))
             {
-                Store (ToInteger (Arg2), _T_0)
-                If (LEqual (_T_0, Zero))
+                Case (Zero)
                 {
                     Name (FMSK, Buffer (0x08)
                     {
@@ -796,12 +798,12 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Return (Local0)
                 }
-                ElseIf (LEqual (_T_0, 0x13))
+                Case (0x13)
                 {
                     Store ("GPS fun 19", Debug)
                     Return (Arg3)
                 }
-                ElseIf (LEqual (_T_0, 0x20))
+                Case (0x20)
                 {
                     Store ("GPS fun 20", Debug)
                     Name (RET1, Zero)
@@ -827,11 +829,11 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Return (RET1)
                 }
-                ElseIf (LEqual (_T_0, 0x21))
+                Case (0x21)
                 {
                     Return (\_PR.CPU0._PSS)
                 }
-                ElseIf (LEqual (_T_0, 0x22))
+                Case (0x22)
                 {
                     CreateByteField (Arg3, Zero, PCAP)
                     If (And (GPSC, One))
@@ -857,16 +859,16 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                     Return (PCAP)
                 }
-                ElseIf (LEqual (_T_0, 0x23))
+                Case (0x23)
                 {
                     Return (\_PR.CPU0._PPC)
                 }
-                ElseIf (LEqual (_T_0, 0x25))
+                Case (0x25)
                 {
                     Store ("GPS fun 25", Debug)
                     Return (\_PR.CPU0._TSS)
                 }
-                ElseIf (LEqual (_T_0, 0x26))
+                Case (0x26)
                 {
                     Store ("GPS fun 26", Debug)
                     CreateDWordField (Arg3, Zero, TCAP)
@@ -874,7 +876,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     Notify (\_PR.CPU0, 0x80)
                     Return (TCAP)
                 }
-                ElseIf (LEqual (_T_0, 0x2A))
+                Case (0x2A)
                 {
                     Store ("GPS fun 2a", Debug)
                     CreateByteField (Arg3, Zero, PSH0)
@@ -886,10 +888,9 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     CreateBitField (Arg3, 0x0C, ENGR)
                     CreateBitField (Arg3, 0x0D, SEN1)
                     CreateBitField (Arg3, 0x0E, SEN2)
-                    While (One)
+                    Switch (PSH0)
                     {
-                        Store (PSH0, _T_1)
-                        If (LEqual (_T_1, Zero))
+                        Case (Zero)
                         {
                             If (CPUT)
                             {
@@ -900,14 +901,14 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
                             Return (GPSP)
                         }
-                        ElseIf (LEqual (_T_1, One))
+                        Case (One)
                         {
                             Store (0x0300, RETN)
                             Or (RETN, PSH0, RETN)
                             Store (0x03E8, PDTS)
                             Return (GPSP)
                         }
-                        ElseIf (LEqual (_T_1, 0x02))
+                        Case (0x02)
                         {
                             Store (0x0102, RETN)
                             Store (Zero, VRV1)
@@ -921,11 +922,9 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                             Return (GPSP)
                         }
 
-                        Break
                     }
                 }
 
-                Break
             }
 
             Return (0x80000002)
@@ -1079,24 +1078,22 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
         Method (NGC6, 4, Serialized)
         {
-            Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             Store ("------- GC6 DSM --------", Debug)
             If (LLess (Arg1, 0x0100))
             {
                 Return (0x80000001)
             }
 
-            While (One)
+            Switch (ToInteger (Arg2))
             {
-                Store (ToInteger (Arg2), _T_0)
-                If (LEqual (_T_0, Zero))
+                Case (Zero)
                 {
                     Return (Buffer (0x04)
                     {
                          0x1B, 0x00, 0x00, 0x00                         
                     })
                 }
-                ElseIf (LEqual (_T_0, One))
+                Case (One)
                 {
                     Name (JTB1, Buffer (0x04)
                     {
@@ -1128,12 +1125,12 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                     Store (0x0103, JTRV)
                     Return (JTB1)
                 }
-                ElseIf (LEqual (_T_0, 0x02))
+                Case (0x02)
                 {
                     Store ("GPS fun 19", Debug)
                     Return (Arg3)
                 }
-                ElseIf (LEqual (_T_0, 0x03))
+                Case (0x03)
                 {
                     CreateField (Arg3, Zero, 0x03, GUPC)
                     CreateField (Arg3, 0x04, One, PLPC)
@@ -1210,15 +1207,14 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                             Store (Zero, GPGS)
                         }
                     }
-                    ElseIf (LEqual (ToInteger (GUPC), 0x06)) {}
+                    ElseIf (LEqual (ToInteger (GUPC), 0x06)){}
                     Return (JTB3)
                 }
-                ElseIf (LEqual (_T_0, 0x04))
+                Case (0x04)
                 {
                     Return (0x80000002)
                 }
 
-                Break
             }
 
             Return (0x80000002)

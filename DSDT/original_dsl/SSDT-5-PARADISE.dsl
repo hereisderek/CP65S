@@ -1,17 +1,17 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20161210-64(RM)
- * Copyright (c) 2000 - 2016 Intel Corporation
+ * AML/ASL+ Disassembler version 20170929 (64-bit version)(RM)
+ * Copyright (c) 2000 - 2017 Intel Corporation
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-10.aml, Wed Aug 16 21:41:46 2017
+ * Disassembly of SSDT-5-PARADISE.aml, Sun Nov  5 03:46:44 2017
  *
  * Original Table Header:
  *     Signature        "SSDT"
  *     Length           0x00001C47 (7239)
  *     Revision         0x01
- *     Checksum         0x46
+ *     Checksum         0x30
  *     OEM ID           "HASEE "
  *     OEM Table ID     "PARADISE"
  *     OEM Revision     0x00003000 (12288)
@@ -21,8 +21,8 @@
 DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
 {
     /*
-     * iASL Warning: There were 17 external control methods found during
-     * disassembly, but only 14 were resolved (3 unresolved). Additional
+     * iASL Warning: There were 25 external control methods found during
+     * disassembly, but only 22 were resolved (3 unresolved). Additional
      * ACPI tables may be required to properly disassemble the code. This
      * resulting disassembler output file may not compile because the
      * disassembler did not know how many arguments to assign to the
@@ -42,7 +42,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
      */
     /*
      * External declarations were imported from
-     * a reference file -- refs.txt
+     * a reference file -- ../refs.txt
      */
 
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
@@ -50,12 +50,12 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.AR02, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECOK, IntObj)
+    External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
+    External (_SB_.PCI0.LPCB.EC__.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.LPCB.EC__.OEM2, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC__.WINF, FieldUnitObj)
-    External (_SB_.PCI0.LPCB.H_EC.ECMD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.H_EC.ECRD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.H_EC.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PR02, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
@@ -66,19 +66,27 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
     External (_SB_.WMI_.HKDR, IntObj)
     External (ADBG, MethodObj)    // 1 Arguments
     External (DSEN, FieldUnitObj)
+    External (DTGP, MethodObj)    // Imported: 5 Arguments
     External (GPRW, MethodObj)    // 2 Arguments
     External (GUAM, MethodObj)    // Warning: Unknown method, guessing 1 arguments
     External (HDOS, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (HNOT, MethodObj)    // Warning: Unknown method, guessing 1 arguments
-    External (MDBG, MethodObj)    // Imported: 1 Arguments
     External (OSYS, FieldUnitObj)
     External (P80H, FieldUnitObj)
     External (PICM, IntObj)
     External (PNHM, FieldUnitObj)
+    External (RMDT.P1__, MethodObj)    // Imported: 1 Arguments
+    External (RMDT.P2__, MethodObj)    // Imported: 2 Arguments
+    External (RMDT.P3__, MethodObj)    // Imported: 3 Arguments
+    External (RMDT.P4__, MethodObj)    // Imported: 4 Arguments
+    External (RMDT.P5__, MethodObj)    // Imported: 5 Arguments
+    External (RMDT.P6__, MethodObj)    // Imported: 6 Arguments
+    External (RMDT.P7__, MethodObj)    // Imported: 7 Arguments
+    External (RMDT.PUSH, MethodObj)    // Imported: 1 Arguments
     External (S0ID, FieldUnitObj)
     External (SCIS, FieldUnitObj)
 
-    OperationRegion (SANV, SystemMemory, 0xB1792E18, 0x016D)
+    OperationRegion (SANV, SystemMemory, 0xC7792E18, 0x016D)
     Field (SANV, AnyAcc, Lock, Preserve)
     {
         SARV,   32, 
@@ -265,17 +273,11 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
             Name (OPTS, Zero)
             Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
             {
-                Name (_T_1, Zero)  // _T_x: Emitted by ASL Compiler
-                Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-                While (One)
+                Switch (ToInteger (Arg0))
                 {
-                    Store (ToInteger (Arg0), _T_0)
-                    If (LEqual (_T_0, ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */))
-                    {
-                        While (One)
+                    Case (ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */){                        Switch (ToInteger (Arg2))
                         {
-                            Store (ToInteger (Arg2), _T_1)
-                            If (LEqual (_T_1, Zero))
+                            Case (Zero)
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -297,7 +299,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                                     Return (Zero)
                                 }
                             }
-                            ElseIf (LEqual (_T_1, 0x04))
+                            Case (0x04)
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -319,7 +321,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                                     }
                                 }
                             }
-                            ElseIf (LEqual (_T_1, 0x06))
+                            Case (0x06)
                             {
                                 If (LEqual (Arg1, 0x02))
                                 {
@@ -338,11 +340,9 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                                 }
                             }
 
-                            Break
                         }
                     }
 
-                    Break
                 }
 
                 Return (Buffer (One)
@@ -617,7 +617,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00003000)
                 Else
                 {
                     ADBG ("GFX0 DEP NULL")
-                    Return (Package (0x00) {})
+                    Return (Package (0x00){})
                 }
             }
 

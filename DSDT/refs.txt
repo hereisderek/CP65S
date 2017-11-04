@@ -1,4 +1,4 @@
-External(MDBG, MethodObj, 1)
+//External(MDBG, MethodObj, 1)
 External(_GPE.MMTB, MethodObj, 0)
 External(DTGP, MethodObj, 5)
 
