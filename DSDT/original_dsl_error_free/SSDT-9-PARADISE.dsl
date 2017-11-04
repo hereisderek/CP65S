@@ -25,7 +25,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
      * a reference file -- ../refs.txt
      */
 
-    External (**42, UnknownObj)    // Warning: Unknown object
+//    External (**42, UnknownObj)    // Warning: Unknown object
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_PR_.CPU0, ProcessorObj)
@@ -38,7 +38,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.GFX0, DeviceObj)
-    External (_SB_.PCI0.GFX0._DSM, IntObj)    // Warning: Unknown object
+    External (_SB_.PCI0.GFX0._DSM, MethodObj)         // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
@@ -1396,11 +1396,14 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         CreateField (Arg2, 0xE0, 0x20, XRG0)
                         If (CondRefOf (\_SB.PCI0.GFX0._DSM))
                         {
+                            Return (\_SB.PCI0.GFX0._DSM (MUID, REVI, SFNC, XRG0))
+                            /*
                             Return (\_SB.PCI0.GFX0._DSM)
                             MUID
                             REVI
                             SFNC
                             XRG0
+                            */
                         }
                     }
                 }

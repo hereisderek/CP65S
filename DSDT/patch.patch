@@ -1,0 +1,33 @@
+#// Warning: Unknown object
+#applyto: DSDT.dsl
+
+#Maintained by: RehabMan for: Laptop Patches
+#fix_PARSEOP_ZERO.txt
+
+# credit toleda: http://www.tonymacx86.com/dsdt/89727-maciasl-patch-repository-thread.html#post574047
+
+into device label PCI0 code_regex (\s+Zero){2,} removeall_matched;
+
+# if you need something more agressive...
+#into_all all code_regex (\s+Zero){2,} removeall_matched;
+#into device label PCI0 code_regex (\s+Zero){2,} removeall_matched;
+
+#applyto: SSDT-2-PARADISE.dsl
+#Maintained by: RehabMan for: Laptop Patches
+#fix_PSS.txt
+
+# for one of the CPU SSDTs...
+
+# remove bogus:
+#
+# Package (0x06)
+# {
+#   0x80000000,
+#   0x80000000,
+#   0x80000000,
+#   0x80000000,
+#   0x80000000,
+#   0x80000000
+# }
+
+into_all all code_regex Package\s+\(0x06\)\n.*\{\n(.*0x80000000.*\n){6}.*\} removeall_matched;

@@ -1,5 +1,6 @@
 //External(MDBG, MethodObj, 1)
 External(_GPE.MMTB, MethodObj, 0)
+External(_SB.PCI0.GFX0._DSM, MethodObj, 4)
 External(DTGP, MethodObj, 5)
 
 //External(_SB.PCI0.LPCB.H_EC.ECWT, MethodObj, 2)
