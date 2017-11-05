@@ -5,7 +5,7 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-9-PARADISE.aml, Sun Nov  5 03:46:45 2017
+ * Disassembly of SSDT-9-PARADISE.aml, Mon Nov  6 02:49:21 2017
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -25,7 +25,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
      * a reference file -- ../refs.txt
      */
 
-    External (**42, UnknownObj)    // Warning: Unknown object
+//    External (****, UnknownObj)    // Warning: Unknown object
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_PR_.CPU0, ProcessorObj)
@@ -38,7 +38,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (_SB_.OSCO, IntObj)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.GFX0, DeviceObj)
-    External (_SB_.PCI0.GFX0._DSM, IntObj)    // Warning: Unknown object
+    External (_SB_.PCI0.GFX0._DSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
@@ -68,6 +68,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (DTGP, MethodObj)    // Imported: 5 Arguments
     External (EBAS, FieldUnitObj)
     External (ESEL, FieldUnitObj)
+    External (GPRW, MethodObj)    // Imported: 2 Arguments
     External (GPSC, FieldUnitObj)
     External (HYSS, FieldUnitObj)
     External (NVGA, FieldUnitObj)
@@ -1396,11 +1397,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
                         CreateField (Arg2, 0xE0, 0x20, XRG0)
                         If (CondRefOf (\_SB.PCI0.GFX0._DSM))
                         {
-                            Return (\_SB.PCI0.GFX0._DSM)
-                            MUID
-                            REVI
-                            SFNC
-                            XRG0
+                            Return (\_SB.PCI0.GFX0._DSM (MUID, REVI, SFNC, XRG0))
                         }
                     }
                 }

@@ -5,7 +5,7 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-x3_2-ApCst.aml, Sun Nov  5 03:46:45 2017
+ * Disassembly of SSDT-x3_2-ApCst.aml, Mon Nov  6 02:49:21 2017
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -35,6 +35,7 @@ DefinitionBlock ("", "SSDT", 1, "PmRef", "ApCst", 0x00003000)
     External (_PR_.CPU5, ProcessorObj)
     External (_PR_.CPU6, ProcessorObj)
     External (_PR_.CPU7, ProcessorObj)
+    External (_SB_.PCI0.GFX0._DSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
@@ -43,6 +44,7 @@ DefinitionBlock ("", "SSDT", 1, "PmRef", "ApCst", 0x00003000)
     External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (DTGP, MethodObj)    // Imported: 5 Arguments
+    External (GPRW, MethodObj)    // Imported: 2 Arguments
     External (RMDT.P1__, MethodObj)    // Imported: 1 Arguments
     External (RMDT.P2__, MethodObj)    // Imported: 2 Arguments
     External (RMDT.P3__, MethodObj)    // Imported: 3 Arguments

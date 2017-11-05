@@ -5,7 +5,7 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of DSDT.aml, Sun Nov  5 03:46:44 2017
+ * Disassembly of DSDT.aml, Mon Nov  6 03:06:10 2017
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -21,8 +21,8 @@
 DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 {
     /*
-     * iASL Warning: There were 29 external control methods found during
-     * disassembly, but only 22 were resolved (7 unresolved). Additional
+     * iASL Warning: There were 33 external control methods found during
+     * disassembly, but only 26 were resolved (7 unresolved). Additional
      * ACPI tables may be required to properly disassemble the code. This
      * resulting disassembler output file may not compile because the
      * disassembler did not know how many arguments to assign to the
@@ -42,7 +42,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
      */
     /*
      * External declarations were imported from
-     * a reference file -- ../refs.txt
+     * a reference file -- /Users/derek/Workspace/Hackintosh/Projects/CloverHardware/CP65S/DSDT/refs.txt
      */
 
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
@@ -50,26 +50,27 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_PR_.CFGD, FieldUnitObj)
     External (_PR_.CPU0._PPC, IntObj)
     External (_PR_.CPU0._PSS, PkgObj)
-    External (_SB_.IAOE.AWT0, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.AWT1, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.AWT2, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.ECTM, IntObj)    // Warning: Unknown object
-    External (_SB_.IAOE.FFSE, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.IBT1, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.ITMR, IntObj)    // Warning: Unknown object
-    External (_SB_.IAOE.PTSL, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IAOE.RCTM, IntObj)    // Warning: Unknown object
-    External (_SB_.IAOE.WTMS, IntObj)    // Warning: Unknown object
+    External (_SB_.IAOE.AWT0, IntObj)
+    External (_SB_.IAOE.AWT1, IntObj)
+    External (_SB_.IAOE.AWT2, IntObj)
+    External (_SB_.IAOE.ECTM, FieldUnitObj)
+    External (_SB_.IAOE.FFSE, FieldUnitObj)
+    External (_SB_.IAOE.IBT1, IntObj)
+    External (_SB_.IAOE.ITMR, FieldUnitObj)
+    External (_SB_.IAOE.PTSL, IntObj)
+    External (_SB_.IAOE.RCTM, FieldUnitObj)
+    External (_SB_.IAOE.WTMS, IntObj)
     External (_SB_.IETM, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IFFS.FFSS, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IFFS.FFST, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IFFS.GFFS, UnknownObj)    // Warning: Unknown object
-    External (_SB_.IFFS.GFTV, UnknownObj)    // Warning: Unknown object
+    External (_SB_.IFFS.FFSS, FieldUnitObj)
+    External (_SB_.IFFS.FFST, FieldUnitObj)
+    External (_SB_.IFFS.GFFS, MethodObj)    // 0 Arguments
+    External (_SB_.IFFS.GFTV, MethodObj)    // 0 Arguments
     External (_SB_.PCCD, UnknownObj)
     External (_SB_.PCCD.PENB, IntObj)
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
     External (_SB_.PCI0.GFX0, UnknownObj)
+    External (_SB_.PCI0.GFX0._DSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
@@ -98,6 +99,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unknown method, guessing 1 arguments
     External (DTGP, MethodObj)    // Imported: 5 Arguments
+    External (GPRW, MethodObj)    // Imported: 2 Arguments    // Conflicts with a later declaration
     External (GSMI, FieldUnitObj)
     External (LIDS, FieldUnitObj)
     External (MDBG, MethodObj)    // 1 Arguments
@@ -3824,6 +3826,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Return (PR0F ())
                 }
             }
+
             Device (B0D4)
             {
                 Name (_ADR, 0x00040000)  // _ADR: Address
@@ -15400,9 +15403,9 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (CondRefOf (\_SB.IFFS.FFST))
                     {
-                        If (And (^^IFFS.GFFS, One))
+                        If (And (^^IFFS.GFFS (), One))
                         {
-                            Or (^^IFFS.GFTV, 0x80, Local0)
+                            Or (^^IFFS.GFTV (), 0x80, Local0)
                         }
                     }
                 }
@@ -15888,7 +15891,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (CondRefOf (\_SB.IFFS.FFST))
                     {
-                        If (And (^^IFFS.GFFS, One))
+                        If (And (^^IFFS.GFFS (), One))
                         {
                             If (^^PCI0.LPCB.EC.ECOK)
                             {

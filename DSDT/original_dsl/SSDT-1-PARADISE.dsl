@@ -5,7 +5,7 @@
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of SSDT-1-PARADISE.aml, Sun Nov  5 03:46:44 2017
+ * Disassembly of SSDT-1-PARADISE.aml, Mon Nov  6 02:49:20 2017
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -27,6 +27,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
 
     External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
     External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
+    External (_SB_.PCI0.GFX0._DSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.AMBT, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC__.CVRT, FieldUnitObj)
@@ -89,6 +90,7 @@ DefinitionBlock ("", "SSDT", 1, "HASEE ", "PARADISE", 0x00001000)
     External (DTS2, FieldUnitObj)
     External (DTS3, FieldUnitObj)
     External (DTS4, FieldUnitObj)
+    External (GPRW, MethodObj)    // Imported: 2 Arguments
     External (PDTS, FieldUnitObj)
     External (RMDT.P1__, MethodObj)    // Imported: 1 Arguments
     External (RMDT.P2__, MethodObj)    // Imported: 2 Arguments
