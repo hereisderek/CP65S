@@ -18,7 +18,10 @@ sleep is now working, however we won't be able to wake up on mouse/keyboard pres
 
 7. rebooting from windows may mute headphone jack output (line out still work fine, may need the help of EAPD-Codec-Commander)
 
-8. You tell me. Any bug report is welcomed
+8. ~~hibernation (sleep works fine, you can test by sleep after ```sudo pmset -a hibernatemode 25 && sudo pmset -a autopoweroff 1```)~~
+   hibernation now works but ram frequency still wrong, may be a clover issue
+ 
+9. You tell me. Any bug report is welcomed
 
 -------
 

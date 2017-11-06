@@ -76,8 +76,6 @@
 				<string>Realtek ALC292</string>
 				<key>10ec_0668</key>
 				<string>Realtek ALC668</string>
-				<key>10ec_0892</key>
-				<string>Realtek ALC892 desktop</string>
 				<key>10ec_0892_HDA_1458</key>
 				<string>Realtek ALC892 desktop</string>
 				<key>10ec_0892_HDA_8086</key>
@@ -97,7 +95,7 @@
 					<key>Perform Reset</key>
 					<true/>
 					<key>Perform Reset on EAPD Fail</key>
-					<true/>
+					<false/>
 					<key>Perform Reset on External Wake</key>
 					<true/>
 					<key>Send Delay</key>
@@ -334,29 +332,10 @@
 				</dict>
 				<key>Realtek ALC892 desktop</key>
 				<dict>
-					<key>Custom Commands</key>
-					<array>
-						<dict>
-							<key>Command</key>
-							<integer>903040</integer>
-							<key>Comment</key>
-							<string>test info</string>
-							<key>On Sleep</key>
-							<true/>
-							<key>On Wake</key>
-							<true/>
-						</dict>
-					</array>
-					<key>Perform Reset on EAPD Fail</key>
-					<true/>
-					<key>Perform Reset on External Wake</key>
-					<true/>
-					<key>Send Delay</key>
-					<integer>300</integer>
 					<key>Sleep Nodes</key>
 					<false/>
 					<key>Update Nodes</key>
-					<true/>
+					<false/>
 				</dict>
 			</dict>
 			<key>IOClass</key>

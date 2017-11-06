@@ -795,9 +795,9 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 keepsyms=1 debug=0x100 kextlog=0xffff -lilubeta -igfxbeta</string>
+		<string>dart=0 -xcpm nv_disable=1 keepsyms=1 debug=0x100 kextlog=0xffff -lilubeta -igfxbeta -hbfxdbg -hbfxbeta -hbfx-patch-pci</string>
 		<key>Debug</key>
-		<false/>
+		<true/>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Legacy</key>
@@ -813,7 +813,7 @@
 		<key>Timeout</key>
 		<integer>5</integer>
 		<key>XMPDetection</key>
-		<false/>
+		<string>Yes</string>
 	</dict>
 	<key>CPU</key>
 	<dict>
@@ -1002,7 +1002,7 @@
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
-		<string>VBoxHfs_BAK</string>
+		<string>VBoxHfs</string>
 	</array>
 	<key>GUI</key>
 	<dict>
@@ -1010,10 +1010,40 @@
 		<string>1920x1080</string>
 		<key>ConsoleMode</key>
 		<string>Max</string>
+		<key>Custom</key>
+		<dict>
+			<key>Entries</key>
+			<array>
+				<dict>
+					<key>CustomLogo</key>
+					<false/>
+					<key>Disabled</key>
+					<false/>
+					<key>FullTitle</key>
+					<string>CloverExp</string>
+					<key>Hidden</key>
+					<false/>
+					<key>Ignore</key>
+					<false/>
+					<key>InjectKexts</key>
+					<string>Detect</string>
+					<key>NoCaches</key>
+					<true/>
+					<key>Path</key>
+					<string>\EFI\CLOVER\CLOVERX64_exp.efi</string>
+					<key>Type</key>
+					<string>Other</string>
+					<key>Volume</key>
+					<string>FB7D019E-B161-4B5B-92F3-5FBA91DFC2FD</string>
+					<key>VolumeType</key>
+					<string>Internal</string>
+				</dict>
+			</array>
+		</dict>
 		<key>Hide</key>
 		<array>
-			<string>data</string>
 			<string>personal</string>
+			<string>backup</string>
 		</array>
 		<key>Mouse</key>
 		<dict>
@@ -1042,7 +1072,7 @@
 		<key>ShowOptimus</key>
 		<true/>
 		<key>Theme</key>
-		<string>YosemiteLogin</string>
+		<string>Material</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -1050,10 +1080,10 @@
 		<dict>
 			<key>Custom</key>
 			<data>
-			AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQAAAAB
-			AQEBAQEBAQEBAQEBAQEBLjaAoHA4H0AwZDUAWcIQAAAYAAAAAAAA
-			AAAAAAAAAAAAAAAAAAAA/gBMRyBEaXNwbGF5CiAgAAAA/gBMUDE1
-			NldGNC1TUEwxAAs=
+			AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQvzwDx
+			wPHeAQEBAQEBAQEBAQEBLjaAoHA4H0AwZDUA4A4RAAAY70iAoHA4
+			KkAwZDUA4A4RAAAaalKAoHA4L0AwZDUA4A4RAAAaAAAAEAAAAAAA
+			AAAAAAAAAAAAALI=
 			</data>
 			<key>Inject</key>
 			<true/>
@@ -1271,8 +1301,6 @@
 		</array>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
 		<key>KernelLapic</key>
 		<true/>
 		<key>KernelPm</key>
@@ -1296,6 +1324,8 @@
 				</data>
 			</dict>
 		</array>
+		<key>KernelXCPM</key>
+		<false/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
@@ -1761,10 +1791,10 @@
 		<key>CsrActiveConfig</key>
 		<string>0x3b</string>
 		<key>MLB</key>
-		<string>C02351201CXFP5C15</string>
+		<string>C02351201CXFP5C16</string>
 		<key>ROM</key>
 		<data>
-		jRG6H5Oc
+		wo7kb8AT
 		</data>
 	</dict>
 	<key>SMBIOS</key>
@@ -1780,7 +1810,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02334100QXF9H1JA</string>
+		<string>C02314102J9FF4G1F</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -1801,6 +1831,60 @@
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
+		<key>Memory</key>
+		<dict>
+			<key>#Modules</key>
+			<array>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>M471B1G73QH0-YK0</string>
+					<key>Serial</key>
+					<string>0906010104080108</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>1</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Samsung</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1333</integer>
+					<key>Part</key>
+					<string>9905428-012.A00LF</string>
+					<key>Serial</key>
+					<string>080F01090403060A</string>
+					<key>Size</key>
+					<integer>4096</integer>
+					<key>Slot</key>
+					<integer>2</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Kingston</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1066</integer>
+					<key>Part</key>
+					<string>M471B5673FH0-CF8</string>
+					<key>Serial</key>
+					<string>09070C09090A020C</string>
+					<key>Size</key>
+					<integer>2048</integer>
+					<key>Slot</key>
+					<integer>3</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Samsung</string>
+				</dict>
+			</array>
+		</dict>
 		<key>Mobile</key>
 		<true/>
 		<key>PlatformFeature</key>
@@ -1808,14 +1892,16 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,1</string>
 		<key>SerialNumber</key>
-		<string>C02L81EUFH00</string>
+		<string>C02KK1G9FH00</string>
+		<key>SmUUID</key>
+		<string>AE5366D3-BA33-4332-AC6D-DB5C7EACEB19</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>CustomUUID</key>
-		<string>FC90A5F8-5620-4F2E-92D5-221C311F939C</string>
+		<string>AE5366D3-BA33-4332-AC6D-DB5C7EACEB19</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectKexts_</key>
