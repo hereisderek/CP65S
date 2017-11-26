@@ -1078,17 +1078,21 @@
 	<dict>
 		<key>EDID</key>
 		<dict>
-			<key>Custom</key>
+			<key>#Custom</key>
 			<data>
 			AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQvzwDx
 			wPHeAQEBAQEBAQEBAQEBLjaAoHA4H0AwZDUA4A4RAAAY70iAoHA4
 			KkAwZDUA4A4RAAAaalKAoHA4L0AwZDUA4A4RAAAaAAAAEAAAAAAA
 			AAAAAAAAAAAAALI=
 			</data>
+			<key>HorizontalSyncPulseWidth</key>
+			<integer>100</integer>
 			<key>Inject</key>
 			<true/>
 			<key>ProductID</key>
 			<string>0x9c7c</string>
+			<key>VideoInputSignal</key>
+			<integer>165</integer>
 		</dict>
 		<key>Inject</key>
 		<dict>
