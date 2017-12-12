@@ -30,26 +30,25 @@ DefinitionBlock ("ssdt.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00021500)
     {
         Method (_INI, 0, NotSerialized)
         {
-            Store ("ssdtPRGen version.....: 21.5 / Mac OS X 10.13.2 (17C60c)", Debug)
+            Store ("ssdtPRGen version.....: 21.5 / Mac OS X 10.13.3 (17D20a)", Debug)
             Store ("custom mode...........: 0", Debug)
             Store ("host processor........: Intel(R) Core(TM) i7-4720HQ CPU @ 2.60GHz", Debug)
             Store ("target processor......: i7-4720HQ", Debug)
             Store ("number of processors..: 1", Debug)
-            Store ("baseFrequency.........: 800", Debug)
-            Store ("frequency.............: 1000", Debug)
+            Store ("baseFrequency.........: 500", Debug)
+            Store ("frequency.............: 2000", Debug)
             Store ("busFrequency..........: 100", Debug)
             Store ("logicalCPUs...........: 8", Debug)
             Store ("maximum TDP...........: 47", Debug)
-            Store ("packageLength.........: 29", Debug)
-            Store ("turboStates...........: 26", Debug)
+            Store ("packageLength.........: 32", Debug)
+            Store ("turboStates...........: 16", Debug)
             Store ("maxTurboFrequency.....: 3600", Debug)
-            Store ("CPU Workarounds.......: 3", Debug)
             Store ("machdep.xcpm.mode.....: 1", Debug)
         }
 
-        Name (APLF, Zero)
-        Name (APSN, 0x1A)
-        Name (APSS, Package (0x1D)
+        Name (APLF, Zero) //APLF has to do with the number of low frequency states
+        Name (APSN, 0x10) //APSN indicates the number of turbo states
+        Name (APSS, Package (0x20)
         {
             /* High Frequency Modes (turbo) */
             Package (0x06) { 0x0E10, 0x00B798, 0x0A, 0x0A, 0x2400, 0x2400 },
@@ -68,21 +67,24 @@ DefinitionBlock ("ssdt.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00021500)
             Package (0x06) { 0x08FC, 0x00B798, 0x0A, 0x0A, 0x1700, 0x1700 },
             Package (0x06) { 0x0898, 0x00B798, 0x0A, 0x0A, 0x1600, 0x1600 },
             Package (0x06) { 0x0834, 0x00B798, 0x0A, 0x0A, 0x1500, 0x1500 },
-            Package (0x06) { 0x07D0, 0x00B798, 0x0A, 0x0A, 0x1400, 0x1400 },
-            Package (0x06) { 0x076C, 0x00B798, 0x0A, 0x0A, 0x1300, 0x1300 },
-            Package (0x06) { 0x0708, 0x00B798, 0x0A, 0x0A, 0x1200, 0x1200 },
-            Package (0x06) { 0x06A4, 0x00B798, 0x0A, 0x0A, 0x1100, 0x1100 },
-            Package (0x06) { 0x0640, 0x00B798, 0x0A, 0x0A, 0x1000, 0x1000 },
-            Package (0x06) { 0x05DC, 0x00B798, 0x0A, 0x0A, 0x0F00, 0x0F00 },
-            Package (0x06) { 0x0578, 0x00B798, 0x0A, 0x0A, 0x0E00, 0x0E00 },
-            Package (0x06) { 0x0514, 0x00B798, 0x0A, 0x0A, 0x0D00, 0x0D00 },
-            Package (0x06) { 0x04B0, 0x00B798, 0x0A, 0x0A, 0x0C00, 0x0C00 },
-            Package (0x06) { 0x044C, 0x00B798, 0x0A, 0x0A, 0x0B00, 0x0B00 },
             /* High Frequency Modes (non-turbo) */
-            Package (0x06) { 0x03E8, 0x00B798, 0x0A, 0x0A, 0x0A00, 0x0A00 },
-            Package (0x06) { 0x0384, 0x00A35C, 0x0A, 0x0A, 0x0900, 0x0900 },
+            Package (0x06) { 0x07D0, 0x00B798, 0x0A, 0x0A, 0x1400, 0x1400 },
+            Package (0x06) { 0x076C, 0x00AC6F, 0x0A, 0x0A, 0x1300, 0x1300 },
+            Package (0x06) { 0x0708, 0x00A180, 0x0A, 0x0A, 0x1200, 0x1200 },
+            Package (0x06) { 0x06A4, 0x0096C7, 0x0A, 0x0A, 0x1100, 0x1100 },
+            Package (0x06) { 0x0640, 0x008C46, 0x0A, 0x0A, 0x1000, 0x1000 },
+            Package (0x06) { 0x05DC, 0x0081FB, 0x0A, 0x0A, 0x0F00, 0x0F00 },
+            Package (0x06) { 0x0578, 0x0077E7, 0x0A, 0x0A, 0x0E00, 0x0E00 },
+            Package (0x06) { 0x0514, 0x006E08, 0x0A, 0x0A, 0x0D00, 0x0D00 },
+            Package (0x06) { 0x04B0, 0x00645E, 0x0A, 0x0A, 0x0C00, 0x0C00 },
+            Package (0x06) { 0x044C, 0x005AE9, 0x0A, 0x0A, 0x0B00, 0x0B00 },
+            Package (0x06) { 0x03E8, 0x0051A9, 0x0A, 0x0A, 0x0A00, 0x0A00 },
+            Package (0x06) { 0x0384, 0x00489C, 0x0A, 0x0A, 0x0900, 0x0900 },
+            Package (0x06) { 0x0320, 0x003FC3, 0x0A, 0x0A, 0x0800, 0x0800 },
+            Package (0x06) { 0x02BC, 0x00371D, 0x0A, 0x0A, 0x0700, 0x0700 },
+            Package (0x06) { 0x0258, 0x002EA9, 0x0A, 0x0A, 0x0600, 0x0600 },
             /* Low Frequency Mode */
-            Package (0x06) { 0x0320, 0x008F8E, 0x0A, 0x0A, 0x0800, 0x0800 }
+            Package (0x06) { 0x01F4, 0x002668, 0x0A, 0x0A, 0x0500, 0x0500 }
         })
 
         Method (ACST, 0, NotSerialized)
@@ -163,8 +165,6 @@ DefinitionBlock ("ssdt.aml", "SSDT", 1, "APPLE ", "CpuPm", 0x00021500)
 
         Method (_DSM, 4, NotSerialized)
         {
-            Store ("Method _PR_.CPU0._DSM Called", Debug)
-
             If (LEqual (Arg2, Zero))
             {
                 Return (Buffer (One)

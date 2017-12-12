@@ -10,13 +10,14 @@
 3. ~~usb states messed up after sleep~~ fixed with SSDT hotpatch
 
 4. ~~instant wake: Wake reason: GLAN. fixed USB cut off after wake.~~
-sleep is now working, however we won't be able to wake up on mouse/keyboard press, it's no big deal but I'll try to fix it when i have the time.
+~~sleep is now working, however we won't be able to wake up on mouse/keyboard press, it's no big deal but I'll try to fix it when i have the time.~~
+wake up by keyboard should be working now, but mouse is still no go
 
 5. ~~https://www.tonymacx86.com/threads/guide-laptop-backlight-control-using-applebacklightinjector-kext.218222/page-89#post-1575595~~
 
 6. Unable to turn bluetooth on&off (no solution just yet)
 
-7. rebooting from windows may mute headphone jack output (line out still work fine, may need the help of EAPD-Codec-Commander)
+7. rebooting from windows may mute headphone jack output (line out still work fine, may need the help of EAPD-Codec-Commander) [WiP] 
 
 8. ~~hibernation (sleep works fine, you can test by sleep after ```sudo pmset -a hibernatemode 25 && sudo pmset -a autopoweroff 1```)~~
    hibernation now works but ram frequency still wrong, may be a clover issue
@@ -41,7 +42,7 @@ sleep is now working, however we won't be able to wake up on mouse/keyboard pres
 
 -------
 
-Untested:
+Needs testing:
 
 1. External display (Video or Audio)
 
@@ -99,8 +100,32 @@ graphic patch notes:
 3. AppleIntelFramebuffer 2: 0204 DP 
 4. AppleIntelFramebuffer 3: 0306 DP <01 00 00 00> -> <00 04 00 00>
 
+
+| Connector | Data |
+| :-: | :-: |
+| HDMI | 00 08 00 00 |
+| DVI-I | 00 02 00 00 |
+| eDP/DVI-DL | 00 04 00 00 |
+| DP | 00 04 00 00 |
+| LVDS | 02 00 00 00 |
+| Thunderbolt? | 00 0C 00 00 |
+| S-V | 08 00 00 00 |
+| VGA | 10 00 00 00; 00 10 00 00; 00 01 00 00; 01 00 00 00 |
+
+from current ioreg:
+| connector type | index |
+| :-: | :-: |
+| CRT0 @ 100 | 
+| DP @ 303 |
+| HDMI @ 304 |
+| LCD0 @ 410 |
+| PNLF @ 0 |
+
+
+
+
 * four connectors in total: 100* (internal display), 0105 (HDMI), 303 401* (DP)
-* LCD0/DVI connectors connector-type <00 02 00 00>
+* LCD0/DVI connectors connector-type <00 02 00 00> (internal display)
 * DP connectors connector-type <00 04 00 00> 
 * HDMI connectors connector-type <00 08 00 00>
 
