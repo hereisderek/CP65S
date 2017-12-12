@@ -1,0 +1,135 @@
+2017-12-12 09:06:29.221304+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x00, verb 0x000f00, payload 0x04.
+2017-12-12 09:06:29.221307+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x000f0004
+2017-12-12 09:06:29.221361+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00010001
+2017-12-12 09:06:29.221366+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x01, verb 0x000f00, payload 0x05.
+2017-12-12 09:06:29.221372+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x001f0005
+2017-12-12 09:06:29.221425+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000101
+2017-12-12 09:06:29.221434+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x01, verb 0x000f20, payload 0x00.
+2017-12-12 09:06:29.221439+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x001f2000
+2017-12-12 09:06:29.221485+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x15586555
+2017-12-12 09:06:29.535953+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x00, verb 0x000f00, payload 0x04.
+2017-12-12 09:06:29.535955+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x000f0004
+2017-12-12 09:06:29.536023+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00010001
+2017-12-12 09:06:29.536026+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x01, verb 0x000f00, payload 0x05.
+2017-12-12 09:06:29.536028+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x001f0005
+2017-12-12 09:06:29.536081+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000101
+2017-12-12 09:06:29.536085+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x01, verb 0x000f00, payload 0x04.
+2017-12-12 09:06:29.536087+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x001f0004
+2017-12-12 09:06:29.536141+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00020025
+2017-12-12 09:06:29.536143+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x02, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536146+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x002f000c
+2017-12-12 09:06:29.536204+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536206+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x03, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536208+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x003f000c
+2017-12-12 09:06:29.536266+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536268+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x04, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536270+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x004f000c
+2017-12-12 09:06:29.536330+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536332+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x05, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536334+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x005f000c
+2017-12-12 09:06:29.536391+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536393+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x06, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536396+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x006f000c
+2017-12-12 09:06:29.536449+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536452+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x07, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536454+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x007f000c
+2017-12-12 09:06:29.536511+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536523+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x08, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536525+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x008f000c
+2017-12-12 09:06:29.536583+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536586+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x09, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536588+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x009f000c
+2017-12-12 09:06:29.536641+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536643+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x0a, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536646+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x00af000c
+2017-12-12 09:06:29.536694+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536696+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x0b, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536698+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x00bf000c
+2017-12-12 09:06:29.536735+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536738+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x0c, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536740+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x00cf000c
+2017-12-12 09:06:29.536800+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536803+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x0d, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536805+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x00df000c
+2017-12-12 09:06:29.536864+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536866+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x0e, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536868+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x00ef000c
+2017-12-12 09:06:29.536928+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536931+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x0f, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536933+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x00ff000c
+2017-12-12 09:06:29.536992+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.536994+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x10, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.536997+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x010f000c
+2017-12-12 09:06:29.537047+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.537050+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x11, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537052+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x011f000c
+2017-12-12 09:06:29.537113+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000010
+2017-12-12 09:06:29.537115+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x12, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537118+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x012f000c
+2017-12-12 09:06:29.537178+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000020
+2017-12-12 09:06:29.537180+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x13, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537182+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x013f000c
+2017-12-12 09:06:29.537242+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.537244+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x14, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537246+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x014f000c
+2017-12-12 09:06:29.537305+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x0001003e
+2017-12-12 09:06:29.537310+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x15, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537313+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x015f000c
+2017-12-12 09:06:29.537360+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000036
+2017-12-12 09:06:29.537362+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x16, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537367+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x016f000c
+2017-12-12 09:06:29.537428+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000036
+2017-12-12 09:06:29.537430+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x17, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537433+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x017f000c
+2017-12-12 09:06:29.537492+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000036
+2017-12-12 09:06:29.537495+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x18, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537497+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x018f000c
+2017-12-12 09:06:29.537549+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00003736
+2017-12-12 09:06:29.537551+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x19, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537554+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x019f000c
+2017-12-12 09:06:29.537612+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x0000373e
+2017-12-12 09:06:29.537615+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1a, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537617+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01af000c
+2017-12-12 09:06:29.537679+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00003736
+2017-12-12 09:06:29.537681+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1b, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537684+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01bf000c
+2017-12-12 09:06:29.537743+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x0001373e
+2017-12-12 09:06:29.537748+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1c, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537750+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01cf000c
+2017-12-12 09:06:29.537799+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000024
+2017-12-12 09:06:29.537801+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1d, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537804+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01df000c
+2017-12-12 09:06:29.537862+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000020
+2017-12-12 09:06:29.537864+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1e, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537867+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01ef000c
+2017-12-12 09:06:29.537925+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000010
+2017-12-12 09:06:29.537927+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1f, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537929+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01ff000c
+2017-12-12 09:06:29.537988+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000020
+2017-12-12 09:06:29.537991+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x20, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.537993+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x020f000c
+2017-12-12 09:06:29.538052+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.538054+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x21, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.538056+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x021f000c
+2017-12-12 09:06:29.538115+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.538118+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x22, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.538120+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x022f000c
+2017-12-12 09:06:29.538180+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.538182+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x23, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.538184+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x023f000c
+2017-12-12 09:06:29.538235+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.538237+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x24, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.538240+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x024f000c
+2017-12-12 09:06:29.538298+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.538301+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x25, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.538303+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x025f000c
+2017-12-12 09:06:29.538363+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.538366+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x26, verb 0x000f00, payload 0x0c.
+2017-12-12 09:06:29.538368+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x026f000c
+2017-12-12 09:06:29.538428+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.839580+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x14, verb 0x00070c, payload 0x02.
+2017-12-12 09:06:29.839597+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01470c02
+2017-12-12 09:06:29.839711+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000
+2017-12-12 09:06:29.839723+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: node 0x1b, verb 0x00070c, payload 0x02.
+2017-12-12 09:06:29.839738+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (w) --> 0x01b70c02
+2017-12-12 09:06:29.839843+1300  localhost kernel[0]: (kernel) CodecCommander: SendCommand: (r) <-- 0x00000000

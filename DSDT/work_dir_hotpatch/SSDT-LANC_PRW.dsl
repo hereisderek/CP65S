@@ -2,7 +2,7 @@
 
 DefinitionBlock("", "SSDT", 2, "hack", "LANC_PRW", 0)
 {
-    External (RMDT.P5, MethodObj)
+    External(RMDT.P5, MethodObj)
     
     External(GPRW, MethodObj)
     External(XPRW, MethodObj)
