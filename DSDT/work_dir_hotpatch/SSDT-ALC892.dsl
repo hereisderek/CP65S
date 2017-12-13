@@ -10,7 +10,7 @@
 // Customize to suit your needs.
 // Compile to SSDT-ALC668.aml, place in ACPI/patched.  Make sure SortedOrder includes it.
 
-DefinitionBlock ("", "SSDT", 1, "hack", "ALC668", 0)
+DefinitionBlock ("", "SSDT", 1, "hack", "CodecCommander", 0)
 {
     External(_SB.PCI0.HDEF, DeviceObj)
     Name(_SB.PCI0.HDEF.RMCF, Package()

@@ -3,3 +3,4 @@ tmp/
 .svn/
 DSDT/check_results/dsl_dump
 config.plist
+Clover/EFI/CLOVER/ACPI/origin

@@ -1,5 +1,8 @@
 
-## CP65S Sager NP8650 / Clevo P650SA
+## CP65S Sager NP8650 / Clevo P650SA/SE 
+
+### latest supported OS version
+ ![support_version](Screenshots/support_version.png)
 
 ### current issues:
 
@@ -39,6 +42,9 @@ wake up by keyboard should be working now, but mouse is still no go
 5. Stock wifi card(RTL87223BE) is not supported by Mac OS, there's no solution for it yet. Find a supported one or grab a usb wifi
 
 6. copy CP65S/VIDEO_PORTS_HDMI_DP/DisplayVendor/3840x2160/DisplayVendorID-30e4 to /System/Library/Displays/Contents/Resources/Overrides/ (if we have the same display panel, but probably not) and pair with RDM to enable hidpi display (and many other resolutions) if that's your sort of thing.  However, using this method requires you to inject your own monitor EDID into both clover and DisplayVendorID file, otherwise you may experience some issue that the internal lcd not light up after sleep, however your desktop can be accessed via remote desktop. P.S. best resolution for me personally is 2240*1260
+
+7. !! please use clover to regenerate your serial numbers etc.
+    ![regenerate_sn.png](Screenshots/regenerate_sn.png.png)
 
 -------
 
