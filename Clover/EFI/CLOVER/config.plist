@@ -1195,47 +1195,29 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>AppleIntelFramebufferAzul patch 0600260A</string>
+				<string>AppleIntelFramebufferAzul patch 0600260A patch 23</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
 				<data>
 				BgAmCgEDAwMAAAACAAAwAQAAYAAAAABg2QoAANkKAAAA
 				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAABAAAhwAAAAIE
-				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAA=
+				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAABAQAABAAA
+				AAAAAAAOAAAAAAAAAAgALgo=
 				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BgAmCgEDBAQAAAACAAAwAQAAkAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAEFEgAABAAABAAAAAIE
-				CQAABAAAhwAAAAMGAwAACAAAWQAAAA8AAAA=
+				BgAmCgEEBAQAAAACAAAwAQAAkAAAAABg2QoAANkKAAAA
+				AAAAAAAAAAAACAAEAAAAMAAAAAMGEgAABAAAhwAAAAIE
+				CgAACAAAhwAAAAEFAwAABAAABgAAAA8AAAABAQAABAAA
+				AAAAAAAOAAAAAAAAAAgALgo=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleIntelFramebufferAzul patch 0600260A disable all the ports</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAABAAAhwAAAAIE
-				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAA=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDAQEAAAACAAAwAQAAkAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAAAAAAAAAAAAAAAAAAA
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AppleIntelFramebufferAzul patch 0600260A enable HDMI only 1</string>
+				<string>AppleIntelFramebufferAzul patch 0600260A patch 17</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
@@ -1250,84 +1232,50 @@
 				<key>Replace</key>
 				<data>
 				BgAmCgEDBAQAAAACAAAwAQAAkAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAEFEgAACAAAhwAAAAAA
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAABAQAABAAA
+				AAAAAAAAAAAACAAEAAAAMAAAAAAAAAAAAAAAAAAAAAIE
+				CgAACAAABgAAAAMGAwAABAAAhwAAAA8AAAABAQAABAAA
 				AAAAAAAOAAAAAAAAAAgALgo=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleIntelFramebufferAzul patch 0600260A enable HDMI &amp; one display port (1)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAABAAAhwAAAAIE
-				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAABAQAABAAA
-				AAAAAAAOAAAAAAAAAAgALgo=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDBAQAAAACAAAwAQAAkAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAEFEgAACAAAhwAAAAIE
-				EgAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAABAQAABAAA
-				AAAAAAAOAAAAAAAAAAgALgo=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AppleIntelFramebufferAzul patch 0600260A enable HDMI &amp; two display ports (4)</string>
+				<string>Enable fourth connector by changing port count, 9MB cursor bytes, 0x0a260006, Derek</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
 				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAABAAAhwAAAAIE
-				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAABAQAABAAA
-				AAAAAAAOAAAAAAAAAAgALgo=
+				BgAmCgEDAwMAAAACAAAwAQAAYAA=
 				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BgAmCgEDBAQAAAACAAAwAQAAkAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAEFEgAABAAAhwAAAAIE
-				EgAACAAAhwAAAAMGEgAABAAAhwAAAA8AAAABAQAABAAA
-				AAAAAAAOAAAAAAAAAAgALgo=
+				BgAmCgEEBAQAAAACAAAwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>AppleIntelFramebufferAzul patch 00001604</string>
+				<string>Redefining port defination, Derek</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
-				AAAWBAADAwMAAAAEAAAAAQAA8AAAAABAmRQAAJkUAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAEAAAABAAAAAIE
-				CQAACAAAggAAAP8AAAABAAAAQAAAAAQAAAAAAAcABAAA
-				AAAAAAAAAAAAAAAAAAAAJgQAAwMDAAAABAAAAAEAAPAA
-				AAAAQA==
+				AQUJAAAEAACHAAAAAgQJAAAEAACHAAAA/wAAAAEAAABA
+				AAAADwAAAA==
 				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				AAAWBAEDBAQAAAAEAAAAAQAA8AAAAABAmRQAAJkUAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFEgAABAAABAAAAAIE
-				CQAACAAAggAAAAMGAwAABAAAhwAAAAQAAAAAAAcABAAA
-				AAAAAAAAAAAAAAAAAAAAJgQAAwMDAAAABAAAAAEAAPAA
-				AAAAQA==
+				AQUSAAAEAAAGAAAAAgQKAAAIAAAGAAAAAwYDAAAEAACH
+				AAAADwAAAA==
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>0x0a260006 9MB cursor bytes, vbo</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				BgAmCgEDAwMAAAACAAAwAQAAYAA=
