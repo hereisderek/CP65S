@@ -24,18 +24,22 @@ DefinitionBlock("", "SSDT", 2, "hack", "HDEF", 0)
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         
         // call build in _DSM
-//        If (CondRefOf(\_SB.PCI0.HDEF.XDSM)) { \_SB.PCI0.HDEF.XDSM(Arg0, Arg1, Arg2, Arg3) }
+        If (CondRefOf(\_SB.PCI0.HDEF.XDSM)) 
+        { 
+            \_SB.PCI0.HDEF.XDSM(Arg0, Arg1, Arg2, Arg3) 
+        }
         
         If (CondRefOf(\RMCF.AUDL)) 
         { 
             If (Ones == \RMCF.AUDL) 
             { 
-//                If (CondRefOf(\_SB.PCI0.HDEF.XDSM)) 
-//                { \_SB.PCI0.HDEF.XDSM(Arg0, Arg1, Arg2, Arg3) }
-//                Else { Return(0) }
-                Return(0)
-            } 
+                If (CondRefOf(\_SB.PCI0.HDEF.XDSM)) 
+                { 
+                    return (\_SB.PCI0.HDEF.XDSM(Arg0, Arg1, Arg2, Arg3))
+                } else { Return(0) }
+            }
         }
+
         
         Local0 = Package()
         {
@@ -48,9 +52,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "HDEF", 0)
             "PinConfigurations", Buffer() { },
 //            "MaximumBootBeepVolume", Buffer() { 0x01 },
             
-//            "AAPL,slot-name", Buffer() { "Built in" },
-//            "device_type", Buffer() { "Audio Controller" },
-//            "built-in", Buffer() { 0x00 },
+            "AAPL,slot-name", Buffer() { "Built in" },
+            "device_type", Buffer() { "Audio Controller" },
+            "built-in", Buffer() { 0x00 },
         }
         If (CondRefOf(\RMCF.AUDL))
         {

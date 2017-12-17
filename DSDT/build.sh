@@ -21,7 +21,7 @@
 
 DEBUG=true
 
-skippedDslName=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1" "SSDT-UPRW" "SSDT-LPC" "SSDT-LANC_PRW" )
+skippedDslName=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1" "SSDT-UPRW" "SSDT-LPC" "SSDT-LANC_PRW" "SSDT-IGPU2" )
 # "SSDT-EH01" "SSDT-EH02" "SSDT-XHC" "SSDT-HDAU" "SSDT-HDEF"
 
 

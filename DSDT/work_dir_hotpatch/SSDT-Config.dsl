@@ -73,7 +73,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         //  0: does not manipulate the DGPU in _WAK and _PTS
         //  1: disables the DGPU in _WAK and enables it in _PTS
-        Name(DPTS, 1)
+        Name(DPTS, 0)
 
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //
@@ -93,9 +93,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // The value here will be used to inject layout-id for HDEF and HDAU
         // If set to Zero, no audio injection will be done.
-        //Name(AUDL, 31)
-        //Name(AUDL, 28)
-        Name(AUDL, Ones)
+        Name(AUDL, 31)
+        //Name(AUDL, Ones)
 
 
         // BKLT: Backlight control type

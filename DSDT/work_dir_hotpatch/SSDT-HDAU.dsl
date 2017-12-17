@@ -8,7 +8,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HDAU", 0)
     External(_SB.PCI0.HDAU.XDSM, MethodObj)
     External(RMCF.AUDL, IntObj)
     
-    External (RMDT.P5, MethodObj)
+    External(RMDT.P5, MethodObj)
     
 //    Name(_STA, Zero)
 //    Name(_SB.PCI0.HDAU._STA, Zero)
@@ -21,15 +21,27 @@ DefinitionBlock("", "SSDT", 2, "hack", "HDAU", 0)
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         
         // call build in _DSM
-//        If (CondRefOf(\_SB.PCI0.HDAU.XDSM)) { \_SB.PCI0.HDAU.XDSM(Arg0, Arg1, Arg2, Arg3) }
+        If (CondRefOf(\_SB.PCI0.HDAU.XDSM)) 
+        { 
+            \_SB.PCI0.HDAU.XDSM(Arg0, Arg1, Arg2, Arg3) 
+        }
         
-        If (CondRefOf(\RMCF.AUDL)) { If (Ones == \RMCF.AUDL) { Return(0) } }
+        If (CondRefOf(\RMCF.AUDL)) 
+        { 
+            If (Ones == \RMCF.AUDL) 
+            { 
+                If (CondRefOf(\_SB.PCI0.HDAU.XDSM)) 
+                { return (\_SB.PCI0.HDAU.XDSM(Arg0, Arg1, Arg2, Arg3)) } 
+                else { Return(0) }
+            }
+        }
         
         Local0 = Package()
         {
             "layout-id", Buffer(4) { 3, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
         }
+        
         If (CondRefOf(\RMCF.AUDL))
         {
             CreateDWordField(DerefOf(Local0[1]), 0, AUDL)

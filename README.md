@@ -58,9 +58,9 @@ Needs testing:
 
 #### change log:
 * 1.2.2:
-    * patched AppleIntelFramebufferAzul to enable HDMI and one of the DP (tested on 10.13.3 beta 17D20a, may and may not be future-proof). The disabled items under KextsToPatch are wip and for experiment only, do not enable them unless you are certain of what you are doing.
+    * patched AppleIntelFramebufferAzul to enable HDMI and one of the DP (tested on 10.13.3 beta 17D20a, may and may not be future-proof). The disabled items under KextsToPatch are still WIP and for experiment only, do not enable them unless you are certain of what you are doing.
     * battery FirstPollDelay 5 seconds
-    * updated kexts and clover (r4358) (you can manually launch )
+    * updated kexts and clover (r4358) (you can manually launch CLOVERX64_old.efi for an older version)
 * 1.2.1:
     * update to clover version r4319
     * remove hard coded EDID, and apply my clover patch to patch EDID automatically for fixing second stage boot screen garble issue (HorizontalSyncPulseWidth 100, 32, 35 etc, VideoInputSignal 165 (0xA5)) [link](https://www.tonymacx86.com/threads/modified-clover-with-edid-patch-to-fix-boot-second-stage-garbled-screen.238918/)
