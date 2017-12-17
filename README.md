@@ -25,7 +25,7 @@ wake up by keyboard should be working now(?), but mouse is still no go
 8. ~~hibernation (sleep works fine, you can test by sleep after ```sudo pmset -a hibernatemode 25 && sudo pmset -a autopoweroff 1```)~~
    hibernation now works but ram frequency still wrong, may be a clover issue
    
-9. The second mini display port is not working, however the first one and HDMI are both working (Audio doesn't seem to work though)
+9. ~~The second mini display port is not working, however the first one and HDMI are both working~~ all graphic ports are working well since release 1.2.3 (Haven't get the time for audio fixes yet)
  
 10. You tell me. Any bug report is welcomed
 
@@ -35,9 +35,9 @@ wake up by keyboard should be working now(?), but mouse is still no go
 
 1. Change to EFI boot in bios setting and GPT disk partition format. (It's long over-due if you haven't used them already)
 
-2. To open boot menu when boot, click F7, to re-order boot priority you can either do it via bios (f2) or via efi shell (forgot what the actual command is but google is your friend)
+2. To open boot menu when boot, click F7, to re-order boot priority you can either do it via bios (f2) or via efi shell bcfg(?)(forgot what the actual command is but google is your friend)
  
-3. Everything should work out-of-box, however, if you are greeted by garbled screen (especially on install/recovery/10.13) you can try close your lcd and reopen it (thus put to sleep briefly) or Fn+F12, or try a different ig-platform
+3. Everything should work out-of-box, however, if you are greeted by garbled screen (especially on install/recovery/10.13) you can try close your lcd and reopen it (thus put to sleep briefly) or Fn+F12, or try a different ig-platform (this will probably not happen anymore if you are using my config.plist)
 
 4. As for imessage/face time, you are on your own. There're plenty of guides online.
 
@@ -46,17 +46,20 @@ wake up by keyboard should be working now(?), but mouse is still no go
 6. copy CP65S/VIDEO_PORTS_HDMI_DP/DisplayVendor/3840x2160/DisplayVendorID-30e4 to /System/Library/Displays/Contents/Resources/Overrides/ (if we have the same display panel, but probably not) and pair with RDM to enable hidpi display (and many other resolutions) if that's your sort of thing.  However, using this method requires you to inject your own monitor EDID into both clover and DisplayVendorID file, otherwise you may experience some issue that the internal lcd not light up after sleep, however your desktop can be accessed via remote desktop. P.S. best resolution for me personally is 2240*1260
 
 7. !! please use clover to regenerate your serial numbers etc.
-    ![regenerate_sn.png](Screenshots/regenerate_sn.png.png)
+    ![regenerate_sn.png](Screenshots/regenerate_sn.png)
 
 -------
 
 Needs testing:
 
-1. External display (Video or Audio)
+1. External display Audio
 
 -------
 
 #### change log:
+* 1.2.3
+    * switching to ig-platform 0x260d0007, which enables all the ports
+    * audio layout-id injection moved into SSDT
 * 1.2.2:
     * patched AppleIntelFramebufferAzul to enable HDMI and one of the DP (tested on 10.13.3 beta 17D20a, may and may not be future-proof). The disabled items under KextsToPatch are still WIP and for experiment only, do not enable them unless you are certain of what you are doing.
     * battery FirstPollDelay 5 seconds
