@@ -107,8 +107,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
-        Name(LMAX, Ones)
+        //Name(LMAX, Ones)
         //Name(LMAX, 0xad9)
+        Name(LMAX, 0x7a1)
 
         // FBTP: Framebuffer type. Determines IGPU PWM register layout.
         //  (advanced use: for overriding default for unsupported IGPU device-id)
@@ -179,7 +180,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Name(_HID, "RMKB0000")
     }    // keyboard brightness adjustment fix
     
-    
+    // Enabling brightness keys
     Method(_SB.PCI0.LPCB.EC._Q11, 0)
     {
         // call the original method
@@ -188,11 +189,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         
         If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
         { 
-            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0405) 
-            Notify(\_SB.PCI0.LPCB.PS2K, 0x20) 
+            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)     // method1
+            Notify(\_SB.PCI0.LPCB.PS2K, 0x20)     // method2
         }
-        // Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)
     }
+
 
     Method(_SB.PCI0.LPCB.EC._Q12, 0)
     {
@@ -202,11 +203,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         
         If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
         { 
-            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
-            Notify(\_SB.PCI0.LPCB.PS2K, 0x10)
+            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)    // method1
+            Notify(\_SB.PCI0.LPCB.PS2K, 0x10)    // method2
         }
         
-        // Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)
     }
     
     // Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
