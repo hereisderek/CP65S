@@ -5,6 +5,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
     External(_SB.PCI0.PEG0.PEGP._OFF, MethodObj)
     External(_SB.PCI0.PEGP.DGFX._OFF, MethodObj)
     
+    External (_SB_.PCI0.PEG0.PEGP.OPON, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG0.PEGP.OPOF, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG0.PEGP._PS0, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG0.PEGP._PS3, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG0.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG0.PEGP._ON_, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG2.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
@@ -44,6 +48,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             {
                 \_SB.PCI0.PEG0.PEGP._ON ()
             }
+            
+            If (CondRefOf (\_SB.PCI0.PEG0.PEGP._PS0))
+            {
+                \_SB.PCI0.PEG0.PEGP._PS0 ()
+            }
 
             If (CondRefOf (\_SB.PCI0.PEGP.DGFX._ON))
             {
@@ -81,6 +90,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             If (CondRefOf (\_SB.PCI0.PEG0.PEGP._OFF))
             {
                 \_SB.PCI0.PEG0.PEGP._OFF ()
+            }
+            
+            If (CondRefOf (\_SB.PCI0.PEG0.PEGP._PS3))
+            {
+                \_SB.PCI0.PEG0.PEGP._PS3 ()
             }
 
             If (CondRefOf (\_SB.PCI0.PEGP.DGFX._OFF))

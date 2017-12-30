@@ -1,6 +1,7 @@
 // Adding PNLF device for IntelBacklight.kext or AppleBacklight.kext+AppleBacklightInjector.kext
 
 #define SANDYIVY_PWMMAX 0x710
+//#define HASWELL_PWMMAX 0x7a1
 #define HASWELL_PWMMAX 0xad9
 #define SKYLAKE_PWMMAX 0x56c
 
@@ -201,6 +202,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "PNLF", 0)
             ElseIf (Local2 == HASWELL_PWMMAX) { _UID = 15 }
             ElseIf (Local2 == SKYLAKE_PWMMAX) { _UID = 16 }
             Else { _UID = 99 }
+            
+            // todo
+            _UID = 15
         }
     }
 }
