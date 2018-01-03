@@ -24,6 +24,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
     External (_SB_.PCI0.RP01.PXSX._ON_, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.RP05.PXSX._OFF, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.RP05.PXSX._ON_, MethodObj)    // 0 Arguments (from opcode)
+    // samsung 500R4K series
+    External (_SB_.PCI0.RP05.PEGP._PS0, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP05.PEGP._PS3, MethodObj)    // 0 Arguments (from opcode)
 
     Device(RMD1)
     {
@@ -78,6 +81,12 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             {
                 \_SB.PCI0.RP01.PEGP._ON ()
             }
+            
+                        
+            If (CondRefOf (\_SB.PCI0.RP05.PEGP._PS0))
+            {
+                \_SB.PCI0.RP05.PEGP._PS0 ()
+            }
         }
 
         Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
@@ -124,6 +133,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             If (CondRefOf (\_SB.PCI0.RP01.PEGP._OFF))
             {
                 \_SB.PCI0.RP01.PEGP._OFF ()
+            }
+            
+            If (CondRefOf (\_SB.PCI0.RP05.PEGP._PS3))
+            {
+                \_SB.PCI0.RP05.PEGP._PS3 ()
             }
         }
     }
