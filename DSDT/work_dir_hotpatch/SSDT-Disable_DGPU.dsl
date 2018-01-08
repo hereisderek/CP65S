@@ -10,23 +10,26 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
     External (_SB_.PCI0.PEG0.PEGP._PS0, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG0.PEGP._PS3, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG0.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.PEG0.PEGP._ON_, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG0.PEGP._ON, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG2.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.PEG2.PEGP._ON_, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG2.PEGP._ON, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG_.VID_._PS0, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG_.VID_._PS3, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG_.VID_.XDSM, MethodObj)    // 4 Arguments (from opcode)
     External (_SB_.PCI0.PEGP.DGFX._OFF, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.PEGP.DGFX._ON_, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEGP.DGFX._ON, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.RP01.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.RP01.PEGP._ON_, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP01.PEGP._ON, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.RP01.PXSX._OFF, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.RP01.PXSX._ON_, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP01.PXSX._ON, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.RP05.PXSX._OFF, MethodObj)    // 0 Arguments (from opcode)
-    External (_SB_.PCI0.RP05.PXSX._ON_, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP05.PXSX._ON, MethodObj)    // 0 Arguments (from opcode)
     // samsung 500R4K series
     External (_SB_.PCI0.RP05.PEGP._PS0, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.RP05.PEGP._PS3, MethodObj)    // 0 Arguments (from opcode)
+    // HP 15-d101tx
+    External (_SB_.PCI0.PEG1.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG1.PEGP._ON, MethodObj)    // 0 Arguments (from opcode)
 
     Device(RMD1)
     {
@@ -40,7 +43,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             _OFF ()
         }
 
-        Method (_ON, 0, NotSerialized)  // _ON_: Power On
+        Method (_ON, 0, NotSerialized)  // _ON: Power On
         {
             If (CondRefOf (\_SB.PCI0.PEG2.PEGP._ON))
             {
@@ -86,6 +89,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             If (CondRefOf (\_SB.PCI0.RP05.PEGP._PS0))
             {
                 \_SB.PCI0.RP05.PEGP._PS0 ()
+            }
+                        
+            If (CondRefOf (\SB_.PCI0.PEG1.PEGP._ON))
+            {
+                \_SB_.PCI0.PEG1.PEGP._ON ()
             }
         }
 
@@ -138,6 +146,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             If (CondRefOf (\_SB.PCI0.RP05.PEGP._PS3))
             {
                 \_SB.PCI0.RP05.PEGP._PS3 ()
+            }
+            
+            If (CondRefOf (\SB_.PCI0.PEG1.PEGP._OFF))
+            {
+                \_SB_.PCI0.PEG1.PEGP._OFF ()
             }
         }
     }
