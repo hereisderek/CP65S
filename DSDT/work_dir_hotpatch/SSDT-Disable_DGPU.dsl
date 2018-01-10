@@ -137,11 +137,26 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             {
                 \_SB.PCI0.RP01.PXSX._OFF ()
             }
+            
+            External (\_SB.PCI0.RP01.PEGP, DeviceObj)
+            External (\_SB_.PCI0.RP01.PXSX._STA, IntObj)
 
             If (CondRefOf (\_SB.PCI0.RP01.PEGP._OFF))
             {
                 \_SB.PCI0.RP01.PEGP._OFF ()
             }
+            
+            If (CondRefOf (\_SB_.PCI0.RP01.PXSX._STA))
+            {
+                Store(Zero, \_SB_.PCI0.RP01.PXSX._STA)
+            } Else {
+                Scope (\_SB.PCI0.RP01.PEGP)
+                    {
+                        Name (_STA, Zero)
+                    }
+            }
+            
+            
             
             If (CondRefOf (\_SB.PCI0.RP05.PEGP._PS3))
             {

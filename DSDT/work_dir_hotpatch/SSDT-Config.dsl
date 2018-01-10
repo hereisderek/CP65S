@@ -33,8 +33,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
             Store("HIGH selects display type. 1: high resolution, 2: low resolution", Debug)
             Store("IGPI overrides ig-platform-id or snb-platform-id", Debug)
             Store("DPTS for laptops only. 1: enables/disables DGPU in _WAK/_PTS", Debug)
-            Store("SHUT enables shutdown fix. 1: disables _PTS code when Arg0==5", Debug)
+            Store("SHUT enables shutdown fix. bit 0: disables _PTS code when Arg0==5, bit 1: SLPE=0 when Arg0==5", Debug)
             Store("XPEE enables XHC.PMEE fix. 1: set XHC.PMEE to zero in _PTS when Arg0==5", Debug)
+            Store("SSTF enables _SST LED fix. 1: enables _SI._SST in _WAK when Arg0 == 3", Debug)
             Store("AUDL indicates audio layout-id for patched AppleHDA. Ones: no injection", Debug)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
@@ -78,7 +79,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // SHUT: Shutdown fix, disable _PTS code when Arg0==5 (shutdown)
         //
         //  0: does not affect _PTS behavior during shutdown
-        //  1: disables _PTS code during shutdown
+        //  bit 0 set: disables _PTS code during shutdown
+        //  bit 1 set: sets SLPE to zero in _PTS during shutdown
         Name(SHUT, 0)
 
         // XPEE: XHC.PMEE fix, set XHC.PMEE=0 in _PTS when Arg0==5 (shutdown)
@@ -89,10 +91,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // 1: sets XHC.PMEE in _PTS code during shutdown
         Name(XPEE, 0)
 
+        // SSTF: _SI._SST fix.  To fix LED on wake.  Useful for some Thinkpad laptops.
+        //
+        // 0: no effect during _WAK
+        // 1: calls _SI._SST(1) during _WAK when Arg0 == 3 (waking from S3 sleep)
+        Name(SSTF, 0)
         // AUDL: Audio Layout
         //
         // The value here will be used to inject layout-id for HDEF and HDAU
-        // If set to Zero, no audio injection will be done.
+        // If set to Ones, no audio injection will be done.
         Name(AUDL, 31)
         //Name(AUDL, Ones)
 
