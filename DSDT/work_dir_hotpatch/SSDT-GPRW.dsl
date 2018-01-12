@@ -29,8 +29,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "GPRW", 0)
             If (Local1 & 1 == 1) 
             {
                 \rmdt.p1("Applying USB instant wake GPRW fix")
-                If (0x6d == Arg0) { Return (Package() { 0x6d, 0, }) }
-                If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
+//                If (0x6d == Arg0) { Return (Package() { 0x6d, 0, }) }
+//                If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
+//                CreateDWordField(DerefOf(Local0[1]), 0, AUDL)
+                
             }
             Else
             {
@@ -43,6 +45,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "GPRW", 0)
 //        If (0x6d == Arg0) { Return (Package() { 0x6d, 0, }) }
 //        If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
         //Return (XPRW(Arg0, Arg1))
+        Local0[2] = 0
         Return (Local0)
     }
 }

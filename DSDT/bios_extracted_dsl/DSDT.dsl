@@ -4309,7 +4309,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                         ,   13, 
                     RCBA,   18
                 }
-
+                
+                // Direct memory access controller
                 Device (DMAC)
                 {
                     Name (_HID, EisaId ("PNP0200"))  // _HID: Hardware ID
@@ -14433,6 +14434,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
 
     Scope (_SB)
     {
+        // ACPI Power Button
         Device (PWRB)
         {
             Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
@@ -14442,7 +14444,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                 0x03
             })
         }
-
+        
+        // ACPI Sleep Button
         Device (SLPB)
         {
             Name (_HID, EisaId ("PNP0C0E"))  // _HID: Hardware ID

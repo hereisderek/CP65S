@@ -74,6 +74,9 @@ Needs testing:
 
 
 Device list:
+[AIDA64 Reports - Devices](dump/AIDA64Reports/Devices.htm)
+[AIDA64 Reports - APIC](dump/AIDA64Reports/APIC.txt)
+[AIDA64 Reports - Motherboard](dump/AIDA64Reports/Motherboard.htm)
 
 * 0:100  0:000  PCI (00|00:00.00) : 8086 0C04 class=060000
 * 0:100  0:000  PCI (00|00:01.00) : 8086 0C01 class=060400
@@ -100,6 +103,36 @@ Device list:
 * 0:100  0:000  PCI (00|00:1F.00) : 8086 8C4B class=060100
 * 0:100  0:000  PCI (00|00:1F.02) : 8086 8C03 class=010601
 * 0:100  0:000  PCI (00|00:1F.03) : 8086 8C22 class=0C0500
+INT340E
+
+| ACPI Path | _HID | _CID | DeviceID/VenderID | Description | IRQ | Link |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| _SB/CAT | N/A | PNPC000 | N/A | Clevo Airplane mode ? |
+| _SB/IFFS | INT3392  | PNP0C02 | N/A | Intel(R) Rapid Start Technology Device |
+| _SB/INSD | INT3398  | PNP0C02 | N/A | Intel(R) Ready Mode Technology Device | [link](https://www.intel.com/content/www/us/en/architecture-and-technology/intel-ready-mode-technology.html) |
+| _SB/PTID | INT340E  | PNP0C02 | N/A | Intel(R) Management Engine Interface? | [link](#) |
+| _SB/LID0 | N/A | PNP0C0D | N/A | ACPI Lid | [link](#) |
+| _SB/PWRB | N/A | PNP0C0C | N/A | ACPI Power Button | [link](#) |
+| _SB/SLPB | N/A | PNP0C0E | N/A | ACPI Sleep Button | [link](#) |
+| _SB/DMAC | N/A | PNP0200 | N/A | Direct memory access controller | [link](#) |
+| _SB/HPET | N/A | PNP0103 | N/A | High precision event timer | [link](#) |
+| N/A | N/A | N/A | ACPI\VEN_INT&DEV_3398 | Motherboard resources | [link](#) |
+| N/A | N/A | N/A | ACPI\VEN_PNP&DEV_0C04 | Numeric data processor | [link](#) |
+| N/A | N/A | N/A | ACPI\VEN_PNP&DEV_0000 | Programmable interrupt controller | [link](#) |
+| N/A | N/A | N/A | ACPI\VEN_PNP&DEV_0B00 | System CMOS/real time clock | [link](#) |
+| N/A | N/A | N/A | ACPI\VEN_PNP&DEV_0100 | System timer | [link](#) |
+| ? | N/A | N/A | VEN_8086/DEV_8C20 | Intel Lynx Point PCH - High Definition Audio Controller [C-1] | [link](#) |
+| ? | N/A | N/A | VEN_INT&DEV_340F | Intel Collaborative Processor Performance Control (CPPC) Driver | [link](#) |
+| ? | N/A | N/A | PCI\VEN_8086&DEV_8C10&SUBSYS_65571558&REV_D4 | Intel(R) 8 Series/C220 Series PCI Express Root Port #1 - 8C10 | [link](#) | 131071 |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C18&SUBSYS_65571558&REV_D4 | Intel(R) 8 Series/C220 Series PCI Express Root Port #5 - 8C18 | [link](#) | 131071 |
+| ? | N/A | N/A | PCI\VEN_8086&DEV_8C1A&SUBSYS_65571558&REV_D4 | Intel(R) 8 Series/C220 Series PCI Express Root Port #6 - 8C1A | [link](#) | 131071 |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C22&SUBSYS_65571558&REV_04 | 	Intel(R) 8 Series/C220 Series SMBus Controller - 8C22 | [link](#) | N/A |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C24&SUBSYS_65571558&REV_04 | 	Intel(R) 8 Series/C220 Series Thermal - 8C24 | [link](#) | N/A |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C4B&SUBSYS_65571558&REV_04 | 	Intel HM87 Chipset - LPC Interface Controller - 8C4B | [link](#) | N/A |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C3A&SUBSYS_65571558&REV_04 | 	Intel Lynx Point PCH - Host Embedded Controller Interface 1 (HECI1) [C-1] Intel(R) Management Engine Interface | [link](#) | 65536 |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C26&SUBSYS_65571558&REV_04 | 	Intel Lynx Point PCH - USB 2.0 EHCI Host Controller 1 | [link](#) | 23 |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C2D&SUBSYS_65571558&REV_04 | 	Intel Lynx Point PCH - USB 2.0 EHCI Host Controller 2 | [link](#) | 16 |
+| ? | N/A| N/A | PCI\VEN_8086&DEV_8C31&SUBSYS_65571558&REV_04 | 	Intel Lynx Point PCH - USB 3.0 xHCI Host Controller [C-1] | [link](#) | 65536 |
 
 
 -------
@@ -174,4 +207,8 @@ Currently in use:
  displaysleep         10
  lidwake              1`
 
+
+### Reference
+1. [ACPI Specification](http://www.uefi.org/sites/default/files/resources/ACPI%206_2_A_Sept29.pdf)
+2. [High Definition Audio Specification](https://www.intel.com/content/dam/www/public/us/en/documents/product-specifications/high-definition-audio-specification.pdf)
 
