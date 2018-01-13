@@ -30,7 +30,13 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
     // HP 15-d101tx
     External (_SB_.PCI0.PEG1.PEGP._OFF, MethodObj)    // 0 Arguments (from opcode)
     External (_SB_.PCI0.PEG1.PEGP._ON, MethodObj)    // 0 Arguments (from opcode)
-
+    // IOACPIPlane:/_SB/PCI0@0/PEG0@10000/PEGP@0
+    External (_SB_.PCI0.PEG0.PEGP.EPON, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.PEG0.PEGP.EPOF, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP05.PEGP.EPON, MethodObj)    // 0 Arguments (from opcode)
+    External (_SB_.PCI0.RP05.PEGP.EPOF, MethodObj)    // 0 Arguments (from opcode)
+    
+    
     Device(RMD1)
     {
         Name(_HID, "RMD10000")
@@ -95,6 +101,21 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             {
                 \_SB_.PCI0.PEG1.PEGP._ON ()
             }
+                        
+            If (CondRefOf (\_SB_.PCI0.PEG0.PEGP.OPON))
+            {
+                \_SB_.PCI0.PEG0.PEGP.OPON ()
+            }
+                        
+            If (CondRefOf (\_SB_.PCI0.PEG0.PEGP.EPON))
+            {
+                \_SB_.PCI0.PEG0.PEGP.EPON ()
+            }
+                        
+            If (CondRefOf (\_SB_.PCI0.RP05.PEGP.EPON))
+            {
+                \_SB_.PCI0.RP05.PEGP.EPON ()
+            }
         }
 
         Method (_OFF, 0, NotSerialized)  // _OFF: Power Off
@@ -157,7 +178,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             }
             
             
-            
             If (CondRefOf (\_SB.PCI0.RP05.PEGP._PS3))
             {
                 \_SB.PCI0.RP05.PEGP._PS3 ()
@@ -166,6 +186,21 @@ DefinitionBlock("", "SSDT", 2, "hack", "D-DGPU", 0)
             If (CondRefOf (\SB_.PCI0.PEG1.PEGP._OFF))
             {
                 \_SB_.PCI0.PEG1.PEGP._OFF ()
+            }
+            
+            If (CondRefOf (\_SB_.PCI0.PEG0.PEGP.OPOF))
+            {
+                \_SB_.PCI0.PEG0.PEGP.OPOF ()
+            }
+            
+            If (CondRefOf (\_SB_.PCI0.PEG0.PEGP.EPOF))
+            {
+                \_SB_.PCI0.PEG0.PEGP.EPOF ()
+            }
+                        
+            If (CondRefOf (\_SB_.PCI0.RP05.PEGP.EPOF))
+            {
+                \_SB_.PCI0.RP05.PEGP.EPOF ()
             }
         }
     }

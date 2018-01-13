@@ -2,6 +2,7 @@
 ## CP65S Sager NP8650 / Clevo P650SA/SE 
 
 ### latest supported OS version
+[gallery](Screenshots/gallery.md)
  ![support_version](Screenshots/support_version.png)
 
 ### current issues:
@@ -27,9 +28,7 @@ wake up by keyboard should be working now(?), but mouse is still no go
    
 9. ~~The second mini display port is not working, however the first one and HDMI are both working~~ all graphic ports are working well since release 1.2.3 (Haven't get the time for audio fixes yet)
  
-10. 10.13.3 Beta (17D25b) seems to break brightness adjust ability.
-
-11. You tell me. Any bug report is welcomed
+10. You tell me. Any bug report is welcomed
 
 -------
 
