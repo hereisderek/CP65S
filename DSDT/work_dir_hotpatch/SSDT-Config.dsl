@@ -148,4 +148,5 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         \rmdt.p2("RMCF configuration LMAX:", LMAX)
         \rmdt.p2("RMCF configuration FBTP:", FBTP)
     }
+}
     //EOF

@@ -58,6 +58,11 @@ Needs testing:
 -------
 
 #### change log:
+* 1.2.4
+    * experimental support for newer version of z7/z7m (i7 7700+hd630 and i5 6300HQ+hd530 (select respected config.plist file)
+    * omitted Rehabman's hotpatch upstream changes
+    * enabled external monitor audio support (tested on DP for old z7m-d1)
+    * updated clover to version r4376 (latest of time being)
 * 1.2.3
     * switching to ig-platform 0x260d0007, which enables all the ports
     * audio layout-id injection moved into SSDT
