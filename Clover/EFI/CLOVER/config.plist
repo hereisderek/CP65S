@@ -1115,8 +1115,6 @@
 	<dict>
 		<key>##ig-platform-id</key>
 		<string>0x0a260006</string>
-		<key>#ig-platform-id</key>
-		<string>0x04160000</string>
 		<key>EDID</key>
 		<dict>
 			<key>##Custom</key>
@@ -1126,6 +1124,8 @@
 			MkAwZDUA4A4RAAAa70SAoIDII0AwZDUAIDIhAAAa/EwAoJAQJVAw
 			ZDUAQEQhAAAaAC4=
 			</data>
+			<key>##HorizontalSyncPulseWidth</key>
+			<integer>100</integer>
 			<key>#Custom</key>
 			<data>
 			AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQvzwDx
@@ -1133,14 +1133,14 @@
 			KkAwZDUA4A4RAAAaalKAoHA4L0AwZDUA4A4RAAAaAAAAEAAAAAAA
 			AAAAAAAAAAAAALI=
 			</data>
+			<key>#VideoInputSignal</key>
+			<string>0xA0</string>
 			<key>HorizontalSyncPulseWidth</key>
 			<string>0x64</string>
 			<key>Inject</key>
 			<true/>
 			<key>ProductID</key>
 			<string>0x9c7c</string>
-			<key>VideoInputSignal</key>
-			<string>0xA0</string>
 		</dict>
 		<key>Inject</key>
 		<dict>
@@ -1158,461 +1158,6 @@
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>#KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Enable TRIM for SSD</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AEFQUExFIFNTRAA=
-				</data>
-				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
-				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>patch_AppleRTC</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dS4Ptg==
-				</data>
-				<key>Name</key>
-				<string>AppleRTC</string>
-				<key>Replace</key>
-				<data>
-				6y4Ptg==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable USB3 after wake for Intel 8 series chipset</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				xoDIAAAAAQ==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				xoDIAAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 20 in XHCI kext (9-series)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g72M/v//EA==
-				</data>
-				<key>MatchOS</key>
-				<string>10.11.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g72M/v//FQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext (100-series)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g72M/v//EA==
-				</data>
-				<key>MatchOS</key>
-				<string>10.11.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g72M/v//Gw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 20 in XHCI kext (9-series)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g710////EA==
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g710////FQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext (100-series)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g710////EA==
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g710////Gw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 20 in XHCI kext (9-series)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g710////EA==
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g710////FQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleBacklight</string>
-				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>_ar9300EepromRestoreInternal (AR9485 only)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				/wMAALn/AwAA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Atheros40</string>
-				<key>Replace</key>
-				<data>
-				/wEAALn/AQAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AR9485</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				OTM4MA==
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AirPort.Atheros40</string>
-				<key>Replace</key>
-				<data>
-				OTQ4NQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x0a260006 9MB cursor bytes, vbo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAA=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAkAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x19160000/etc, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQMDAwAAIAIAAFAB
-				</data>
-				<key>Name</key>
-				<string>AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQMDAwAAMAEAAJAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgQJAAAEAACHAAAA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AgQJAAAIAACHAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable board-id check to prevent no signal (c) lvs1974, Pike R. Alpha, vit9696</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ugUAAAA=
-				</data>
-				<key>MatchOS</key>
-				<string>10.9.3,10.9.4,10.9.5,10.10.x,10.11.x,10.12.x,10.13</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				ugAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.12.dp1 (credit denskop)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdSU=
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot graphics glitch, 10.13 beta (based on denskop patch)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdSI=
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yI=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio, port 0105, 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAACHAAAA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQUJAAAIAACHAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HDMI-audio, port 0105(12), 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAACHAAAA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQUSAAAIAACHAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable fourth connector by changing port count, 0x0a260006, RehabMan</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwM=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDBAM=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Add missing 0306 DP connector</string>
-				<key>Find</key>
-				<data>
-				/wAAAAEAAABAAAAA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AwYDAAAEAACHAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12.6-KBL-5912000-Port_0x5-DP2HDM</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAACHAQAA
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQUJAAAIAACHAQAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12.6-KBL-5912000-Port_0x6-DP2HDM</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgQKAAAEAACHAQAA
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AgQKAAAIAACHAQAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.12.6-KBL-5912000-Port_0x7-DP2HDM</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AwYKAAAEAACHAQAA
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AwYKAAAIAACHAQAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.11-BCM94352-5GHz-US-FCC-dv</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QYP8/3QsSA==
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				ZscGVVPrKw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AirPort Extreme</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				axAAAHUN
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				axAAAJCQ
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>AirPortBrcm4360 - fcvo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				gflSqgAAdSk=
-				</data>
-				<key>Name</key>
-				<string>AirPortBrcm4360</string>
-				<key>Replace</key>
-				<data>
-				gflSqgAAZpA=
-				</data>
-			</dict>
-		</array>
 		<key>AppleIntelCPUPM</key>
 		<true/>
 		<key>AppleRTC</key>
@@ -1688,74 +1233,84 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>framebuffer patch for 0600260A</string>
+				<string>0x0a260006 9MB cursor bytes, vbo</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				BgAmCgEDAwMAAAACAAAwAQAAYAA=
+				</data>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				BgAmCgEDAwMAAAACAAAwAQAAkAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>0x0d260007 19+9=28MB DVMT pre-allocated memory, Derek, as an alternative to changing bios settings, disables this if you can encrease DVMT-prealloc through bios setting</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
 				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAABAAAhwAAAAIE
-				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAA=
+				BwAmDQEDBAMAAAAEAAAgAgAAUAE=
 				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BgAmCgEDBAMAAAAEAAAgAgAAUAEAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAEFCwAABAAABwEAAAIE
-				CwAACAAABwEAAAMGAwAACAAABgAAAA8AAAA=
+				BwAmDQEDBAMAAAAEAAAwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>framebuffer patch for 0600260A matching 0700260D</string>
+				<string>0x0d260007 23+9=32MB DVMT pre-allocated memory, Derek, as an alternative to changing bios settings, disables this if you can encrease DVMT-prealloc through bios setting</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAAAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAACAAAAMAAAAAEFCQAABAAAhwAAAAIE
-				CQAABAAAhwAAAP8AAAABAAAAQAAAAA8AAAA=
+				BwAmDQEDBAMAAAAEAAAgAgAAUAE=
 				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BgAmCgEDBAMAAAAEAAAgAgAAUAEAAABg2QoAANkKAAAA
-				AAAAAAAAAAAACAAEAAAAMAAAAAEFCwAABAAABwEAAAIE
-				CwAACAAABwEAAAMGAwAACAAABgAAAA8AAAA=
+				BwAmDQEDBAMAAAAEAABwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>connector type patch for 0204 (hdmi)</string>
+				<string>0x0d260007 43+21=64MB DVMT pre-allocated memory, Derek, as an alternative to changing bios settings, disables this if you can encrease DVMT-prealloc through bios setting</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
-				AgQLAAAEAAAHAQAA
+				BwAmDQEDBAMAAAAEAAAgAgAAUAE=
 				</data>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				AgQLAAAIAAAHAQAA
+				BwAmDQEDBAMAAAAEAABwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>connector type patch for 0306 (dp)</string>
+				<string>change 15 port limit to 20 in XHCI kext (9-series)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
-				AwYDAAAIAAAGAAAA
+				g710////EA==
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
 				<key>Replace</key>
 				<data>
-				AwYDAAAEAAAGAAAA
+				g710////FQ==
 				</data>
 			</dict>
 			<dict>
@@ -1796,7 +1351,7 @@
 				<key>Comment</key>
 				<string>0x0a260006 9MB cursor bytes, vbo</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				BgAmCgEDAwMAAAACAAAwAQAAYAA=
@@ -1806,38 +1361,6 @@
 				<key>Replace</key>
 				<data>
 				BgAmCgEDAwMAAAACAAAwAQAAkAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable fourth connector by changing port count, 0x0a260006, RehabMan</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwM=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDBAQ=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Add missing 0306 DP connector</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				/wAAAAEAAABAAAAA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AwYDAAAEAACHAAAA
 				</data>
 			</dict>
 			<dict>
@@ -2107,8 +1630,6 @@
 		<key>CustomUUID</key>
 		<string>F7A678E2-EDE2-4513-95FF-A06FE16DE1FB</string>
 		<key>InjectKexts</key>
-		<string>Detect</string>
-		<key>InjectKexts_</key>
 		<string>Detect</string>
 	</dict>
 </dict>
