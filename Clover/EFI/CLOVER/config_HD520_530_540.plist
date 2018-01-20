@@ -1752,10 +1752,10 @@
 		<key>CsrActiveConfig</key>
 		<string>0x3b</string>
 		<key>MLB</key>
-		<string>C02351201CXFP5C19</string>
+		<string>C02351201CXFP5C15</string>
 		<key>ROM</key>
 		<data>
-		v3xIRliC
+		VPL1jOmy
 		</data>
 	</dict>
 	<key>SMBIOS</key>
@@ -1765,13 +1765,13 @@
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP131.88Z.0212.B00.1708080127</string>
+		<string>MBP112.88Z.0142.B00.1708080655</string>
 		<key>Board-ID</key>
-		<string>Mac-473D31EABEB93F9B</string>
+		<string>Mac-3CBD00234E554E41</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02729102QXDM6CUE</string>
+		<string>C02312270GUF2FR1H</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -1781,11 +1781,11 @@
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>0x09</string>
+		<string>0x0A</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
-		<string>0xFC0FE136</string>
+		<string>0xE80FE137</string>
 		<key>FirmwareFeaturesMask</key>
 		<string>0xFF1FFF3F</string>
 		<key>LocationInChassis</key>
@@ -1849,18 +1849,18 @@
 		<key>Mobile</key>
 		<true/>
 		<key>PlatformFeature</key>
-		<string>0x1A</string>
+		<string>0x02</string>
 		<key>ProductName</key>
-		<string>MacBookPro13,1</string>
+		<string>MacBookPro11,2</string>
 		<key>SerialNumber</key>
-		<string>C02V32GXGVC1</string>
+		<string>C02KG3GJG86R</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>CustomUUID</key>
-		<string>064C6B1C-A438-41ED-9FB1-0B5F3A465882</string>
+		<string>766874CD-D071-459C-96CD-39F25EB132D0</string>
 		<key>InjectKexts</key>
 		<string>Detect</string>
 		<key>InjectKexts_</key>

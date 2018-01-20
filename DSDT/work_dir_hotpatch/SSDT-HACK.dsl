@@ -22,39 +22,95 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     External (_SB.PCI0.PR05.PXSX.XDSM, MethodObj)
     External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
     
+    
+
+    
     Device (RMKB)
     {
         Name(_HID, "RMKB0000")
-    }    // keyboard brightness adjustment fix
+    }
     
-    // Enabling brightness keys
-    Method(_SB.PCI0.LPCB.EC._Q11, 0)
+    
+    // keyboard brightness adjustment fix
+    // if EC_QUERY not present
+    If (!CondRefOf(\_SB.PCI0.LPCB.EC._Q11)) 
     {
-        // call the original method
-        // \rmdt.p1("enter custom Q11 for brightness up")
-        If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ11)) { \_SB.PCI0.LPCB.EC.XQ11() }
-        
-        If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
-        { 
-            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)     // method1
-            Notify(\_SB.PCI0.LPCB.PS2K, 0x20)     // method2
+    	// Enabling brightness keys
+        Method(_SB.PCI0.LPCB.EC._Q11, 0)
+        {
+            // call the original method
+            \rmdt.p1("enter custom Q11 for brightness up")
+            If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ11)) { \_SB.PCI0.LPCB.EC.XQ11() }
+            
+            If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
+            { 
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0405)     // method1
+                //Notify(\_SB.PCI0.LPCB.PS2K, 0x20)     // method2
+            }
         }
     }
-
-
-    Method(_SB.PCI0.LPCB.EC._Q12, 0)
+    If (!CondRefOf(\_SB.PCI0.LPCB.EC._Q12)) 
     {
-        // call the original method
-        // \rmdt.p1("enter custom Q12 for brightness down")
-        If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ12)) { \_SB.PCI0.LPCB.EC.XQ12() }
-        
-        If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
-        { 
-            //Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)    // method1
-            Notify(\_SB.PCI0.LPCB.PS2K, 0x10)    // method2
+    	// Enabling brightness keys
+        Method(_SB.PCI0.LPCB.EC._Q12, 0)
+        {
+            // call the original method
+            \rmdt.p1("enter custom Q12 for brightness down")
+            If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ12)) { \_SB.PCI0.LPCB.EC.XQ12() }
+            
+            If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
+            { 
+                Notify(\_SB.PCI0.LPCB.PS2K, 0x0406)     // method1
+                //Notify(\_SB.PCI0.LPCB.PS2K, 0x10)     // method2
+            }
         }
-        
     }
+    
+    /* Added DynamicEWMode option (default is true). This is specifically to improve two finger scroll 
+    responsiveness with ClickPads. Instead of always forcing the trackpad into EW mode (EW mode enables 
+    two finger data), EW mode is only entered upon clicking the pad. Since each finger gets half bandwidth 
+    in EW mode and during a scroll we only need one finger (with indication of two), we can avoid entering 
+    EW mode resulting in double the bandwidth during the two finger scroll. Of course, EW mode is needed 
+    when the pad is clicked (for holding the button with one finger while dragging with the other), so EW 
+    mode is now turned on/off dynamically depending on whether the button is clicked.
+    External(_SB.PCI0.LPCB.PS2K, DeviceObj)
+    Scope(_SB.PCI0.LPCB.PS2K)
+    */
+    
+    External(_SB.PCI0.LPCB.PS2K, DeviceObj)
+    Scope(_SB.PCI0.LPCB.PS2K)
+    {
+        // overrides for VoodooPS2 configuration...
+        Name(RMCF, Package()
+        {
+            "Synaptics TouchPad", Package()
+            {
+                "DynamicEWMode", ">y",
+//                "DynamicEWMode", ">n",
+            },
+            
+            "Keyboard", Package()
+            {
+                "Custom PS2 Map", Package()
+                {
+                    Package(){},
+                    //"e037=64", // PrtSc=F13
+                },
+            },
+        })
+        
+        Method(_DSM, 4)
+        {
+            If (!Arg2) { Return (Buffer() { 0x03 } ) }
+            Return (Package()
+            {
+                "RM,oem-id", "Clevo",
+                "RM,oem-table-id", "P650SA",
+            })
+        }
+    }
+    
+    
     
     // Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
     Method(_SB.PCI0.PR06.PXSX._DSM, 4, NotSerialized)
@@ -138,7 +194,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     }
     
     // sleep: https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/
-    
+    /*
     Scope (\_SB)
     {
         Method (LPS0, 0, NotSerialized)
@@ -166,7 +222,71 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
            Store ("Method \\__TTS Called", Debug)
            Store (Arg0, SLTP)
        }
+    } 
+    */
+        
+    /*    
+    External (_SB.PCI0.GPI0, DeviceObj)
+    External (BVAL, IntObj)
+    External (S0ID, IntObj)
+    // GPI0._STA to _XTA 0x0F for VoodooI2C by Derek
+    Scope (\_SB.PCI0.GPI0)
+    {
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            \rmdt.p5("SB.PCI0.GPI0 init, _STA:", \_SB.PCI0.GPI0._STA, "BVAL and S0ID:", BVAL, S0ID)
+        }
+        Name (_STA, 0x0F)
     }
+    
+
+    Scope (\_SB.PCI0.LPCB.PS2K)
+    {
+        Name (SBFG, ResourceTemplate ()
+        {
+            GpioInt (Level, ActiveLow, ExclusiveAndWake, PullDefault, 0x0000,
+                "\\_SB.PCI0.GPI0", 0x00, ResourceConsumer, ,
+                )
+                {   // Pin list
+                    0x0000
+                }
+        })
+    }
+    
+    Device (I2C0)
+    {
+        Name (LINK, "\\_SB.PCI0.I2C0")
+        Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
+        {
+            Return (GETD (SB10))
+        }
+        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+        {
+            LPD0 (SB10)
+        }
+        Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+        {
+                LPD3 (SB10)
+        }
+    }
+    
+    Device (I2C1)
+    {
+        Name (LINK, "\\_SB.PCI0.I2C1")
+        Method (_PSC, 0, NotSerialized)  // _PSC: Power State Current
+        {
+            Return (GETD (SB11))
+        }
+        Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+        {
+            LPD0 (SB11)
+        }
+        Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+        {
+            LPD3 (SB11)
+        }
+    }
+    */
 
 }
 //EOF

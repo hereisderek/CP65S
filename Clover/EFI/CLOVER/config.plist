@@ -495,9 +495,23 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change _Q12 to XQ12</string>
+					<string>change _Q to XQ, pare with SSDT-EC_QUERY.dsl</string>
 					<key>Disabled</key>
 					<false/>
+					<key>Find</key>
+					<data>
+					X1E=
+					</data>
+					<key>Replace</key>
+					<data>
+					WFE=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _Q12 to XQ12</string>
+					<key>Disabled</key>
+					<true/>
 					<key>Find</key>
 					<data>
 					X1ExMg==
@@ -511,7 +525,7 @@
 					<key>Comment</key>
 					<string>change _Q11 to XQ11</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					X1ExMQ==
@@ -956,6 +970,18 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>GPI0 _STA</string>
+				<key>Device</key>
+				<string>HDA</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Key</key>
+				<string>_STA</string>
+				<key>Value</key>
+				<string>0x0F</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>hda-gfx=onboard-1 for HDMI audio</string>
 				<key>Device</key>
 				<string>HDA</string>
@@ -1124,17 +1150,15 @@
 			MkAwZDUA4A4RAAAa70SAoIDII0AwZDUAIDIhAAAa/EwAoJAQJVAw
 			ZDUAQEQhAAAaAC4=
 			</data>
-			<key>##HorizontalSyncPulseWidth</key>
-			<integer>100</integer>
-			<key>#Custom</key>
+			<key>#VideoInputSignal</key>
+			<string>0xA0</string>
+			<key>Custom</key>
 			<data>
 			AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQvzwDx
 			wPHeAQEBAQEBAQEBAQEBLjaAoHA4H0AwZDUA4A4RAAAY70iAoHA4
 			KkAwZDUA4A4RAAAaalKAoHA4L0AwZDUA4A4RAAAaAAAAEAAAAAAA
 			AAAAAAAAAAAAALI=
 			</data>
-			<key>#VideoInputSignal</key>
-			<string>0xA0</string>
 			<key>HorizontalSyncPulseWidth</key>
 			<string>0x64</string>
 			<key>Inject</key>
@@ -1231,6 +1255,24 @@
 		<true/>
 		<key>KextsToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.13.2 (credit PMHeart, shdkpr2008)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				TIlduHZA
+				</data>
+				<key>MatchOS</key>
+				<string>10.13.2</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				TIlduOtA
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>0x0a260006 9MB cursor bytes, vbo</string>
@@ -1345,22 +1387,6 @@
 				<key>Replace</key>
 				<data>
 				Ym9hcmQtaXg=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>0x0a260006 9MB cursor bytes, vbo</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAA=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAkAA=
 				</data>
 			</dict>
 			<dict>
