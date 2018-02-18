@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cd "${0%/*}"
 
 # this script is used to compile both modified dsl files (dsdtDir) and hotpatch files (hotpatchBuildDir)
 # into buildDir and hotpatchBuildDir respectfully
@@ -21,8 +21,8 @@
 
 DEBUG=true
 
-skippedDslName=("SSDT-Disable_EH01" "SSDT-Disable_EH02" "SSDT-Disable_EHCI" "SSDT-PluginType1" "SSDT-UPRW" "SSDT-LPC" "SSDT-LANC_PRW" "SSDT-IGPU2" "SSDT-DiscreteSpoof" "SSDT-SkylakeSpoof" )
-# "SSDT-EH01" "SSDT-EH02" "SSDT-XHC" "SSDT-HDAU" "SSDT-HDEF"
+skippedDslName=("SSDT-Disable_EH01" "SSDT-DEH02" "SSDT-DEH01" "SSDT-XCPM" "SSDT-UPRW"  "SSDT-LANC_PRW" "SSDT-IGPU2" "SSDT-DiscreteSpoof" "SSDT-SkylakeSpoof" "SSDT-IGPU_old" "SSDT-DEHCI")
+# "SSDT-EH01" "SSDT-EH02" "SSDT-XHC" "SSDT-HDAU" "SSDT-HDEF" "SSDT-LPC"
 
 
 dsdtDir=work_dir_dsl
@@ -134,4 +134,5 @@ if [ ${errorCounter} -ne 0 ]; then
 	echo "error were found"
 else 
 	echo "succeed"
+	open ${hotpatchBuildDir}
 fi

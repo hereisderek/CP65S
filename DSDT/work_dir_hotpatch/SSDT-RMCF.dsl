@@ -40,7 +40,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
             
-            
             Store("IWPP indicates instant wake power patch. 0: not patch. 1: patch", Debug)
         }
 
@@ -101,13 +100,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // The value here will be used to inject layout-id for HDEF and HDAU
         // If set to Ones, no audio injection will be done.
         Name(AUDL, 31)
-        //Name(AUDL, Ones)
+//        Name(AUDL, Ones)
 
 
         // BKLT: Backlight control type
         //
-        // 0: Using IntelBacklight.kext
-        // 1: Using AppleBacklight.kext + AppleBacklightInjector.kext
+        // bit0=0: Using IntelBacklight.kext
+        // bit0=1: Using AppleBacklight.kext + AppleBacklightInjector.kext
+        // bit1=1: do not set LEVW
+        // bit2=1: set GRAN
         Name(BKLT, 1)
 
         // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
@@ -117,6 +118,17 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //Name(LMAX, Ones)
         //Name(LMAX, 0xad9)
         Name(LMAX, 0x7a1)
+
+        // LEVW: Initialization value for LEVW.
+        //
+        // Ones: Default will be used (0xC0000000)
+        // Other values: determines value to be used
+        Name(LEVW, Ones)
+
+        // GRAN: Initialization value for GRAN.
+        //
+        // Note: value not set for GRAN unless bit2 of BKLT set
+        Name(GRAN, 0)
 
         // FBTP: Framebuffer type. Determines IGPU PWM register layout.
         //  (advanced use: for overriding default for unsupported IGPU device-id)

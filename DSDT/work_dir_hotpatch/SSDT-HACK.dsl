@@ -23,8 +23,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
     
     
-
-    
     Device (RMKB)
     {
         Name(_HID, "RMKB0000")
@@ -111,7 +109,6 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     }
     
     
-    
     // Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
     Method(_SB.PCI0.PR06.PXSX._DSM, 4, NotSerialized)
     {
@@ -193,6 +190,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Return(Local0)
     }
     
+       
     // sleep: https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/
     /*
     Scope (\_SB)

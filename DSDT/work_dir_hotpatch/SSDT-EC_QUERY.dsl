@@ -1,5 +1,5 @@
 
-DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0) {
+DefinitionBlock("", "SSDT", 2, "hack", "EC_QUERY", 0) {
     External (RMDT.P1, MethodObj)
     External (_SB.PCI0.LPCB.PS2K, DeviceObj)
     External (_SB.PCI0.LPCB.EC, DeviceObj)

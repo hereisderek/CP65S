@@ -216,3 +216,12 @@ Currently in use:
 1. [ACPI Specification](http://www.uefi.org/sites/default/files/resources/ACPI%206_2_A_Sept29.pdf)
 2. [High Definition Audio Specification](https://www.intel.com/content/dam/www/public/us/en/documents/product-specifications/high-definition-audio-specification.pdf)
 
+
+
+1. "acpi-path" = "IOACPIPlane:/_SB/PCI0@0/RP06@1c0005/PXSX@0"
+2. IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/RP06@1C,5/IOPP/PXSX@0/AirPort_Brcm4360 
+3. pci14e4,43b1 RM,subsystem-id <34010000> RM,subsystem-vendor-id <6b100000>
+
+
+
+
