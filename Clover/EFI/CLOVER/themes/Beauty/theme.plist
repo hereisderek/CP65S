@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Badruzeus</string>
 	<key>Description</key>
-	<string>An elegant clean looks theme with colorful icons and bright solid background, supports up to 1080p display resolution. Version: 1.5</string>
+	<string>An elegant clean looks theme with colorful icons and bright solid background. Version: 1.8</string>
 	<key>Theme</key>
 	<dict>
 		<key>Background</key>
@@ -52,9 +52,9 @@
 		<key>Font</key>
 		<dict>
 			<key>CharWidth</key>
-			<integer>9</integer>
+			<integer>10</integer>
 			<key>Path</key>
-			<string>Font_Inconsolata_16pt_Mint.png</string>
+			<string>Font_OfficeCodePro_16pt_Green.png</string>
 			<key>Proportional</key>
 			<false/>
 			<key>Type</key>
@@ -75,8 +75,8 @@
 		</dict>
 	</dict>
 	<key>Version</key>
-	<string>1.5</string>
+	<string>1.8</string>
 	<key>Year</key>
-	<string>2017</string>
+	<string>2018</string>
 </dict>
 </plist>

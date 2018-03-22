@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Badruzeus</string>
 	<key>Description</key>
-	<string>Colorful Clover theme with simple UI based on Material Design, supports up to 1080p display resolution. Version: 2.1</string>
+	<string>Colorful Clover theme with simple UI based on Material Design. Version: 2.5</string>
 	<key>Theme</key>
 	<dict>
 		<key>Background</key>
@@ -22,9 +22,9 @@
 			<key>Inline</key>
 			<false/>
 			<key>Scale</key>
-			<integer>5</integer>
+			<integer>16</integer>
 			<key>Show</key>
-			<false/>
+			<true/>
 			<key>Swap</key>
 			<true/>
 		</dict>
@@ -75,8 +75,8 @@
 		</dict>
 	</dict>
 	<key>Version</key>
-	<string>2.1</string>
+	<string>2.5</string>
 	<key>Year</key>
-	<string>2017</string>
+	<string>2018</string>
 </dict>
 </plist>
