@@ -53,7 +53,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
     
     Name(UPWC, Package (){
         "kUSBSleepPortCurrentLimit", 2100,
-        "kUSBSleepPowerSupply", 2600,
+        "kUSBSleepPowerSupply", 4700,
         "kUSBWakePortCurrentLimit", 2100,
         "kUSBWakePowerSupply", 4700,
     }) // custom
@@ -67,13 +67,13 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
             If (!Arg2) { Return (Buffer() { 0x03 } ) }
-//            Return(UPWC)
-            Return(Package (){
-                "kUSBSleepPortCurrentLimit", 2100,
-                "kUSBSleepPowerSupply", 4700,
-                "kUSBWakePortCurrentLimit", 2100,
-                "kUSBWakePowerSupply", 4700,
-            })
+            Return(UPWC)
+//            Return(Package (){
+//                "kUSBSleepPortCurrentLimit", 2100,
+//                "kUSBSleepPowerSupply", 4700,
+//                "kUSBWakePortCurrentLimit", 2100,
+//                "kUSBWakePowerSupply", 4700,
+//            })
         }
     }
 
@@ -85,15 +85,6 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
         Name(RMCF, Package()
         {
             // USB Power Properties for Sierra (using USBInjectAll injection)
-//            "AppleBusPowerControllerUSB", Package()
-//            {
-//                // these values happen to be iMac14,2 values...
-//                "kUSBSleepPortCurrentLimit", 2100,
-//                "kUSBSleepPowerSupply", 4700,
-//                "kUSBWakePortCurrentLimit", 2100,
-//                "kUSBWakePowerSupply", 4700,
-//            },
-            
             "AppleBusPowerControllerUSB", UPWC,
             
             "HUB1", Package()
@@ -151,7 +142,11 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                     },
                 },
             },
-            "EH01", Package()
+
+            // this is our XHC device for our CP65S board
+
+            // this is for when 2 EHCI ports are enabled, and 2.0 is not routered through XHC port
+            "EH01_", Package()
             {
 //                "port-count", Buffer() { 8, 0, 0, 0 },
                 "port-count", Buffer() { 1, 0, 0, 0 },
@@ -165,7 +160,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                     },
                 },
             },
-            "EH02", Package()
+            "EH02_", Package()
             {
 //                "port-count", Buffer() { 6, 0, 0, 0 },
                 "port-count", Buffer() { 1, 0, 0, 0 },
@@ -180,9 +175,8 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                     },
                 },
             },
-            // this is our XHC device for our CP65S board
-            /*
-            "8086_8xxx", Package()
+            
+            "8086_8xxx_", Package()
             {
                 "port-count", Buffer() { 21, 0, 0, 0 }, // not 4 since the mac port is 21
                 "ports", Package()
@@ -212,7 +206,127 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                 },
             },
             
-            */
+            // this is for when 2 EHCI ports are disabled, and 2.0 is routered through XHC port
+            "EH01", Package()
+            {
+                "port-count", Buffer() { 0, 0, 0, 0 },
+                "ports", Package(){},
+            },
+            "EH02", Package()
+            {
+                "port-count", Buffer() { 0, 0, 0, 0 },
+                "ports", Package(){},
+            },
+            
+            "8086_8xxx", Package()
+            {
+                "port-count", Buffer() { 21, 0, 0, 0 },
+                "ports", Package()
+                {
+                    "HS01", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 1, 0, 0, 0 },
+                    },
+                    "HS02", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 2, 0, 0, 0 },
+                    },
+                    "HS03", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 3, 0, 0, 0 },
+                    },
+//                    "HS04", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
+//                    "HS05", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 5, 0, 0, 0 },
+//                    },
+                    "HS06", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 6, 0, 0, 0 },
+                    },
+//                    "HS07", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 7, 0, 0, 0 },
+//                    },
+//                    "HS08", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 8, 0, 0, 0 },
+//                    },
+                    "HS09", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 9, 0, 0, 0 },
+                    },
+                    "HS10", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 10, 0, 0, 0 },
+                    },
+//                    "HS11", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 11, 0, 0, 0 },
+//                    },
+//                    "HS12", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 12, 0, 0, 0 },
+//                    },
+//                    "HS13", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 13, 0, 0, 0 },
+//                    },
+//                    "HS14", Package()
+//                    {
+//                        "UsbConnector", 3,
+//                        "port", Buffer() { 14, 0, 0, 0 },
+//                    },
+                    //HS15 is phantom port (port address 15 not used)
+                    "SSP1", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 16, 0, 0, 0 },
+                    },
+                    "SSP2", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 17, 0, 0, 0 },
+                    },
+                    "SSP3", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 18, 0, 0, 0 },
+                    },
+                    "SSP4", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 19, 0, 0, 0 },
+                    },
+                    "SSP5", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 20, 0, 0, 0 },
+                    },
+                    "SSP6", Package()
+                    {
+                        "UsbConnector", 3,
+                        "port", Buffer() { 21, 0, 0, 0 },
+                    },
+                },
+            },
+
         })
     }
 }
