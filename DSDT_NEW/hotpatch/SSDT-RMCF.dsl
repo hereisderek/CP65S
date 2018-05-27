@@ -93,8 +93,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "_RMCF", 0)
         //
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
-//        Name(LMAX, Ones)
-        Name(LMAX, 0x7a1)
+        Name(LMAX, Ones)
+//        Name(LMAX, 0x7a1)
 
         // LEVW: Initialization value for LEVW.
         //

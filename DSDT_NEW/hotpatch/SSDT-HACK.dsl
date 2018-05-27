@@ -65,6 +65,28 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         }
     }
     
+    Method(_SB.PCI0.HDAU._DSM, 4)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Local0 = Package()
+        {
+//            "layout-id", Buffer(4) { 3, 0, 0, 0 },
+            "hda-gfx", Buffer() { "onboard-1" },
+        }
+        Return(Local0)
+    }
+    Method(_SB.PCI0.HDEF._DSM, 4)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Local0 = Package()
+        {
+//            "layout-id", Buffer(4) { 3, 0, 0, 0 },
+            "hda-gfx", Buffer() { "onboard-1" },
+            "PinConfigurations", Buffer() { },
+        }
+        Return(Local0)
+    }
+    
     /* Added DynamicEWMode option (default is true). This is specifically to improve two finger scroll 
     responsiveness with ClickPads. Instead of always forcing the trackpad into EW mode (EW mode enables 
     two finger data), EW mode is only entered upon clicking the pad. Since each finger gets half bandwidth 
