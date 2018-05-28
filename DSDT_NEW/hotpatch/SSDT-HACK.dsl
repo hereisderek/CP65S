@@ -1,7 +1,7 @@
 // configuration data for other SSDTs in this pack
 
 
-DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
+DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
 {
     External (RMDT, DeviceObj)
     External (RMDT.PUSH, MethodObj)
@@ -121,6 +121,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     */
     
     External (XPRW, MethodObj)
+//    External (GPRW, MethodObj)
+/*
     Method(GPRW, 2, NotSerialized)
     {
         \rmdt.p3("GPRW: ", Arg0, Arg1)
@@ -128,10 +130,12 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
         Return (XPRW(Arg0, Arg1))
     }
+    */
     
-    External (GPRW, MethodObj)
-    External (_SB.PCI0.XHC.XPRW, MethodObj)
+
+
     /*
+    External (_SB.PCI0.XHC.XPRW, MethodObj)
     Method (_SB.PCI0.XHC._PRW)  // _PRW: Power Resources for Wake
     {
 //        \rmdt.p1("_SB.PCI0.XHC._PRW")
@@ -139,9 +143,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
 //        \rmdt.p3("_SB.PCI0.XHC._PRW, result:", Local0[0], Local0[1])
 //        Local0[1] = 0
 //        Return (Local0)
-        Return (Package() { 0x6D, 0x00 })
+        Return (Package() { 0x0D, 0x00 })
     }
     */
+
+    Name(_SB.PCI0.GLAN._PRW, Package() { 0x0D, 0x00 })
+    Name(_SB.PCI0.XHC._PRW, Package() { 0x0D, 0x00 })
+    Name(_SB.PCI0.EHC1._PRW, Package() { 0x0D, 0x00 })
+    Name(_SB.PCI0.EHC2._PRW, Package() { 0x0D, 0x00 }) 
+    Name(_SB.PCI0.HDEF._PRW, Package() { 0x0D, 0x00 })
+    Name (_SB.PCI0.LPCB.PS2K._PRW, Package() { 0x0D, 0x03 })    
     
     /*
     External (_SB.PCI0.GLAN.XPRW, MethodObj)
@@ -152,7 +163,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
 //        \rmdt.p3("_SB.PCI0.GLAN._PRW, result:", Local0[0], Local0[1])
 //        Local0[1] = 0
 //        Return (Local0)
-        Return (Package() { 0x6D, 0x00 })
+        Return (Package() { 0x0D, 0x00 })
     }
     Method (_SB.PCI0.LPCB.PS2K._PRW)  // _PRW: Power Resources for Wake
     {
@@ -161,7 +172,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
 //        \rmdt.p3("_SB.PCI0.XHC._PRW, result:", Local0[0], Local0[1])
 //        Local0[1] = 0
         Return (Local0)
-//        Return (Package() { 0x6D, 0x00 })
+//        Return (Package() { 0x0D, 0x00 })
     }
     */
     

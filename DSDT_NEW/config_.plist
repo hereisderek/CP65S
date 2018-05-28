@@ -290,7 +290,7 @@
 					<key>Comment</key>
 					<string>change Method(GPRW,2,N) to XPRW, pair with SSDT-GPRW.aml</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					R1BSVwI=
@@ -323,16 +323,20 @@
 		<true/>
 		<key>RenameDevices</key>
 		<dict>
-			<key>#_SB.PCI0.GLAN._PRW</key>
-			<string>XPRW</string>
-			<key>#_SB.PCI0.XHC._PRW</key>
-			<string>XPRW</string>
 			<key>_PTS</key>
 			<string>ZPTS</string>
 			<key>_SB.PCI0.B0D3</key>
 			<string>HDAU</string>
+			<key>_SB.PCI0.EH01._PRW</key>
+			<string>XPRW</string>
+			<key>_SB.PCI0.EH02._PRW</key>
+			<string>XPRW</string>
 			<key>_SB.PCI0.GFX0</key>
 			<string>IGPU</string>
+			<key>_SB.PCI0.GLAN._PRW</key>
+			<string>XPRW</string>
+			<key>_SB.PCI0.HDEF._PRW</key>
+			<string>XPRW</string>
 			<key>_SB.PCI0.PEG0.PEGP</key>
 			<string>GFX0</string>
 			<key>_SB.PCI0.XHC.ESEL</key>
@@ -341,6 +345,8 @@
 			<string>XSEZ</string>
 			<key>_SB.PCI0.XHC.XWAK</key>
 			<string>ZWAK</string>
+			<key>_SB.PCI0.XHC._PRW</key>
+			<string>XPRW</string>
 			<key>_WAK</key>
 			<string>ZWAK</string>
 		</dict>
@@ -360,9 +366,9 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>acpi_level=0x02 msgbuf=309212  -hbfxbeta -hbfx-patch-pci 
+		<string> -igfxbeta -hbfxdbg -hbfxbeta -hbfx-patch-pci 
 
-debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=1 kextlog=0xffff keepsyms=1 -igfxbeta -hbfxdbg</string>
+debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=1 kextlog=0xffff keepsyms=1 acpi_level=0x02 msgbuf=309212</string>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
@@ -378,7 +384,7 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 		<key>NoEarlyProgress</key>
 		<true/>
 		<key>RtcHibernateAware</key>
-		<false/>
+		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>SignatureFixup</key>
@@ -605,7 +611,7 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>31</string>
+			<integer>31</integer>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -623,9 +629,9 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
-			<true/>
+			<false/>
 			<key>FixOwnership</key>
-			<true/>
+			<false/>
 			<key>Inject</key>
 			<true/>
 		</dict>
@@ -745,6 +751,164 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 	<dict>
 		<key>#KextsToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g72M/v//EA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.11.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g72M/v//Gw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g710////EA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g710////Gw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g32MEA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.0,10.13.1,10.13.2,10.13.3</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>
+				g32MGw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>disable port limit in XHCI kext (credit PMHeart)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g32UDw+DlwQAAA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.4</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32UD5CQkJCQkA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>disable port limit in XHCI kext (alternate, credit FredWst)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g32UDw+DlwQ=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.4</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32UEQ+DlwQ=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable internal display after sleep for 0x0a2e0008 on 10.10.2-10.12.x (c) syscl</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AQAAAEAAAAAeAAAABQUJAQ==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.10.x,10.11.x,10.12.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				AQAAAEAAAAAPAAAABQUJAQ==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable internal display after sleep for 0x0a2e0008 on 10.13.x (c) syscl</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AQAAAEAAAAAeAgAABQUJAQ==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				AQAAAEAAAAAfAgAABQUJAQ==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable internal display after sleep for 0x0a2e000a, 0x0a26000a</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AQAAAEAAAADWAAAABQUAAA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				AQAAAEAAAAAeAAAABQUAAA==
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Enable 9MB cursor bytes, 0x0a260006</string>
@@ -1093,64 +1257,6 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Enable internal display after sleep for 0x0a2e0008 on 10.10.2-10.12.x (c) syscl</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAAEAAAAAeAAAABQUJAQ==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.10.x,10.11.x,10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQAAAEAAAAAPAAAABQUJAQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable internal display after sleep for 0x0a2e0008 on 10.13.x (c) syscl</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAAEAAAAAeAgAABQUJAQ==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQAAAEAAAAAfAgAABQUJAQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable internal display after sleep for 0x0a2e000a, 0x0a26000a</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAAEAAAADWAAAABQUAAA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				AQAAAEAAAAAeAAAABQUAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Prevent Apple I2C kexts from attaching to I2C controllers, credit CoolStar</string>
 				<key>Disabled</key>
 				<false/>
@@ -1205,106 +1311,6 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g72M/v//EA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.11.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g72M/v//Gw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g710////EA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g710////Gw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change 15 port limit to 26 in XHCI kext</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g32MEA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.0,10.13.1,10.13.2,10.13.3</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>
-				g32MGw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>disable port limit in XHCI kext (credit PMHeart)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g32UDw+DlwQAAA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.4</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				g32UD5CQkJCQkA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>disable port limit in XHCI kext (alternate, credit FredWst)</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				g32UDw+DlwQ=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.4</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				g32UEQ+DlwQ=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>0700260D connector defination 4 8 4 Derek</string>
 				<key>Disabled</key>
 				<false/>
@@ -1331,7 +1337,7 @@ debug=0x12a acpi_layer=0x08 dart=0 -lilubeta abm_firstpolldelay=5000 nv_disable=
 				<key>Comment</key>
 				<string>0x0a260006 9MB cursor bytes, vbo</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				BgAmCgEDAwMAAAACAAAwAQAAYAA=
