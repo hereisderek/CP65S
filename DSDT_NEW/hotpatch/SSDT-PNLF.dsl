@@ -204,11 +204,12 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
             If (Local2 == SANDYIVY_PWMMAX) { _UID = 14 }
             ElseIf (Local2 == HASWELL_PWMMAX) { _UID = 15 }
             ElseIf (Local2 == SKYLAKE_PWMMAX) { _UID = 16 }
-            ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { _UID = 17 }
+            ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { 
+//                _UID = 17 
+                _UID = 15 
+            }
             ElseIf (Local2 == CUSTOM_PWMMAX_1499) { _UID = 18 }
             Else { _UID = 99 }
-            
-            _UID = 15 
         }
     }
 #ifndef NO_DEFINITIONBLOCK

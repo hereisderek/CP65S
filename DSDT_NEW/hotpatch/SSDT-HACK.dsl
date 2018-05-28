@@ -23,6 +23,33 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
     External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
     External (_SB.PCI0.IGPU.XDSM, MethodObj)
     
+    /*
+    Method (OSDW, 0, NotSerialized)
+    {
+        If (CondRefOf (_OSI, Local0))
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (One)
+            }
+        }
+        Return (Zero)
+    }
+    */
+    
+    External (OSYS, IntObj)
+    Method (OSDW, 0, NotSerialized)
+    {
+        If (LEqual (OSYS, 0x2710))
+        {
+            Return (One)
+        }
+        Else
+        {
+            Return (Zero)
+        }
+    }
+    
     
     Device (RMKB)
     {
@@ -38,7 +65,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Method(_SB.PCI0.LPCB.EC._Q11, 0)
         {
             // call the original method
-            \rmdt.p1("enter custom Q11 for brightness up")
+            \rmdt.p1("enter custom Q11 for brightness down")
             If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ11)) { \_SB.PCI0.LPCB.EC.XQ11() }
             
             If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
@@ -54,7 +81,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         Method(_SB.PCI0.LPCB.EC._Q12, 0)
         {
             // call the original method
-            \rmdt.p1("enter custom Q12 for brightness down")
+            \rmdt.p1("enter custom Q12 for brightness up")
             If (CondRefOf(\_SB.PCI0.LPCB.EC.XQ12)) { \_SB.PCI0.LPCB.EC.XQ12() }
             
             If (CondRefOf(\_SB.PCI0.LPCB.PS2K)) 
@@ -64,6 +91,154 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
             }
         }
     }
+    
+    // fix usb instant wake
+
+
+    
+    
+    /*
+    // original GPRW for reference here
+    Method (GPRW, 2, NotSerialized)
+    {
+        Store (Arg0, Index (PRWP, Zero))
+        Store (ShiftLeft (SS1, One), Local0)
+        Or (Local0, ShiftLeft (SS2, 0x02), Local0)
+        Or (Local0, ShiftLeft (SS3, 0x03), Local0)
+        Or (Local0, ShiftLeft (SS4, 0x04), Local0)
+        If (And (ShiftLeft (One, Arg1), Local0))
+        {
+            Store (Arg1, Index (PRWP, One))
+        }
+        Else
+        {
+            ShiftRight (Local0, One, Local0)
+            FindSetLeftBit (Local0, Index (PRWP, One))
+        }
+
+        Return (PRWP)
+    }
+    */
+    
+    External (XPRW, MethodObj)
+    Method(GPRW, 2, NotSerialized)
+    {
+        \rmdt.p3("GPRW: ", Arg0, Arg1)
+        If (0x6d == Arg0) { Return (Package() { 0x6d, 0, }) }
+        If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
+        Return (XPRW(Arg0, Arg1))
+    }
+    
+    External (GPRW, MethodObj)
+    External (_SB.PCI0.XHC.XPRW, MethodObj)
+    /*
+    Method (_SB.PCI0.XHC._PRW)  // _PRW: Power Resources for Wake
+    {
+//        \rmdt.p1("_SB.PCI0.XHC._PRW")
+//        Local0 = GPRW (0x0D, 0x03)
+//        \rmdt.p3("_SB.PCI0.XHC._PRW, result:", Local0[0], Local0[1])
+//        Local0[1] = 0
+//        Return (Local0)
+        Return (Package() { 0x6D, 0x00 })
+    }
+    */
+    
+    /*
+    External (_SB.PCI0.GLAN.XPRW, MethodObj)
+    Method (_SB.PCI0.GLAN._PRW)  // _PRW: Power Resources for Wake
+    {
+//        \rmdt.p1("_SB.PCI0.GLAN._PRW")
+//        Local0 = GPRW (0x0D, 0x04)
+//        \rmdt.p3("_SB.PCI0.GLAN._PRW, result:", Local0[0], Local0[1])
+//        Local0[1] = 0
+//        Return (Local0)
+        Return (Package() { 0x6D, 0x00 })
+    }
+    Method (_SB.PCI0.LPCB.PS2K._PRW)  // _PRW: Power Resources for Wake
+    {
+        \rmdt.p1("_SB.PCI0.XHC._PRW")
+        Local0 = GPRW (0x0D, 0x03)
+//        \rmdt.p3("_SB.PCI0.XHC._PRW, result:", Local0[0], Local0[1])
+//        Local0[1] = 0
+        Return (Local0)
+//        Return (Package() { 0x6D, 0x00 })
+    }
+    */
+    
+    
+    
+    // sleep related
+    // https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/
+    Scope (\)
+    {
+       Name (SLTP, Zero)
+       Method (_TTS, 1, NotSerialized)
+       {
+           Store ("Method \\__TTS Called", Debug)
+           Store (Arg0, SLTP)
+       }
+    }
+
+    Scope (\_SB)
+    {
+        Method (LPS0, 0, NotSerialized)
+        {
+            Store ("Method \\_SB._LPS0 Called", Debug)
+            Return (One)
+        }
+    }
+     
+    Scope (\_GPE)
+    {
+        Method (LXEN, 0, NotSerialized)
+        {
+            Store ("Method \\_GPE.LXEN Called", Debug)
+            Return (One)
+        }
+        
+        // from mbp 11.3
+        /*
+        Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        {
+            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
+            {
+                \_SB.PCI0.IGPU.GSCI ()
+            }
+            Else
+            {
+                Store (0x00, \_SB.PCI0.IGPU.GEFC)
+                Store (0x01, SCIS)
+                Store (0x00, \_SB.PCI0.IGPU.GSSE)
+                Store (0x00, \_SB.PCI0.IGPU.SCIE)
+            }
+        }
+        */
+    }
+    
+    
+    
+    /*
+    Method (RUSB, 0, NotSerialized)
+    {
+        If (LEqual (VEID, 0x8086))
+        {
+            If (\_SB.PCI0.LPCB.RTC.ISLG)
+            {
+                \_SB.PCI0.XHC1.LEGM ()
+            }
+        }
+    }
+
+    Method (HUSB, 0, NotSerialized)
+    {
+        If (LEqual (VEID, 0x8086))
+        {
+            \_SB.PCI0.XHC1.LEGM ()
+        }
+    }
+    */
+    
+    
     
     Method(_SB.PCI0.HDAU._DSM, 4)
     {
@@ -75,6 +250,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         }
         Return(Local0)
     }
+    
     Method(_SB.PCI0.HDEF._DSM, 4)
     {
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
@@ -112,10 +288,13 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
             
             "Keyboard", Package()
             {
+                // "Custom ADB Map"
                 "Custom PS2 Map", Package()
                 {
                     Package(){},
                     //"e037=64", // PrtSc=F13
+//                    "e005=6b",
+//                    "e006=71",
                 },
             },
         })
