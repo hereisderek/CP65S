@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>40060</integer>
+	<key>DisplayProductName</key>
+	<string>Color LCD</string>
+	<key>DisplayVendorID</key>
+	<integer>12516</integer>
+	<key>IODisplayEDID</key>
+	<data>
+	AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQAAAAB
+	AQEBAQEBAQEBAQEBAQEBLjaAoHA4H0AwZDUAWcIQAAAYAAAAAAAA
+	AAAAAAAAAAAAAAAAAAAA/gBMRyBEaXNwbGF5CiAgAAAA/gBMUDE1
+	NldGNC1TUEwxAAs=
+	</data>
+	<key>#IODisplayEDID</key>
+	<data>
+	AP///////wAw5HycAAAAAAAYAQSVIxN46gz1oFtVkiYMUFQAAAABAQEBAQEBAQEBAQEB
+	AQEBLjaAoHA4H0AwIDUAWcIQAAAZAAAAAAAAAAAAAAAAAAAAAAAAAAAA/gBMRyBEaXNw
+	bGF5CiAgAAAA/gBMUDE1NldGNC1TUEwxAE4=
+	</data>
+
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+	<key>scale-resolutions</key>
+	<array>
+		<data>
+		AAAIAAAABIAAAAABACAAAA==
+		</data>
+		<data>
+		AAAIgAAABMgAAAABACAAAA==
+		</data>
+		<data>
+		AAAIwAAABOwAAAABACAAAA==
+		</data>
+		<data>
+		AAAJAAAABRAAAAABACAAAA==
+		</data>
+		<data>
+		AAAJYAAABUYAAAABACAAAA==
+		</data>
+		<data>
+		AAAJgAAABVgAAAABACAAAA==
+		</data>
+		<data>
+		AAAKAAAABaAAAAABACAAAA==
+		</data>
+		<data>
+		AAAKgAAABegAAAABACAAAA==
+		</data>
+		<data>
+		AAALQAAABlQAAAABACAAAA==
+		</data>
+		<data>
+		AAALgAAABngAAAABACAAAA==
+		</data>
+		<data>
+		AAAMgAAABwgAAAABACAAAA==
+		</data>
+		<data>
+		AAANAAAAB1AAAAABACAAAA==
+		</data>
+		<data>
+		AAANIAAAB2IAAAABACAAAA==
+		</data>
+		<data>
+		AAANgAAAB5gAAAABACAAAA==
+		</data>
+		<data>
+		AAAOQAAACAQAAAABACAAAA==
+		</data>
+		<data>
+		AAAPAAAACHAAAAABACAAAA==
+		</data>
+	</array>
+</dict>
+</plist>

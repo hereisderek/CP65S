@@ -19,6 +19,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     External (_SB.PCI0.LPCB.EC.XQ12, MethodObj)
     
     External (_SB.PCI0.PR06.PXSX.XDSM, MethodObj)
+    External (_SB.PCI0.PR01.PXSX.XDSM, MethodObj)
     External (_SB.PCI0.PR05.PXSX.XDSM, MethodObj)
     External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
     External (_SB.PCI0.IGPU.XDSM, MethodObj)
@@ -270,6 +271,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
 //            "layout-id", Buffer(4) { 3, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
+            
+            "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
+            "AAPL,slot-name", Buffer() { "Built in" },
+            "device_type", Buffer() { "Audio Controller" },
         }
         Return(Local0)
     }
@@ -403,6 +408,42 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         }
         Return(Local0)
     }
+    
+    
+
+    // M.2 SSD
+    Method(_SB.PCI0.PR01.PXSX._DSM, 4, NotSerialized)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Store (Package ()
+        {
+            "AAPL,slot-name", 
+            Buffer () { "Built in" }, 
+            
+            "model", Buffer () 
+            {
+                "Intel SSD 600p Series"
+            }, 
+            
+            "built-in", Buffer (One) { 0x00 },
+            "name", Buffer (0x22)
+            {
+                "Intel SSD 600p Series NVM Express"
+            }, 
+
+            "device_type", 
+            Buffer (0x10){"NVMe Controller"},
+            
+        }, Local0)
+        
+        // call build in _DSM
+        If (CondRefOf(\_SB.PCI0.PR01.PXSX.XDSM))
+        {
+            \_SB.PCI0.PR01.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
+        }
+        Return(Local0)
+    }
+    
     
     // IGPU
     /*
