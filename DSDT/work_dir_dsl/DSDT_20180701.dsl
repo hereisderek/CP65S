@@ -1,17 +1,19 @@
 /*
+ * https://egpu.io/forums/pc-setup/fix-dsdt-override-to-correct-error-12/
+ *
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20170929 (64-bit version)(RM)
- * Copyright (c) 2000 - 2017 Intel Corporation
+ * AML/ASL+ Disassembler version 20180508 (64-bit version)(RM)
+ * Copyright (c) 2000 - 2018 Intel Corporation
  * 
  * Disassembling to non-symbolic legacy ASL operators
  *
- * Disassembly of DSDT.aml, Mon Nov  6 03:06:10 2017
+ * Disassembly of ../aml/DSDT.aml, Wed Jul  4 03:10:27 2018
  *
  * Original Table Header:
  *     Signature        "DSDT"
  *     Length           0x00011F39 (73529)
  *     Revision         0x02
- *     Checksum         0x24
+ *     Checksum         0x2B
  *     OEM ID           "HASEE "
  *     OEM Table ID     "PARADISE"
  *     OEM Revision     0x00000038 (56)
@@ -21,8 +23,8 @@
 DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 {
     /*
-     * iASL Warning: There were 33 external control methods found during
-     * disassembly, but only 26 were resolved (7 unresolved). Additional
+     * iASL Warning: There were 11 external control methods found during
+     * disassembly, but only 4 were resolved (7 unresolved). Additional
      * ACPI tables may be required to properly disassemble the code. This
      * resulting disassembler output file may not compile because the
      * disassembler did not know how many arguments to assign to the
@@ -40,13 +42,6 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
      * because the disassembler had to guess at the number of arguments
      * required for each:
      */
-    /*
-     * External declarations were imported from
-     * a reference file -- /Users/derek/Workspace/Hackintosh/Projects/CloverHardware/CP65S/DSDT/refs.txt
-     */
-
-    External (_GPE.MMTB, MethodObj)    // Imported: 0 Arguments
-    External (_GPE.VHOV, MethodObj)    // Imported: 3 Arguments
     External (_PR_.CFGD, FieldUnitObj)
     External (_PR_.CPU0._PPC, IntObj)
     External (_PR_.CPU0._PSS, PkgObj)
@@ -60,9 +55,19 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_SB_.IAOE.PTSL, IntObj)
     External (_SB_.IAOE.RCTM, FieldUnitObj)
     External (_SB_.IAOE.WTMS, IntObj)
-    External (_SB_.IETM, UnknownObj)    // Warning: Unknown object
+    External (_SB_.IETM, DeviceObj)
+    External (_SB_.IFFS, DeviceObj) // added*
+//    External (_SB_.IETM, UnknownObj)    // Warning: Unknown object
     External (_SB_.IFFS.FFSS, FieldUnitObj)
     External (_SB_.IFFS.FFST, FieldUnitObj)
+    External (_SB_.IFFS.GFFS, MethodObj)    // 0 Arguments
+    External (_SB_.IFFS.GFTV, MethodObj)    // 0 Arguments
+//    External (_SB_.IETM, UnknownObj)    // Warning: Unknown object
+
+//    External (_SB_.IFFS.FFSS, FieldUnitObj)
+//    External (_SB_.IFFS.FFST, FieldUnitObj)
+
+    
     External (_SB_.IFFS.GFFS, MethodObj)    // 0 Arguments
     External (_SB_.IFFS.GFTV, MethodObj)    // 0 Arguments
     External (_SB_.PCCD, UnknownObj)
@@ -70,17 +75,12 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_SB_.PCI0.B0D3.ABAR, FieldUnitObj)
     External (_SB_.PCI0.B0D3.BARA, IntObj)
     External (_SB_.PCI0.GFX0, UnknownObj)
-    External (_SB_.PCI0.GFX0._DSM, MethodObj)    // Imported: 4 Arguments
     External (_SB_.PCI0.GFX0.CLID, FieldUnitObj)
-    External (_SB_.PCI0.GFX0.DD02._BCM, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.GFX0.GSCI, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
     External (_SB_.PCI0.GFX0.LCD0, UnknownObj)
     External (_SB_.PCI0.GFX0.PDDS, MethodObj)    // Warning: Unknown method, guessing 1 arguments
     External (_SB_.PCI0.GFX0.SKIP, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
-    External (_SB_.PCI0.LPCB.EC__.ECWT, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0, UnknownObj)
     External (_SB_.PCI0.PEG0.HPME, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.LNKD, FieldUnitObj)
@@ -88,18 +88,13 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (_SB_.PCI0.PEG0.PEGP.EPON, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.PEG0.PEGP.LCD0, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCI0.PEG0.PEGP.NHDM, FieldUnitObj)
-    External (_SB_.PCI0.PEG0.PEGP.SGPO, MethodObj)    // Imported: 2 Arguments
     External (_SB_.PCI0.PEG0.PEGP.TGPC, BuffObj)
     External (_SB_.PCI0.PEG1, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCI0.PEG1.HPME, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.PCI0.PEG2, UnknownObj)    // Warning: Unknown object
     External (_SB_.PCI0.PEG2.HPME, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (_SB_.PCI0.RP05.PEGP.EPON, MethodObj)    // Warning: Unknown method, guessing 0 arguments
-    External (_SB_.PCI0.SAT0.SDSM, MethodObj)    // Imported: 4 Arguments
-    External (_SB_.PCI0.XHC_.RHUB.TPLD, MethodObj)    // Imported: 2 Arguments
     External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unknown method, guessing 1 arguments
-    External (DTGP, MethodObj)    // Imported: 5 Arguments
-    External (GPRW, MethodObj)    // Imported: 2 Arguments    // Conflicts with a later declaration
     External (GSMI, FieldUnitObj)
     External (LIDS, FieldUnitObj)
     External (MDBG, MethodObj)    // 1 Arguments
@@ -114,14 +109,6 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     External (PDC7, IntObj)
     External (PS0X, MethodObj)    // Warning: Unknown method, guessing 0 arguments
     External (PS3X, MethodObj)    // Warning: Unknown method, guessing 0 arguments
-    External (RMDT.P1__, MethodObj)    // Imported: 1 Arguments
-    External (RMDT.P2__, MethodObj)    // Imported: 2 Arguments
-    External (RMDT.P3__, MethodObj)    // Imported: 3 Arguments
-    External (RMDT.P4__, MethodObj)    // Imported: 4 Arguments
-    External (RMDT.P5__, MethodObj)    // Imported: 5 Arguments
-    External (RMDT.P6__, MethodObj)    // Imported: 6 Arguments
-    External (RMDT.P7__, MethodObj)    // Imported: 7 Arguments
-    External (RMDT.PUSH, MethodObj)    // Imported: 1 Arguments
     External (SGMD, FieldUnitObj)
 
     Name (SMBS, 0x0580)
@@ -224,7 +211,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     Name (TOPM, 0x00000000)
     Name (ROMS, 0xFFE00000)
     Name (VGAF, One)
-    OperationRegion (GNVS, SystemMemory, 0xC77A8C18, 0x02C1)
+    OperationRegion (GNVS, SystemMemory, 0xC37A8C18, 0x02C1)
     Field (GNVS, AnyAcc, Lock, Preserve)
     {
         OSYS,   16, 
@@ -2046,8 +2033,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     0xFEB00000,         // Length
                     ,, _Y0E, AddressRangeMemory, TypeStatic)
                     
-               // mark modified per: https://egpu.io/forums/pc-setup/fix-dsdt-override-to-correct-error-12/#step2
-               QWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
+                 QWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
                     0x0000000000000000, // Granularity
                     0x0000000C20000000, // Range Minimum,  set it to 48.5GB
                     0x0000000E0FFFFFFF, // Range Maximum,  set it to 56.25GB
@@ -3835,7 +3821,6 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                     Return (PR0F ())
                 }
             }
-
             Device (B0D4)
             {
                 Name (_ADR, 0x00040000)  // _ADR: Address
@@ -5118,7 +5103,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
     Name (RPA6, 0x001C0006)
     Name (RPA7, 0x001C0007)
     Name (PCHS, 0x00000001)
-    Name (SRMB, 0xF7FD0000)
+    Name (SRMB, 0xF7FE0000)
     Name (PML1, 0x00000846)
     Name (PML2, 0x00000846)
     Name (PML3, 0x00000846)
@@ -11123,7 +11108,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
 
     Scope (_SB.PCI0.LPCB)
     {
-        OperationRegion (CPSB, SystemMemory, 0xC7108E18, 0x10)
+        OperationRegion (CPSB, SystemMemory, 0xC3108E18, 0x10)
         Field (CPSB, AnyAcc, NoLock, Preserve)
         {
             RTCX,   1, 
@@ -15412,9 +15397,9 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (CondRefOf (\_SB.IFFS.FFST))
                     {
-                        If (And (^^IFFS.GFFS (), One))
+                        If (And (^^IFFS.GFFS, One))
                         {
-                            Or (^^IFFS.GFTV (), 0x80, Local0)
+                            Or (^^IFFS.GFTV, 0x80, Local0)
                         }
                     }
                 }
@@ -15900,7 +15885,7 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 {
                     If (CondRefOf (\_SB.IFFS.FFST))
                     {
-                        If (And (^^IFFS.GFFS (), One))
+                        If (And (^^IFFS.GFFS, One))
                         {
                             If (^^PCI0.LPCB.EC.ECOK)
                             {
