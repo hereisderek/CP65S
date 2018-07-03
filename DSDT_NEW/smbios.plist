@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>RtVariables</key>
+	<dict>
+		<key>BooterConfig</key>
+		<string>0x28</string>
+		<key>CsrActiveConfig</key>
+		<string>0x1Ff</string>
+		<key>MLB</key>
+		<string>C02351201CXFP5C17</string>
+		<key>ROM</key>
+		<data>
+		JVZyDfM9
+		</data>
+	</dict>
+	<key>SMBIOS</key>
+	<dict>
+		<key>BiosReleaseDate</key>
+		<string>04/11/2018</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MBP111.88Z.0146.B00.1804111138</string>
+		<key>Board-ID</key>
+		<string>Mac-189A3D4F975D5FFC</string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02436902J9F502FB</string>
+		<key>BoardType</key>
+		<integer>10</integer>
+		<key>BoardVersion</key>
+		<string>1.0</string>
+		<key>ChassisAssetTag</key>
+		<string>MacBook-Aluminum</string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>0x0A</string>
+		<key>Family</key>
+		<string>MacBook Pro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xE80FE137</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>Memory</key>
+		<dict>
+			<key>#Modules</key>
+			<array>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>M471B1G73QH0-YK0</string>
+					<key>Serial</key>
+					<string>0906010104080108</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>1</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Samsung</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1333</integer>
+					<key>Part</key>
+					<string>9905428-012.A00LF</string>
+					<key>Serial</key>
+					<string>080F01090403060A</string>
+					<key>Size</key>
+					<integer>4096</integer>
+					<key>Slot</key>
+					<integer>2</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Kingston</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1066</integer>
+					<key>Part</key>
+					<string>M471B5673FH0-CF8</string>
+					<key>Serial</key>
+					<string>09070C09090A020C</string>
+					<key>Size</key>
+					<integer>2048</integer>
+					<key>Slot</key>
+					<integer>3</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Samsung</string>
+				</dict>
+			</array>
+		</dict>
+		<key>Mobile</key>
+		<true/>
+		<key>PlatformFeature</key>
+		<string>0x02</string>
+		<key>ProductName</key>
+		<string>MacBookPro11,1</string>
+		<key>SerialNumber</key>
+		<string>C02NC1YCFH00</string>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
+	<key>SystemParameters</key>
+	<dict>
+		<key>CustomUUID</key>
+		<string>7D52E1C7-D086-4837-9A7F-B25B830DF33D</string>
+		<key>InjectKexts</key>
+		<string>Yes</string>
+		<key>InjectKexts_</key>
+		<string>Detect</string>
+	</dict>
+</dict>
+</plist>

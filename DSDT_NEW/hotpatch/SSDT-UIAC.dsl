@@ -129,12 +129,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
                     // Bluetooth Radio
-                    "HP14", Package()
-                    {
-                        "UsbConnector", 255,
-                        "portType", 2,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
+//                    "HP14", Package()
+//                    {
+//                        "UsbConnector", 255,
+//                        "portType", 2,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
                     "HP15", Package()
                     {
                         "UsbConnector", 0,
@@ -267,12 +267,12 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                     },
                     
                     // Bluetooth Radio
-                    "HS04", Package()
-                    {
-                        "portType", 2,
-                        "UsbConnector", 0,
-                        "port", Buffer() { 4, 0, 0, 0 },
-                    },
+//                    "HS04", Package()
+//                    {
+//                        "portType", 2,
+//                        "UsbConnector", 0,
+//                        "port", Buffer() { 4, 0, 0, 0 },
+//                    },
                     
                     // Right Front USB Port (USB 2.0)
                     "HS06", Package()

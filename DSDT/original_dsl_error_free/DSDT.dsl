@@ -16906,10 +16906,10 @@ DefinitionBlock ("", "DSDT", 2, "HASEE ", "PARADISE", 0x00000038)
                 SLED,   4, 
                 Offset (0x02), 
                 MODE,   1, 
-                FAN0,   1, 
-                TME0,   1, 
-                TME1,   1, 
-                FAN1,   1, 
+                FAN0,   1, // Fan0
+                TME0,   1, // Temperature 0?
+                TME1,   1, // Temperature 1?
+                FAN1,   1, // Fan1
                     ,   2, 
                 Offset (0x03), 
                 LIDS,   1, 
