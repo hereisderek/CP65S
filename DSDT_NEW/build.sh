@@ -2,9 +2,16 @@
 
 
 iasl ./hotpatch/*.dsl
-mkdir ./build/
-rm -r ./build/*
-mv ./hotpatch/*.aml ./build/
+mkdir ./hotpatch/build/
+rm ./hotpatch/build/*
+mv ./hotpatch/*.aml ./hotpatch/build/
+
+iasl ./dsdt/*.dsl
+mkdir ./dsdt/build/
+rm ./dsdt/build/*
+mv ./dsdt/*.aml ./dsdt/build/
+
+iasl ./win/*.dsl
 
 
 rm config.plist 

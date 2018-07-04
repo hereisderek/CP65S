@@ -1,0 +1,9 @@
+    Name (TPMF, One)
+
+
+    2 13 8 0 1 12
+
+    remove irq 8 from RTC, 2 from LPCB.IPIC 
+
+
+_SB.PCI0.SBUS.BUS0

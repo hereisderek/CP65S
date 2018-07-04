@@ -24,31 +24,11 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
     External (_SB.PCI0.IGPU.XDSM, MethodObj)
     
-    /*
-    Method (OSDW, 0, NotSerialized)
-    {
-        If (CondRefOf (_OSI, Local0))
-        {
-            If (_OSI ("Darwin"))
-            {
-                Return (One)
-            }
-        }
-        Return (Zero)
-    }
-    */
     
     External (OSYS, IntObj)
     Method (OSDW, 0, NotSerialized)
     {
-        If (LEqual (OSYS, 0x2710))
-        {
-            Return (One)
-        }
-        Else
-        {
-            Return (Zero)
-        }
+        Return (LEqual (OSYS, 0x2710))
     }
     
     
@@ -122,38 +102,13 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     */
     
     External (XPRW, MethodObj)
-//    External (GPRW, MethodObj)
-/*
-    Method(GPRW, 2, NotSerialized)
-    {
-        \rmdt.p3("GPRW: ", Arg0, Arg1)
-        If (0x6d == Arg0) { Return (Package() { 0x6d, 0, }) }
-        If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
-        Return (XPRW(Arg0, Arg1))
-    }
-    */
-    
-
-
-    /*
-    External (_SB.PCI0.XHC.XPRW, MethodObj)
-    Method (_SB.PCI0.XHC._PRW)  // _PRW: Power Resources for Wake
-    {
-//        \rmdt.p1("_SB.PCI0.XHC._PRW")
-//        Local0 = GPRW (0x0D, 0x03)
-//        \rmdt.p3("_SB.PCI0.XHC._PRW, result:", Local0[0], Local0[1])
-//        Local0[1] = 0
-//        Return (Local0)
-        Return (Package() { 0x0D, 0x00 })
-    }
-    */
 
     Name(_SB.PCI0.GLAN._PRW, Package() { 0x0D, 0x00 })
     Name(_SB.PCI0.XHC._PRW, Package() { 0x0D, 0x00 })
     Name(_SB.PCI0.EHC1._PRW, Package() { 0x0D, 0x00 })
     Name(_SB.PCI0.EHC2._PRW, Package() { 0x0D, 0x00 }) 
     Name(_SB.PCI0.HDEF._PRW, Package() { 0x0D, 0x00 })
-    Name (_SB.PCI0.LPCB.PS2K._PRW, Package() { 0x0D, 0x03 })    
+    Name(_SB.PCI0.LPCB.PS2K._PRW, Package() { 0x0D, 0x03 })    
     
     /*
     External (_SB.PCI0.GLAN.XPRW, MethodObj)
