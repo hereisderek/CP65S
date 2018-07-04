@@ -77,7 +77,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
     External (_SB_.PCI0.GFX0.GSSE, FieldUnitObj)
     External (_SB_.PCI0.GFX0.LCD0, UnknownObj)
     External (_SB_.PCI0.GFX0.PDDS, MethodObj)    // Warning: Unknown method, guessing 1 arguments
-    External (_SB_.PCI0.GFX0.SKIP, UnknownObj)    // Warning: Unknown object
+    External (_SB_.PCI0.GFX0.SKIP, UnknownObj)    // Warning: Unknown object //?? *
     External (_SB_.PCI0.LPCB.EC__.ECMD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECRD, MethodObj)    // Imported: 1 Arguments
     External (_SB_.PCI0.LPCB.EC__.ECWT, MethodObj)    // Imported: 2 Arguments
@@ -202,7 +202,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
     Name (TMF3, Zero)
     Name (TTPF, One)
     Name (TTDP, Zero)
-    Name (TPMF, Zero)
+    
+//    Name (TPMF, Zero)
+    Name (TPMF, One)
+    
     Name (DSSP, Zero)
     Name (FHPP, Zero)
     Name (HIDK, "MSFT0001")
@@ -2229,7 +2232,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                 {
                     Return (^XHC.POSC (Arg1, Arg2, Arg3))
                 }
-                ElseIf (LGreaterEqual (OSYS, 0x07DC))
+                // ElseIf (LGreaterEqual (OSYS, 0x07DC))
+                ElseIf (LOr(LOr(LGreaterEqual (OSYS, 0x07DC), LEqual(OSYS, 0x07DC)), LEqual(OSYS, 0x2710)))
                 {
                     If (LEqual (XCNT, Zero))
                     {
@@ -4359,9 +4363,25 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                 Device (HPET)
                 {
                     Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
+                    Name (_CID, EisaId ("PNP0C01"))  // _CID: Compatible ID
+                    // PNP0C01/PNP0C02 suggest that resource reservation is still needed.
+                    // https://patchwork.kernel.org/patch/3826991/
                     Name (_UID, Zero)  // _UID: Unique ID
-                    Name (BUF0, ResourceTemplate ()
+                    // real mac 0x2, 0x8, 0xb, 0xc, (2, 8, 11, 12)
+                    // My Mac IRQ 0x2 0x8 0xb 0x14, (2, 8, 11, 13)
+                    Name (BUF0, ResourceTemplate () 
                     {
+                        
+                        // from real mac  
+                        
+                        IRQNoFlags ()
+                            {2}
+                        IRQNoFlags ()
+                            {8}
+                        IRQNoFlags ()
+                            {11}
+                        IRQNoFlags ()
+                            {13}
                         Memory32Fixed (ReadWrite,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
@@ -4369,9 +4389,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                     })
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
+                        // returns 0x0F for Mac
+                        If (LEqual (OSYS, 0x2710)) {
+                            Return (0x0F)
+                        }
                         If (LGreaterEqual (OSYS, 0x07D1))
                         {
-                            If (HPAE)
+                            If (HPAE) // ?
                             {
                                 Return (0x0F)
                             }
@@ -4386,7 +4410,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
-                        If (HPAE)
+                        If (LAnd(!OSDW(), HPAE)) // remove following code for mac
                         {
                             CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y0F._BAS, HPT0)  // _BAS: Base Address
                             If (LEqual (HPAS, One))
@@ -4516,8 +4540,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
-                        IRQNoFlags ()
-                            {2}
+//                        IRQNoFlags ()
+//                            {2}
                     })
                 }
 
@@ -4726,8 +4750,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                             0x01,               // Alignment
                             0x08,               // Length
                             )
-                        IRQNoFlags ()
-                            {8}
+//                        IRQNoFlags ()
+//                            {8}
                     })
                 }
 
@@ -5582,11 +5606,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
             Name (_ADR, 0x00190000)  // _ADR: Address
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
-                Return (GPRW (0x0D, 0x04))
+                //Return (GPRW (0x0D, 0x04))
+                // disable instant wake
+                If (OSDW ()) { Return (GPRW (0x0D, 0x00)) }
+                Else { Return (GPRW (0x0D, 0x04))}
             }
         }
 
-        Device (EHC1)
+        Device (EH01)
         {
             Name (_ADR, 0x001D0000)  // _ADR: Address
             OperationRegion (PWKE, PCI_Config, 0x54, 0x12)
@@ -5922,14 +5949,18 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                     }
                 }
             }
-
+            
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
-                Return (GPRW (0x0D, 0x03))
+                //Return (GPRW (0x0D, 0x03))
+                // disable instant wake
+                If (OSDW ()) { Return (GPRW (0x0D, 0x04)) }
+                //If (OSDW ()) { Return (GPRW (0x0D, 0x00)) }
+                Else { Return (GPRW (0x0D, 0x03)) }
             }
         }
 
-        Device (EHC2)
+        Device (EH02)
         {
             Name (_ADR, 0x001A0000)  // _ADR: Address
             OperationRegion (PWKE, PCI_Config, 0x54, 0x12)
@@ -6201,7 +6232,12 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
 
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
-                Return (GPRW (0x0D, 0x03))
+                //Return (GPRW (0x0D, 0x03))
+                
+                // disable instant wake
+                If (OSDW ()) { Return (GPRW (0x0D, 0x04)) }
+                //If (OSDW ()) { Return (GPRW (0x0D, 0x00)) }
+                Else { Return (GPRW (0x0D, 0x03)) }
             }
         }
 
@@ -7694,7 +7730,13 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
 
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
-                Return (GPRW (0x0D, 0x03))
+                //Return (GPRW (0x0D, 0x03))
+                // disable instant wake
+                If (OSDW ())
+                    { Return (GPRW (0x0D, 0x04)) }
+//                    { Return (GPRW (0x0D, 0x00)) }
+                Else
+                    { Return (GPRW (0x0D, 0x03)) }
             }
         }
 
@@ -7719,6 +7761,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
             Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
                 Return (GPRW (0x0D, 0x04))
+                //Return (GPRW (0x0D, 0x04)) // on a real mac
             }
         }
 
@@ -10847,6 +10890,22 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                 RXSA,   8, 
                 SDAT,   16
             }
+            // added device
+            Device(BUS0)
+            {
+                Name(_CID, "smbus")
+                Name(_ADR, Zero)
+                Device(DVL0)
+                {
+                    Name(_ADR, 0x57)
+                    Name(_CID, "diagsvault")
+                    Method(_DSM, 4)
+                    {
+                        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+                        Return (Package() { "address", 0x57 })
+                    }
+                }
+            }
 
             Method (SSXB, 2, Serialized)
             {
@@ -11939,6 +11998,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
         {
             Or (\_SB.PCI0.LPCB.EC.WINF, One, \_SB.PCI0.LPCB.EC.WINF)
         }
+        
+        // Take care of bug regarding Arg0 in certain versions of OS X...
+        // (starting at 10.8.5, confirmed fixed 10.10.2)
+        If (Arg0 < 1 || Arg0 > 5) { Arg0 = 3 }
 
         If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
         {
@@ -12323,6 +12386,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
             Store (0x07D0, OSYS)
+//            Store (0x07DC, OSYS)
             If (CondRefOf (\_OSI, Local0))
             {
                 If (_OSI ("Linux"))
@@ -12379,6 +12443,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                 {
                     Store (0x07DF, OSYS)
                 }
+                
+                If (_OSI ("Darwin"))
+                {
+                    //Store (0x07DF, OSYS)
+                    Store (0x2710, OSYS) // Store (0x2710, OSYS) for real mac
+                }
+                
+                
             }
             ElseIf (MCTH (_OS, "Linux"))
             {
@@ -13049,7 +13121,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
             })
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (LGreaterEqual (OSYS, 0x07DC))
+                If (/*LGreaterEqual (OSYS, 0x07DC)*/ Ones)
                 {
                     If (LEqual (And (CDID, 0xF000), 0x9000))
                     {
@@ -13059,6 +13131,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                         }
                     }
                 }
+                
 
                 Return (Zero)
             }
@@ -13433,14 +13506,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
 
         Method (XL0D, 0, NotSerialized)
         {
-            If (LAnd (\_SB.PCI0.EHC1.PMEE, \_SB.PCI0.EHC1.PMES))
+            If (LAnd (\_SB.PCI0.EH01.PMEE, \_SB.PCI0.EH01.PMES))
             {
-                Notify (\_SB.PCI0.EHC1, 0x02)
+                Notify (\_SB.PCI0.EH01, 0x02)
             }
 
-            If (LAnd (\_SB.PCI0.EHC2.PMEE, \_SB.PCI0.EHC2.PMES))
+            If (LAnd (\_SB.PCI0.EH02.PMEE, \_SB.PCI0.EH02.PMES))
             {
-                Notify (\_SB.PCI0.EHC2, 0x02)
+                Notify (\_SB.PCI0.EH02, 0x02)
             }
 
             If (LAnd (\_SB.PCI0.XHC.PMEE, \_SB.PCI0.XHC.PMES))
@@ -13452,7 +13525,11 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                 Store (One, \_SB.PCI0.XHC.PMES)
             }
 
-            If (LAnd (\_SB.PCI0.HDEF.PMEE, \_SB.PCI0.HDEF.PMES))
+//            If (LAnd (\_SB.PCI0.HDEF.PMEE, \_SB.PCI0.HDEF.PMES))
+//            {
+//                Notify (\_SB.PCI0.HDEF, 0x02)
+//            }
+            If (LOr(OSDW(), LAnd(\_SB.PCI0.HDEF.PMEE, \_SB.PCI0.HDEF.PMES)))
             {
                 Notify (\_SB.PCI0.HDEF, 0x02)
             }
@@ -13668,6 +13745,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
             {
                 \_SB.PCI0.GFX0.GSCI ()
             }
+            // from real mac
+//            Else
+//            {
+//                Store (0x00, \_SB.PCI0.IGPU.GEFC)
+//                Store (0x01, SCIS)
+//                Store (0x00, \_SB.PCI0.IGPU.GSSE)
+//                Store (0x00, \_SB.PCI0.IGPU.SCIE)
+//            }
         }
 
         Method (XL07, 0, NotSerialized)
@@ -13725,16 +13810,16 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
 
     Scope (_SB)
     {
-        Device (CAI)
+        Device (CAI) //Insyde Airplane Mode HID Mini-Driver
         {
             Name (_HID, EisaId ("PNPC000"))  // _HID: Hardware ID
             Name (_UID, One)  // _UID: Unique ID
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (LLess (OSYS, 0x07DC))
-                {
-                    Return (Zero)
-                }
+//                If (LLess (OSYS, 0x07DC))
+//                {
+//                    Return (Zero)
+//                }
 
                 Return (0x0F)
             }
@@ -14478,7 +14563,7 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
             Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
             {
                 0x08, 
-                0x03
+                0x03 //0x04 on mac
             })
             Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
             {
@@ -16875,6 +16960,10 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                         {
                             Or (WINF, One, WINF)
                         }
+                        ElseIf (LEqual (OSYS, 0x2710))
+                        {
+                            Or (WINF, One, WINF)
+                        }
                         ElseIf (LEqual (OSYS, 0x03E8))
                         {
                             Or (WINF, One, WINF)
@@ -17208,7 +17297,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                     Notify (WMI, 0xD0)
                 }
             }
-
+            
+            // ???
             Method (_Q10, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x10, P80H)
@@ -17229,7 +17319,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                     Notify (WMI, 0xD0)
                 }
             }
-
+            
+            // brightness down
             Method (_Q11, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x11, P80H)
@@ -17262,7 +17353,8 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                     Notify (WMI, 0xD0)
                 }
             }
-
+            
+            // brightness up
             Method (_Q12, 0, NotSerialized)  // _Qxx: EC Query
             {
                 Store (0x12, P80H)
@@ -18032,5 +18124,113 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
     Method (PINI, 0, NotSerialized)
     {
     }
+    
+    /*****           Added devices              ******/
+    Name(PDMK, One) // Patched Dsdt Mark
+    
+    Device(_SB.PCI0.IMEI) 
+    { 
+        Name(_ADR, 0x00160000) 
+        Method(_DSM, 4) 
+        {
+            Return (Package() { "device-id", Buffer() { 0x3a, 0x1e, 0, 0 } })
+        }
+    }
+    
+    Scope (\) 
+    {
+        Method (OSDW, 0, NotSerialized)
+        {
+            Return (LEqual (OSYS, 0x2710))
+        }
+        
+        Name (SLTP, Zero)
+        Method (_TTS, 1, NotSerialized)
+        {
+            Store ("Method \\__TTS Called", Debug)
+            Store (Arg0, SLTP)
+        }
+    }
+    Scope (\_SB)
+    {
+        Method (LPS0, 0, NotSerialized)
+        {
+            Store ("Method \\_SB._LPS0 Called", Debug)
+            Return (One)
+        }
+    }
+    Scope (\_GPE)
+    {
+        Method (LXEN, 0, NotSerialized)
+        {
+            Store ("Method \\_GPE.LXEN Called", Debug)
+            Return (One)
+        }
+    }
+    
+    
+    #define DEFINE_HDAU _SB.PCI0.B0D3._DSM
+    Method(_SB.PCI0.B0D3._DSM, 4) //change B0D3 to HDAU
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Local0 = Package()
+        {
+            //"layout-id", Buffer(4) { 3, 0, 0, 0 },
+            "hda-gfx", Buffer() { "onboard-1" },
+        }
+        Return(Local0)
+    }
+    
+    Method(_SB.PCI0.HDEF._DSM, 4)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Local0 = Package()
+        {
+            //"layout-id", Buffer(4) { 3, 0, 0, 0 },
+            "hda-gfx", Buffer() { "onboard-1" },
+            "PinConfigurations", Buffer() { },
+            
+            "codec-id", Buffer (0x04) { 0x92, 0x08, 0xEC, 0x10 },
+            "AAPL,slot-name", Buffer() { "Built in" },
+            "device_type", Buffer() { "Audio Controller" },
+        }
+        Return(Local0)
+    }
+    
+    // Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
+    Method(_SB.PCI0.PR05.RLAN._DSM, 4, NotSerialized)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Return (Package ()
+        {
+            "AAPL,slot-name", Buffer () { "Built in" }, 
+            "model", Buffer () { "Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter" }, 
+            "built-in", Buffer (One){ 0x00 }
+        })
+    }
+    
+    /*
+    // an example of _PRW on a real mac
+    Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+    {
+        If (OSDW ())
+        {
+            Return (Package (0x02)
+            {
+                0x23, 
+                0x04
+            })
+        }
+        Else
+        {
+            Return (Package (0x02)
+            {
+                0x23, 
+                0x03
+            })
+        }
+    }
+    */
+
 }
 
