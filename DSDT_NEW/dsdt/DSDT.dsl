@@ -2047,6 +2047,14 @@ DefinitionBlock ("", "DSDT", 2, "ALASKA", "A M I", 0x00000038)
                     0x00000000,         // Translation Offset
                     0xFEB00000,         // Length
                     ,, _Y0E, AddressRangeMemory, TypeStatic)
+                    
+                QWordMemory (ResourceProducer, PosDecode, MinFixed, MaxFixed, Cacheable, ReadWrite,
+                    0x0000000000000000, // Granularity
+                    0x0000000C20000000, // Range Minimum,  set it to 48.5GB
+                    0x0000000E0FFFFFFF, // Range Maximum,  set it to 56.25GB
+                    0x0000000000000000, // Translation Offset
+                    0x00000001F0000000, // Length calculated by Range Max - Range Min.
+                    ,, , AddressRangeMemory, TypeStatic)
             })
             Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
             {
