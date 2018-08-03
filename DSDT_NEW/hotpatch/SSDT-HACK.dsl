@@ -1,8 +1,9 @@
 // configuration data for other SSDTs in this pack
 
-
+#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
 {
+#endif      
     External (RMDT, DeviceObj)
     External (RMDT.PUSH, MethodObj)
     External (RMDT.P1, MethodObj)
@@ -18,10 +19,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     External (_SB.PCI0.LPCB.EC.XQ11, MethodObj)
     External (_SB.PCI0.LPCB.EC.XQ12, MethodObj)
     
-    External (_SB.PCI0.PR06.PXSX.XDSM, MethodObj)
-    External (_SB.PCI0.PR01.PXSX.XDSM, MethodObj)
-    External (_SB.PCI0.PR05.PXSX.XDSM, MethodObj)
-    External (_SB.PCI0.PR05.RLAN.XDSM, MethodObj)
+    External (_SB.PCI0.RP06.PXSX.XDSM, MethodObj)
+    External (_SB.PCI0.RP01.PXSX.XDSM, MethodObj)
+    External (_SB.PCI0.RP05.PXSX.XDSM, MethodObj)
+    External (_SB.PCI0.RP05.RLAN.XDSM, MethodObj)
     External (_SB.PCI0.IGPU.XDSM, MethodObj)
     
     
@@ -212,7 +213,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Local0 = Package()
         {
-//            "layout-id", Buffer(4) { 3, 0, 0, 0 },
+            "layout-id", Buffer() { 31, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
         }
         Return(Local0)
@@ -223,7 +224,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Local0 = Package()
         {
-//            "layout-id", Buffer(4) { 3, 0, 0, 0 },
+            "layout-id", Buffer() { 31, 0, 0, 0 },
             "hda-gfx", Buffer() { "onboard-1" },
             "PinConfigurations", Buffer() { },
             
@@ -283,9 +284,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     
     
     // Realtek RTL8723BE Wireless LAN 802.11n PCI-E Network Adapter
-    Method(_SB.PCI0.PR06.PXSX._DSM, 4, NotSerialized)
+    Method(_SB.PCI0.RP06.PXSX._DSM, 4, NotSerialized)
     {
-        \rmdt.p5("Enter _SB.PCI0.PR06.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
+        \rmdt.p5("Enter _SB.PCI0.RP06.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
         Store (Package ()
         {
             "AAPL,slot-name", Buffer () { "Built in" }, 
@@ -295,15 +296,15 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         }, Local0)
         
         // call build in _DSM
-        If (CondRefOf(\_SB.PCI0.PR06.PXSX.XDSM)) { \_SB.PCI0.PR06.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3) }
+        If (CondRefOf(\_SB.PCI0.RP06.PXSX.XDSM)) { \_SB.PCI0.RP06.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3) }
         
         Return(Local0)
     }
 
     // Realtek RTS5287 PCI-E Card Reader
-    Method(_SB.PCI0.PR05.PXSX._DSM, 4, NotSerialized)
+    Method(_SB.PCI0.RP05.PXSX._DSM, 4, NotSerialized)
     {
-        \rmdt.p5("Enter _SB.PCI0.PR05.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
+        \rmdt.p5("Enter _SB.PCI0.RP05.PXSX._DSM", Arg0, Arg1, Arg2, Arg3)
         Store (Package ()
         {
             "AAPL,slot-name", 
@@ -324,18 +325,18 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         }, Local0)
         
         // call build in _DSM
-        If (CondRefOf(\_SB.PCI0.PR05.PXSX.XDSM))
+        If (CondRefOf(\_SB.PCI0.RP05.PXSX.XDSM))
         {
-            \_SB.PCI0.PR05.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
+            \_SB.PCI0.RP05.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
         }
         Return(Local0)
     }
     
 
     // Realtek RTL8168/8111 PCI-E Gigabit Ethernet Adapter
-    Method(_SB.PCI0.PR05.RLAN._DSM, 4, NotSerialized)
+    Method(_SB.PCI0.RP05.RLAN._DSM, 4, NotSerialized)
     {
-        \rmdt.p5("Enter _SB.PCI0.PR05.RLAN._DSM", Arg0, Arg1, Arg2, Arg3)
+        \rmdt.p5("Enter _SB.PCI0.RP05.RLAN._DSM", Arg0, Arg1, Arg2, Arg3)
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Store (Package ()
         {
@@ -357,9 +358,9 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         }, Local0)
         
         // call build in _DSM
-        If (CondRefOf(\_SB.PCI0.PR05.RLAN.XDSM))
+        If (CondRefOf(\_SB.PCI0.RP05.RLAN.XDSM))
         {
-            \_SB.PCI0.PR05.RLAN.XDSM(Arg0, Arg1, Arg2, Arg3)
+            \_SB.PCI0.RP05.RLAN.XDSM(Arg0, Arg1, Arg2, Arg3)
         }
         Return(Local0)
     }
@@ -367,7 +368,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     
 
     // M.2 SSD
-    Method(_SB.PCI0.PR01.PXSX._DSM, 4, NotSerialized)
+    /*
+    Method(_SB.PCI0.RP01.PXSX._DSM, 4, NotSerialized)
     {
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
         Store (Package ()
@@ -392,40 +394,14 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         }, Local0)
         
         // call build in _DSM
-        If (CondRefOf(\_SB.PCI0.PR01.PXSX.XDSM))
+        If (CondRefOf(\_SB.PCI0.RP01.PXSX.XDSM))
         {
-            \_SB.PCI0.PR01.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
-        }
-        Return(Local0)
-    }
-    
-    
-    // IGPU
-    /*
-    Method(_SB.PCI0.IGPU._DSM, 4, NotSerialized)
-    {
-        \rmdt.p5("_SB.PCI0.IGPU._DSM", Arg0, Arg1, Arg2, Arg3)
-        
-        If (!Arg2) { Return (Buffer() { 0x03 } ) }
-        
-        Store (Package ()
-        {
-//            "AAPL,ig-platform-id", Buffer() { 0x08, 0x00, 0x2e, 0x0a }, //UHD/QHD+
-            "AAPL,ig-platform-id", Buffer() { 0x07, 0x00, 0x26, 0x0d }, //UHD/QHD+
-            "model", Buffer() { "Intel HD Graphics 4600" },
-            "hda-gfx", Buffer() { "onboard-1" },
-            "device-id", Buffer() { 0x12, 0x04, 0x00, 0x00 },
-        }, Local0)
-        
-        // call build in _DSM
-        If (CondRefOf(\_SB.PCI0.IGPU.XDSM))
-        {
-            \_SB.PCI0.IGPU.XDSM(Arg0, Arg1, Arg2, Arg3)
+            \_SB.PCI0.RP01.PXSX.XDSM(Arg0, Arg1, Arg2, Arg3)
         }
         Return(Local0)
     }
     */
-       
+           
     // sleep: https://pikeralpha.wordpress.com/2017/01/12/debugging-sleep-issues/
     /*
     Scope (\_SB)
@@ -521,5 +497,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     }
     */
 
+#ifndef NO_DEFINITIONBLOCK
 }
+#endif
 //EOF

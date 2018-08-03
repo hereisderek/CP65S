@@ -1,4 +1,13 @@
 #set -x
+cd "${0%/*}"
+
+CompileDirs=("dsdt" "hotpatch" "win")
+
+PartialConfigName="partialConfig.plist"
+BaseConfigName="BaseConfig.plist"
+OutputConfigName="config.plist"
+
+
 
 
 iasl ./hotpatch/*.dsl
@@ -27,5 +36,36 @@ if [[ -f my_config.plist ]]; then
 	# SMBIOS SystemParameters
 
 	/usr/libexec/PlistBuddy ./config.plist -x -c "Merge smbios.plist"
+
+
+	cp my_config.plist ./hotpatch/build/
+	cp config.plist ./hotpatch/build/
+	
+	/usr/libexec/PlistBuddy ./hotpatch/build/my_config.plist -x -c "Delete ACPI"
+	/usr/libexec/PlistBuddy ./hotpatch/build/config.plist -x -c "Delete ACPI"
+
+	/usr/libexec/PlistBuddy ./hotpatch/build/config.plist -x -c "Merge hotpatch/config.plist"
+	/usr/libexec/PlistBuddy ./hotpatch/build/my_config.plist -x -c "Merge hotpatch/config.plist"
+
+	cp my_config.plist ./hotpatch/build/
+	cp config.plist ./hotpatch/build/
+
+	/usr/libexec/PlistBuddy ./hotpatch/build/config.plist -x -c "Merge hotpatch/config.plist"
+	/usr/libexec/PlistBuddy ./hotpatch/build/my_config.plist -x -c "Merge hotpatch/config.plist"
+
+
+##
+	cp hotpatch/config.plist ./hotpatch/build/
+	cp hotpatch/my_config.plist ./hotpatch/build/
+
+	/usr/libexec/PlistBuddy ./hotpatch/build/config.plist -x -c "Merge config.plist"
+	/usr/libexec/PlistBuddy ./hotpatch/build/my_config.plist -x -c "Merge my_config.plist"
+
+	cp dsdt/config.plist ./dsdt/build/
+	cp dsdt/my_config.plist ./dsdt/build/
+
+	/usr/libexec/PlistBuddy ./dsdt/build/config.plist -x -c "Merge config.plist"
+	/usr/libexec/PlistBuddy ./dsdt/build/my_config.plist -x -c "Merge my_config.plist"
+	
 fi
 

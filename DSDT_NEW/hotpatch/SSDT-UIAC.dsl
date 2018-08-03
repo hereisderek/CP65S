@@ -24,8 +24,13 @@
 // UsbConnector: describes the connector type of the USB port. Common values are 0, 3, and 255, (0: USB2 type-A, 3: USB3 type-A, 255: proprietary). More information in the ACPI spec (_UPC).
 // port: must match the port _ADR in DSDT. You can see this value in IOACPIPlane
 
+
+#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
 {
+#endif
+// to disable bluetooth port
+//    #define DISABLE_BLUETOOTH_PORT
     
 //    External (UPWC, MethodObj)
      /*
@@ -100,11 +105,23 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
         Return(USBI)
     }
     
-
+    External(RMCF.DBTU, IntObj)
 
     Device(UIAC)
     {
         Name(_HID, "UIA00000")
+        
+//        Method(BTUP) 
+//        {
+//            If (CondRefOf(\RMCF.DBTU) && \RMCF.DBTU) { Return(0) } 
+//            
+//            Return(
+//                Package() {
+//                    "UsbConnector", 255,
+//                    "portType", 2,
+//                    "port", Buffer() { 4, 0, 0, 0 }
+//                })
+//        }
 
         Name(RMCF, Package()
         {
@@ -128,13 +145,17 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                         "portType", 0,
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
+                    
+                    #ifndef DISABLE_BLUETOOTH_PORT
                     // Bluetooth Radio
-//                    "HP14", Package()
-//                    {
-//                        "UsbConnector", 255,
-//                        "portType", 2,
-//                        "port", Buffer() { 4, 0, 0, 0 },
-//                    },
+                    "HP14", Package()
+                    {
+                        "UsbConnector", 255,
+                        "portType", 2,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    #endif
+                    
                     "HP15", Package()
                     {
                         "UsbConnector", 0,
@@ -266,13 +287,16 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
                         "port", Buffer() { 2, 0, 0, 0 },
                     },
                     
+                    #ifndef DISABLE_BLUETOOTH_PORT
                     // Bluetooth Radio
-//                    "HS04", Package()
-//                    {
-//                        "portType", 2,
-//                        "UsbConnector", 0,
-//                        "port", Buffer() { 4, 0, 0, 0 },
-//                    },
+                    "HS04", Package()
+                    {
+                        "portType", 2,
+                        "UsbConnector", 0,
+                        "port", Buffer() { 4, 0, 0, 0 },
+                    },
+                    #endif
+    
                     
                     // Right Front USB Port (USB 2.0)
                     "HS06", Package()
@@ -332,5 +356,9 @@ DefinitionBlock ("", "SSDT", 2, "hack", "UIAC", 0)
 
         })
     }
+    #undef DISABLE_BLUETOOTH_PORT
+    
+#ifndef NO_DEFINITIONBLOCK
 }
+#endif
 //EOF

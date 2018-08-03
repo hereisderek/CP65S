@@ -1,5 +1,9 @@
+
+#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 1, "APPLE ", "DefMon", 0x00003000)
 {
+#endif    
+    
     Device (_SB.MON0) // ACPISensors virtual device
     {
         Name (_HID, EisaId ("PNP0C02")) // Expose MON0 to IORegistry
@@ -98,5 +102,7 @@ DefinitionBlock ("", "SSDT", 1, "APPLE ", "DefMon", 0x00003000)
             Return (Local0)
         }
     }
+#ifndef NO_DEFINITIONBLOCK
 }
+#endif
 

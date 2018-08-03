@@ -20,6 +20,10 @@ DefinitionBlock("", "SSDT", 2, "hack", "_RMCF", 0)
             Store("AUDL indicates audio layout-id for patched AppleHDA. Ones: no injection", Debug)
             Store("BKLT indicates the type of backlight control. 0: IntelBacklight, 1: AppleBacklight", Debug)
             Store("LMAX indicates max for IGPU PWM backlight. Ones: Use default, other values must match framebuffer", Debug)
+
+            Store("DDGPU if to disable dgpu", Debug)
+            Store("DBTU if to disable bluetooth USB Port", Debug)
+            
         }
 
         // TYPE: Indicates the type of computer... desktop or laptop
@@ -115,6 +119,13 @@ DefinitionBlock("", "SSDT", 2, "hack", "_RMCF", 0)
         // 1: Ivy/Sandy
         // 2: Haswell/Broadwell/Skylake/KabyLake
         Name(FBTP, 0)
+        
+        // mine
+        // disable dedicated gpu 
+        Name(DDGU, 0)
+        
+        // disable bluetooth port
+        Name(DBTU, 0)
     }
 #ifndef NO_DEFINITIONBLOCK
 }

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>17E199</string>
+	<string>18A336e</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>6.26-344-g1cf53906.1787</string>
+	<string>6.11-459-g1cf53906.1787</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleSupportedPlatforms</key>
@@ -29,17 +29,17 @@
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>8E3004b</string>
+	<string>10L177m</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>18A314f</string>
 	<key>DTSDKName</key>
-	<string>macosx10.8</string>
+	<string>macosx10.14</string>
 	<key>DTXcode</key>
-	<string>0833</string>
+	<string>1000</string>
 	<key>DTXcodeBuild</key>
-	<string>8E3004b</string>
+	<string>10L177m</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>FakeSMC</key>
@@ -272,7 +272,7 @@
 			<key>IOResourceMatch</key>
 			<string>FakeSMCKeyStore</string>
 			<key>RM,Build</key>
-			<string>Release-rehabman</string>
+			<string>Release-derek</string>
 			<key>RM,Version</key>
 			<string>FakeSMC 1787</string>
 		</dict>

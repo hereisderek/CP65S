@@ -1,7 +1,9 @@
 // SSDT example of configuration override
 
+#ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "hack", "acpibatt", 0)
 {
+#endif
     // assumption that battery device is at _SB.BAT1 (check your DSDT)
     External(_SB.BAT0, DeviceObj)
     
@@ -19,5 +21,7 @@ DefinitionBlock ("", "SSDT", 2, "hack", "acpibatt", 0)
         "StartupDelay", 0,
         "FirstPollDelay", 5000,
     })
+#ifndef NO_DEFINITIONBLOCK
 }
+#endif
 // EOF
