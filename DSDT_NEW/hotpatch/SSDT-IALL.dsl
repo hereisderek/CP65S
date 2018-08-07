@@ -17,6 +17,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_HACK", 0)
 	#include "SSDT-SMBUS.dsl"
 //	#include "SSDT-UIAC.dsl"
 	#include "SSDT-XHC.dsl"
+	#include "SSDT-CpuPM.dsl"
 	#include "SSDT-XOSI.dsl"
 }
 //EOF

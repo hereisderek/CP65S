@@ -7,3 +7,8 @@ Clover/EFI/CLOVER/ACPI/origin
 Clover/EFI/CLOVER/ACPI/Windows
 DSDT_NEW/my_config.plist
 DSDT_NEW/my_smbios.plist
+download/
+!build/config.plist
+
+
+my_config.plist

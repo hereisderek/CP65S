@@ -138,20 +138,12 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
                     If (Ones != Match(Package()
                     {
                         // Haswell
-                        0x0a26, 0x0d22, 0x0412, 0x0416, 0x0a16, 0x0a1e, 0x0a1e, 0x0a2e, 0x041e, 0x041a,
+                        0x0d26, 0x0a26, 0x0d22, 0x0412, 0x0416, 0x0a16, 0x0a1e, 0x0a1e, 0x0a2e, 0x041e, 0x041a,
                         // Broadwell
                         0x0bd1, 0x0bd2, 0x0BD3, 0x1606, 0x160e, 0x1616, 0x161e, 0x1626, 0x1622, 0x1612, 0x162b,
                     }, MEQ, Local0, MTR, 0, 0))
                     {
                         Local2 = HASWELL_PWMMAX
-                    }
-                    ElseIf (Ones != Match(Package()
-                    {
-                        // Haswell
-                        0x0d26
-                    }, MEQ, Local0, MTR, 0, 0))
-                    {
-                        Local2 = CUSTOM_PWMMAX_07a1
                     }
                     Else
                     {
@@ -204,10 +196,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "_PNLF", 0)
             If (Local2 == SANDYIVY_PWMMAX) { _UID = 14 }
             ElseIf (Local2 == HASWELL_PWMMAX) { _UID = 15 }
             ElseIf (Local2 == SKYLAKE_PWMMAX) { _UID = 16 }
-            ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { 
-//                _UID = 17 
-                _UID = 15 
-            }
+            ElseIf (Local2 == CUSTOM_PWMMAX_07a1) { _UID = 17 }
             ElseIf (Local2 == CUSTOM_PWMMAX_1499) { _UID = 18 }
             Else { _UID = 99 }
         }
