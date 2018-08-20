@@ -235,6 +235,53 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         Return(Local0)
     }
     
+    /*
+    Method(_SB.PCI0.IGPU._DSM, 4)
+    {
+        If (!Arg2) { Return (Buffer() { 0x03 } ) }
+        Local0 = Package()
+        {
+			"model", Buffer() { "Intel HD Graphics 4600" },
+			"hda-gfx", Buffer() { "onboard-1" },
+			"framebuffer-con2-index", Buffer() { 02, 00, 00, 00 },
+			"framebuffer-con3-enable", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-con1-pipe", Buffer() { 0B, 00, 00, 00 },
+			"framebuffer-con3-busid", Buffer() { 06, 00, 00, 00 },
+			"framebuffer-con1-index", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-con2-enable", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-con2-busid", Buffer() { 04, 00, 00, 00 },
+			"framebuffer-con0-index", Buffer() { 00, 00, 00, 00 },
+			"framebuffer-con1-enable", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-con1-busid", Buffer() { 05, 00, 00, 00 },
+			"framebuffer-con3-type", Buffer() { 00, 08, 00, 00 },
+			"framebuffer-con0-type", Buffer() { 02, 00, 00, 00 },
+			"framebuffer-con0-busid", Buffer() { 00, 00, 00, 00 },
+			"framebuffer-con0-enable", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-portcount", Buffer() { 04, 00, 00, 00 },
+			"framebuffer-con3-pipe", Buffer() { 03, 00, 00, 00 },
+			"framebuffer-con0-pipe", Buffer() { 08, 00, 00, 00 },
+			"framebuffer-stolenmem", Buffer() { 00, 00, 00, 04 },
+			"framebuffer-con2-type", Buffer() { 00, 04, 00, 00 },
+			"framebuffer-con3-flags", Buffer() { 06, 00, 00, 00 },
+			"framebuffer-unifiedmem", Buffer() { 00, 00, 00, 60 },
+			"framebuffer-con2-pipe", Buffer() { 0B, 00, 00, 00 },
+			"framebuffer-memorycount", Buffer() { 03, 00, 00, 00 },
+			"framebuffer-con2-flags", Buffer() { 07, 01, 00, 00 },
+			"framebuffer-con1-flags", Buffer() { 07, 01, 00, 00 },
+			"framebuffer-fbmem", Buffer() { 00, 00, 20, 02 },
+			"framebuffer-patch-enable", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-con0-flags", Buffer() { 30, 00, 00, 00 },
+			"framebuffer-con3-index", Buffer() { 03, 00, 00, 00 },
+			"framebuffer-con1-type", Buffer() { 00, 04, 00, 00 },
+			"framebuffer-mobile", Buffer() { 01, 00, 00, 00 },
+			"framebuffer-pipecount", Buffer() { 03, 00, 00, 00 },
+			"device-id", Buffer() { 26, 0D, 00, 00 },
+			"AAPL,ig-platform-id", Buffer() { 07, 00, 26, 0D },
+        }
+        Return(Local0)
+    }
+    */
+    
     /* Added DynamicEWMode option (default is true). This is specifically to improve two finger scroll 
     responsiveness with ClickPads. Instead of always forcing the trackpad into EW mode (EW mode enables 
     two finger data), EW mode is only entered upon clicking the pad. Since each finger gets half bandwidth 

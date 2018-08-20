@@ -131,6 +131,11 @@ download()
 	if [ -z $output ]; then cd - >&- 2>&-; fi
 }
 
+
+
+
+
+
 if [ ! -f config.plist ]; then 
 	echo "config.plist doesn't exist, unable to proceed"
 	exit 1
@@ -140,5 +145,7 @@ if [ -d "$build_dir/CLOVER" ]; then rm -r "$build_dir/CLOVER"; fi
 checkAndCreateDir "./$build_dir/CLOVER"
 cp config.plist "./$build_dir/CLOVER/"
 
+
+# download clover sed -n 's/.*href="\([^"]*\).*/\1/p' ; sed -n 's/.*href="\([^"]*\).*/\1/p"'
 
 
