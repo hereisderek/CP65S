@@ -1,0 +1,1 @@
+clang++ -I/Users/Dmitri/Dmitri/^Work/^Libraries/glfw-2.7.6/include -o "../RefreshRateMultitool (OS X)" RefreshRateMultitool.cpp /Users/Dmitri/Dmitri/^Work/^Libraries/glfw-2.7.6/lib/cocoa/libglfw.a -framework Cocoa -framework OpenGL -framework IOKit

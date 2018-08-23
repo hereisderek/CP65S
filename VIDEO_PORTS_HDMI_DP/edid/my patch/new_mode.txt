@@ -1,0 +1,72 @@
+# 1920x1080 84.88 Hz (CVT 2.07M9) hsync: 96.51 kHz; pclk: 253.25 MHz
+Modeline "1920x1080_85.00"  253.25  1920 2064 2272 2624  1080 1083 1088 1137 -hsync +vsync
+xrandr --newmode "1920x1080_85.00"  253.25  1920 2064 2272 2624  1080 1083 1088 1137 -hsync +vsync
+sudo xrandr --addmode eDP-1 "1920x1080_85.00"
+
+# 1920x1080 89.93 Hz (CVT) hsync: 102.52 kHz; pclk: 269.00 MHz
+Modeline "1920x1080_90.00"  269.00  1920 2064 2272 2624  1080 1083 1088 1140 -hsync +vsync
+
+
+# 2560x1440 59.96 Hz (CVT 3.69M9) hsync: 89.52 kHz; pclk: 312.25 MHz
+Modeline "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+xrandr --newmode "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+sudo xrandr --addmode eDP-1  "2560x1440_60.00"
+
+# 2048x1152 59.90 Hz (CVT 2.36M9) hsync: 71.58 kHz; pclk: 197.00 MHz
+Modeline "2048x1152_60.00"  197.00  2048 2184 2400 2752  1152 1155 1160 1195 -hsync +vsync
+
+
+
+xrandr --newmode "1680x1050_60.00"  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync
+
+sudo xrandr --addmode eDP-1 "1680x1050_60.00"
+
+
+
+derek@derek-ubuntu:~/Workspace$ cvt 2560 1440 60
+# 2560x1440 59.96 Hz (CVT 3.69M9) hsync: 89.52 kHz; pclk: 312.25 MHz
+Modeline "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 2560 1440 65
+# 2560x1440 64.97 Hz (CVT) hsync: 97.26 kHz; pclk: 339.25 MHz
+Modeline "2560x1440_65.00"  339.25  2560 2752 3024 3488  1440 1443 1448 1497 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ 
+derek@derek-ubuntu:~/Workspace$ cvt 2560 1440 70
+# 2560x1440 69.97 Hz (CVT) hsync: 105.02 kHz; pclk: 368.00 MHz
+Modeline "2560x1440_70.00"  368.00  2560 2760 3032 3504  1440 1443 1448 1501 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 2048 1152 60
+# 2048x1152 59.90 Hz (CVT 2.36M9) hsync: 71.58 kHz; pclk: 197.00 MHz
+Modeline "2048x1152_60.00"  197.00  2048 2184 2400 2752  1152 1155 1160 1195 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 2048 1152 65
+# 2048x1152 64.99 Hz (CVT) hsync: 77.85 kHz; pclk: 215.50 MHz
+Modeline "2048x1152_65.00"  215.50  2048 2192 2408 2768  1152 1155 1160 1198 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 2048 1152 70
+# 2048x1152 69.96 Hz (CVT) hsync: 84.09 kHz; pclk: 232.75 MHz
+Modeline "2048x1152_70.00"  232.75  2048 2192 2408 2768  1152 1155 1160 1202 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 2048 1152 75
+# 2048x1152 74.97 Hz (CVT 2.36M9) hsync: 90.34 kHz; pclk: 251.50 MHz
+Modeline "2048x1152_75.00"  251.50  2048 2200 2416 2784  1152 1155 1160 1205 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 60
+# 1920x1080 59.96 Hz (CVT 2.07M9) hsync: 67.16 kHz; pclk: 173.00 MHz
+Modeline "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 65
+# 1920x1080 64.93 Hz (CVT) hsync: 72.98 kHz; pclk: 188.00 MHz
+Modeline "1920x1080_65.00"  188.00  1920 2048 2248 2576  1080 1083 1088 1124 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 70
+# 1920x1080 69.92 Hz (CVT) hsync: 78.80 kHz; pclk: 204.25 MHz
+Modeline "1920x1080_70.00"  204.25  1920 2056 2256 2592  1080 1083 1088 1127 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 75
+# 1920x1080 74.91 Hz (CVT 2.07M9) hsync: 84.64 kHz; pclk: 220.75 MHz
+Modeline "1920x1080_75.00"  220.75  1920 2064 2264 2608  1080 1083 1088 1130 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 80
+# 1920x1080 79.95 Hz (CVT) hsync: 90.59 kHz; pclk: 236.25 MHz
+Modeline "1920x1080_80.00"  236.25  1920 2064 2264 2608  1080 1083 1088 1133 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 85
+# 1920x1080 84.88 Hz (CVT 2.07M9) hsync: 96.51 kHz; pclk: 253.25 MHz
+Modeline "1920x1080_85.00"  253.25  1920 2064 2272 2624  1080 1083 1088 1137 -hsync +vsync
+derek@derek-ubuntu:~/Workspace$ cvt 1920 1080 90
+# 1920x1080 89.93 Hz (CVT) hsync: 102.52 kHz; pclk: 269.00 MHz
+Modeline "1920x1080_90.00"  269.00  1920 2064 2272 2624  1080 1083 1088 1140 -hsync +vsync
+
+
+xandr -s 800x600 -r 85 --output HDMI-0
+

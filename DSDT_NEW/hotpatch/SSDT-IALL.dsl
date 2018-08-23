@@ -10,14 +10,16 @@ DefinitionBlock("", "SSDT", 2, "hack", "_HACK", 0)
 	#include "SSDT-ACPISensor.dsl"
 	#include "SSDT-ALS0.dsl"
 	#include "SSDT-HACK.dsl"
-	#include "SSDT-IMEI.dsl"
-	#include "SSDT-PNLF.dsl"
+//	#include "SSDT-IMEI.dsl"
+
+ 	#include "SSDT-PNLF-GFX0.dsl"
+//	#include "SSDT-PNLF.dsl"
 	#include "SSDT-PTSWAK.dsl"
 	#include "SSDT-SATA.dsl"
 	#include "SSDT-SMBUS.dsl"
-//	#include "SSDT-UIAC.dsl"
+	#include "SSDT-UIAC.dsl"
 	#include "SSDT-XHC.dsl"
-	#include "SSDT-CpuPM.dsl"
+//	#include "SSDT-CpuPM.dsl"
 	#include "SSDT-XOSI.dsl"
 }
 //EOF

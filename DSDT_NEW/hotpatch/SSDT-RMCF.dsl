@@ -92,14 +92,14 @@ DefinitionBlock("", "SSDT", 2, "hack", "_RMCF", 0)
         // bit0=1: Using AppleBacklight.kext + AppleBacklightInjector.kext
         // bit1=1: do not set LEVW
         // bit2=1: set GRAN
-        Name(BKLT, 1)
+        Name(BKLT, 7)
 
         // LMAX: Backlight PWM MAX.  Must match framebuffer in use.
         //
         // Ones: Default will be used (0x710 for Ivy/Sandy, 0xad9 for Haswell/Broadwell)
         // Other values: must match framebuffer
-        Name(LMAX, Ones)
-//        Name(LMAX, 0x7a1)
+//        Name(LMAX, Ones)
+        Name(LMAX, 0x7a1)
 
         // LEVW: Initialization value for LEVW.
         //

@@ -146,7 +146,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
            Store (Arg0, SLTP)
        }
     }
-
+    /*
     Scope (\_SB)
     {
         Method (LPS0, 0, NotSerialized)
@@ -163,26 +163,8 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
             Store ("Method \\_GPE.LXEN Called", Debug)
             Return (One)
         }
-        
-        // from mbp 11.3
-        /*
-        Method (_L06, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
-        {
-            If (LAnd (\_SB.PCI0.IGPU.GSSE, LNot (GSMI)))
-            {
-                \_SB.PCI0.IGPU.GSCI ()
-            }
-            Else
-            {
-                Store (0x00, \_SB.PCI0.IGPU.GEFC)
-                Store (0x01, SCIS)
-                Store (0x00, \_SB.PCI0.IGPU.GSSE)
-                Store (0x00, \_SB.PCI0.IGPU.SCIE)
-            }
-        }
-        */
     }
-    
+    */
     
     
     /*
@@ -207,7 +189,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
     */
     
     
-    
+    /*
     Method(_SB.PCI0.HDAU._DSM, 4)
     {
         If (!Arg2) { Return (Buffer() { 0x03 } ) }
@@ -234,6 +216,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "HACK", 0)
         }
         Return(Local0)
     }
+    */
     
     /*
     Method(_SB.PCI0.IGPU._DSM, 4)
